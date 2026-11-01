@@ -1,0 +1,798 @@
+/* Sukundra AI chat widget. */
+.sukku-chat-launcher,
+.sukku-chat-panel {
+  --chat-panel: #101a28;
+  --chat-line: rgba(188, 211, 235, 0.12);
+  --chat-text: #edf4fb;
+  --chat-muted: #a6b5c6;
+  --chat-blue: #34d399;
+  --chat-blue-bright: #72edc2;
+  --chat-shadow: 0 24px 80px rgba(0, 0, 0, 0.48);
+  color: var(--chat-text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+.sukku-chat-launcher,
+.sukku-chat-panel button,
+.sukku-chat-panel textarea {
+  font: inherit;
+}
+
+.sukku-chat-launcher svg,
+.sukku-chat-panel svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sukku-chat-brand-mark {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  overflow: hidden;
+  border: 1px solid rgba(105, 215, 255, 0.4);
+  border-radius: 50%;
+  background: #070d24;
+}
+
+.sukku-chat-brand-mark img {
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  width: 94px;
+  max-width: none;
+  height: 94px;
+  transform: translateX(-50%);
+}
+
+.sukku-chat-launcher {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1000;
+  display: inline-flex;
+  min-height: 56px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid rgba(105, 215, 255, 0.42);
+  border-radius: 999px;
+  background: #202b35;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+  color: #f5f7fa;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.sukku-chat-launcher:hover {
+  transform: translateY(-2px);
+  background: #293641;
+}
+
+.sukku-chat-send,
+.sukku-chat-icon-button,
+.sukku-chat-copy {
+  transition:
+    background 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    filter 150ms ease,
+    transform 150ms ease;
+}
+
+.sukku-chat-panel {
+  position: fixed;
+  right: 24px;
+  bottom: 94px;
+  z-index: 1001;
+  display: grid;
+  width: min(480px, calc(100vw - 32px));
+  height: min(740px, calc(100vh - 112px));
+  height: min(740px, calc(100dvh - 112px));
+  min-height: min(430px, calc(100vh - 112px));
+  min-height: min(430px, calc(100dvh - 112px));
+  grid-template-rows: auto minmax(0, 1fr) auto auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  background: var(--chat-panel);
+  box-shadow: var(--chat-shadow);
+  backdrop-filter: blur(18px);
+  opacity: 0;
+  transform: translateY(14px) scale(0.98);
+  transform-origin: bottom right;
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.sukku-chat-panel[hidden] {
+  display: none;
+}
+
+.sukku-chat-panel.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.sukku-chat-panel.is-maximized {
+  right: 24px;
+  bottom: 24px;
+  width: min(880px, calc(100vw - 48px));
+  height: min(900px, calc(100vh - 48px));
+  height: min(900px, calc(100dvh - 48px));
+}
+
+.sukku-chat-header {
+  display: flex;
+  min-width: 0;
+  min-height: 60px;
+  align-items: center;
+  gap: 11px;
+  padding: 10px 12px 10px 16px;
+  border-bottom: 1px solid var(--chat-line);
+  background: rgba(12, 23, 37, 0.97);
+}
+
+.sukku-chat-avatar {
+  position: relative;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid rgba(155, 212, 255, 0.28);
+  overflow: hidden;
+  border-radius: 50%;
+  background: #070d24;
+}
+
+.sukku-chat-avatar img {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  width: 112px;
+  max-width: none;
+  height: 112px;
+  transform: translateX(-50%);
+}
+
+.sukku-chat-heading {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 2px;
+}
+
+.sukku-chat-heading strong {
+  color: #f5f5f6;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.sukku-chat-heading > span:not(.sukku-chat-status) {
+  overflow: hidden;
+  color: var(--chat-muted);
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sukku-chat-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 2px;
+  color: #a9afb7;
+  font-size: 10px;
+}
+
+.sukku-chat-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e5ae55;
+}
+
+.sukku-chat-status[data-state="online"] i {
+  background: #32d296;
+}
+
+.sukku-chat-status[data-state="offline"] i,
+.sukku-chat-status[data-state="error"] i {
+  background: #ff8585;
+}
+
+.sukku-chat-tools {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.sukku-chat-icon-button,
+.sukku-chat-copy {
+  display: grid;
+  width: 31px;
+  height: 31px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: #b6bbc2;
+  cursor: pointer;
+}
+
+.sukku-chat-icon-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.sukku-chat-icon-button:hover,
+.sukku-chat-copy:hover {
+  background: rgba(255, 255, 255, 0.09);
+  color: #fff;
+}
+
+.sukku-chat-messages {
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  flex-direction: column;
+  gap: 18px;
+  overflow: auto;
+  padding: 25px 20px 20px;
+  overscroll-behavior: contain;
+  scrollbar-color: #555b63 transparent;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+.sukku-chat-welcome {
+  display: flex;
+  width: min(100%, 620px);
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sukku-chat-welcome-label {
+  margin-bottom: 10px;
+  color: var(--chat-blue-bright);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+}
+
+.sukku-chat-welcome h2 {
+  margin: 0;
+  color: #f5f5f6;
+  font-size: clamp(22px, 5vw, 29px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+}
+
+.sukku-chat-welcome > p {
+  max-width: 350px;
+  margin: 10px 0 23px;
+  color: var(--chat-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.sukku-chat-suggestions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  padding: 0;
+}
+
+.sukku-chat-suggestion {
+  max-width: 100%;
+  min-height: 52px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  background: #282a2d;
+  color: #d7d9de;
+  cursor: pointer;
+  font-size: 11px !important;
+  line-height: 1.4;
+  text-align: left;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.sukku-chat-suggestion:hover:not(:disabled) {
+  border-color: rgba(155, 212, 255, 0.32);
+  background: #30343a;
+}
+
+.sukku-chat-suggestion:disabled {
+  cursor: wait;
+  opacity: 0.55;
+}
+
+.sukku-chat-message {
+  width: fit-content;
+  max-width: min(96%, 640px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  animation: sukku-chat-arrive 180ms ease both;
+}
+
+.sukku-chat-message.is-assistant:not(.is-error) {
+  width: min(96%, 640px);
+  padding: 15px 17px 10px;
+  border: 1px solid rgba(114, 237, 194, 0.13);
+  border-radius: 8px 18px 18px;
+  background:
+    radial-gradient(ellipse at top left, rgba(52, 211, 153, 0.08), transparent 58%),
+    linear-gradient(145deg, #172638, #111e2d);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.sukku-chat-message.is-user {
+  align-self: flex-end;
+  max-width: min(88%, 580px);
+  padding: 10px 15px;
+  border-radius: 18px;
+  background: #30343a;
+}
+
+.sukku-chat-message.is-error {
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 133, 133, 0.22);
+  border-radius: 14px;
+  background: rgba(110, 50, 58, 0.22);
+}
+
+.sukku-chat-message-label {
+  display: block;
+  margin: 0 0 10px;
+  color: var(--chat-blue-bright);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.sukku-chat-message.is-assistant:not(.is-error) .sukku-chat-message-label::before {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin: 0 7px 1px 0;
+  border-radius: 50%;
+  background: var(--chat-blue);
+  box-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+  content: "";
+}
+
+.sukku-chat-message.is-error .sukku-chat-message-label {
+  color: #ffc1c1;
+}
+
+.sukku-chat-message-content {
+  margin: 0;
+  color: #e3edf6;
+  font-size: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.sukku-chat-message-content p {
+  margin: 0 0 12px;
+  white-space: pre-wrap;
+}
+
+.sukku-chat-message-content p:last-child {
+  margin-bottom: 0;
+}
+
+.sukku-chat-message-content h4 {
+  margin: 18px 0 9px;
+  padding-left: 10px;
+  border-left: 2px solid var(--chat-blue);
+  color: #f3f8fc;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.sukku-chat-message-content ul,
+.sukku-chat-message-content ol {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 14px;
+  padding-left: 24px;
+  color: #dce8f2;
+}
+
+.sukku-chat-message-content li {
+  padding-left: 5px;
+  line-height: 1.75;
+}
+
+.sukku-chat-message-content li::marker {
+  color: var(--chat-blue);
+}
+
+.sukku-chat-message-content .sukku-chat-line-by-line {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.sukku-chat-message-content .sukku-chat-line-by-line li {
+  padding: 8px 10px 8px 7px;
+  border: 1px solid rgba(188, 211, 235, 0.08);
+  border-radius: 9px;
+  background: rgba(6, 16, 28, 0.36);
+}
+
+.sukku-chat-message-content .sukku-chat-line-by-line li strong {
+  color: var(--chat-blue-bright);
+}
+
+.sukku-chat-message-content p > code,
+.sukku-chat-message-content li code {
+  padding: 2px 6px;
+  border: 1px solid rgba(114, 237, 194, 0.15);
+  border-radius: 6px;
+  background: rgba(4, 14, 25, 0.68);
+  color: #9cf2d4;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+.sukku-chat-message-content strong {
+  color: #f5f7fa;
+  font-weight: 650;
+}
+
+.sukku-chat-code {
+  position: relative;
+  max-width: 100%;
+  margin: 14px 0;
+  overflow-x: auto;
+  padding: 34px 14px 14px;
+  border: 1px solid rgba(114, 237, 194, 0.16);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #091421, #0d1927);
+  color: #e7f2fa;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.6;
+  white-space: pre;
+}
+
+.sukku-chat-code[data-language]::before {
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  padding: 3px 7px;
+  border: 1px solid rgba(114, 237, 194, 0.16);
+  border-radius: 5px;
+  background: rgba(52, 211, 153, 0.08);
+  color: #8cebc8;
+  content: attr(data-language);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.sukku-chat-code code {
+  display: block;
+  min-width: max-content;
+  font: inherit;
+  counter-reset: code-line;
+}
+
+.sukku-chat-code-line {
+  display: block;
+  min-height: 1.6em;
+  padding-left: 3.2em;
+  position: relative;
+  white-space: pre;
+}
+
+.sukku-chat-code-line::before {
+  position: absolute;
+  left: 0;
+  width: 2.2em;
+  color: #61778c;
+  content: counter(code-line);
+  counter-increment: code-line;
+  text-align: right;
+  user-select: none;
+}
+
+.sukku-chat-message.is-user .sukku-chat-message-content {
+  color: #f0f1f3;
+}
+
+.sukku-chat-message-footer {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-top: 8px;
+  color: #8498ab;
+  font-size: 10px;
+}
+
+.sukku-chat-copy {
+  width: 24px;
+  height: 24px;
+}
+
+.sukku-chat-copy svg {
+  width: 14px;
+  height: 14px;
+}
+
+.sukku-chat-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 22px 10px;
+  color: var(--chat-muted);
+}
+
+.sukku-chat-typing[hidden] {
+  display: none;
+}
+
+.sukku-chat-typing > span:not(.sukku-chat-typing-label) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #a4a8ae;
+  animation: sukku-chat-bounce 950ms infinite ease-in-out;
+}
+
+.sukku-chat-typing > span:nth-child(2) {
+  animation-delay: 130ms;
+}
+
+.sukku-chat-typing > span:nth-child(3) {
+  animation-delay: 260ms;
+}
+
+.sukku-chat-typing-label {
+  margin-left: 5px;
+  font-size: 11px;
+}
+
+.sukku-chat-form {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  align-items: end;
+  gap: 8px;
+  padding: 12px 16px 10px;
+  border-top: 1px solid var(--chat-line);
+  background: #101a28;
+}
+
+.sukku-chat-form textarea {
+  width: 100%;
+  max-height: 120px;
+  min-height: 44px;
+  resize: none;
+  padding: 12px 14px;
+  border: 1px solid rgba(188, 211, 235, 0.16);
+  border-radius: 18px;
+  outline: 0;
+  background: #172638;
+  color: #edf4fb;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.sukku-chat-form textarea::placeholder {
+  color: #a0a4ab;
+}
+
+.sukku-chat-form textarea:focus {
+  border-color: rgba(114, 237, 194, 0.55);
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.1);
+}
+
+.sukku-chat-send {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #72edc2, #34d399);
+  color: #08251d;
+  cursor: pointer;
+}
+
+.sukku-chat-send:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.sukku-chat-send:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.sukku-chat-send svg {
+  width: 19px;
+  height: 19px;
+}
+
+.sukku-chat-hint {
+  grid-column: 1 / -1;
+  margin: -2px 0 0;
+  color: #91969d;
+  font-size: 10px;
+  text-align: center;
+}
+
+.sukku-chat-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.sukku-chat-launcher:focus-visible,
+.sukku-chat-panel button:focus-visible,
+.sukku-chat-panel textarea:focus-visible {
+  outline: 2px solid #83e3ff;
+  outline-offset: 2px;
+}
+
+@keyframes sukku-chat-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sukku-chat-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .sukku-chat-launcher {
+    right: 15px;
+    bottom: max(15px, env(safe-area-inset-bottom));
+  }
+
+  .sukku-chat-panel,
+  .sukku-chat-panel.is-maximized {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .sukku-chat-header {
+    padding-top: max(10px, env(safe-area-inset-top));
+    gap: 8px;
+  }
+
+  .sukku-chat-heading strong {
+    font-size: 13px;
+  }
+
+  .sukku-chat-heading > span:not(.sukku-chat-status) {
+    max-width: 145px;
+    font-size: 10px;
+  }
+
+  .sukku-chat-tools {
+    gap: 0;
+  }
+
+  .sukku-chat-icon-button {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sukku-chat-icon-button svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .sukku-chat-messages {
+    padding: 20px 14px 16px;
+  }
+
+  .sukku-chat-message-content {
+    font-size: 14px;
+  }
+
+  .sukku-chat-message.is-assistant:not(.is-error) {
+    padding: 13px 13px 9px;
+  }
+
+  .sukku-chat-suggestions {
+    gap: 7px;
+  }
+
+  .sukku-chat-suggestion {
+    min-height: 48px;
+    padding: 8px 9px;
+    border-radius: 11px;
+    font-size: 12px !important;
+  }
+
+  .sukku-chat-form {
+    padding-right: 12px;
+    padding-bottom: max(9px, env(safe-area-inset-bottom));
+    padding-left: 12px;
+  }
+
+  .sukku-chat-form textarea {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 370px) {
+  .sukku-chat-header {
+    gap: 6px;
+    padding-right: 6px;
+    padding-left: 9px;
+  }
+
+  .sukku-chat-heading > span:not(.sukku-chat-status) {
+    max-width: 110px;
+  }
+
+  .sukku-chat-icon-button {
+    width: 36px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sukku-chat-panel,
+  .sukku-chat-launcher,
+  .sukku-chat-message,
+  .sukku-chat-typing > span:not(.sukku-chat-typing-label) {
+    animation: none;
+    transition: none;
+  }
+}
