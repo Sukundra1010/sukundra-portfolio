@@ -1,235 +1,521 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#07111f">
-    <meta name="description" content="Sukundra Pujara's portfolio: Python, web development, AI, and machine learning."><title>Sukundra Pujara | Portfolio</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b14" />
+    <meta
+      name="description"
+      content="Explore the portfolio of E. Sukundra Pujara, a Computer Science with Artificial Intelligence student interested in data science, web development, Django, AI, machine learning, and robotics."
+    />
+    <meta name="author" content="Er. Sukundra Pujara" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Developer: Er. Sukundra Pujara | Portfolio" />
+    <meta
+      property="og:description"
+      content="Python projects, web development, and the learning journey of Sukundra Pujara."
+    />
+    <meta property="og:url" content="https://sukundra1010.github.io/sukundra_pujara_portfolio/" />
+    <link rel="canonical" href="https://sukundra1010.github.io/sukundra_pujara_portfolio/" />
+    <title>Developer: Er. Sukundra Pujara | Portfolio</title>
     <!-- Shared and page-specific stylesheets. -->
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/pages.css">
-    <link rel="stylesheet" href="static/css/text-scale.css">
-    <link rel="stylesheet" href="static/css/design-refresh.css">
-    <link rel="stylesheet" href="static/css/portfolio-layout.css">
-    <link rel="stylesheet" href="static/css/chatbot.css">
-    <script src="static/js/chatbot-config.js?v=1" defer></script>
-    <script src="static/js/python-qa-data.js" defer></script>
-    <script src="static/js/python-guide-data.js" defer></script>
-    <script src="static/js/python-oop-guide-data.js" defer></script>
-    <script src="static/js/python-lessons.js" defer></script>
-    <script src="static/js/practice-topics.js" defer></script>
-    <script src="static/js/python-theory.js" defer></script>
-    <script src="static/js/chatbot.js?v=16" defer></script>
-    <script src="static/js/main.js" defer>
-    </script>
+    <link rel="stylesheet" href="static/css/base/style.css" />
+    <link rel="stylesheet" href="static/css/components/pages.css" />
+    <link rel="stylesheet" href="static/css/base/text-scale.css" />
+    <link rel="stylesheet" href="static/css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="static/css/layout/portfolio-layout.css" />
+    <link rel="stylesheet" href="static/css/components/chatbot.css" />
+    <script src="static/js/data/python-qa-data.js" defer></script>
+    <script src="static/js/data/python-guide-data.js" defer></script>
+    <script src="static/js/data/python-oop-guide-data.js" defer></script>
+    <script src="static/js/data/python-lessons.js" defer></script>
+    <script src="static/js/data/practice-topics.js" defer></script>
+    <script src="static/js/data/python-theory.js" defer></script>
+    <script src="static/js/assistant/python-assistant.js" defer></script>
+    <script src="static/js/assistant/chatbot.js?v=17" defer></script>
+    <script src="static/js/app/main.js" defer></script>
   </head>
   <body class="portfolio-home">
     <header class="site-header">
-      <a class="brand" href="index.html"><span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b></a>
-      <div class="sidebar-profile">
-        <div class="sidebar-photo-frame">
-          <img class="sidebar-photo" src="static/images/profile.jpg" alt="Sukundra Pujara">
-        </div>
-        <h2>Sukundra <span>Pujara</span></h2>
-        <p>Computer Science with Artificial Intelligence student</p>
-        <div class="sidebar-focus" aria-label="Areas of interest">
-          <span>Python</span><span>Web</span><span>AI</span>
-        </div>
-        <p class="sidebar-opportunity"><span aria-hidden="true"></span>Interested in internships</p>
-      </div>
+      <a class="brand" href="index.html"
+        ><span class="brand-status" aria-hidden="true"></span>Er. Sukundra Pujara</a
+      >
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="navigation" aria-label="Main navigation">
-        <a href="#home">Overview</a>
+        <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
-        <a href="#internships">Internships</a>
-        <a href="#certificates">Certificates</a>
-        <a href="#notes">Python Notes</a>
+        <a href="#education">Education</a>
+        <a href="notes.html">Notes</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <div class="sidebar-actions">
-        <a class="button button-primary" href="static/files/sukundra-pujara-cv.pdf" target="_blank" rel="noopener noreferrer">View my CV ↗</a>
-        <a class="button button-outline admin-link" href="admin.html">Content manager</a>
-      </div>
-      <div class="sidebar-socials" aria-label="Social links">
-        <a href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-        <a href="mailto:sukundrapujara61@gmail.com">Email ↗</a>
+      <div class="portfolio-header-actions" aria-label="Social links">
+        <a href="mailto:sukundrapujara61@gmail.com" aria-label="Email Sukundra"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m4 7 8 6 8-6" /></svg
+        ></a>
+        <a
+          href="https://github.com/Sukundra1010"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sukundra on GitHub"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path
+              d="M9 19c-4.5 1.4-4.5-2.5-6.3-3m12.6 6v-3.5a3 3 0 0 0-.8-2.3c2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.8 11.8 0 0 0-6.2 0C6.6 3.3 5.6 3.6 5.6 3.6a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.7 5.5 6a3 3 0 0 0-.8 2.3V22"
+            /></svg
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sukundra on LinkedIn"
+          ><svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 9v10M5 5v.01M10 19v-6a4 4 0 0 1 8 0v6m-8 0V9" /></svg
+        ></a>
+        <button
+          class="button button-outline theme-toggle"
+          type="button"
+          aria-label="Switch to light mode"
+        >
+          ☀
+        </button>
       </div>
     </header>
     <main>
       <section class="hero section-wrap" id="home">
         <div class="hero-copy">
-          <span class="eyebrow">COMPUTER SCIENCE WITH ARTIFICIAL INTELLIGENCE</span>
-          <h1 class="home-headline">Learning by building, sharing, and improving.</h1>
-          <p class="hero-role"><span aria-hidden="true"></span>Aspiring AI &amp; Machine Learning Engineer</p>
+          <span class="eyebrow"><span aria-hidden="true">✦</span> FULL STACK DEVELOPER</span>
+          <h1 class="home-headline">Learning by building <span>useful software.</span></h1>
+          <p
+            class="hero-role"
+            aria-label="Er. Sukundra Pujara, Full Stack Developer, Data Scientist, Django, Artificial Intelligence and Machine Learning, Robotics"
+          >
+            <span aria-hidden="true"></span
+            ><span data-typewriter aria-hidden="true">Full Stack Developer</span>
+          </p>
           <p class="hero-intro">
-            I'm passionate about Python programming, web development, Artificial Intelligence, and Machine Learning. I enjoy building practical projects, solving problems, and exploring new technologies.
+            I’m Er. Sukundra Pujara from Nepal, studying BSc (Hons) Computer Science with Artificial
+            Intelligence at Softwarica College in collaboration with Coventry University. My
+            interests include data science, web development with Django, AI and machine learning,
+            and robotics.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="projects.html">Explore projects →</a>
-            <a class="button button-outline" href="#about">More about me</a>
-            <a class="button button-outline" href="contact.html">Get in touch</a>
-            <a class="button button-outline" href="static/files/sukundra-pujara-cv.pdf" target="_blank" rel="noopener noreferrer">View my CV ↗</a>
+            <a class="button button-primary" href="#projects"
+              >View projects <span aria-hidden="true">→</span></a
+            >
+            <a class="button button-outline" href="contact.html">Contact</a>
+            <a class="button button-outline" href="#contact"
+              >Thank You <span aria-hidden="true">✦</span></a
+            >
           </div>
         </div>
-        <div class="portrait-wrap">
-          <div class="portrait-ring"><img src="static/images/profile.jpg" alt="Sukundra Pujara"></div>
+        <div class="hero-aside">
+          <div class="hero-portrait-stage">
+            <span class="portrait-skill-tag portrait-skill-tag-python">Python</span>
+            <span class="portrait-skill-tag portrait-skill-tag-django">Django</span>
+            <span class="portrait-skill-tag portrait-skill-tag-data">Data Science</span>
+            <figure class="hero-portrait-card">
+              <img
+                src="static/images/profile-picture-crop.jpg"
+                alt="Portrait of Er. Sukundra Pujara"
+                width="600"
+                height="600"
+                fetchpriority="high"
+              />
+            </figure>
+          </div>
+          <aside class="hero-focus-card" aria-label="Areas of focus">
+            <h2>Focus areas</h2>
+            <ul>
+              <li>Python development</li>
+              <li>Web development with Django</li>
+              <li>AI and machine learning fundamentals</li>
+              <li>Data science</li>
+              <li>Robotics</li>
+            </ul>
+          </aside>
         </div>
       </section>
       <!-- Personal introduction and career interests. -->
       <section class="content-section section-wrap" id="about">
-        <div class="section-heading"><span class="section-icon">✦</span>
+        <div class="section-heading">
+          <span class="section-icon">✦</span>
           <div>
-            <h2>About <span>Me</span></h2>
-            <p>A little about who I am and what I love learning.</p>
+            <h2 id="about-title">About <span>Me</span></h2>
+            <p>A little about my studies, interests, and direction as a developer.</p>
           </div>
         </div>
         <div class="about-card">
-          <p>
-            Hello! I'm <strong>Sukundra Pujara</strong>, a Computer Science with
-            Artificial Intelligence student at Softwarica College of IT and
-            E-Commerce, in collaboration with Coventry University, UK.
+          <p class="about-intro">
+            I am <strong>Sukundra Pujara</strong>, a Computer Science and Artificial Intelligence
+            student with a strong interest in full-stack development, AI, and machine learning.
           </p>
           <p>
-            Python is my main programming language, and I am continuously
-            improving my skills in web development, databases, and machine
-            learning. I believe in learning by doing, building practical
-            projects, and sharing knowledge.
+            I am pursuing a BSc (Hons) in Computer Science with Artificial Intelligence at
+            Softwarica College of IT &amp; E-Commerce, in collaboration with Coventry University. I
+            am interested in designing modern web applications, building scalable software, and
+            exploring technology that can help solve real-world problems.
           </p>
           <p>
-            I enjoy tutoring beginners, explaining programming concepts simply,
-            and helping others learn technology step by step. I am interested
-            in internship opportunities where I can collaborate, gain practical
-            experience, and grow my technical and problem-solving skills.
+            I enjoy learning how frontend and backend systems work together. I am developing my
+            skills in Python, Django, JavaScript, React.js, and MySQL, while expanding my knowledge
+            of artificial intelligence, machine learning, deep learning, and data science.
           </p>
           <p>
-            My goal is to become a skilled software developer and AI
-            professional. Consistency, curiosity, teamwork, and hands-on
-            practice are the keys to growing as a developer.
+            I learn by experimenting with technologies, building practical projects, and working
+            through complex concepts. I value clean code, logical thinking, continuous improvement,
+            and solving problems step by step.
+          </p>
+          <p>
+            My goal is to contribute to useful technology projects while growing my skills in
+            software development and intelligent computing.
+          </p>
+          <p class="about-tagline">
+            <strong
+              >Driven by technology. Focused on innovation. Committed to continuous growth.</strong
+            >
           </p>
         </div>
       </section>
-      <!-- Skills and topics currently being learned. -->
-      <section class="content-section section-wrap" id="skills">
-        <div class="section-heading"><span class="section-icon">⌘</span>
+      <section class="content-section section-wrap" id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
           <div>
-            <h2>My <span>Skills</span></h2>
-            <p>Technologies and topics I am learning and practicing.</p>
+            <h2 id="skills-title">Technical <span>Skills</span></h2>
+            <p>
+              Practical technical skills I’m developing through coursework and software projects.
+            </p>
           </div>
         </div>
-        <p class="skill-progress-note">Approximate self-assessment of my current learning and practice—not formal test scores.</p>
-        <div class="skill-progress-grid">
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>Python</h3>
-              <span>90%</span>
-            </div>
-            <div
-              class="skill-progress-track"
-              role="meter"
-              aria-label="Python, approximate self-assessed progress"
-              aria-valuemin="0"
-              aria-valuemax="100"
-              aria-valuenow="90"
-            >
-              <span style="--skill-level:90%"></span>
-            </div>
+        <svg class="technology-icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <symbol id="icon-python" viewBox="0 0 24 24">
+            <path
+              d="M12 2.5c-4.3 0-4 1.9-4 1.9v2.7h8v1H5.8S3 7.8 3 12s2.5 4 2.5 4H8v-3s-.1-2.2 2.2-2.2h4.1s2.2 0 2.2-2.1V4.7s.3-2.2-4.5-2.2ZM9.7 5.2a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6Z"
+            />
+            <path
+              d="M12 21.5c4.3 0 4-1.9 4-1.9v-2.7H8v-1h10.2s2.8.3 2.8-3.9-2.5-4-2.5-4H16v3s.1 2.2-2.2 2.2H9.7s-2.2 0-2.2 2.1v4s-.3 2.2 4.5 2.2Zm2.3-2.7a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z"
+            />
+          </symbol>
+          <symbol id="icon-django" viewBox="0 0 24 24">
+            <path
+              d="M5 3h7.1c5.1 0 8.3 3.2 8.3 8s-3.2 8-8.3 8H5V3Zm4.2 3.7v8.6h2.5c2.7 0 4.3-1.6 4.3-4.3s-1.6-4.3-4.3-4.3H9.2Z"
+            />
+          </symbol>
+          <symbol id="icon-html" viewBox="0 0 24 24">
+            <path
+              d="m4 3 1.5 16.4L12 21l6.5-1.6L20 3H4Zm12.2 5H8l.2 2h7.8l-.6 6.5-3.4.9-3.4-.9-.2-2.2h2l.1.7 1.5.4 1.5-.4.2-2.9H8.5L8 6h8.4l-.2 2Z"
+            />
+          </symbol>
+          <symbol id="icon-css" viewBox="0 0 24 24">
+            <path
+              d="m4 3 1.5 16.4L12 21l6.5-1.6L20 3H4Zm12.2 4-.2 2H9.1l.2 2h6.5l-.6 5.5-3.2.9-3.2-.9-.2-2.3h2l.1.8 1.3.4 1.3-.4.2-2.1H7.4L6.8 7h9.4Z"
+            />
+          </symbol>
+          <symbol id="icon-javascript" viewBox="0 0 24 24">
+            <path
+              d="M4 3h16v18H4V3Zm8.7 13.8c.3.6.7.9 1.4.9.6 0 .9-.3.9-.7 0-.5-.3-.7-1.1-1l-.4-.2c-1.2-.5-2-1.2-2-2.5 0-1.2.9-2.1 2.4-2.1 1.1 0 1.9.4 2.4 1.4l-1.3.8c-.3-.5-.6-.7-1.1-.7s-.7.3-.7.6c0 .4.3.6 1 .9l.4.2c1.4.6 2.1 1.2 2.1 2.5 0 1.4-1.1 2.2-2.6 2.2-1.5 0-2.4-.7-2.9-1.7l1.5-.6ZM8.1 16c.3.5.5.9 1.1.9.5 0 .8-.2.8-1v-5h1.7v5c0 1.8-1 2.6-2.5 2.6-1.3 0-2.1-.7-2.5-1.6l1.4-.9Z"
+            />
+          </symbol>
+          <symbol id="icon-database" viewBox="0 0 24 24">
+            <ellipse cx="12" cy="5" rx="8" ry="3" />
+            <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
+          </symbol>
+          <symbol id="icon-ai" viewBox="0 0 24 24">
+            <path
+              d="m12 2 1.4 5.1L18 9l-4.6 1.8L12 16l-1.4-5.2L6 9l4.6-1.9L12 2ZM19 14l.8 2.5 2.2.8-2.2.8L19 21l-.8-2.9-2.2-.8 2.2-.8L19 14ZM5 14l.7 2 1.8.7-1.8.7L5 20l-.7-2.6-1.8-.7 1.8-.7L5 14Z"
+            />
+          </symbol>
+          <symbol id="icon-ml" viewBox="0 0 24 24">
+            <circle cx="5" cy="5" r="2" />
+            <circle cx="19" cy="5" r="2" />
+            <circle cx="5" cy="19" r="2" />
+            <circle cx="19" cy="19" r="2" />
+            <circle cx="12" cy="12" r="2.5" />
+            <path d="m6.6 6.6 3.6 3.6m7.2-3.6-3.6 3.6m-7.2 7.2 3.6-3.6m7.2 3.6-3.6-3.6" />
+          </symbol>
+          <symbol id="icon-data" viewBox="0 0 24 24">
+            <path d="M4 20V4m0 16h17" />
+            <rect x="7" y="12" width="3.5" height="6" rx="1" />
+            <rect x="13" y="8" width="3.5" height="10" rx="1" />
+            <rect x="19" y="5" width="2" height="13" rx="1" />
+          </symbol>
+          <symbol id="icon-git" viewBox="0 0 24 24">
+            <path d="M12 3v18M6 6h6m-6 0v12h6m0-7h6v7" />
+            <circle cx="6" cy="6" r="2" />
+            <circle cx="18" cy="11" r="2" />
+            <circle cx="6" cy="18" r="2" />
+            <circle cx="18" cy="18" r="2" />
+          </symbol>
+          <symbol id="icon-github" viewBox="0 0 24 24">
+            <path
+              d="M9 19c-4.5 1.4-4.5-2.5-6.3-3m12.6 6v-3.5a3 3 0 0 0-.8-2.3c2.7-.3 5.5-1.3 5.5-6a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1-.3-3.4 1.3a11.8 11.8 0 0 0-6.2 0C6.6 3.3 5.6 3.6 5.6 3.6a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.7 5.5 6a3 3 0 0 0-.8 2.3V22"
+            />
+          </symbol>
+          <symbol id="icon-development" viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2" />
+            <path d="m9 9-3 3 3 3m6-6 3 3-3 3m-1-8-4 10" />
+          </symbol>
+        </svg>
+        <div class="technology-grid skill-category-grid">
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-development" /></svg></span
+              >Frontend
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">JS</span>JavaScript</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">HTML</span>HTML5</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">CSS</span>CSS3</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">RWD</span>Responsive
+                  layouts</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>HTML</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="HTML, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-django" /></svg></span
+              >Backend
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">Dj</span>Django</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">API</span>REST API basics</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">SQL</span>MySQL</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">DB</span>SQL fundamentals</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>CSS</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="CSS, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-python" /></svg></span
+              >Python
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="advanced">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">Py</span>Python</span
+                >
+                <span class="skill-level-label">Advanced</span>
+                <span class="skill-level-dots" role="img" aria-label="Advanced level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>JavaScript</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="JavaScript, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-ml" /></svg></span
+              >AI / ML
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">AI</span>AI fundamentals</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">ML</span>Machine learning</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">DS</span>Data science
+                  fundamentals</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>Artificial Intelligence</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="Artificial intelligence, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-github" /></svg></span
+              >Tools
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">VC</span>Git</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="intermediate">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">GH</span>GitHub</span
+                >
+                <span class="skill-level-label">Intermediate</span>
+                <span class="skill-level-dots" role="img" aria-label="Intermediate level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="advanced">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">VS</span>VS Code</span
+                >
+                <span class="skill-level-label">Advanced</span>
+                <span class="skill-level-dots" role="img" aria-label="Advanced level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="advanced">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">DBG</span>Debugging</span
+                >
+                <span class="skill-level-label">Advanced</span>
+                <span class="skill-level-dots" role="img" aria-label="Advanced level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+              <li class="skill-chip" data-level="advanced">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">QA</span>Testing
+                  fundamentals</span
+                >
+                <span class="skill-level-label">Advanced</span>
+                <span class="skill-level-dots" role="img" aria-label="Advanced level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>Machine Learning Fundamentals</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="Machine learning fundamentals, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
-          </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>Database Fundamentals</h3>
-              <span>75%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="Database fundamentals, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="75">
-              <span style="--skill-level:75%"></span>
-            </div>
-          </article>
-          <article class="skill-progress">
-            <div class="skill-progress-label">
-              <h3>Python Tutoring</h3>
-              <span>80%</span>
-            </div>
-            <div class="skill-progress-track" role="meter" aria-label="Python tutoring, approximate self-assessed progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="80">
-              <span style="--skill-level:80%"></span>
-            </div>
+          <article class="skill-category-card">
+            <h3>
+              <span class="technology-icon"
+                ><svg aria-hidden="true"><use href="#icon-development" /></svg></span
+              >Programming
+            </h3>
+            <ul class="skill-chip-list">
+              <li class="skill-chip" data-level="beginner">
+                <span class="skill-chip-name"
+                  ><span class="skill-chip-mark" aria-hidden="true">C</span>C programming</span
+                >
+                <span class="skill-level-label">Beginner</span>
+                <span class="skill-level-dots" role="img" aria-label="Beginner level">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </span>
+              </li>
+            </ul>
           </article>
         </div>
       </section>
       <!-- Education background. -->
       <section class="content-section section-wrap" id="education">
-        <div class="section-heading"><span class="section-icon">▤</span>
+        <div class="section-heading">
+          <span class="section-icon">▤</span>
           <div>
             <h2>My <span>Education</span></h2>
-            <p>Building a foundation for a future in software and AI.</p>
+            <p>My academic path and the foundations behind my interest in technology.</p>
           </div>
         </div>
         <div class="education-list">
           <article class="education-card education-card-university">
             <div class="education-university-logos">
-              <img src="static/images/softwarica-logo.png" alt="Softwarica College of IT and E-Commerce logo">
-              <span aria-hidden="true">×</span>
-              <img src="static/images/coventry-university-logo.png" alt="Coventry University logo">
+              <img
+                src="static/images/coventry-university-logo.png"
+                alt="Coventry University logo"
+              />
             </div>
             <div class="education-university-details">
               <span class="education-level">Current Education</span>
-              <h3>Computer Science with Artificial Intelligence</h3>
-              <p>Softwarica College of IT and E-Commerce · In collaboration with Coventry University, UK</p>
+              <h3>BSc (Hons) Computer Science with Artificial Intelligence</h3>
+              <p>
+                <a href="https://softwarica.edu.np/" target="_blank" rel="noopener noreferrer"
+                  >Softwarica College of IT and E-Commerce ↗</a
+                >
+                · In collaboration with Coventry University, UK
+              </p>
             </div>
           </article>
           <article class="education-card education-card-kmc">
             <div class="education-content">
-              <img class="education-photo education-photo-kmc" src="static/images/kathmandu-model-secondary-school.jpg" alt="Kathmandu Model Secondary School campus in Bagbazar">
               <div class="education-school-brand">
                 <div class="education-logo-frame">
-                  <img class="education-logo" src="static/images/kmc-logo.jpg" alt="Kathmandu Model Secondary School logo">
+                  <img
+                    class="education-logo"
+                    src="static/images/kmc-logo.jpg"
+                    alt="Kathmandu Model Secondary School logo"
+                  />
                 </div>
                 <div class="education-heading">
                   <span class="education-level">Higher Secondary Education</span>
@@ -244,27 +530,28 @@
                 <span>Computer Science &amp; Social Studies</span>
               </div>
               <p class="education-story">
-                After completing my SEE at Shree Surma Secondary School in 2023
-                with a GPA of 3.00, I continued my higher secondary education at
-                KMC. During my school years, I developed an interest in computer
-                technology, programming, communication, and personal
-                development. I was a member of the school sports club and
-                actively interested in cricket.
+                After completing my SEE at Shree Surma Secondary School in 2023 with a GPA of 3.00,
+                I continued my higher secondary education at KMC. During my school years, I
+                developed an interest in computer technology, programming, communication, and
+                personal development. I was a member of the school sports club and actively
+                interested in cricket.
               </p>
               <p class="education-story">
-                My academic journey helped me build confidence, discipline, and
-                a strong foundation for higher education. My goal is to pursue
-                a career in technology, particularly in Python development,
-                Artificial Intelligence, and Data Science.
+                My academic journey helped me build confidence, discipline, and a strong foundation
+                for higher education. My goal is to pursue a career in technology, particularly in
+                Python development, Artificial Intelligence, and Data Science.
               </p>
             </div>
           </article>
-          <article class="education-card"><span class="education-icon" aria-hidden="true">📗</span>
+          <article class="education-card">
             <div>
-              <img class="education-photo" src="static/images/surma-secondary-school.jpg" alt="Surma Secondary School campus in Bajhang">
               <div class="education-school-brand education-school-brand-compact">
                 <div class="education-logo-frame">
-                  <img class="education-logo" src="static/images/surma-school-logo.png" alt="Shree Surma Secondary School logo">
+                  <img
+                    class="education-logo"
+                    src="static/images/surma-school-logo.png"
+                    alt="Shree Surma Secondary School logo"
+                  />
                 </div>
                 <div class="education-heading">
                   <span class="education-level">Secondary Education</span>
@@ -273,38 +560,133 @@
                 </div>
               </div>
               <p class="education-story">
-                During my school days, I enjoyed learning new things, taking part in sports, exploring technology, and building my knowledge and skills. I believe in hard work, discipline, and continuous learning.
+                During my school days, I enjoyed learning new things, taking part in sports,
+                exploring technology, and building my knowledge and skills. I believe in hard work,
+                discipline, and continuous learning.
               </p>
-              <p class="education-story">My goal is to fulfil my family's dreams and contribute positively to my community and country.</p>
+              <p class="education-story">
+                My goal is to fulfil my family's dreams and contribute positively to my community
+                and country.
+              </p>
             </div>
           </article>
         </div>
       </section>
       <!-- Project cards are loaded by the shared JavaScript. -->
       <section class="content-section section-wrap" id="projects">
-        <div class="section-heading"><span class="section-icon">▣</span>
+        <div class="section-heading">
+          <span class="section-icon">▣</span>
           <div>
-            <h2>My <span>Projects</span></h2>
-            <p>Here are some of the projects I have worked on. More projects will be added soon.</p>
+            <h2><span>Featured Projects</span></h2>
+            <p>Selected projects and experiments from my ongoing learning journey.</p>
           </div>
-          <a class="button button-outline heading-action" href="projects.html">View All Projects &nbsp; ›</a>
         </div>
-        <div class="project-grid" data-project-list="preview">
+        <div class="project-tools">
+          <div
+            class="project-filters"
+            data-project-filter
+            data-project-target="#featured-projects"
+            role="group"
+            aria-label="Filter projects"
+          >
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="python" aria-pressed="false">Python</button>
+            <button type="button" data-filter="web" aria-pressed="false">Web</button>
+            <button type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+            <button type="button" data-filter="data-science" aria-pressed="false">
+              Data Science
+            </button>
+            <button type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+            <button type="button" data-filter="automation" aria-pressed="false">Automation</button>
+          </div>
+          <label class="project-search">
+            <span class="sr-only">Search featured projects</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="6.8" />
+              <path d="m16 16 5 5" />
+            </svg>
+            <input
+              type="search"
+              data-project-search="#featured-projects"
+              placeholder="Search projects"
+              autocomplete="off"
+            />
+          </label>
+        </div>
+        <p
+          class="project-results-count"
+          data-project-count="#featured-projects"
+          aria-live="polite"
+        ></p>
+        <div class="project-grid" id="featured-projects" data-project-list="preview"></div>
+      </section>
+      <section
+        class="content-section section-wrap assistant-section"
+        id="assistant"
+        aria-labelledby="assistant-title"
+      >
+        <div class="section-heading">
+          <div>
+            <h2 id="assistant-title">Meet <span>Sukundra AI</span></h2>
+            <p>Ask Python questions and learn more about my portfolio.</p>
+          </div>
+        </div>
+        <div class="about-card assistant-callout">
+          <div class="assistant-callout-identity">
+            <img src="static/images/sukundra-ai-logo.png" alt="Sukundra AI logo" loading="lazy" />
+            <div>
+              <span class="assistant-callout-label">PORTFOLIO ASSISTANT</span>
+              <strong>Python tutor · Portfolio Q&amp;A</strong>
+            </div>
+          </div>
+          <div class="assistant-callout-content">
+            <p>
+              Ask beginner-friendly Python questions by text or, in supported browsers, voice.
+              Answers use the learning guides bundled with this site, and the assistant can also
+              answer questions about my portfolio.
+            </p>
+            <ul class="assistant-callout-features" aria-label="Sukundra AI features">
+              <li>Python questions</li>
+              <li>Optional browser voice</li>
+              <li>Portfolio information</li>
+            </ul>
+            <div class="assistant-callout-actions">
+              <a class="button button-primary" href="sukundra-ai.html#sukundra-ai"
+                >Try Sukundra AI <span aria-hidden="true">→</span></a
+              >
+              <a class="assistant-secondary-link" href="notes.html">Browse Python notes</a>
+            </div>
+          </div>
         </div>
       </section>
       <!-- Internship organizations. -->
-      <section class="content-section section-wrap" id="internships">
-        <div class="section-heading"><span class="section-icon">✦</span>
+      <section
+        class="content-section section-wrap"
+        id="internships"
+        aria-labelledby="internships-title"
+      >
+        <div class="section-heading">
+          <span class="section-icon">✦</span>
           <div>
-            <h2>Internship <span>Experience</span></h2>
-            <p>Organizations connected to my internship experience.</p>
+            <h2 id="internships-title">Internship <span>Experience</span></h2>
+            <p>Organizations and learning areas from my internship experience.</p>
           </div>
         </div>
         <div class="internship-grid">
           <article class="internship-card internship-card-featured">
-            <img class="internship-logo" src="static/images/softwarica-logo.png" alt="Softwarica College of IT and E-Commerce logo">
+            <figure class="internship-featured-visual">
+              <img
+                src="static/images/softwarica-internship-lab.png"
+                alt="Softwarica College computer lab shown in its ethical hacking and cybersecurity course promotion"
+              />
+              <figcaption>Softwarica College promotional cybersecurity-program image</figcaption>
+            </figure>
             <div class="internship-details">
-              <h3>Softwarica College of IT and E-Commerce</h3>
+              <h3>
+                <a href="https://softwarica.edu.np/" target="_blank" rel="noopener noreferrer"
+                  >Softwarica College of IT and E-Commerce ↗</a
+                >
+              </h3>
               <p>Internship learning areas</p>
               <ul class="internship-topics" aria-label="Internship learning areas">
                 <li>Web Development</li>
@@ -318,9 +700,17 @@
             </div>
           </article>
           <article class="internship-card">
-            <img class="internship-logo internship-photo" src="static/images/letslearn-internship.jpg" alt="Sukundra participating in a LetsLearn session">
+            <img
+              class="internship-logo internship-photo"
+              src="static/images/letslearn-internship.jpg"
+              alt="Sukundra participating in a LetsLearn session"
+            />
             <div class="internship-details">
-              <h3><a href="https://letslearn.asia/" target="_blank" rel="noopener noreferrer">LetsLearn ↗</a></h3>
+              <h3>
+                <a href="https://letslearn.asia/" target="_blank" rel="noopener noreferrer"
+                  >LetsLearn ↗</a
+                >
+              </h3>
               <p>Internship learning areas</p>
               <ul class="internship-topics" aria-label="LetsLearn internship learning areas">
                 <li>Web Development</li>
@@ -330,9 +720,17 @@
             </div>
           </article>
           <article class="internship-card">
-            <img class="internship-logo internship-photo iqasec-logo" src="static/images/iqrasec-academy-logo.png" alt="IqraSec Academy logo">
+            <img
+              class="internship-logo internship-photo iqasec-logo"
+              src="static/images/iqrasec-academy-logo.png"
+              alt="IqraSec Academy logo"
+            />
             <div class="internship-details">
-              <h3><a href="https://www.iqrasecacademy.in/" target="_blank" rel="noopener noreferrer">IqraSec Academy ↗</a></h3>
+              <h3>
+                <a href="https://www.iqrasecacademy.in/" target="_blank" rel="noopener noreferrer"
+                  >IqraSec Academy ↗</a
+                >
+              </h3>
               <p>India · Internship learning areas</p>
               <ul class="internship-topics" aria-label="IqraSec Academy internship learning areas">
                 <li>Web Development</li>
@@ -344,63 +742,200 @@
       </section>
       <!-- Certificates and achievements gallery. -->
       <section class="content-section section-wrap" id="certificates">
-        <div class="section-heading"><span class="section-icon">▧</span>
+        <div class="section-heading">
+          <span class="section-icon">▧</span>
           <div>
             <h2>My <span>Certificates</span></h2>
-            <p>Recognition, school involvement, and learning achievements.</p>
+            <p>Certificates and recognition from my studies and learning activities.</p>
           </div>
         </div>
         <div class="certificate-grid">
           <article class="certificate-card">
-            <a class="certificate-image-link" href="static/images/certificate-appreciation.png" target="_blank" rel="noopener noreferrer" aria-label="View Certificate of Appreciation">
-              <img src="static/images/certificate-appreciation.png" alt="Certificate of Appreciation for Sukundra Pujara, Sports Club, from Kathmandu Model Secondary School Students Committee" loading="lazy">
+            <a
+              class="certificate-image-link"
+              href="static/images/certificate-appreciation.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Certificate of Appreciation"
+            >
+              <img
+                src="static/images/certificate-appreciation.png"
+                alt="Certificate of Appreciation for Er. Sukundra Pujara, Sports Club, from Kathmandu Model Secondary School Students Committee"
+                loading="lazy"
+              />
+              <span class="certificate-image-action" aria-hidden="true">View original ↗</span>
             </a>
             <div class="certificate-info">
+              <span class="certificate-kind">Recognition</span>
               <h3>Certificate of Appreciation</h3>
               <p>Sports Club · Kathmandu Model Secondary School Students Committee</p>
-              <a class="button button-outline small" href="static/images/certificate-appreciation.png" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+              <a
+                class="button button-outline small"
+                href="static/images/certificate-appreciation.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open certificate ↗</a
+              >
             </div>
           </article>
           <article class="certificate-card">
-            <a class="certificate-image-link" href="static/images/certificate-research-presentation.png" target="_blank" rel="noopener noreferrer" aria-label="View Research and Presentation certificate">
-              <img src="static/images/certificate-research-presentation.png" alt="Certificate of Completion for Research and Presentation, awarded to Sukundra Pujara by Kathmandu Model Secondary School" loading="lazy">
+            <a
+              class="certificate-image-link"
+              href="static/images/certificate-research-presentation.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Research and Presentation certificate"
+            >
+              <img
+                src="static/images/certificate-research-presentation.png"
+                alt="Certificate of Completion for Research and Presentation, awarded to Er. Sukundra Pujara by Kathmandu Model Secondary School"
+                loading="lazy"
+              />
+              <span class="certificate-image-action" aria-hidden="true">View original ↗</span>
             </a>
             <div class="certificate-info">
+              <span class="certificate-kind">Course completion</span>
               <h3>Research and Presentation</h3>
               <p>Certificate of Completion · August 2023 to February 2025</p>
-              <a class="button button-outline small" href="static/images/certificate-research-presentation.png" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+              <a
+                class="button button-outline small"
+                href="static/images/certificate-research-presentation.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open certificate ↗</a
+              >
             </div>
           </article>
           <article class="certificate-card">
-            <a class="certificate-image-link" href="static/images/certificate-tally-erp-9.png" target="_blank" rel="noopener noreferrer" aria-label="View Accounting Software training certificate">
-              <img src="static/images/certificate-tally-erp-9.png" alt="Certificate of Completion for a one-week Accounting Software Tally ERP 9 training program, awarded to Sukundra Pujara" loading="lazy">
+            <a
+              class="certificate-image-link"
+              href="static/images/certificate-tally-erp-9.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Accounting Software training certificate"
+            >
+              <img
+                src="static/images/certificate-tally-erp-9.png"
+                alt="Certificate of Completion for a one-week Accounting Software Tally ERP 9 training program, awarded to Er. Sukundra Pujara"
+                loading="lazy"
+              />
+              <span class="certificate-image-action" aria-hidden="true">View original ↗</span>
             </a>
             <div class="certificate-info">
+              <span class="certificate-kind">Training</span>
               <h3>Accounting Software (Tally ERP 9)</h3>
               <p>One-week training program · Kathmandu Model Secondary School · February 2025</p>
-              <a class="button button-outline small" href="static/images/certificate-tally-erp-9.png" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
+              <a
+                class="button button-outline small"
+                href="static/images/certificate-tally-erp-9.png"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Open certificate ↗</a
+              >
             </div>
           </article>
         </div>
       </section>
       <!-- Link to the Python Learning Hub. -->
       <section class="content-section section-wrap" id="notes">
-        <div class="section-heading"><span class="section-icon">✎</span>
+        <div class="section-heading">
+          <span class="section-icon">✎</span>
           <div>
             <h2>Python <span>Learning Hub</span></h2>
-            <p>Study Python from your first print statement to advanced concepts.</p>
+            <p>Use the notes and exercises to study Python step by step.</p>
           </div>
-          <a class="button button-outline heading-action" href="notes.html">Open Python Notes &nbsp; ›</a>
         </div>
         <div class="about-card learning-hub-intro">
-          <p><strong>Python Notes: Basic to Advanced</strong> includes a searchable curriculum, practical examples, lesson-by-lesson progress, and practice challenges.</p>
-          <a class="button button-primary" href="notes.html">Start learning Python &nbsp; →</a>
+          <div class="learning-hub-copy">
+            <span class="learning-hub-label">PYTHON NOTES</span>
+            <h3>Python Notes: Basic to Advanced</h3>
+            <p>
+              Explore a searchable curriculum with practical examples, lesson-by-lesson progress,
+              and practice challenges.
+            </p>
+            <a class="button button-primary" href="notes.html">
+              Start learning Python <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <ul class="learning-hub-features" aria-label="Python Learning Hub features">
+            <li><span aria-hidden="true">01</span> Searchable lessons</li>
+            <li><span aria-hidden="true">02</span> Practical examples</li>
+            <li><span aria-hidden="true">03</span> Lesson progress</li>
+            <li><span aria-hidden="true">04</span> Practice challenges</li>
+          </ul>
+        </div>
+      </section>
+      <section
+        class="content-section section-wrap contact-cta contact-finale"
+        id="contact"
+        data-contact-finale
+        aria-labelledby="contact-finale-title"
+      >
+        <div class="contact-finale-heading">
+          <span class="contact-finale-eyebrow"
+            ><span aria-hidden="true">✦</span> BEFORE YOU GO</span
+          >
+          <h2 id="contact-finale-title" aria-label="Thank You for Visiting My Portfolio Website">
+            <span data-contact-finale-typewriter>Thank You for Visiting My Portfolio Website</span>
+          </h2>
+          <p>Thanks for taking the time to explore my portfolio, projects, and learning journey.</p>
+        </div>
+        <div class="contact-finale-panel">
+          <div class="contact-finale-message">
+            <span class="contact-finale-overline">OPEN TO OPPORTUNITIES</span>
+            <h3>Interested in working with me?</h3>
+            <p>
+              I’m interested in internship opportunities, collaborations, and projects where I can
+              keep learning and contribute. If my interests match what you’re working on, I’d be
+              glad to connect.
+            </p>
+          </div>
+          <div class="contact-finale-connect">
+            <h3>Let’s connect</h3>
+            <nav class="contact-finale-links" aria-label="Connect with Sukundra Pujara">
+              <a href="https://wa.me/9779767840975" target="_blank" rel="noopener noreferrer"
+                >Direct Chat on WhatsApp <span aria-hidden="true">↗</span></a
+              >
+              <a href="mailto:sukundrapujara61@gmail.com"
+                >Send Me an Email <span aria-hidden="true">↗</span></a
+              >
+              <a
+                href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >LinkedIn Professional Profile <span aria-hidden="true">↗</span></a
+              >
+              <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer"
+                >Explore My Projects on GitHub <span aria-hidden="true">↗</span></a
+              >
+            </nav>
+          </div>
+          <div class="contact-finale-footer">
+            <p>Let’s connect and explore what we can build together.</p>
+            <div class="contact-finale-signature">
+              <span>Best regards,</span>
+              <strong>Er. Sukundra Pujara</strong>
+              <span
+                >Data Science · Web Development · Django · AI &amp; Machine Learning ·
+                Robotics</span
+              >
+            </div>
+            <div class="contact-finale-actions">
+              <a class="button button-primary" href="contact.html">Contact me <span>→</span></a>
+              <a class="button button-outline" href="static/files/sukundra-pujara-cv.pdf" download
+                >Download CV <span>↓</span></a
+              >
+            </div>
+          </div>
         </div>
       </section>
     </main>
     <!-- Footer navigation and social links. -->
     <footer class="footer">
-      <div><strong>Sukundra <b>Pujara</b></strong><small>Computer Science with AI Student</small></div>
+      <div>
+        <strong>Er. Sukundra <b>Pujara</b></strong
+        ><small>Computer Science with AI Student</small>
+      </div>
       <nav aria-label="Footer navigation">
         <a href="index.html">Home</a>
         <a href="#about">About</a>
@@ -411,13 +946,30 @@
         <a href="#certificates">Certificates</a>
         <a href="notes.html">Notes</a>
         <a href="contact.html">Contact</a>
-        <a href="static/files/sukundra-pujara-cv.pdf" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="static/files/sukundra-pujara-cv.pdf" target="_blank" rel="noopener noreferrer"
+          >CV</a
+        >
       </nav>
       <div class="footer-contact">
-        <a href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a
+          href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/"
+          target="_blank"
+          rel="noreferrer"
+          >LinkedIn ↗</a
+        >
+        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer"
+          >GitHub ↗</a
+        >
         <span>Made with <b>♥</b> in Nepal</span>
       </div>
     </footer>
+    <a
+      class="back-to-top"
+      href="#home"
+      data-back-to-top
+      aria-label="Back to top"
+      title="Back to top"
+      >↑</a
+    >
   </body>
 </html>

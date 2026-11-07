@@ -1,32 +1,35 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#061323"><title>Projects | Sukundra Pujara</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b14" />
+    <meta
+      name="description"
+      content="Selected projects by Er. Sukundra Pujara, including Python, web development, and AI learning work."
+    />
+    <title>Projects | Er. Sukundra Pujara</title>
     <!-- Shared website styles. -->
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/pages.css">
-    <link rel="stylesheet" href="static/css/text-scale.css">
-    <link rel="stylesheet" href="static/css/design-refresh.css">
-    <link rel="stylesheet" href="static/css/chatbot.css">
-    <script src="static/js/chatbot-config.js?v=1" defer></script>
-    <script src="static/js/python-qa-data.js" defer></script>
-    <script src="static/js/python-guide-data.js" defer></script>
-    <script src="static/js/python-oop-guide-data.js" defer></script>
-    <script src="static/js/python-lessons.js" defer></script>
-    <script src="static/js/practice-topics.js" defer></script>
-    <script src="static/js/python-theory.js" defer></script>
-    <script src="static/js/chatbot.js?v=16" defer></script>
+    <link rel="stylesheet" href="static/css/base/style.css" />
+    <link rel="stylesheet" href="static/css/components/pages.css" />
+    <link rel="stylesheet" href="static/css/base/text-scale.css" />
+    <link rel="stylesheet" href="static/css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="static/css/components/chatbot.css" />
+    <script src="static/js/data/python-qa-data.js" defer></script>
+    <script src="static/js/data/python-guide-data.js" defer></script>
+    <script src="static/js/data/python-oop-guide-data.js" defer></script>
+    <script src="static/js/data/python-lessons.js" defer></script>
+    <script src="static/js/data/practice-topics.js" defer></script>
+    <script src="static/js/data/python-theory.js" defer></script>
+    <script src="static/js/assistant/chatbot.js?v=17" defer></script>
     <!-- Loads and displays the project cards. -->
-    <script src="static/js/main.js" defer>
-    </script>
+    <script src="static/js/app/main.js" defer></script>
   </head>
   <body>
     <!-- Main navigation links. -->
     <header class="site-header">
       <a class="brand" href="index.html">
-        <span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b>
+        <span class="code-mark">&lt;/&gt;</span> Er. Sukundra <b>Pujara</b>
       </a>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="navigation" aria-label="Main navigation">
@@ -38,24 +41,99 @@
         <a href="notes.html">Notes</a>
         <a href="contact.html">Contact</a>
       </nav>
+      <button
+        class="button button-outline theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        ☀ Light
+      </button>
       <a class="button button-outline admin-link" href="admin.html">Admin</a>
     </header>
     <main>
       <!-- All project cards are added here by the shared JavaScript. -->
+      <svg class="technology-icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <symbol id="icon-python" viewBox="0 0 24 24">
+          <path
+            d="M12 2.5c-4.3 0-4 1.9-4 1.9v2.7h8v1H5.8S3 7.8 3 12s2.5 4 2.5 4H8v-3s-.1-2.2 2.2-2.2h4.1s2.2 0 2.2-2.1V4.7s.3-2.2-4.5-2.2ZM9.7 5.2a.8.8 0 1 1 0-1.6.8.8 0 0 1 0 1.6Z"
+          />
+          <path
+            d="M12 21.5c4.3 0 4-1.9 4-1.9v-2.7H8v-1h10.2s2.8.3 2.8-3.9-2.5-4-2.5-4H16v3s.1 2.2-2.2 2.2H9.7s-2.2 0-2.2 2.1v4s-.3 2.2 4.5 2.2Zm2.3-2.7a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z"
+          />
+        </symbol>
+        <symbol id="icon-html" viewBox="0 0 24 24">
+          <path
+            d="m4 3 1.5 16.4L12 21l6.5-1.6L20 3H4Zm12.2 5H8l.2 2h7.8l-.6 6.5-3.4.9-3.4-.9-.2-2.2h2l.1.7 1.5.4 1.5-.4.2-2.9H8.5L8 6h8.4l-.2 2Z"
+          />
+        </symbol>
+        <symbol id="icon-css" viewBox="0 0 24 24">
+          <path
+            d="m4 3 1.5 16.4L12 21l6.5-1.6L20 3H4Zm12.2 4-.2 2H9.1l.2 2h6.5l-.6 5.5-3.2.9-3.2-.9-.2-2.3h2l.1.8 1.3.4 1.3-.4.2-2.1H7.4L6.8 7h9.4Z"
+          />
+        </symbol>
+        <symbol id="icon-javascript" viewBox="0 0 24 24">
+          <path
+            d="M4 3h16v18H4V3Zm8.7 13.8c.3.6.7.9 1.4.9.6 0 .9-.3.9-.7 0-.5-.3-.7-1.1-1l-.4-.2c-1.2-.5-2-1.2-2-2.5 0-1.2.9-2.1 2.4-2.1 1.1 0 1.9.4 2.4 1.4l-1.3.8c-.3-.5-.6-.7-1.1-.7s-.7.3-.7.6c0 .4.3.6 1 .9l.4.2c1.4.6 2.1 1.2 2.1 2.5 0 1.4-1.1 2.2-2.6 2.2-1.5 0-2.4-.7-2.9-1.7l1.5-.6ZM8.1 16c.3.5.5.9 1.1.9.5 0 .8-.2.8-1v-5h1.7v5c0 1.8-1 2.6-2.5 2.6-1.3 0-2.1-.7-2.5-1.6l1.4-.9Z"
+          />
+        </symbol>
+        <symbol id="icon-development" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="m9 9-3 3 3 3m6-6 3 3-3 3m-1-8-4 10" />
+        </symbol>
+      </svg>
       <section class="content-section section-wrap page-top">
-        <div class="section-heading"><span class="section-icon">▣</span>
+        <div class="section-heading">
+          <span class="section-icon">▣</span>
           <div>
             <h2>All <span>Projects</span></h2>
-            <p>Projects and topics I am exploring.</p>
+            <p>
+              Projects and topics I am exploring. Unpublished demos and source repositories are not
+              linked.
+            </p>
           </div>
         </div>
-        <div class="project-grid" data-project-list="all">
+        <div class="project-tools">
+          <div
+            class="project-filters"
+            data-project-filter
+            data-project-target="#all-projects"
+            role="group"
+            aria-label="Filter projects"
+          >
+            <button type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="python" aria-pressed="false">Python</button>
+            <button type="button" data-filter="web" aria-pressed="false">Web</button>
+            <button type="button" data-filter="ai" aria-pressed="false">AI / ML</button>
+            <button type="button" data-filter="data-science" aria-pressed="false">
+              Data Science
+            </button>
+            <button type="button" data-filter="mobile" aria-pressed="false">Mobile</button>
+            <button type="button" data-filter="automation" aria-pressed="false">Automation</button>
+          </div>
+          <label class="project-search">
+            <span class="sr-only">Search all projects</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="10.8" cy="10.8" r="6.8" />
+              <path d="m16 16 5 5" />
+            </svg>
+            <input
+              type="search"
+              data-project-search="#all-projects"
+              placeholder="Search projects"
+              autocomplete="off"
+            />
+          </label>
         </div>
+        <p class="project-results-count" data-project-count="#all-projects" aria-live="polite"></p>
+        <div class="project-grid" id="all-projects" data-project-list="all"></div>
       </section>
     </main>
     <!-- Footer links and social profiles. -->
     <footer class="footer">
-      <div><strong>Sukundra <b>Pujara</b></strong><small>Computer Science with AI Student</small></div>
+      <div>
+        <strong>Er. Sukundra <b>Pujara</b></strong
+        ><small>Computer Science with AI Student</small>
+      </div>
       <nav aria-label="Footer navigation">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
@@ -65,8 +143,15 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="footer-contact">
-        <a href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a
+          href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/"
+          target="_blank"
+          rel="noreferrer"
+          >LinkedIn ↗</a
+        >
+        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer"
+          >GitHub ↗</a
+        >
         <span>Made with <b>♥</b> in Nepal</span>
       </div>
     </footer>

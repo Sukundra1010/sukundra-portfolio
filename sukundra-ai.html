@@ -1,80 +1,127 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#07111f">
-    <meta name="description" content="Try Sukundra AI, a browser-based learning assistant for beginner Python and portfolio questions.">
-    <title>Sukundra AI | Python Learning Assistant</title>
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/pages.css">
-    <link rel="stylesheet" href="static/css/text-scale.css">
-    <link rel="stylesheet" href="static/css/design-refresh.css">
-    <link rel="stylesheet" href="static/css/chatbot.css">
-    <link rel="stylesheet" href="static/css/sukundra-ai-page.css">
-    <script src="static/js/chatbot-config.js?v=1" defer></script>
-    <script src="static/js/python-qa-data.js" defer></script>
-    <script src="static/js/python-guide-data.js" defer></script>
-    <script src="static/js/python-oop-guide-data.js" defer></script>
-    <script src="static/js/python-lessons.js" defer></script>
-    <script src="static/js/practice-topics.js" defer></script>
-    <script src="static/js/python-theory.js" defer></script>
-    <script src="static/js/chatbot.js?v=16" defer></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#07111f" />
+    <meta
+      name="description"
+      content="Try SUKUNDRA AI PRO, a browser-only Python learning and coding assistant with guided starters, static code checks, and portfolio answers."
+    />
+    <title>SUKUNDRA AI PRO | Python Learning Assistant</title>
+    <!-- Shared site styles plus the assistant and this page's project-story layout. -->
+    <link rel="stylesheet" href="static/css/base/style.css" />
+    <link rel="stylesheet" href="static/css/components/pages.css" />
+    <link rel="stylesheet" href="static/css/base/text-scale.css" />
+    <link rel="stylesheet" href="static/css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="static/css/components/chatbot.css" />
+    <link rel="stylesheet" href="static/css/pages/sukundra-ai-page.css" />
+    <script src="static/js/data/python-qa-data.js" defer></script>
+    <script src="static/js/data/python-guide-data.js" defer></script>
+    <script src="static/js/data/python-oop-guide-data.js" defer></script>
+    <script src="static/js/data/python-lessons.js" defer></script>
+    <script src="static/js/data/practice-topics.js" defer></script>
+    <script src="static/js/data/python-theory.js" defer></script>
+    <script src="static/js/assistant/python-assistant.js" defer></script>
+    <script src="static/js/app/main.js" defer></script>
+    <!-- Load the assistant after its bundled learning content and page helpers. -->
+    <script src="static/js/assistant/chatbot.js?v=17" defer></script>
   </head>
   <body class="sukundra-ai-page">
+    <!-- Shared site navigation. -->
     <header class="site-header ai-page-header">
-      <a class="brand" href="index.html"><span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b></a>
+      <a class="brand" href="index.html"
+        ><span class="code-mark">&lt;/&gt;</span> Er. Sukundra <b>Pujara</b></a
+      >
+      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="navigation" aria-label="Main navigation">
         <a href="index.html">Home</a>
         <a href="projects.html">Projects</a>
         <a href="notes.html">Python Notes</a>
       </nav>
+      <button
+        class="button button-outline theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        ☀ Light
+      </button>
       <a class="button button-outline" href="projects.html">Back to projects</a>
     </header>
     <main class="ai-project-main">
+      <!-- Project introduction and a static preview of the chat experience. -->
       <section class="ai-project-hero" aria-labelledby="ai-project-title">
         <div class="ai-project-copy">
-          <span class="ai-project-eyebrow"><span aria-hidden="true"></span> A PERSONAL LEARNING PROJECT</span>
-          <h1 id="ai-project-title">Meet <span>Sukundra AI</span></h1>
-          <p class="ai-project-lead">A friendly, browser-based assistant for learning beginner Python and exploring my portfolio.</p>
+          <span class="ai-project-eyebrow"
+            ><span aria-hidden="true"></span> A PERSONAL LEARNING PROJECT</span
+          >
+          <h1 id="ai-project-title">Meet <span>SUKUNDRA AI PRO</span></h1>
+          <p class="ai-project-lead">
+            A browser-only Python coding tutor for learning concepts, reviewing snippets, and
+            exploring guided project starters. Speak in Nepali or English and hear the answer in
+            English, when browser voice support is available.
+          </p>
           <div class="ai-project-actions">
-            <a class="button button-primary ai-start-button" href="#sukundra-ai">Start chatting <span aria-hidden="true">→</span></a>
+            <a class="button button-primary ai-start-button" href="#sukundra-ai"
+              >Start chatting <span aria-hidden="true">→</span></a
+            >
             <a class="button button-outline" href="notes.html">Explore Python notes</a>
+            <a
+              class="button button-outline"
+              href="https://github.com/Sukundra1010/sukundra_pujara_portfolio"
+              target="_blank"
+              rel="noopener noreferrer"
+              >View source on GitHub ↗</a
+            >
           </div>
-          <p class="ai-project-local"><span aria-hidden="true"></span>Runs in your browser · No account or API key needed</p>
+          <p class="ai-project-local">
+            <span aria-hidden="true"></span>Text answers are English only · Voice questions can be
+            in Nepali or English, with spoken English answers
+          </p>
         </div>
-        <div class="ai-project-preview" aria-label="Things you can ask Sukundra AI">
+        <div class="ai-project-preview" aria-label="Things you can ask SUKUNDRA AI PRO">
           <div class="ai-preview-top">
             <span class="ai-preview-icon">
-              <img src="static/images/sukundra-ai-logo.png" alt="Sukundra AI logo">
+              <img src="static/images/sukundra-ai-logo.png" alt="Sukundra AI logo" />
             </span>
             <span>
-              <strong>Sukundra AI</strong>
-              <small>Python tutor · Ready</small>
+              <strong>SUKUNDRA AI PRO</strong>
+              <small>Python coding tutor · Ready</small>
             </span>
             <i aria-hidden="true"></i>
           </div>
           <div class="ai-preview-question">Can you explain a Python f-string?</div>
-          <div class="ai-preview-answer"><strong>Sure! Here is a simple example:</strong><pre><code>name = "Ram"
+          <div class="ai-preview-answer">
+            <strong>Sure! Here is a simple example:</strong>
+            <pre><code>name = "Ram"
 greeting = f"Hello {name}"
-print(greeting)</code></pre><span>Output: Hello Ram</span></div>
+print(greeting)</code></pre>
+            <span>Output: Hello Ram</span>
+          </div>
           <div class="ai-preview-topics">
-            <span>Python basics</span>
-            <span>Line by line</span>
+            <span>Guided code starters</span>
+            <span>Static code checks</span>
             <span>Portfolio Q&amp;A</span>
           </div>
         </div>
       </section>
+      <!-- Three short summaries of what visitors can do with the assistant. -->
       <section class="ai-project-details" aria-label="About Sukundra AI">
         <article>
           <span class="ai-detail-number">01</span>
           <h2>Learn step by step</h2>
-          <p>Ask beginner-friendly Python questions and get examples explained in clear, simple steps.</p>
+          <p>
+            Ask beginner-friendly Python questions by text or voice and get examples explained in
+            clear, simple steps.
+          </p>
         </article>
         <article>
           <span class="ai-detail-number">02</span>
           <h2>Practice with examples</h2>
-          <p>Explore code snippets, common programming concepts, and guided learning topics.</p>
+          <p>
+            Get guided code starters, line-by-line explanations, and static checks for common
+            issues.
+          </p>
         </article>
         <article>
           <span class="ai-detail-number">03</span>
@@ -82,10 +129,79 @@ print(greeting)</code></pre><span>Output: Hello Ram</span></div>
           <p>Ask about my interests, learning journey, projects, and the skills I am developing.</p>
         </article>
       </section>
-      <p class="ai-project-note">Sukundra AI is a local question-and-answer learning assistant. It uses bundled guides and examples; it is not a generative AI service.</p>
+      <!-- Personal motivation, actual product screenshot, implementation, and lessons. -->
+      <section class="ai-story-section" aria-labelledby="ai-story-title">
+        <div class="ai-story-heading">
+          <span class="ai-project-eyebrow"
+            ><span aria-hidden="true"></span> THE STORY &amp; PROCESS</span
+          >
+          <h2 id="ai-story-title">A learning project, built around real questions</h2>
+          <p>
+            I wanted one place where visitors could explore Python topics from my learning resources
+            and ask about my portfolio. That idea became a browser-based assistant: part Python
+            tutor, part guide to my work.
+          </p>
+        </div>
+        <figure class="ai-story-screenshot">
+          <img
+            src="static/images/sukundra-ai-chat-screenshot.png"
+            alt="SUKUNDRA AI PRO showing Python learning prompts, bundled knowledge sources, and the chat input"
+            loading="lazy"
+            width="1156"
+            height="691"
+          />
+          <figcaption>
+            The assistant brings Python learning prompts and portfolio Q&amp;A into one browser
+            workspace.
+          </figcaption>
+        </figure>
+        <div class="ai-build-grid">
+          <article>
+            <span class="ai-detail-number">01 / CONTENT</span>
+            <h3>Start with learning material</h3>
+            <p>
+              Python lessons, topic guides, and question-and-answer content are bundled with the
+              site so the assistant can offer examples and guided explanations.
+            </p>
+          </article>
+          <article>
+            <span class="ai-detail-number">02 / INTERACTION</span>
+            <h3>Keep the experience in the browser</h3>
+            <p>
+              JavaScript matches questions to the bundled material and portfolio details. Voice
+              input uses browser speech recognition; spoken replies use browser speech synthesis.
+            </p>
+          </article>
+          <article>
+            <span class="ai-detail-number">03 / A REAL LIMIT</span>
+            <h3>Be clear about what it cannot do</h3>
+            <p>
+              There is no remote AI model or Python execution behind the chat. Code checks are
+              limited text-based hints, and voice support depends on the visitor's browser.
+            </p>
+          </article>
+        </div>
+        <aside class="ai-learning-reflection">
+          <h3>What building it taught me</h3>
+          <p>
+            A chat interface is only one part of a helpful learning tool. The content needs to be
+            organized, examples need to be understandable, and limitations—especially around code
+            checks and browser voice support—need to be visible too.
+          </p>
+        </aside>
+      </section>
+      <!-- Disclose the assistant's technical limits and browser-dependent voice support. -->
+      <p class="ai-project-note">
+        SUKUNDRA AI PRO uses bundled guides and browser-only JavaScript helpers; it does not call an
+        AI model, execute submitted Python, or provide a secure code sandbox. Static checks are
+        limited and cannot confirm that a program is correct. It accepts voice input in Nepali or
+        English and speaks answers in English when browser voice support is available. Voice
+        questions and answers are not shown or saved as chat text. Nepali speech recognition depends
+        on browser/device support.
+      </p>
     </main>
     <footer class="ai-project-footer">
-      <span>Designed and built by Sukundra Pujara</span>
+      <span>Designed and built by Er. Sukundra Pujara</span>
       <a href="index.html">Return to my portfolio ↗</a>
     </footer>
   </body>

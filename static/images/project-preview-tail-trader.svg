@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Tail Trader storefront interface preview</title>
+  <desc id="description">Illustrative preview of the in-progress Tail Trader shopping and blog website.</desc>
+  <defs><linearGradient id="background" x2="1" y2="1"><stop stop-color="#fffaf4"/><stop offset="1" stop-color="#f8eee4"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <rect x="62" y="45" width="1076" height="584" rx="22" fill="#fff" stroke="#eadfd5" stroke-width="2"/>
+  <rect x="62" y="45" width="1076" height="72" rx="22" fill="#fff"/>
+  <path d="M62 117h1076" stroke="#eee5dc" stroke-width="2"/>
+  <text x="102" y="92" fill="#cf302b" font-family="Arial,sans-serif" font-size="27" font-weight="900">TAIL TRADER</text>
+  <text x="684" y="88" fill="#665b54" font-family="Arial,sans-serif" font-size="15">SHOP</text><text x="759" y="88" fill="#665b54" font-family="Arial,sans-serif" font-size="15">JOURNAL</text><text x="853" y="88" fill="#665b54" font-family="Arial,sans-serif" font-size="15">ABOUT</text>
+  <circle cx="1035" cy="81" r="18" fill="#f8eee4"/><path d="M1029 77h12l-2 12h-8zM1032 76a3 3 0 0 1 6 0" fill="none" stroke="#5b4840" stroke-width="2"/>
+  <rect x="88" y="145" width="1024" height="196" rx="16" fill="#f9e9dc"/>
+  <text x="127" y="203" fill="#ce332d" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="3">DISCOVER SOMETHING GOOD</text>
+  <text x="127" y="253" fill="#33241f" font-family="Georgia,serif" font-size="39" font-weight="700">Read. Connect. Collect.</text>
+  <text x="127" y="286" fill="#6d5b53" font-family="Arial,sans-serif" font-size="16">Thoughtful finds, fresh stories, and things worth keeping.</text>
+  <rect x="127" y="304" width="146" height="28" rx="14" fill="#cf302b"/><text x="154" y="324" fill="#fff" font-family="Arial,sans-serif" font-size="13" font-weight="700">Explore the shop</text>
+  <text x="93" y="383" fill="#322722" font-family="Arial,sans-serif" font-size="21" font-weight="700">Featured finds</text>
+  <rect x="92" y="402" width="310" height="184" rx="13" fill="#faf6f0" stroke="#eee4da"/><rect x="106" y="416" width="282" height="106" rx="9" fill="#ecd7c2"/><path d="M168 481l46-48 54 48z" fill="#c77758"/><circle cx="282" cy="451" r="19" fill="#e8b56d"/><text x="109" y="551" fill="#40322c" font-family="Arial,sans-serif" font-size="16" font-weight="700">The Weekend Edit</text><text x="109" y="574" fill="#8d7a70" font-family="Arial,sans-serif" font-size="13">A collection of everyday favorites</text>
+  <rect x="445" y="402" width="310" height="184" rx="13" fill="#faf6f0" stroke="#eee4da"/><rect x="459" y="416" width="282" height="106" rx="9" fill="#e6e9d8"/><rect x="551" y="437" width="99" height="66" rx="7" fill="#8c9d77"/><path d="M560 437v-12h81v12" fill="none" stroke="#778966" stroke-width="7"/><text x="462" y="551" fill="#40322c" font-family="Arial,sans-serif" font-size="16" font-weight="700">Made for slow days</text><text x="462" y="574" fill="#8d7a70" font-family="Arial,sans-serif" font-size="13">Stories and picks from the journal</text>
+  <rect x="798" y="402" width="310" height="184" rx="13" fill="#faf6f0" stroke="#eee4da"/><rect x="812" y="416" width="282" height="106" rx="9" fill="#f1dfd2"/><circle cx="952" cy="465" r="32" fill="#db9970"/><path d="M920 483h65l-10 23h-45z" fill="#b97156"/><text x="815" y="551" fill="#40322c" font-family="Arial,sans-serif" font-size="16" font-weight="700">Small things, big joy</text><text x="815" y="574" fill="#8d7a70" font-family="Arial,sans-serif" font-size="13">Browse the latest collection</text>
+</svg>

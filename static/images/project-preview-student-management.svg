@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title description">
+  <title id="title">Student Management System concept preview</title>
+  <desc id="description">Concept illustration of a possible student dashboard; this is not a working application screenshot.</desc>
+  <defs><linearGradient id="background" x2="1" y2="1"><stop stop-color="#edf3ff"/><stop offset="1" stop-color="#e0e9fb"/></linearGradient></defs>
+  <rect width="1200" height="675" fill="url(#background)"/>
+  <rect x="66" y="48" width="1068" height="579" rx="24" fill="#fff" stroke="#d9e3f2" stroke-width="2"/>
+  <rect x="66" y="48" width="231" height="579" rx="24" fill="#1d3156"/>
+  <path d="M275 48h22v579h-22z" fill="#1d3156"/>
+  <circle cx="115" cy="95" r="22" fill="#7899e8"/><path d="M105 96h20m-10-10v20" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+  <text x="151" y="101" fill="#fff" font-family="Arial,sans-serif" font-size="17" font-weight="700">STUDENT HUB</text>
+  <rect x="89" y="151" width="185" height="47" rx="10" fill="#314b78"/><text x="121" y="181" fill="#fff" font-family="Arial,sans-serif" font-size="16">Overview</text>
+  <text x="121" y="246" fill="#c3cee2" font-family="Arial,sans-serif" font-size="16">Students</text><text x="121" y="292" fill="#c3cee2" font-family="Arial,sans-serif" font-size="16">Attendance</text><text x="121" y="338" fill="#c3cee2" font-family="Arial,sans-serif" font-size="16">Classes</text><text x="121" y="384" fill="#c3cee2" font-family="Arial,sans-serif" font-size="16">Reports</text>
+  <rect x="333" y="76" width="710" height="35" rx="17" fill="#f2f5fb"/><text x="357" y="99" fill="#8a96aa" font-family="Arial,sans-serif" font-size="14">STUDENT MANAGEMENT SYSTEM · CONCEPT</text>
+  <text x="333" y="158" fill="#1b2b47" font-family="Arial,sans-serif" font-size="28" font-weight="700">Classroom overview</text>
+  <text x="333" y="186" fill="#8290a4" font-family="Arial,sans-serif" font-size="15">A concept for organizing student information</text>
+  <rect x="333" y="212" width="218" height="102" rx="14" fill="#f2f6ff"/><rect x="570" y="212" width="218" height="102" rx="14" fill="#f1faf7"/><rect x="807" y="212" width="257" height="102" rx="14" fill="#fff7eb"/>
+  <text x="357" y="248" fill="#71809a" font-family="Arial,sans-serif" font-size="14">STUDENT PROFILES</text><text x="357" y="289" fill="#263e6a" font-family="Arial,sans-serif" font-size="30" font-weight="700">248</text>
+  <text x="594" y="248" fill="#71809a" font-family="Arial,sans-serif" font-size="14">TODAY'S ATTENDANCE</text><text x="594" y="289" fill="#267660" font-family="Arial,sans-serif" font-size="30" font-weight="700">92%</text>
+  <text x="831" y="248" fill="#71809a" font-family="Arial,sans-serif" font-size="14">ACTIVE CLASSES</text><text x="831" y="289" fill="#9b6b28" font-family="Arial,sans-serif" font-size="30" font-weight="700">12</text>
+  <rect x="333" y="339" width="731" height="237" rx="14" fill="#fff" stroke="#e5eaf2"/>
+  <text x="359" y="377" fill="#26344c" font-family="Arial,sans-serif" font-size="18" font-weight="700">Recent student records</text>
+  <path d="M358 398h680M358 449h680M358 500h680M358 551h680" stroke="#edf0f5" stroke-width="2"/>
+  <circle cx="379" cy="425" r="13" fill="#cfdbf6"/><text x="404" y="431" fill="#40506a" font-family="Arial,sans-serif" font-size="15">Aarav Sharma</text><text x="700" y="431" fill="#71809a" font-family="Arial,sans-serif" font-size="14">Class 10 · Section A</text>
+  <circle cx="379" cy="476" r="13" fill="#d4ede3"/><text x="404" y="482" fill="#40506a" font-family="Arial,sans-serif" font-size="15">Sita Thapa</text><text x="700" y="482" fill="#71809a" font-family="Arial,sans-serif" font-size="14">Class 9 · Section B</text>
+  <circle cx="379" cy="527" r="13" fill="#f6e1ca"/><text x="404" y="533" fill="#40506a" font-family="Arial,sans-serif" font-size="15">Nima Gurung</text><text x="700" y="533" fill="#71809a" font-family="Arial,sans-serif" font-size="14">Class 8 · Section A</text>
+  <text x="333" y="606" fill="#7e8ba0" font-family="Arial,sans-serif" font-size="13">Illustrative concept preview · Not a product screenshot</text>
+</svg>

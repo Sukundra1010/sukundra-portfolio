@@ -1,32 +1,31 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#061323">
-    <title>Local Content Manager | Sukundra Pujara</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#061323" />
+    <title>Local Content Manager | Er. Sukundra Pujara</title>
     <!-- Shared website styles. -->
-    <link rel="stylesheet" href="static/css/style.css">
-    <link rel="stylesheet" href="static/css/pages.css">
-    <link rel="stylesheet" href="static/css/text-scale.css">
-    <link rel="stylesheet" href="static/css/design-refresh.css">
-    <link rel="stylesheet" href="static/css/chatbot.css">
-    <script src="static/js/chatbot-config.js?v=1" defer></script>
-    <script src="static/js/python-qa-data.js" defer></script>
-    <script src="static/js/python-guide-data.js" defer></script>
-    <script src="static/js/python-oop-guide-data.js" defer></script>
-    <script src="static/js/python-lessons.js" defer></script>
-    <script src="static/js/practice-topics.js" defer></script>
-    <script src="static/js/python-theory.js" defer></script>
-    <script src="static/js/chatbot.js?v=16" defer></script>
+    <link rel="stylesheet" href="static/css/base/style.css" />
+    <link rel="stylesheet" href="static/css/components/pages.css" />
+    <link rel="stylesheet" href="static/css/base/text-scale.css" />
+    <link rel="stylesheet" href="static/css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="static/css/components/chatbot.css" />
+    <script src="static/js/data/python-qa-data.js" defer></script>
+    <script src="static/js/data/python-guide-data.js" defer></script>
+    <script src="static/js/data/python-oop-guide-data.js" defer></script>
+    <script src="static/js/data/python-lessons.js" defer></script>
+    <script src="static/js/data/practice-topics.js" defer></script>
+    <script src="static/js/data/python-theory.js" defer></script>
+    <script src="static/js/assistant/chatbot.js?v=17" defer></script>
     <!-- Loads the local content manager and navigation. -->
-    <script src="static/js/main.js" defer></script>
+    <script src="static/js/app/main.js" defer></script>
   </head>
   <body>
     <!-- Main navigation links. -->
     <header class="site-header">
       <a class="brand" href="index.html">
-        <span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b>
+        <span class="code-mark">&lt;/&gt;</span> Er. Sukundra <b>Pujara</b>
       </a>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="navigation" aria-label="Main navigation">
@@ -38,6 +37,13 @@
         <a href="notes.html">Notes</a>
         <a href="contact.html">Contact</a>
       </nav>
+      <button
+        class="button button-outline theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        ☀ Light
+      </button>
       <a class="button button-outline admin-link" href="index.html">Home</a>
     </header>
     <main>
@@ -51,8 +57,9 @@
         </div>
         <div class="notice-box">
           <strong>Important:</strong>
-          This is a frontend-only editor, not a secure admin dashboard. Content is stored only in this browser using localStorage.
-          Visitors on other devices will not see your changes. Do not store private information here.
+          This is a frontend-only editor, not a secure admin dashboard. Content is stored only in
+          this browser using localStorage. Visitors on other devices will not see your changes. Do
+          not store private information here.
         </div>
         <!-- Forms for adding a project or a learning note. -->
         <div class="admin-columns">
@@ -60,7 +67,7 @@
             <h3>Add project</h3>
             <label>
               Title
-              <input name="title" required maxlength="120">
+              <input name="title" required maxlength="120" />
             </label>
             <label>
               Description
@@ -68,11 +75,11 @@
             </label>
             <label>
               Skills (comma separated)
-              <input name="skills" maxlength="200">
+              <input name="skills" maxlength="200" />
             </label>
             <label>
               Project URL (optional)
-              <input name="link" type="url" maxlength="500">
+              <input name="link" type="url" maxlength="500" />
             </label>
             <button class="button button-primary">Add project</button>
           </form>
@@ -80,7 +87,7 @@
             <h3>Add learning note</h3>
             <label>
               Title
-              <input name="title" required maxlength="120">
+              <input name="title" required maxlength="120" />
             </label>
             <label>
               Note
@@ -91,16 +98,17 @@
         </div>
         <!-- Lists of saved projects and notes. -->
         <h2 class="admin-section-title">Projects</h2>
-        <div class="admin-list" data-admin-projects>
-        </div>
+        <div class="admin-list" data-admin-projects></div>
         <h2 class="admin-section-title">Notes</h2>
-        <div class="admin-list" data-admin-notes>
-        </div>
+        <div class="admin-list" data-admin-notes></div>
       </section>
     </main>
     <!-- Footer links and social profiles. -->
     <footer class="footer">
-      <div><strong>Sukundra <b>Pujara</b></strong><small>Computer Science with AI Student</small></div>
+      <div>
+        <strong>Er. Sukundra <b>Pujara</b></strong
+        ><small>Computer Science with AI Student</small>
+      </div>
       <nav aria-label="Footer navigation">
         <a href="index.html">Home</a>
         <a href="index.html#about">About</a>
@@ -109,8 +117,15 @@
         <a href="contact.html">Contact</a>
       </nav>
       <div class="footer-contact">
-        <a href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        <a
+          href="https://www.linkedin.com/in/sukundra-pujara-87006b43b/"
+          target="_blank"
+          rel="noreferrer"
+          >LinkedIn ↗</a
+        >
+        <a href="https://github.com/Sukundra1010" target="_blank" rel="noopener noreferrer"
+          >GitHub ↗</a
+        >
         <span>Made with <b>♥</b> in Nepal</span>
       </div>
     </footer>
