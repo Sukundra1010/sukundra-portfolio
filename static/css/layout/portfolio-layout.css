@@ -753,6 +753,15 @@ html[data-theme="light"] .portfolio-home .sidebar-focus span {
     transform 180ms ease;
 }
 
+.portfolio-home .portfolio-header-actions > .header-contact-link {
+  display: inline-flex;
+  width: auto;
+  align-items: center;
+  font-size: 15px;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
 .portfolio-home .portfolio-header-actions > a:hover {
   color: #61b9ff;
   transform: translateY(-1px);
@@ -1221,6 +1230,14 @@ html[data-theme="light"] .portfolio-home #projects .project-info p {
 
   .portfolio-home .portfolio-header-actions > a {
     display: none;
+  }
+
+  .portfolio-home .portfolio-header-actions > .header-contact-link {
+    display: inline-flex;
+  }
+
+  .portfolio-home .portfolio-header-actions > a[aria-label="Email Sukundra"] {
+    display: grid;
   }
 
   .portfolio-home .navigation {
@@ -3140,11 +3157,19 @@ html[data-theme="light"] .portfolio-home .contact-finale-links a:hover {
   }
 
   .portfolio-home .portfolio-header-actions {
-    gap: 0;
+    gap: 12px;
   }
 
   .portfolio-home .portfolio-header-actions > a {
     display: none;
+  }
+
+  .portfolio-home .portfolio-header-actions > .header-contact-link {
+    display: inline-flex;
+  }
+
+  .portfolio-home .portfolio-header-actions > a[aria-label="Email Sukundra"] {
+    display: grid;
   }
 
   .portfolio-home .navigation {
