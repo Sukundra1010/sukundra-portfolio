@@ -90,12 +90,10 @@ const defaultProjects = [
 ];
 
 const excludedProjectTitles = new Set([
-  "Sukundra Advanced Calculator",
   "Python Programming Projects",
   "Web Development Projects",
   "Flask Web Applications",
   "Cybersecurity Learning Projects",
-  "Calculator App",
   "Machine Learning Fundamentals",
   "SURMORA Restaurant Management System",
 ]);
