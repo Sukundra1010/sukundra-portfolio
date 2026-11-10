@@ -4,6 +4,7 @@ const taleTraderProposalUrl =
 const taleTraderRepositoryUrl =
   "https://github.com/satvikabhandary64-sketch/40B_-Group-3-_-TaleTrader-";
 const portfolioRepositoryUrl = "https://github.com/Sukundra1010/sukundra_pujara_portfolio";
+const smartFinXRepositoryUrl = "https://github.com/Sukundra1010/SmartFinx-Finance-Tracker";
 
 const defaultProjects = [
   {
@@ -26,6 +27,7 @@ const defaultProjects = [
     skills: "Python, Personal Finance, Web App",
     link: "https://sukundra1010.pythonanywhere.com/",
     linkLabel: "Open SmartFinX ↗",
+    repository: smartFinXRepositoryUrl,
     thumbnail: "static/images/smartfinx-preview.png",
     previewLabel: "SmartFinX landing page",
     categories: ["python", "web"],
@@ -156,6 +158,17 @@ function updateProject(project) {
       ...project,
       ...sukundraAiProject,
       categories: project.categories || ["ai", "web", "python"],
+    };
+  }
+
+  if (project.title === "SmartFinX") {
+    return {
+      ...project,
+      link: "https://sukundra1010.pythonanywhere.com/",
+      linkLabel: "Open SmartFinX ↗",
+      repository: smartFinXRepositoryUrl,
+      thumbnail: "static/images/smartfinx-preview.png",
+      previewLabel: "SmartFinX landing page",
     };
   }
 
