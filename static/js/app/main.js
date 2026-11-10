@@ -26,6 +26,8 @@ const defaultProjects = [
     skills: "Python, Personal Finance, Web App",
     link: "https://sukundra1010.pythonanywhere.com/",
     linkLabel: "Open SmartFinX ↗",
+    thumbnail: "static/images/smartfinx-preview.png",
+    previewLabel: "SmartFinX landing page",
     categories: ["python", "web"],
     highlights: [
       "Track expenses and manage budgets.",
