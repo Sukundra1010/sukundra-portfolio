@@ -5,22 +5,6 @@ const taleTraderRepositoryUrl =
   "https://github.com/satvikabhandary64-sketch/40B_-Group-3-_-TaleTrader-";
 const portfolioRepositoryUrl = "https://github.com/Sukundra1010/sukundra_pujara_portfolio";
 
-const pujaraBmsCaseStudy = [
-  {
-    title: "Dashboard walkthrough",
-    paragraphs: [
-      "The supplied dashboard screenshot shows income, expenses, sales, tax, and profit-and-loss summaries.",
-      "Its navigation also lists transactions, reports, and customer areas.",
-    ],
-  },
-  {
-    title: "Reading the preview",
-    paragraphs: [
-      "The captured dashboard displays zero-valued totals. They are shown as they appear in the screenshot and should not be read as business results.",
-    ],
-  },
-];
-
 const defaultProjects = [
   {
     title: "Sukundra AI",
@@ -36,16 +20,18 @@ const defaultProjects = [
     categories: ["ai", "web", "python"],
   },
   {
-    title: "Pujara Business Management System",
-    description: "A web-based business management system project. Open the live app to explore it.",
-    skills: "Python, Business Management, Web App",
-    link: "https://pujarabms-ysg37fer.manus.space/app",
-    linkLabel: "Open app ↗",
-    image: "static/images/python-logo.png",
-    thumbnail: "static/images/pujara-bms-dashboard-screenshot.png",
-    previewLabel: "Website screenshot",
+    title: "SmartFinX",
+    description:
+      "A personal finance dashboard for tracking expenses, managing budgets, monitoring savings, and understanding spending habits.",
+    skills: "Python, Personal Finance, Web App",
+    link: "https://sukundra1010.pythonanywhere.com/",
+    linkLabel: "Open SmartFinX ↗",
     categories: ["python", "web"],
-    caseStudy: pujaraBmsCaseStudy,
+    highlights: [
+      "Track expenses and manage budgets.",
+      "Monitor savings and spending habits.",
+      "View finance information from a single dashboard.",
+    ],
   },
   {
     title: "Portfolio Website — Er. Sukundra Pujara",
@@ -96,6 +82,7 @@ const excludedProjectTitles = new Set([
   "Cybersecurity Learning Projects",
   "Machine Learning Fundamentals",
   "SURMORA Restaurant Management System",
+  "Pujara Business Management System",
 ]);
 
 const sukundraAiProject = {
@@ -167,16 +154,6 @@ function updateProject(project) {
       ...project,
       ...sukundraAiProject,
       categories: project.categories || ["ai", "web", "python"],
-    };
-  }
-
-  if (project.title === "Pujara Business Management System") {
-    return {
-      ...project,
-      thumbnail: "static/images/pujara-bms-dashboard-screenshot.png",
-      previewLabel: "Website screenshot",
-      categories: project.categories || ["python", "web"],
-      caseStudy: pujaraBmsCaseStudy,
     };
   }
 
