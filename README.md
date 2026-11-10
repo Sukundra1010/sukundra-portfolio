@@ -1,5 +1,7 @@
 # Er. Sukundra Pujara — Portfolio
 
+> Authored and maintained by Sukundra1010. This portfolio and all related content are credited to Sukundra1010 only.
+
 A responsive portfolio built with HTML, CSS, and JavaScript. The website and
 browser-based Python assistant work without a backend or API keys.
 The supplied original profile photo is preserved at
