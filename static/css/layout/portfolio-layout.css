@@ -3678,3 +3678,230 @@ html[data-theme="light"] .portfolio-home .hero-role {
     padding: 7px 10px;
   }
 }
+
+/* Give the homepage a more immersive, expressive developer-portfolio opening. */
+.portfolio-home {
+  background:
+    radial-gradient(ellipse at 74% 8%, rgba(86, 107, 241, 0.13), transparent 34rem),
+    radial-gradient(ellipse at 20% 28%, rgba(49, 157, 231, 0.08), transparent 30rem), #080e1b;
+}
+
+.portfolio-home main,
+.portfolio-home .footer {
+  width: min(960px, calc(100% - 64px));
+}
+
+.portfolio-home .hero {
+  min-height: min(720px, calc(100svh - 58px));
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
+  gap: clamp(24px, 5vw, 64px);
+  padding: clamp(72px, 12vh, 132px) 0;
+  isolation: isolate;
+}
+
+.portfolio-home .hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  right: 4%;
+  display: block;
+  width: clamp(290px, 36vw, 450px);
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(94, 103, 241, 0.17),
+    rgba(55, 139, 227, 0.08) 42%,
+    transparent 72%
+  );
+  content: "";
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.portfolio-home .hero h1.home-headline {
+  max-width: 680px;
+  margin: 20px 0 18px;
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: clamp(48px, 7vw, 78px);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 0.99;
+  text-wrap: balance;
+}
+
+.portfolio-home .hero h1.home-headline span {
+  color: transparent;
+  background: linear-gradient(110deg, #bba8ff 4%, #73baff 58%, #64e0d1 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.portfolio-home .hero-copy > p.hero-intro {
+  max-width: 56ch;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.portfolio-home .hero-actions {
+  gap: 10px;
+  margin-top: 21px;
+}
+
+.portfolio-home .hero-actions .button {
+  min-height: 40px;
+  padding: 8px 15px;
+  font-size: 12px;
+}
+
+.portfolio-home .hero-aside {
+  justify-self: center;
+  max-width: 380px;
+}
+
+.portfolio-home .hero-portrait-stage {
+  width: min(100%, 310px);
+  min-height: 292px;
+}
+
+.portfolio-home .hero-portrait-stage::before {
+  width: 250px;
+  border-color: rgba(165, 146, 255, 0.35);
+  box-shadow:
+    0 0 44px rgba(111, 105, 240, 0.2),
+    inset 0 0 36px rgba(93, 147, 238, 0.11);
+}
+
+.portfolio-home .hero-portrait-stage::after {
+  width: 282px;
+  border-style: dashed;
+  border-color: rgba(91, 158, 232, 0.2);
+}
+
+.portfolio-home .hero-portrait-card {
+  width: 210px;
+}
+
+.portfolio-home .hero-focus-card {
+  border-color: rgba(151, 139, 241, 0.22);
+  background: linear-gradient(145deg, rgba(20, 25, 45, 0.94), rgba(10, 19, 33, 0.92));
+  backdrop-filter: blur(14px);
+}
+
+.portfolio-home .content-section {
+  padding-top: 68px;
+}
+
+.portfolio-home .section-heading h2 {
+  font-family: "Space Grotesk", "Segoe UI", sans-serif;
+  font-size: clamp(30px, 4vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.055em;
+}
+
+.portfolio-home .section-heading p {
+  font-size: 14px;
+}
+
+.portfolio-home .skill-category-card {
+  border-color: rgba(137, 148, 201, 0.2);
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(132, 111, 240, 0.13), transparent 58%),
+    linear-gradient(145deg, rgba(17, 24, 43, 0.98), rgba(9, 16, 29, 0.98));
+}
+
+.portfolio-home .skill-category-card:hover {
+  transform: translateY(-5px);
+}
+
+html[data-theme="light"] .portfolio-home {
+  background:
+    radial-gradient(ellipse at 74% 8%, rgba(119, 108, 225, 0.1), transparent 34rem),
+    radial-gradient(ellipse at 20% 28%, rgba(49, 157, 231, 0.07), transparent 30rem), #f6f8fc;
+}
+
+html[data-theme="light"] .portfolio-home .hero::before {
+  background: radial-gradient(
+    circle,
+    rgba(122, 110, 229, 0.12),
+    rgba(55, 139, 227, 0.06) 42%,
+    transparent 72%
+  );
+}
+
+html[data-theme="light"] .portfolio-home .hero h1.home-headline span {
+  background-image: linear-gradient(110deg, #7757d7 4%, #287cc5 58%, #168e83 100%);
+}
+
+html[data-theme="light"] .portfolio-home .hero-focus-card,
+html[data-theme="light"] .portfolio-home .skill-category-card {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+@media (max-width: 760px) {
+  .portfolio-home main,
+  .portfolio-home .footer {
+    width: min(100% - 40px, 620px);
+  }
+
+  .portfolio-home .hero {
+    min-height: 0;
+    gap: 32px;
+    padding: 64px 0 52px;
+  }
+
+  .portfolio-home .hero::before {
+    top: 66%;
+    right: 50%;
+    width: min(92vw, 390px);
+    transform: translate(50%, -50%);
+  }
+
+  .portfolio-home .hero h1.home-headline {
+    max-width: 600px;
+    font-size: clamp(48px, 10vw, 68px);
+  }
+
+  .portfolio-home .hero-aside {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    max-width: 460px;
+  }
+
+  .portfolio-home .hero-portrait-stage {
+    width: min(100%, 280px);
+    min-height: 270px;
+  }
+
+  .portfolio-home .hero-portrait-card {
+    width: 194px;
+  }
+
+  .portfolio-home .content-section {
+    padding-top: 54px;
+  }
+}
+
+@media (max-width: 460px) {
+  .portfolio-home main,
+  .portfolio-home .footer {
+    width: calc(100% - 36px);
+  }
+
+  .portfolio-home .hero {
+    padding-top: 48px;
+  }
+
+  .portfolio-home .hero h1.home-headline {
+    font-size: clamp(42px, 12vw, 54px);
+  }
+
+  .portfolio-home .hero-actions {
+    flex-wrap: wrap;
+  }
+
+  .portfolio-home .hero-actions .button {
+    flex: 1 1 auto;
+  }
+}
