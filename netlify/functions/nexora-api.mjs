@@ -6,6 +6,7 @@ const systemPrompt = [
 ].join(" ");
 
 const defaultOrigins = [
+  "https://sukundra-pujara.vercel.app",
   "https://sukundra.com.np",
   "https://www.sukundra.com.np",
   "http://127.0.0.1:5500",
@@ -209,7 +210,7 @@ export default async function handler(request, context) {
     return jsonResponse(
       503,
       {
-        error: "Nexora AI is not configured. Add GEMINI_API_KEY to Netlify environment variables.",
+        error: "Nexora AI is not configured. Add GEMINI_API_KEY to the backend environment.",
       },
       origin,
     );
