@@ -2112,4 +2112,425 @@ window.PYTHON_QUIZ = [
     choices: ["The string '3.5'", "The float 3.5", "The integer 3", "An error"],
     answer: 1,
   },
+  {
+    question: "Where is an instance attribute commonly assigned in a Python class?",
+    choices: [
+      "On self, often inside __init__",
+      "Only in the class declaration",
+      "Inside a module docstring",
+      "As a parameter to print()",
+    ],
+    answer: 0,
+  },
+  {
+    question: "How is a class attribute different from an instance attribute?",
+    choices: [
+      "It belongs to the class and can be shared by its instances",
+      "It can only store strings",
+      "It is automatically private",
+      "It exists only while __init__ is running",
+    ],
+    answer: 0,
+  },
+  {
+    question: "When is an object's __init__ method normally called?",
+    choices: [
+      "When an instance is created",
+      "Whenever an instance method returns",
+      "Only when the class is imported",
+      "When the object is deleted",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What is method overriding in a subclass?",
+    choices: [
+      "Changing a method into a module",
+      "Deleting every method from the parent class",
+      "Calling a method without creating an object",
+      "Defining a method with the same name to provide subclass behavior",
+    ],
+    answer: 3,
+  },
+  {
+    question: "What does polymorphism allow in object-oriented programming?",
+    choices: [
+      "A class to inherit from exactly one parent",
+      "A variable to have only one possible value",
+      "Different objects to respond to the same operation in their own way",
+      "A method to run only during object creation",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What is encapsulation?",
+    choices: [
+      "Organizing data and the methods that work on it within a class",
+      "Converting every object into a string",
+      "Copying a class into a separate module",
+      "Running a loop inside a function",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does a single leading underscore in a name such as _balance usually indicate?",
+    choices: [
+      "The name must contain an integer",
+      "Python prevents all access to the name",
+      "The name is a class method",
+      "The name is intended for internal use by convention",
+    ],
+    answer: 3,
+  },
+  {
+    question: "What does Python do with an attribute named __balance inside a class?",
+    choices: [
+      "Encrypts its value",
+      "Name-mangles it to reduce accidental name clashes",
+      "Makes it impossible to access",
+      "Converts it into a class attribute",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does the @property decorator commonly provide?",
+    choices: [
+      "A method that can be accessed using attribute-style syntax",
+      "A method that runs only once",
+      "A new parent class",
+      "Automatic type checking for every method",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Why might a property setter validate a new value?",
+    choices: [
+      "To convert the property into a function",
+      "To make the property available only to the class",
+      "To prevent invalid state from being stored on the object",
+      "To stop the object from being inherited",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Does Python's double-underscore name mangling make an attribute truly private?",
+    choices: [
+      "No; it changes the attribute name but does not prevent deliberate access",
+      "Yes; even the class itself cannot access it",
+      "Yes; Python encrypts it in memory",
+      "No; it automatically makes the attribute public",
+    ],
+    answer: 0,
+  },
+  {
+    question: "In object-oriented design, composition most often describes which relationship?",
+    choices: [
+      "A has-a relationship between objects",
+      "A function calling itself",
+      "A child class replacing its parent module",
+      "Two variables referring to the same integer",
+    ],
+    answer: 0,
+  },
+  {
+    question:
+      "Which standard-library base class is commonly used to define an abstract base class?",
+    choices: ["abc.ABC", "io.FileIO", "math.Number", "sys.Module"],
+    answer: 0,
+  },
+  {
+    question: "What happens if a class still has an unimplemented abstract method?",
+    choices: [
+      "Python silently replaces the method with pass",
+      "Python prevents creating an instance of that class",
+      "The class becomes a module",
+      "Every subclass is deleted",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does a class's method resolution order (MRO) determine?",
+    choices: [
+      "The order function arguments are printed",
+      "The order a list is sorted",
+      "The number of instances a class can create",
+      "The order Python searches classes for an attribute or method",
+    ],
+    answer: 3,
+  },
+  {
+    question: "Why is super() useful in cooperative multiple inheritance?",
+    choices: [
+      "It always calls only the oldest parent directly",
+      "It follows the MRO to call the next implementation",
+      "It creates a copy of every parent object",
+      "It skips all inherited methods",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is the usual purpose of __repr__?",
+    choices: [
+      "Create the object's parent class",
+      "Prevent an object from being displayed",
+      "Provide an informative representation useful for debugging",
+      "Convert every attribute to a Boolean",
+    ],
+    answer: 2,
+  },
+  {
+    question: "Which special method can customize the behavior of == for instances?",
+    choices: ["__init__", "__eq__", "__iter__", "__name__"],
+    answer: 1,
+  },
+  {
+    question: "What does isinstance(value, Parent) return for an instance of a subclass of Parent?",
+    choices: ["A TypeError in every case", "False", "None", "True"],
+    answer: 3,
+  },
+  {
+    question: "Which syntax defines a class that inherits from both A and B?",
+    choices: ["class C extends A, B:", "class C(A, B):", "class C(A + B):", "class C: A, B"],
+    answer: 1,
+  },
+  {
+    question: "What kind of copy does list.copy() make for a list containing nested lists?",
+    choices: [
+      "A sorted copy with duplicates removed",
+      "A deep copy of every nested object",
+      "A shallow copy; nested objects are still shared",
+      "A tuple containing the same values",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What does dictionary.setdefault(key, default) do when key is missing?",
+    choices: [
+      "Deletes the dictionary",
+      "Raises KeyError without changing the dictionary",
+      "Adds key with default as its value and returns that value",
+      "Returns a sorted list of keys",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What does the set expression {1, 2} | {2, 3} produce?",
+    choices: ["{2}", "{1, 2, 3}", "{1, 3}", "An error"],
+    answer: 1,
+  },
+  {
+    question: "What does the set expression {1, 2} & {2, 3} produce?",
+    choices: ["{1, 3}", "{1, 2, 3}", "{2}", "An empty list"],
+    answer: 2,
+  },
+  {
+    question: "What does x, y = (4, 9) do?",
+    choices: [
+      "Stores the whole tuple in both variables",
+      "Unpacks the tuple so x is 4 and y is 9",
+      "Creates a dictionary",
+      "Raises an error because tuples cannot be unpacked",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which values are produced by range(2, 8, 2)?",
+    choices: ["0, 2, 4, 6", "2, 4, 6, 8", "2, 4, 6", "2, 8"],
+    answer: 2,
+  },
+  {
+    question: "What does values[::-1] produce for a list named values?",
+    choices: [
+      "The list sorted in ascending order",
+      "The first item only",
+      "The list with every other item removed",
+      "A reversed slice of the list",
+    ],
+    answer: 3,
+  },
+  {
+    question: "What is the result type of 7 / 2 in Python 3?",
+    choices: ["int", "float", "str", "tuple"],
+    answer: 1,
+  },
+  {
+    question: "What is the result of -7 // 2 in Python?",
+    choices: ["-3", "-4", "-3.5", "3"],
+    answer: 1,
+  },
+  {
+    question: "What does 17 % 5 return?",
+    choices: ["12", "3", "3.4", "2"],
+    answer: 3,
+  },
+  {
+    question: "What does 2 ** 4 calculate?",
+    choices: [
+      "2 multiplied by 4, which is 8",
+      "2 to the power of 4, which is 16",
+      "4 divided by 2",
+      "The bitwise XOR of 2 and 4",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is bool([]) in Python?",
+    choices: ["An error", "True", "None", "False"],
+    answer: 3,
+  },
+  {
+    question: "Which expression is the recommended way to check whether value is None?",
+    choices: ["None in value", "value == False", "value is False", "value is None"],
+    answer: 3,
+  },
+  {
+    question: 'What does f"Hello, {name}!" do when name is "Mina"?',
+    choices: [
+      "Interpolates the value and produces Hello, Mina!",
+      "Creates a function named f",
+      "Converts name to a list",
+      "Raises an error because braces are not allowed",
+    ],
+    answer: 0,
+  },
+  {
+    question: "When is a mutable default argument such as items=[] evaluated?",
+    choices: [
+      "Once when the function is defined",
+      "Freshly on every function call",
+      "Only when the function returns",
+      "Only when items is passed explicitly",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does all([True, True, False]) return?",
+    choices: ["An error", "True", "None", "False"],
+    answer: 3,
+  },
+  {
+    question: "What does any([False, True, False]) return?",
+    choices: ["False", "True", "None", "An error"],
+    answer: 1,
+  },
+  {
+    question: "In Python 3, what does map(function, iterable) return?",
+    choices: [
+      "A dictionary",
+      "A sorted list",
+      "A lazy map iterator",
+      "The number of items in iterable",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What happens when next() is called after an iterator is exhausted?",
+    choices: [
+      "It restarts the iterator automatically",
+      "It raises StopIteration",
+      'It returns the string "end"',
+      "It deletes the iterator",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does yield do in a generator?",
+    choices: [
+      "Repeats the previous value forever",
+      "Converts the generator into a class",
+      "Closes every open file",
+      "Produces a value and suspends the generator until it resumes",
+    ],
+    answer: 3,
+  },
+  {
+    question: "When does an else block attached to try run?",
+    choices: [
+      "Before the try block starts",
+      "Only when an exception is raised",
+      "When the try block completes without raising an exception",
+      "Only if finally is omitted",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What is a common purpose of a finally block?",
+    choices: [
+      "To execute before the try block",
+      "To rerun the try block",
+      "To suppress every exception automatically",
+      "To perform cleanup whether or not an exception occurred",
+    ],
+    answer: 3,
+  },
+  {
+    question: 'Which exception is commonly raised by int("cat")?',
+    choices: ["StopIteration", "KeyError", "IndexError", "ValueError"],
+    answer: 3,
+  },
+  {
+    question: "Which exception does len(5) raise?",
+    choices: ["ValueError", "TypeError", "KeyError", "ImportError"],
+    answer: 1,
+  },
+  {
+    question: "What does a with statement commonly ensure when working with a file?",
+    choices: [
+      "The file is closed when the managed block exits",
+      "The file is automatically deleted",
+      "The file is converted to JSON",
+      "The file is opened only for writing",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does json.loads(json_text) do?",
+    choices: [
+      "Opens a file in append mode",
+      "Converts Python data into a JSON string",
+      "Loads a Python module",
+      "Parses a JSON string into Python data",
+    ],
+    answer: 3,
+  },
+  {
+    question: "What does json.dumps(data) do?",
+    choices: [
+      "Deletes data from memory",
+      "Parses a JSON string into Python data",
+      "Serializes Python data into a JSON string",
+      "Sorts a dictionary by its values",
+    ],
+    answer: 2,
+  },
+  {
+    question: 'Why might open(path, encoding="utf-8") be used for a text file?',
+    choices: [
+      "To specify how text bytes are decoded and encoded",
+      "To make the file executable",
+      "To ensure the file is opened in binary mode",
+      "To automatically sort the file's lines",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does the pass statement do?",
+    choices: [
+      "Returns from the current function",
+      "Skips the rest of the current loop iteration",
+      "Nothing; it acts as a placeholder where a statement is required",
+      "Raises a syntax error",
+    ],
+    answer: 2,
+  },
+  {
+    question: "What do Python type annotations do by themselves?",
+    choices: [
+      "Prevent a function from being called with other values",
+      "Convert every value to the annotated type",
+      "Document expected types but do not automatically enforce them at runtime",
+      "Compile the program into machine code",
+    ],
+    answer: 2,
+  },
 ];
