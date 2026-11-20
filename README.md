@@ -144,9 +144,11 @@ Nexora AI sends chat messages and any attached image to the configured provider
 through the Node.js backend. The API key remains on the backend. Conversation
 history is saved in the visitor's browser, while image contents are not saved to
 local history. The static portfolio can still be hosted on GitHub Pages, but
-Nexora's backend must be deployed separately for public chat responses. See
-[`nexora-ai/README.md`](./nexora-ai/README.md) for local setup, API configuration,
-and deployment notes.
+GitHub Pages cannot run the Nexora backend. This repository includes Vercel
+Functions for `/api/health` and `/api/chat`, which deploy with the portfolio.
+Set `GEMINI_API_KEY` in the Vercel project's Environment Variables for public
+chat responses. See [`nexora-ai/README.md`](./nexora-ai/README.md) for local
+setup, API configuration, and deployment notes.
 
 To replace the homepage portrait, replace `static/images/profile-picture.png`
 and update the matching portrait crop at `static/images/profile-picture-crop.jpg`.

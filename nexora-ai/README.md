@@ -79,6 +79,18 @@ Conversations are stored in the visitor's browser. Image contents are not saved
 to local chat history, but an image is sent to the configured provider when
 submitted. Avoid attaching sensitive information.
 
+## Deploy on Vercel
+
+The repository includes Vercel Functions for `/api/health` and `/api/chat`.
+Connect the repository to Vercel and add `GEMINI_API_KEY` under
+**Project Settings → Environment Variables** for Production (and Preview if
+needed). Optionally set `GEMINI_MODEL` to a model available to your Google AI
+Studio account. Keep the key server-side; never add it to HTML, JavaScript, or
+a committed file. Redeploy after adding or changing environment variables.
+
+The frontend calls the same site's `/api` routes, so no public API URL is needed.
+The production Vercel origin and the portfolio domains are allowed by default.
+
 ## Deploy on Netlify
 
 The repository includes a Netlify Function for `/api/health` and `/api/chat`.
