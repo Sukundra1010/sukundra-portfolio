@@ -42,10 +42,10 @@ local development experience.
   only the available project links.
 - `nexora-ai.html` — Nexora AI chat workspace; it connects to the API in
   `nexora-ai/`.
-- `notes.html` — Interactive Python Notes: Basic to Advanced curriculum with 85
+- `notes.html` — Interactive Python Notes: Basic to Advanced curriculum with 89
   lesson cards, explanations, commented examples, expected outputs, common
   mistakes, challenges, search, filters, and saved lesson progress. It also
-  includes 115 searchable theory questions and answers, topic-wise beginner
+  includes 133 searchable theory questions and answers, topic-wise beginner
   practice, a dedicated OOP practice section, and a scored quiz.
 - `python-quiz.html` — A 300-minute intermediate Python assessment with 600
   questions, saved progress, question navigation, scoring, A+ to C grades for
