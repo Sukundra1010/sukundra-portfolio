@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title id="title">Nexora AI</title>
+  <defs>
+    <linearGradient id="background" x1="13" y1="8" x2="112" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8468ed"/>
+      <stop offset=".52" stop-color="#47398b"/>
+      <stop offset="1" stop-color="#126884"/>
+    </linearGradient>
+    <linearGradient id="letter" x1="34" y1="34" x2="92" y2="96" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#a8f0ff"/>
+    </linearGradient>
+    <filter id="glow" x="14" y="12" width="100" height="104" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="7"/>
+    </filter>
+  </defs>
+  <rect x="5" y="5" width="118" height="118" rx="34" fill="#0c1020" stroke="#a99aff" stroke-opacity=".48" stroke-width="2"/>
+  <rect x="13" y="13" width="102" height="102" rx="29" fill="url(#background)" fill-opacity=".72"/>
+  <path d="M37 92V36l54 56V36" fill="none" stroke="#5fe4ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="15" opacity=".58" filter="url(#glow)"/>
+  <path d="M37 92V36l54 56V36" fill="none" stroke="url(#letter)" stroke-linecap="round" stroke-linejoin="round" stroke-width="10"/>
+  <circle cx="95" cy="31" r="4" fill="#a9f5ff"/>
+</svg>
