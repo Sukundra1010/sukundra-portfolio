@@ -1,0 +1,475 @@
+.portfolio-home .skills-keyboard-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 24px;
+}
+
+.portfolio-home .skills-keyboard-column {
+  min-width: 0;
+}
+
+.portfolio-home .skills-keyboard-stage {
+  position: relative;
+  height: clamp(340px, 38vw, 480px);
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid rgba(133, 165, 211, 0.22);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 50% 46%, rgba(39, 72, 131, 0.25), transparent 58%),
+    radial-gradient(ellipse at 8% 85%, rgba(0, 215, 187, 0.11), transparent 35%),
+    radial-gradient(ellipse at 95% 12%, rgba(142, 91, 255, 0.13), transparent 36%),
+    linear-gradient(145deg, #090e19, #080b14 70%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.04),
+    0 22px 58px rgba(0, 0, 0, 0.28);
+}
+
+.portfolio-home .skills-keyboard-stage::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(141, 167, 209, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 167, 209, 0.035) 1px, transparent 1px);
+  background-position: center;
+  background-size: 34px 34px;
+  content: "";
+  mask-image: radial-gradient(ellipse at center, #000 12%, transparent 82%);
+  pointer-events: none;
+}
+
+.portfolio-home .skills-keyboard-visual,
+.portfolio-home .skills-keyboard-visual canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-home .skills-keyboard-visual canvas {
+  display: block;
+  touch-action: pan-y;
+  outline: none;
+}
+
+.portfolio-home .skills-keyboard-visual canvas:focus-visible {
+  outline: 2px solid #6be4cf;
+  outline-offset: -5px;
+}
+
+.portfolio-home .skills-keyboard-status {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  width: max-content;
+  max-width: calc(100% - 32px);
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(148, 174, 218, 0.16);
+  border-radius: 999px;
+  background: rgba(8, 13, 24, 0.84);
+  color: #c9d6ec;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  transition:
+    opacity 240ms ease,
+    visibility 240ms ease;
+}
+
+.portfolio-home .skills-keyboard-stage[data-status="ready"] .skills-keyboard-status {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.portfolio-home .skills-keyboard-loader {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border: 2px solid rgba(112, 221, 205, 0.26);
+  border-top-color: #70ddcd;
+  border-radius: 50%;
+  animation: skills-loader-spin 800ms linear infinite;
+}
+
+@keyframes skills-loader-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.portfolio-home .skills-keyboard-edition {
+  position: absolute;
+  z-index: 2;
+  right: 18px;
+  bottom: 15px;
+  color: rgba(179, 197, 226, 0.54);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  pointer-events: none;
+}
+
+.portfolio-home .skills-keyboard-hint {
+  margin: 11px 3px 0;
+  color: #8998b0;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.portfolio-home .skills-keyboard-inspector {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: 23px 20px;
+  border: 1px solid rgba(133, 165, 211, 0.19);
+  border-radius: 20px;
+  background:
+    radial-gradient(ellipse at 100% 0, rgba(102, 91, 207, 0.11), transparent 55%),
+    linear-gradient(150deg, rgba(16, 25, 42, 0.98), rgba(8, 13, 23, 0.98));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 38px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-home .skills-inspector-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 15px;
+}
+
+.portfolio-home .skills-inspector-heading p {
+  margin: 0;
+  color: #8797b0;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+}
+
+.portfolio-home .skills-inspector-indicator {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  border-radius: 50%;
+  background: var(--selected-accent, #f3d45c);
+  box-shadow: 0 0 12px var(--selected-accent, #f3d45c);
+}
+
+.portfolio-home .skills-keyboard-inspector h3 {
+  margin: 0 0 10px;
+  color: #f0f5ff;
+  font-size: clamp(21px, 2.2vw, 27px);
+  font-weight: 720;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.portfolio-home .skills-selected-description {
+  min-height: 65px;
+  margin: 0;
+  color: #a7b4ca;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.portfolio-home .skills-selected-level {
+  width: fit-content;
+  margin: 13px 0 0;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--selected-accent, #f3d45c) 32%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--selected-accent, #f3d45c) 10%, transparent);
+  color: var(--selected-accent, #f3d45c);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+}
+
+.portfolio-home .skills-selected-level:empty {
+  display: none;
+}
+
+.portfolio-home .skills-inspector-divider {
+  height: 1px;
+  margin: 22px 0 17px;
+  background: linear-gradient(90deg, rgba(142, 166, 206, 0.22), transparent);
+}
+
+.portfolio-home .skills-sound-toggle {
+  display: flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  border: 1px solid rgba(145, 169, 208, 0.2);
+  border-radius: 11px;
+  background: rgba(126, 151, 190, 0.07);
+  color: #d3def0;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.portfolio-home .skills-sound-toggle:hover {
+  transform: translateY(-1px);
+  border-color: rgba(112, 221, 205, 0.5);
+  background: rgba(112, 221, 205, 0.09);
+}
+
+.portfolio-home .skills-sound-toggle:focus-visible,
+.portfolio-home .skills-keyboard-fallback button:focus-visible,
+.portfolio-home .skills-more summary:focus-visible {
+  outline: 2px solid #70ddcd;
+  outline-offset: 3px;
+}
+
+.portfolio-home .skills-sound-toggle svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.portfolio-home .skills-sound-state {
+  margin-left: auto;
+  color: #9aa8be;
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.portfolio-home .skills-sound-toggle[aria-pressed="true"] .skills-sound-state {
+  color: #70ddcd;
+}
+
+.portfolio-home .skills-sound-status {
+  min-height: 30px;
+  margin: 9px 0 0;
+  color: #8291a7;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.portfolio-home .skills-keyboard-accessible {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.portfolio-home .skills-keyboard-accessible ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.portfolio-home .skills-keyboard-fallback {
+  position: absolute;
+  z-index: 2;
+  inset: 56px 18px 42px;
+  display: none;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  list-style: none;
+}
+
+.portfolio-home .skills-keyboard-stage[data-status="error"] .skills-keyboard-visual {
+  display: none;
+}
+
+.portfolio-home
+  .skills-keyboard-stage[data-status="error"]
+  .skills-keyboard-fallback:not([hidden]) {
+  display: grid;
+}
+
+.portfolio-home .skills-keyboard-stage[data-status="error"] .skills-keyboard-status {
+  top: 14px;
+  right: 16px;
+  left: 16px;
+  max-width: none;
+  transform: none;
+  border-color: rgba(239, 166, 104, 0.24);
+  border-radius: 10px;
+  color: #f0c18f;
+}
+
+.portfolio-home .skills-keyboard-fallback button {
+  width: 100%;
+  min-height: 38px;
+  padding: 7px 10px;
+  border: 1px solid rgba(145, 169, 208, 0.19);
+  border-radius: 9px;
+  background: rgba(126, 151, 190, 0.07);
+  color: #d9e3f3;
+  cursor: pointer;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+}
+
+.portfolio-home .skills-keyboard-fallback button[aria-pressed="true"] {
+  border-color: var(--skill-accent, #70ddcd);
+  box-shadow: inset 3px 0 var(--skill-accent, #70ddcd);
+}
+
+.portfolio-home .skills-more {
+  grid-column: 1 / -1;
+  margin-top: 2px;
+  border-top: 1px solid rgba(133, 165, 211, 0.15);
+  color: #a7b4ca;
+}
+
+.portfolio-home .skills-more summary {
+  width: fit-content;
+  padding: 13px 2px 3px;
+  color: #c5d2e7;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.portfolio-home .skills-more p {
+  max-width: 900px;
+  margin: 9px 0 0;
+  color: #8998b0;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.portfolio-home #skills .skill-category-grid[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 860px) {
+  .portfolio-home .skills-keyboard-showcase {
+    grid-template-columns: minmax(0, 1fr) 220px;
+    gap: 14px;
+  }
+
+  .portfolio-home .skills-keyboard-stage {
+    height: clamp(320px, 42vw, 390px);
+  }
+
+  .portfolio-home .skills-keyboard-inspector {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .portfolio-home .skills-keyboard-showcase {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-home .skills-keyboard-stage {
+    height: clamp(300px, 78vw, 370px);
+    border-radius: 18px;
+  }
+
+  .portfolio-home .skills-keyboard-inspector {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: 14px;
+    padding: 17px;
+  }
+
+  .portfolio-home .skills-inspector-heading {
+    grid-column: 1 / -1;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-home .skills-keyboard-inspector h3 {
+    margin: 0;
+    font-size: 22px;
+  }
+
+  .portfolio-home .skills-selected-description {
+    grid-column: 1 / -1;
+    min-height: 0;
+    margin-top: 7px;
+  }
+
+  .portfolio-home .skills-selected-level {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  .portfolio-home .skills-inspector-divider {
+    display: none;
+  }
+
+  .portfolio-home .skills-sound-toggle {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .portfolio-home .skills-sound-status {
+    grid-column: 1 / -1;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 420px) {
+  .portfolio-home .skills-keyboard-stage {
+    height: 300px;
+  }
+
+  .portfolio-home .skills-keyboard-fallback {
+    inset: 58px 12px 32px;
+    gap: 6px;
+  }
+
+  .portfolio-home .skills-keyboard-fallback button {
+    min-height: 34px;
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
+
+html[data-theme="light"] .portfolio-home .skills-keyboard-stage,
+html[data-theme="light"] .portfolio-home .skills-keyboard-inspector {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home .skills-keyboard-loader {
+    animation: none;
+  }
+
+  .portfolio-home .skills-keyboard-status,
+  .portfolio-home .skills-sound-toggle {
+    transition: none;
+  }
+
+  .portfolio-home .skills-sound-toggle:hover {
+    transform: none;
+  }
+}

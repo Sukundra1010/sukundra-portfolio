@@ -6,22 +6,23 @@
     <meta name="theme-color" content="#061323" />
     <meta
       name="description"
-      content="Python Learning Hub by Er. Sukundra Pujara. Beginner-friendly Python lessons, theory, OOP practice, and quizzes."
+      content="Python Learning Hub by Sukundra Pujara. Beginner-friendly Python lessons, theory, OOP practice, and quizzes."
     />
-    <title>Python Learning Hub by Er. Sukundra Pujara</title>
+    <title>Python Learning Hub by Sukundra Pujara</title>
     <!-- Shared styles used across the website. -->
     <link rel="stylesheet" href="static/css/base/style.css" />
     <link rel="stylesheet" href="static/css/components/pages.css" />
     <link rel="stylesheet" href="static/css/base/text-scale.css" />
     <link rel="stylesheet" href="static/css/themes/design-refresh.css" />
-    <link rel="stylesheet" href="static/css/components/chatbot.css" />
+    <link rel="stylesheet" href="static/css/components/nexora-launcher.css" />
+    <link rel="stylesheet" href="static/css/components/encapsulation-paper.css" />
     <script src="static/js/data/python-qa-data.js" defer></script>
     <script src="static/js/data/python-guide-data.js" defer></script>
     <script src="static/js/data/python-oop-guide-data.js" defer></script>
     <script src="static/js/data/python-lessons.js" defer></script>
     <script src="static/js/data/practice-topics.js" defer></script>
     <script src="static/js/data/python-theory.js" defer></script>
-    <script src="static/js/assistant/chatbot.js?v=17" defer></script>
+    <script src="static/js/app/nexora-launcher.js" defer></script>
     <!-- Lesson data and scripts that make the learning tools work. -->
     <script src="static/js/app/main.js" defer></script>
     <script src="static/js/app/script.js" defer></script>
@@ -30,7 +31,7 @@
     <!-- Main navigation and the light/dark theme control. -->
     <header class="site-header">
       <a class="brand" href="index.html">
-        <span class="code-mark">&lt;/&gt;</span> Er. Sukundra <b>Pujara</b>
+        <span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b>
       </a>
       <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
       <nav class="navigation" aria-label="Main navigation">
@@ -57,10 +58,10 @@
         <div class="python-heading">
           <div>
             <span class="eyebrow">PYTHON LEARNING PATH</span>
-            <h1>Python Learning Hub <span>by Er. Sukundra Pujara</span></h1>
+            <h1>Python Learning Hub <span>by Sukundra Pujara</span></h1>
             <p>
-              Learn Python step by step with Er. Sukundra Pujara. Start with simple ideas, read
-              clear examples, and practice at your own pace.
+              Learn Python step by step with Sukundra Pujara. Start with simple ideas, read clear
+              examples, and practice at your own pace.
             </p>
           </div>
         </div>
@@ -141,7 +142,7 @@
           <div class="progress-top">
             <div>
               <strong>Your progress</strong>
-              <span id="progress-count">0 of 85 lessons completed</span>
+              <span id="progress-count">0 of 89 lessons completed</span>
             </div>
             <strong id="progress-percent">0%</strong>
           </div>
@@ -150,7 +151,7 @@
             role="progressbar"
             aria-label="Lessons completed"
             aria-valuemin="0"
-            aria-valuemax="85"
+            aria-valuemax="89"
             aria-valuenow="0"
           >
             <span id="progress-fill"></span>
@@ -208,8 +209,7 @@
             <div>
               <h2>Python Theory <span>Questions &amp; Answers</span></h2>
               <p>
-                115 short theory questions for learning and revision, prepared for Er. Sukundra
-                Pujara.
+                133 short theory questions for learning and revision, prepared for Sukundra Pujara.
               </p>
             </div>
           </div>
@@ -252,19 +252,591 @@
               </p>
             </div>
           </div>
+          <div class="paper-note-actions">
+            <a class="button button-outline" href="#oop-paper">View OOP paper images</a>
+            <a class="button button-outline" href="#encapsulation-paper">
+              View Encapsulation paper images
+            </a>
+          </div>
           <div id="oop-practice-list" class="practice-topic-list"></div>
+        </section>
+        <section class="oop-paper-notes" id="oop-paper">
+          <div class="section-heading practice-heading">
+            <span class="section-icon">▤</span>
+            <div>
+              <h2>My OOP <span>Paper Notes</span></h2>
+              <p>
+                The original OOP paper pages you shared, preserved as-is. Select a page to open the
+                full-size image.
+              </p>
+            </div>
+          </div>
+          <div class="oop-paper-gallery">
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0001.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0001.jpg"
+                  alt="Original object-oriented programming paper notes, page 1"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 1</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0002.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0002.jpg"
+                  alt="Original object-oriented programming paper notes, page 2"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 2</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0003.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0003.jpg"
+                  alt="Original object-oriented programming paper notes, page 3"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 3</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0004.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0004.jpg"
+                  alt="Original object-oriented programming paper notes, page 4"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 4</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0005.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0005.jpg"
+                  alt="Original object-oriented programming paper notes, page 5"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 5</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0006.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0006.jpg"
+                  alt="Original object-oriented programming paper notes, page 6"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 6</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0007.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0007.jpg"
+                  alt="Original object-oriented programming paper notes, page 7"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 7</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0008.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0008.jpg"
+                  alt="Original object-oriented programming paper notes, page 8"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 8</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0009.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0009.jpg"
+                  alt="Original object-oriented programming paper notes, page 9"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 9</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0010.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0010.jpg"
+                  alt="Original object-oriented programming paper notes, page 10"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 10</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0011.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0011.jpg"
+                  alt="Original object-oriented programming paper notes, page 11"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 11</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0012.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0012.jpg"
+                  alt="Original object-oriented programming paper notes, page 12"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 12</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0013.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0013.jpg"
+                  alt="Original object-oriented programming paper notes, page 13"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 13</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0014.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0014.jpg"
+                  alt="Original object-oriented programming paper notes, page 14"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 14</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0015.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0015.jpg"
+                  alt="Original object-oriented programming paper notes, page 15"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 15</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0016.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0016.jpg"
+                  alt="Original object-oriented programming paper notes, page 16"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 16</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0017.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0017.jpg"
+                  alt="Original object-oriented programming paper notes, page 17"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 17</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0018.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0018.jpg"
+                  alt="Original object-oriented programming paper notes, page 18"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 18</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0019.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0019.jpg"
+                  alt="Original object-oriented programming paper notes, page 19"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 19</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0020.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0020.jpg"
+                  alt="Original object-oriented programming paper notes, page 20"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 20</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0021.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0021.jpg"
+                  alt="Original object-oriented programming paper notes, page 21"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 21</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0022.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0022.jpg"
+                  alt="Original object-oriented programming paper notes, page 22"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 22</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0024.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0024.jpg"
+                  alt="Original object-oriented programming paper notes, page 24"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 24</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0025.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0025.jpg"
+                  alt="Original object-oriented programming paper notes, page 25"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 25</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+            <figure class="oop-paper-page">
+              <a
+                class="oop-paper-link"
+                href="static/images/oop-notes/OOP_page-0026.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><img
+                  src="static/images/oop-notes/OOP_page-0026.jpg"
+                  alt="Original object-oriented programming paper notes, page 26"
+                  loading="lazy"
+                  decoding="async"
+              /></a>
+              <figcaption>
+                <strong>Page 26</strong><span>Object-oriented programming notes</span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+        <section class="encapsulation-paper-notes" id="encapsulation-paper">
+          <div class="section-heading practice-heading">
+            <span class="section-icon">▤</span>
+            <div>
+              <h2>My Encapsulation <span>Paper Notes</span></h2>
+              <p>
+                The seven original pages you shared, preserved as-is. Select any page to open the
+                full-size image.
+              </p>
+            </div>
+          </div>
+          <div class="encapsulation-paper-gallery">
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0001.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0001.jpg"
+                  alt="Original encapsulation notes page 1: definition, a Student example, and data hiding"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 1</strong>
+                <span>Encapsulation and data hiding</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0002.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0002.jpg"
+                  alt="Original encapsulation notes page 2: access modifiers and public members"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 2</strong>
+                <span>Access modifiers and public members</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0003.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0003.jpg"
+                  alt="Original encapsulation notes page 3: protected members and the single-underscore convention"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 3</strong>
+                <span>Protected members</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0004.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0004.jpg"
+                  alt="Original encapsulation notes page 4: private members, access-level comparison, and name mangling"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 4</strong>
+                <span>Private-style members and name mangling</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0005.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0005.jpg"
+                  alt="Original encapsulation notes page 5: why name mangling is used and a Student display exercise"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 5</strong>
+                <span>Name mangling and Student display()</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0006.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0006.jpg"
+                  alt="Original encapsulation notes page 6: BankAccount, Employee, and Student attribute examples"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 6</strong>
+                <span>BankAccount, Employee, and Student examples</span>
+              </figcaption>
+            </figure>
+            <figure class="encapsulation-paper-page">
+              <a
+                class="encapsulation-paper-link"
+                href="static/images/encapsulation-notes/Encapsulation_page-0007.jpg"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="static/images/encapsulation-notes/Encapsulation_page-0007.jpg"
+                  alt="Original encapsulation notes page 7: BankAccount account-number name-mangling example"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+              <figcaption>
+                <strong>Page 7</strong>
+                <span>BankAccount name-mangling example</span>
+              </figcaption>
+            </figure>
+          </div>
         </section>
         <!-- Short quiz with a score saved in this browser. -->
         <section class="quiz-panel" id="python-quiz">
           <div class="section-heading practice-heading">
             <span class="section-icon">✓</span>
             <div>
-              <h2>Quick Python <span>Quiz</span></h2>
+              <h2>Python MCQ <span>Quiz</span></h2>
               <p>
-                Answer the questions, submit the quiz, and track your best score in this browser.
+                Try all 60 questions, check your answers, and track your best score in this browser.
               </p>
             </div>
           </div>
+          <p>
+            <a class="button button-outline" href="python-quiz.html">
+              Take the timed 600-question Python challenge
+            </a>
+          </p>
           <p class="quiz-best" id="quiz-best-score">Best score: not taken yet</p>
           <form id="quiz-form"></form>
           <div class="quiz-actions">
@@ -286,7 +858,7 @@
     <!-- Footer links and social profiles. -->
     <footer class="footer">
       <div>
-        <strong>Er. Sukundra <b>Pujara</b></strong
+        <strong>Sukundra <b>Pujara</b></strong
         ><small>Computer Science with AI Student</small>
       </div>
       <nav aria-label="Footer navigation">
@@ -308,7 +880,7 @@
           >GitHub ↗</a
         >
         <span>Made with <b>♥</b> in Nepal</span>
-        <span>Developed by Sukundra Pujara</span>
+        <span>Developed by Sukundra1010</span>
       </div>
     </footer>
   </body>

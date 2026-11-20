@@ -23,10 +23,10 @@ window.PYTHON_PRACTICE = [
       exercise(
         "Sukundra, print your name on the screen.",
         "Use print() with your name in quotes.",
-        `print("Er. Sukundra Pujara")`,
+        `print("Sukundra Pujara")`,
         "print() displays the quoted text.",
         "",
-        "Er. Sukundra Pujara",
+        "Sukundra Pujara",
       ),
       exercise(
         "Print the number 25.",
@@ -74,10 +74,10 @@ window.PYTHON_PRACTICE = [
       exercise(
         "1 · Easy — Create a variable called name and store your name.",
         "Put your name inside quotes and use the name variable.",
-        `name = "Er. Sukundra Pujara"\nprint(name)`,
+        `name = "Sukundra Pujara"\nprint(name)`,
         "The variable stores text, then print() displays that text.",
         "",
-        "Er. Sukundra Pujara",
+        "Sukundra Pujara",
       ),
       exercise(
         "2 · Easy — Create an integer variable called age.",
@@ -475,18 +475,18 @@ window.PYTHON_PRACTICE = [
     level: "Level 3 · Data Structures",
     explain:
       "A string (str) is a sequence of characters enclosed in quotation marks. Text can use single quotes, double quotes, or triple quotes.",
-    code: `name = "Er. Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
-    output: "Er. Sukundra Pujara\n<class 'str'>",
+    code: `name = "Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
+    output: "Sukundra Pujara\n<class 'str'>",
     mistake:
       "Text needs matching quotation marks. The text '123' is still a string because it is inside quotes.",
     questions: [
       exercise(
         "1 · Easy — Create a string called name and store your name.",
         "Put your name in quotation marks.",
-        `name = "Er. Sukundra Pujara"\nprint(name)`,
+        `name = "Sukundra Pujara"\nprint(name)`,
         "The quoted text is stored in the string variable name.",
         "",
-        "Er. Sukundra Pujara",
+        "Sukundra Pujara",
       ),
       exercise(
         "2 · Easy — Create the message 'Hello World' using single quotes.",
@@ -513,9 +513,9 @@ window.PYTHON_PRACTICE = [
         "<class 'str'>",
       ),
       exercise(
-        "5 · Easy+ — Print the type of the string 'Er. Sukundra Pujara'.",
+        "5 · Easy+ — Print the type of the string 'Sukundra Pujara'.",
         "Call type() with the quoted string.",
-        `print(type("Er. Sukundra Pujara"))`,
+        `print(type("Sukundra Pujara"))`,
         "Python reports that quoted text is a str.",
         "",
         "<class 'str'>",
@@ -580,9 +580,9 @@ window.PYTHON_PRACTICE = [
     level: "Level 3 · Data Structures",
     explain:
       "A tuple stores items in order, like a list, but you cannot change its items after creating it. Read items by their indexes, starting at 0, and use len() to count them.",
-    code: `student = ("Er. Sukundra Pujara", 20, "Nepal", "Computer Science")\n\nprint("Student Details:")\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Country:", student[2])\nprint("Course:", student[3])\nprint("Total Items:", len(student))`,
+    code: `student = ("Sukundra Pujara", 20, "Nepal", "Computer Science")\n\nprint("Student Details:")\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Country:", student[2])\nprint("Course:", student[3])\nprint("Total Items:", len(student))`,
     output:
-      "Student Details:\nName: Er. Sukundra Pujara\nAge: 20\nCountry: Nepal\nCourse: Computer Science\nTotal Items: 4",
+      "Student Details:\nName: Sukundra Pujara\nAge: 20\nCountry: Nepal\nCourse: Computer Science\nTotal Items: 4",
     mistake:
       "Tuple indexes start at 0, so student[0] is the first item. Tuples cannot be changed after they are created.",
     questions: [
@@ -1233,11 +1233,11 @@ window.PYTHON_PRACTICE = [
     level: "Level 5 · Intermediate Python",
     oop: true,
     explain:
-      "Encapsulation keeps data and the methods that use it together. A leading underscore, such as _balance, tells other programmers to use the class methods instead of changing it directly.",
-    code: `class BankAccount:\n    def __init__(self, balance):\n        self._balance = balance  # internal by convention\n    def deposit(self, amount):\n        if amount > 0:\n            self._balance += amount\n    def show_balance(self):\n        return self._balance\n\naccount = BankAccount(10)\naccount.deposit(5)\nprint(account.show_balance())`,
-    output: "15",
+      "Encapsulation groups data and related methods. In Python, public is the default, _name signals internal use by convention, and __name triggers name mangling to reduce accidental clashes. These conventions do not secure data or enforce access control.",
+    code: `class Student:\n    def __init__(self, name, student_id):\n        self.name = name  # public\n        self._level = "internal by convention"\n        self.__student_id = student_id  # name-mangled\n    def show_id(self):\n        return self.__student_id\n\nstudent = Student("Sukundra", "S-101")\nprint(student.name)\nprint(student.show_id())`,
+    output: "Sukundra\nS-101",
     mistake:
-      "A leading underscore is a convention, not a security lock. Validate values in methods that change important data.",
+      "A leading underscore is not a security lock, and name mangling is not encryption. Never store plaintext passwords in an object and treat them as protected.",
     questions: [
       exercise(
         "Sukundra, write a BankAccount with an internal balance and a deposit method.",
@@ -1270,6 +1270,62 @@ window.PYTHON_PRACTICE = [
         "Check 0 <= score <= 100.",
         `class Student:\n    def __init__(self):\n        self._score = 0\n    def set_score(self, score):\n        if 0 <= score <= 100:\n            self._score = score`,
         "The method protects the object from out-of-range scores.",
+      ),
+      exercise(
+        "Create a Student with public name and _email attributes, then print the public name.",
+        "Use self.name and self._email in __init__().",
+        `class Student:\n    def __init__(self, name, email):\n        self.name = name\n        self._email = email\n\nstudent = Student("Sukundra", "student@example.com")\nprint(student.name)`,
+        "Names without leading underscores are public by default; _email is internal by convention.",
+        "",
+        "Sukundra",
+      ),
+      exercise(
+        "Show that __code is not the literal attribute name stored by Python.",
+        "Use hasattr(instance, '__code') after assigning self.__code inside a class.",
+        `class Item:\n    def __init__(self):\n        self.__code = "A1"\n\nitem = Item()\nprint(hasattr(item, "__code"))`,
+        "Python name-mangles a double-leading-underscore name with the class name; this is not a privacy boundary.",
+        "",
+        "False",
+      ),
+      exercise(
+        "Add a public method that returns a Student object's name.",
+        "Return self.name from a method.",
+        `class Student:\n    def __init__(self, name):\n        self.name = name\n    def show_name(self):\n        return self.name\n\nprint(Student("Sukundra").show_name())`,
+        "A clear public method gives callers a deliberate interface to the object's data.",
+        "",
+        "Sukundra",
+      ),
+      exercise(
+        "Create a Student with public name, age, and course attributes and a display() method.",
+        "Read each value through self inside display().",
+        `class Student:\n    def __init__(self, name, age, course):\n        self.name = name\n        self.age = age\n        self.course = course\n    def display(self):\n        print("Name:", self.name)\n        print("Age:", self.age)\n        print("Course:", self.course)\n\nstudent = Student("Sukundra", 20, "BSc Computer Science with AI")\nstudent.display()`,
+        "Attributes without underscore prefixes are public by default, and the instance method uses self to read them.",
+        "",
+        "Name: Sukundra\nAge: 20\nCourse: BSc Computer Science with AI",
+      ),
+      exercise(
+        "Create an Employee with _employee_name and _salary, then display both values.",
+        "A single underscore marks internal use by convention, but does not block access.",
+        `class Employee:\n    def __init__(self, name, salary):\n        self._employee_name = name\n        self._salary = salary\n\nemployee = Employee("Sukundra", 50000)\nprint("Employee Name:", employee._employee_name)\nprint("Salary:", employee._salary)`,
+        "Single-leading-underscore names remain accessible; callers are asked to treat them as internal.",
+        "",
+        "Employee Name: Sukundra\nSalary: 50000",
+      ),
+      exercise(
+        "Store marks using __marks and read them through a public method.",
+        "Keep the double-underscore field inside the class and return it through show_marks().",
+        `class Student:\n    def __init__(self, marks):\n        self.__marks = marks\n    def show_marks(self):\n        return self.__marks\n\nstudent = Student(85)\nprint("Marks:", student.show_marks())`,
+        "A public method provides the intended interface; the double underscore only triggers name mangling.",
+        "",
+        "Marks: 85",
+      ),
+      exercise(
+        "Show the name-mangled spelling of BankAccount.__balance.",
+        "Python prefixes the class name and one underscore to the attribute name.",
+        `class BankAccount:\n    def __init__(self, balance):\n        self.__balance = balance\n\naccount = BankAccount(5000)\nprint("Balance:", account._BankAccount__balance)`,
+        "The transformed name can be accessed, which demonstrates that name mangling is not security or true privacy.",
+        "",
+        "Balance: 5000",
       ),
     ],
   },
@@ -1421,6 +1477,178 @@ window.PYTHON_PRACTICE = [
       ),
     ],
   },
+  {
+    title: "OOP: Method overriding and super()",
+    category: "Intermediate",
+    level: "Level 5 · Intermediate Python",
+    oop: true,
+    explain:
+      "A subclass can override inherited behavior and use super() to reuse the next implementation in the method resolution order.",
+    code: `class Person:\n    def greet(self):\n        return "Hello"\nclass Student(Person):\n    def greet(self):\n        return f"{super().greet()}, student"\n\nprint(Student().greet())`,
+    output: "Hello, student",
+    mistake:
+      "Calling self.greet() inside the overriding Student.greet() would call that override again; use super().greet() to continue lookup.",
+    questions: [
+      exercise(
+        "Override Animal.speak() in Dog so it returns 'Woof'.",
+        "Define speak() again inside class Dog(Animal).",
+        `class Animal:\n    def speak(self):\n        return "Sound"\nclass Dog(Animal):\n    def speak(self):\n        return "Woof"\nprint(Dog().speak())`,
+        "Python calls the Dog implementation for a Dog object.",
+        "",
+        "Woof",
+      ),
+      exercise(
+        "Use super() to reuse a parent greeting and add a student's course.",
+        "Return the parent greeting followed by the course.",
+        `class Person:\n    def greet(self):\n        return "Hello"\nclass Student(Person):\n    def greet(self):\n        return f"{super().greet()}, Python"\nprint(Student().greet())`,
+        "super().greet() calls the next greet() implementation in the method resolution order.",
+        "",
+        "Hello, Python",
+      ),
+      exercise(
+        "Initialize a Student name with the parent Person constructor.",
+        "Call super().__init__(name) from Student.__init__().",
+        `class Person:\n    def __init__(self, name):\n        self.name = name\nclass Student(Person):\n    def __init__(self, name, course):\n        super().__init__(name)\n        self.course = course\n\nstudent = Student("Rita", "Python")\nprint(student.name, student.course)`,
+        "The parent initializer sets name, while Student stores its own course.",
+        "",
+        "Rita Python",
+      ),
+      exercise(
+        "Why use super() in an overriding method?",
+        "It can reuse inherited behavior without naming the parent class directly.",
+        `# super() continues method lookup after the current class.`,
+        "This also works with Python's method resolution order in multiple inheritance.",
+      ),
+    ],
+  },
+  {
+    title: "OOP: Properties and validated setters",
+    category: "Intermediate",
+    level: "Level 5 · Intermediate Python",
+    oop: true,
+    explain:
+      "@property exposes a getter using attribute syntax. A setter can validate assignments and store the accepted value in a separate internal attribute.",
+    code: `class Student:\n    def __init__(self, score):\n        self.score = score\n    @property\n    def score(self):\n        return self._score\n    @score.setter\n    def score(self, value):\n        if not 0 <= value <= 100:\n            raise ValueError("score must be from 0 to 100")\n        self._score = value\n\nstudent = Student(80)\nstudent.score = 95\nprint(student.score)`,
+    output: "95",
+    mistake:
+      "Do not assign self.score inside its own setter; use a backing attribute such as self._score to avoid recursion.",
+    questions: [
+      exercise(
+        "Write a read-only property called area for a rectangle.",
+        "Return width multiplied by height from a method decorated with @property.",
+        `class Rectangle:\n    def __init__(self, width, height):\n        self.width = width\n        self.height = height\n    @property\n    def area(self):\n        return self.width * self.height\n\nprint(Rectangle(3, 4).area)`,
+        "The property is accessed as rectangle.area, without parentheses.",
+        "",
+        "12",
+      ),
+      exercise(
+        "Make a score property accept only values from 0 to 100.",
+        "Raise ValueError for an out-of-range value and store accepted values in _score.",
+        `class Student:\n    def __init__(self, score):\n        self.score = score\n    @property\n    def score(self):\n        return self._score\n    @score.setter\n    def score(self, value):\n        if not 0 <= value <= 100:\n            raise ValueError("invalid score")\n        self._score = value`,
+        "The setter validates every assignment, including assignments made after construction.",
+      ),
+      exercise(
+        "Set a valid age through a property and read it back.",
+        "Use the property assignment syntax person.age = 20.",
+        `class Person:\n    def __init__(self):\n        self._age = 0\n    @property\n    def age(self):\n        return self._age\n    @age.setter\n    def age(self, value):\n        if value < 0:\n            raise ValueError("age cannot be negative")\n        self._age = value\n\nperson = Person()\nperson.age = 20\nprint(person.age)`,
+        "The getter reads the backing field and the setter updates it after validation.",
+        "",
+        "20",
+      ),
+      exercise(
+        "Why should a property setter use a backing field such as _score?",
+        "Avoid assigning the property to itself.",
+        `# self._score = value stores data without calling the score setter again.`,
+        "Assigning self.score inside the score setter would recursively invoke the setter.",
+      ),
+    ],
+  },
+  {
+    title: "OOP: Class and instance attributes",
+    category: "Intermediate",
+    level: "Level 5 · Intermediate Python",
+    oop: true,
+    explain:
+      "Class attributes belong to the class and can act as shared defaults. Instance attributes belong to individual objects and can shadow a class attribute.",
+    code: `class Device:\n    category = "shared"\n\nfirst = Device()\nsecond = Device()\nfirst.category = "personal"  # create an instance attribute\nprint(first.category, second.category)`,
+    output: "personal shared",
+    mistake:
+      "Avoid mutable class attributes for per-instance data; otherwise instances can unintentionally share the same list or dictionary.",
+    questions: [
+      exercise(
+        "Show one instance changing its value without changing another instance.",
+        "Assign value on only the first object.",
+        `class Counter:\n    value = 0\nfirst = Counter()\nsecond = Counter()\nfirst.value = 3\nprint(first.value, second.value)`,
+        "Assigning through first creates an instance attribute that shadows the class attribute.",
+        "",
+        "3 0",
+      ),
+      exercise(
+        "Create a class attribute called kind with the value 'book'.",
+        "Declare kind directly in the class body.",
+        `class Item:\n    kind = "book"\n\nprint(Item.kind)`,
+        "A class attribute can be accessed through the class.",
+        "",
+        "book",
+      ),
+      exercise(
+        "Give each Student object its own name in __init__().",
+        "Save the argument on self.name.",
+        `class Student:\n    def __init__(self, name):\n        self.name = name\n\nfirst = Student("Ari")\nsecond = Student("Rita")\nprint(first.name, second.name)`,
+        "Each instance receives its own name attribute.",
+        "",
+        "Ari Rita",
+      ),
+      exercise(
+        "Why should a per-student list usually be created in __init__() rather than as a class attribute?",
+        "Consider whether changes should be shared between students.",
+        `class Student:\n    def __init__(self):\n        self.grades = []  # each object gets a separate list`,
+        "An instance list prevents one student's changes from appearing on every other object.",
+      ),
+    ],
+  },
+  {
+    title: "OOP: Underscores and name mangling",
+    category: "Intermediate",
+    level: "Level 5 · Intermediate Python",
+    oop: true,
+    explain:
+      "A single leading underscore is a convention for internal use. A double leading underscore triggers class-name mangling to reduce accidental clashes in subclasses; neither provides security.",
+    code: `class Account:\n    def __init__(self, owner):\n        self._owner = owner  # internal-use convention\n        self.__token = "A1"  # name-mangled\n    def token(self):\n        return self.__token\n\naccount = Account("Rita")\nprint(account._owner, account.token())`,
+    output: "Rita A1",
+    mistake:
+      "Do not treat underscores as access control or as a way to protect secrets; Python code can still inspect an object's attributes.",
+    questions: [
+      exercise(
+        "Use a single-leading-underscore balance attribute and return it through a method.",
+        "Name the internal field _balance.",
+        `class Account:\n    def __init__(self, balance):\n        self._balance = balance\n    def balance(self):\n        return self._balance\n\nprint(Account(25).balance())`,
+        "The underscore signals internal use by convention, while the method provides a clear interface.",
+        "",
+        "25",
+      ),
+      exercise(
+        "Explain why hasattr(item, '__code') is false for an instance storing self.__code.",
+        "Python mangles double-leading-underscore attribute names inside a class.",
+        `class Item:\n    def __init__(self):\n        self.__code = "x"\n\nitem = Item()\nprint(hasattr(item, "__code"))`,
+        "The stored attribute is mangled with the class name; name mangling is not a privacy boundary.",
+        "",
+        "False",
+      ),
+      exercise(
+        "What does one leading underscore communicate to Python programmers?",
+        "It is a naming convention, not a language-enforced access modifier.",
+        `# _value is intended for internal use by convention.`,
+        "Python does not prevent outside code from reading or changing _value.",
+      ),
+      exercise(
+        "Why might a base class use a double-leading-underscore name?",
+        "It reduces accidental collisions with similarly named subclass attributes.",
+        `class Base:\n    def __init__(self):\n        self.__value = 1  # mangled to reduce accidental name clashes`,
+        "Name mangling helps avoid accidental clashes but should not be used to protect secrets.",
+      ),
+    ],
+  },
 ];
 
 window.PYTHON_QUIZ = [
@@ -1473,5 +1701,415 @@ window.PYTHON_QUIZ = [
     question: "What is the base case for in recursion?",
     choices: ["It stops the repeated calls", "It imports a function", "It sorts a list"],
     answer: 0,
+  },
+  {
+    question: "What is the type of the value True?",
+    choices: ["bool", "int", "str", "float"],
+    answer: 0,
+  },
+  {
+    question: 'What does len("Python") return?',
+    choices: ["5", "6", "7", "An error"],
+    answer: 1,
+  },
+  {
+    question: "Given numbers = [10, 20, 30], what does numbers[-1] return?",
+    choices: ["10", "20", "30", "-1"],
+    answer: 2,
+  },
+  {
+    question: "Given items = [10, 20, 30, 40], what does items[1:3] return?",
+    choices: ["[10, 20, 30]", "[20, 30]", "[20, 30, 40]", "[30, 40]"],
+    answer: 1,
+  },
+  {
+    question: "Which statement about a tuple is correct?",
+    choices: [
+      "Its items can be changed in place",
+      "It is immutable after creation",
+      "It can contain only numbers",
+      "It must have exactly two items",
+    ],
+    answer: 1,
+  },
+  {
+    question: 'Given profile = {"name": "Ari", "city": "Kathmandu"}, how do you access the city?',
+    choices: ["profile.city", 'profile["city"]', 'profile("city")', "profile[city]"],
+    answer: 1,
+  },
+  {
+    question: "What happens when duplicate values are added to a set?",
+    choices: [
+      "The set keeps every duplicate",
+      "The set removes duplicate values",
+      "Python raises a SyntaxError",
+      "The set changes into a list",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which dictionary method can return a default when a key is missing?",
+    choices: ["find()", "value()", "get()", "search()"],
+    answer: 2,
+  },
+  {
+    question: "Which list method adds a single item to the end of a list?",
+    choices: ["append()", "extend()", "join()", "push_end()"],
+    answer: 0,
+  },
+  {
+    question: "What does numbers.extend([4, 5]) do to a list named numbers?",
+    choices: [
+      "Adds [4, 5] as one nested item",
+      "Adds 4 and 5 as separate items",
+      "Replaces the list with [4, 5]",
+      "Returns a sorted copy of the list",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does sorted([3, 1, 2]) return?",
+    choices: ["[3, 1, 2]", "[1, 2, 3]", "None", "An error"],
+    answer: 1,
+  },
+  {
+    question: "What is true about list.sort()?",
+    choices: [
+      "It sorts the list in place",
+      "It always returns a new sorted list",
+      "It converts the list to a tuple",
+      "It removes duplicate values",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which values are produced by range(1, 5)?",
+    choices: ["1, 2, 3, 4", "1, 2, 3, 4, 5", "0, 1, 2, 3, 4", "2, 3, 4, 5"],
+    answer: 0,
+  },
+  {
+    question: "What does enumerate(items) provide in a loop?",
+    choices: [
+      "Each item twice",
+      "An index and its corresponding item",
+      "Only the items in reverse order",
+      "The number of items as a single integer",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does zip([1, 2], ['a', 'b']) pair together?",
+    choices: ["(1, 'a') and (2, 'b')", "(1, 2) and ('a', 'b')", "1 and 2 only", "'a' and 'b' only"],
+    answer: 0,
+  },
+  {
+    question: "What does continue do inside a loop?",
+    choices: [
+      "Ends the entire program",
+      "Skips to the next loop iteration",
+      "Exits the nearest function",
+      "Repeats the current iteration forever",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does break do inside a loop?",
+    choices: [
+      "Exits the nearest enclosing loop",
+      "Skips only the current statement",
+      "Restarts the loop from the beginning",
+      "Closes the Python interpreter",
+    ],
+    answer: 0,
+  },
+  {
+    question: "When is the expression a and b true?",
+    choices: [
+      "When either a or b is true",
+      "Only when both a and b are true",
+      "Only when both a and b are false",
+      "Whenever a and b have different values",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What does the in operator check?",
+    choices: [
+      "Whether a value is a member of a collection",
+      "Whether two variables have the same name",
+      "Whether a function is imported",
+      "Whether a number is an integer",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What is the purpose of elif in a conditional statement?",
+    choices: [
+      "To define a function",
+      "To test another condition if earlier conditions were false",
+      "To repeat a block of code",
+      "To handle an exception",
+    ],
+    answer: 1,
+  },
+  {
+    question: "Which operator assigns a value to a variable?",
+    choices: ["==", "=", "!=", "<="],
+    answer: 1,
+  },
+  {
+    question: "What does a return statement do in a function?",
+    choices: [
+      "Sends a value back to the caller",
+      "Prints every local variable",
+      "Repeats the function automatically",
+      "Imports the function into another module",
+    ],
+    answer: 0,
+  },
+  {
+    question: 'What is "friend" in def greet(name="friend")?',
+    choices: [
+      "A default argument value",
+      "A required return type",
+      "A Python keyword",
+      "A global variable declaration",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Inside a function definition, what does *args collect?",
+    choices: [
+      "Extra positional arguments in a tuple",
+      "Extra keyword arguments in a dictionary",
+      "All local variables in a list",
+      "The function's return values",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Inside a function definition, what does **kwargs collect?",
+    choices: [
+      "Extra positional arguments in a tuple",
+      "Extra keyword arguments in a dictionary",
+      "All imported modules in a list",
+      "The function's default arguments only",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is a lambda function in Python?",
+    choices: [
+      "A small anonymous function expression",
+      "A class that can only store numbers",
+      "A loop that runs once",
+      "A built-in file format",
+    ],
+    answer: 0,
+  },
+  {
+    question: "By default, where is a variable created inside a function available?",
+    choices: [
+      "Only inside that function",
+      "Everywhere in the program",
+      "Only inside imported modules",
+      "Only after the program exits",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What is a docstring commonly used for?",
+    choices: [
+      "Documenting a module, class, or function",
+      "Declaring a variable as constant",
+      "Converting text to a number",
+      "Handling a failed import",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which statement imports Python's math module?",
+    choices: ["include math", "import math", "using math", "load(math)"],
+    answer: 1,
+  },
+  {
+    question: "What value does math.sqrt(25) return?",
+    choices: ["5", "5.0", "25", "625"],
+    answer: 1,
+  },
+  {
+    question: 'What does if __name__ == "__main__": commonly check?',
+    choices: [
+      "Whether the file is being run directly",
+      "Whether the file has no functions",
+      "Whether Python is in interactive mode",
+      "Whether every import succeeded",
+    ],
+    answer: 0,
+  },
+  {
+    question: 'What exception can data["missing"] raise when "missing" is not a dictionary key?',
+    choices: ["IndexError", "KeyError", "NameError", "TypeError"],
+    answer: 1,
+  },
+  {
+    question: "When does a finally block normally run?",
+    choices: [
+      "After the try/except handling, whether or not an exception occurred",
+      "Only when no exception occurs",
+      "Only when an exception is not handled",
+      "Before the try block starts",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does the raise statement do?",
+    choices: [
+      "Explicitly raises an exception",
+      "Silently ignores an exception",
+      "Creates a loop",
+      "Imports an exception-handling module",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does using with open(...) as file provide?",
+    choices: [
+      "Automatic closing of the file when the block exits",
+      "Automatic deletion of the file",
+      "Automatic conversion of the file to JSON",
+      "A guarantee that the file is read-only",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which file mode opens an existing file for reading?",
+    choices: ["r", "w", "a", "x"],
+    answer: 0,
+  },
+  {
+    question: "What does file.readline() return?",
+    choices: [
+      "The next line from the file",
+      "Every line as a list",
+      "The file's name",
+      "The number of bytes in the file",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does [number * number for number in numbers] create?",
+    choices: [
+      "A list of the squares of the numbers",
+      "A dictionary of the numbers",
+      "A generator function",
+      "A sorted copy of numbers",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does a generator expression generally produce?",
+    choices: [
+      "A generator that yields values as they are requested",
+      "A tuple that is always sorted",
+      "A function that runs only once",
+      "A dictionary with numbered keys",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does yield do in a generator function?",
+    choices: [
+      "Produces a value and suspends the function until it resumes",
+      "Ends the entire Python program",
+      "Prints a value without returning it",
+      "Restarts the function from its first line",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which keyword begins a class definition?",
+    choices: ["object", "class", "struct", "define"],
+    answer: 1,
+  },
+  {
+    question: "In an instance method, what does self conventionally refer to?",
+    choices: [
+      "The current object instance",
+      "The parent class only",
+      "The Python interpreter",
+      "The module containing the class",
+    ],
+    answer: 0,
+  },
+  {
+    question: "Which syntax defines Dog as a subclass of Animal?",
+    choices: [
+      "class Dog extends Animal:",
+      "class Dog(Animal):",
+      "class Dog -> Animal:",
+      "class Dog: Animal",
+    ],
+    answer: 1,
+  },
+  {
+    question: "What is super() commonly used for in a subclass?",
+    choices: [
+      "Calling a method from a parent class",
+      "Creating a global variable",
+      "Sorting class attributes",
+      "Deleting the parent class",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What is the first parameter conventionally received by a class method?",
+    choices: ["self", "cls", "this", "class"],
+    answer: 1,
+  },
+  {
+    question: "What does @staticmethod indicate?",
+    choices: [
+      "The method receives no automatic self or cls argument",
+      "The method can only be called once",
+      "The method must return a string",
+      "The method automatically changes instance state",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What is the usual purpose of the __str__ method?",
+    choices: [
+      "Provide a readable string representation of an object",
+      "Convert every object into an integer",
+      "Prevent an object from being printed",
+      "Create a new instance automatically",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does the is operator check?",
+    choices: [
+      "Whether two references point to the same object",
+      "Whether two values have equal contents",
+      "Whether a value belongs to a list",
+      "Whether a variable has been assigned",
+    ],
+    answer: 0,
+  },
+  {
+    question: "What does dictionary.items() provide?",
+    choices: [
+      "The dictionary's keys and values as pairs",
+      "Only the dictionary's values in sorted order",
+      "A list of the dictionary's keys",
+      "The number of entries in the dictionary",
+    ],
+    answer: 0,
+  },
+  {
+    question: 'What value does float("3.5") produce?',
+    choices: ["The string '3.5'", "The float 3.5", "The integer 3", "An error"],
+    answer: 1,
   },
 ];

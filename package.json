@@ -2,8 +2,8 @@
   "name": "sukundra-pujara-portfolio",
   "private": true,
   "scripts": {
-    "format": "prettier --write \"**/*.{html,css,js,json,md,yml,yaml}\"",
-    "format:check": "prettier --check \"**/*.{html,css,js,json,md,yml,yaml}\""
+    "format": "prettier --write \"**/*.{html,css,js,mjs,json,md,yml,yaml}\"",
+    "format:check": "prettier --check \"**/*.{html,css,js,mjs,json,md,yml,yaml}\""
   },
   "devDependencies": {
     "prettier": "3.9.10"

@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const practiceTopics = window.PYTHON_PRACTICE || [];
   const theorySections = window.PYTHON_THEORY || [];
   const completedKey = "pythonNotesCompleted:v1";
-  const quizKey = "pythonNotesQuizBest:v1";
+  const quizKey = "pythonNotesQuizBest:v2";
   let completed = loadCompleted();
   let visibleIndexes = [];
   let activeIndex = -1;
@@ -393,7 +393,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!visibleQuestions)
       addText(list, "p", "empty-state", "No theory questions match your search.");
-    count.textContent = `Showing ${visibleQuestions} of 115 theory questions`;
+    const totalQuestions = theorySections.reduce(
+      (total, section) => total + section.questions.length,
+      0,
+    );
+    count.textContent = `Showing ${visibleQuestions} of ${totalQuestions} theory questions`;
   }
 
   function updateBestQuizScore() {

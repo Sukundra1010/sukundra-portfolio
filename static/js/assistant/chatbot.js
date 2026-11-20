@@ -1,5 +1,5 @@
 /*
- * Sukundra AI answers questions using the knowledge bundled with this site.
+ * The Portfolio Guide answers from knowledge bundled with this site.
  */
 (() => {
   // Keep the conversation short and inside this browser tab.
@@ -8,7 +8,7 @@
   const maxMessageLength = 6000;
   // These buttons give visitors a few useful questions to start with.
   const quickQuestions = [
-    "Who is Er. Sukundra Pujara?",
+    "Who is Sukundra Pujara?",
     "What are his technical skills?",
     "Tell me about his projects.",
     "What is his educational background?",
@@ -204,27 +204,27 @@
   launcher.className = "sukku-chat-launcher";
   launcher.type = "button";
   launcher.id = "sukundra-ai";
-  launcher.setAttribute("aria-label", "Open SUKUNDRA AI PRO chat");
+  launcher.setAttribute("aria-label", "Open Portfolio Guide chat");
   launcher.setAttribute("aria-expanded", "false");
   launcher.innerHTML = `
-    <span class="sukku-chat-brand-mark" aria-hidden="true"><img src="static/images/sukundra-ai-logo.png" alt=""></span>
-    <span class="sukku-chat-launcher-label">Ask SUKUNDRA AI PRO</span>
+    <span class="sukku-chat-brand-mark" aria-hidden="true">P</span>
+    <span class="sukku-chat-launcher-label">Ask the Portfolio Guide</span>
   `;
 
   // Build the chat window. CSS controls how it fits desktop and mobile screens.
   const panel = document.createElement("section");
   panel.className = "sukku-chat-panel";
   panel.setAttribute("role", "dialog");
-  panel.setAttribute("aria-label", "SUKUNDRA AI PRO chat");
+  panel.setAttribute("aria-label", "Portfolio Guide chat");
   panel.setAttribute("aria-modal", "false");
   panel.hidden = true;
 
   panel.innerHTML = `
     <header class="sukku-chat-header">
-      <div class="sukku-chat-avatar"><img src="static/images/sukundra-ai-logo.png" alt=""></div>
+      <div class="sukku-chat-avatar" aria-hidden="true">P</div>
       <div class="sukku-chat-heading">
-        <strong>SUKUNDRA AI PRO</strong>
-        <span>Python coding tutor · Portfolio assistant</span>
+        <strong>PORTFOLIO GUIDE</strong>
+        <span>Python learning · Portfolio Q&amp;A</span>
         <span
           class="sukku-chat-status"
           data-chat-status
@@ -278,7 +278,7 @@
         <button class="sukku-chat-prompt-link" type="button" data-chat-prompt="Tell me about his projects." aria-pressed="false">
           <span aria-hidden="true">▧</span> Projects
         </button>
-        <button class="sukku-chat-prompt-link" type="button" data-chat-prompt="Who is Er. Sukundra Pujara?" aria-pressed="false">
+        <button class="sukku-chat-prompt-link" type="button" data-chat-prompt="Who is Sukundra Pujara?" aria-pressed="false">
           <span aria-hidden="true">◉</span> About Sukundra
         </button>
         <span class="sukku-chat-sidebar-label sukku-chat-source-heading">AVAILABLE KNOWLEDGE</span>
@@ -293,7 +293,7 @@
       <section class="sukku-chat-conversation" aria-label="Conversation">
         <section class="sukku-chat-voicebar" aria-label="Voice input">
           <div class="sukku-chat-voice-copy">
-            <span class="sukku-chat-voice-title">Speak to SUKUNDRA AI PRO</span>
+            <span class="sukku-chat-voice-title">Speak to the Portfolio Guide</span>
             <span class="sukku-chat-voice-status" data-voice-status aria-live="polite">Tap the mic; voice questions auto-send</span>
           </div>
           <label class="sukku-chat-voice-language">
@@ -320,12 +320,12 @@
           class="sukku-chat-typing"
           data-chat-typing
           hidden
-          aria-label="Sukundra AI is typing"
+          aria-label="Portfolio Guide is preparing a reply"
         >
           <span></span>
           <span></span>
           <span></span>
-          <span class="sukku-chat-typing-label">Sukundra AI is preparing a reply</span>
+          <span class="sukku-chat-typing-label">Portfolio Guide is preparing a reply</span>
         </div>
         <form class="sukku-chat-form" data-chat-form>
           <label class="sukku-chat-sr-only" for="sukku-chat-input">Write your message</label>
@@ -413,7 +413,7 @@
     if (preferredVoice) utterance.voice = preferredVoice;
     utterance.addEventListener("start", () => {
       panel.classList.add("is-speaking");
-      voiceStatus.textContent = "Sukundra AI is speaking…";
+      voiceStatus.textContent = "Portfolio Guide is speaking…";
     });
     utterance.addEventListener("end", () => {
       panel.classList.remove("is-speaking");
@@ -421,7 +421,7 @@
     });
     utterance.addEventListener("error", (event) => {
       panel.classList.remove("is-speaking");
-      console.warn("Sukundra AI speech output failed.", event.error);
+      console.warn("Portfolio Guide speech output failed.", event.error);
       voiceStatus.textContent =
         "English speech could not play. Check your browser's speech settings.";
     });
@@ -762,9 +762,9 @@
       if (options.error) {
         label.textContent = "Connection notice";
       } else if (message.source === "python") {
-        label.textContent = "SUKUNDRA AI PRO · Python tutor";
+        label.textContent = "PORTFOLIO GUIDE · Python tutor";
       } else {
-        label.textContent = "SUKUNDRA AI PRO";
+        label.textContent = "PORTFOLIO GUIDE";
       }
       bubble.append(label);
     }
@@ -797,7 +797,7 @@
             copyButton.title = "Copy response";
           }, 1500);
         } catch (error) {
-          console.error("Could not copy the Sukundra AI response.", error);
+          console.error("Could not copy the Portfolio Guide response.", error);
           setStatus("Copy failed. Select and copy the response text.", "error");
         }
       });
@@ -814,11 +814,11 @@
     messagesElement.replaceChildren();
     const welcome = document.createElement("section");
     welcome.className = "sukku-chat-welcome";
-    welcome.setAttribute("aria-label", "Welcome to Sukundra AI");
+    welcome.setAttribute("aria-label", "Welcome to the Portfolio Guide");
 
     const greeting = document.createElement("span");
     greeting.className = "sukku-chat-welcome-label";
-    greeting.textContent = "SUKUNDRA AI";
+    greeting.textContent = "PORTFOLIO GUIDE";
 
     const heading = document.createElement("h2");
     heading.textContent = "How can I help you today?";
@@ -840,7 +840,7 @@
       return saved.filter(isValidMessage).slice(-maxStoredMessages);
     } catch (error) {
       historyAvailable = false;
-      console.error("Could not read Sukundra AI chat history from this session.", error);
+      console.error("Could not read Portfolio Guide chat history from this session.", error);
       return [];
     }
   }
@@ -862,7 +862,7 @@
       sessionStorage.setItem(historyKey, JSON.stringify(recentMessages));
     } catch (error) {
       historyAvailable = false;
-      console.error("Could not save Sukundra AI chat history in this session.", error);
+      console.error("Could not save Portfolio Guide chat history in this session.", error);
       setStatus("Chat works, but this session cannot save its history.", "error");
     }
   }
@@ -940,7 +940,7 @@
       logActivity("Browser answer prepared", "complete");
       if (readAloud) speakReply(reply, "en-US");
     } catch (error) {
-      console.error("Sukundra AI browser Q&A could not answer the message.", error);
+      console.error("Portfolio Guide browser Q&A could not answer the message.", error);
       logActivity("Could not prepare an answer", "error");
       if (voiceOnly) {
         voiceStatus.textContent = "Could not prepare an English spoken answer. Please try again.";
@@ -1338,8 +1338,8 @@
     // Handle greetings and thanks before showing the general fallback.
     if (/hello|hi\b|hey\b|namaste|नमस्ते|नमस्कार/.test(text)) {
       return asksInNepali
-        ? "नमस्ते! म Sukundra AI हुँ। म portfolio सम्बन्धी जानकारी र आधारभूत Python, HTML, CSS तथा JavaScript बुझाउन सक्छु। कुन विषयमा मद्दत चाहियो?"
-        : "Hello! I’m Sukundra AI. I can answer portfolio questions and explain beginner Python, HTML, CSS, and JavaScript. What would you like to learn?";
+        ? "नमस्ते! म Portfolio Guide हुँ। म portfolio सम्बन्धी जानकारी र आधारभूत Python, HTML, CSS तथा JavaScript बुझाउन सक्छु। कुन विषयमा मद्दत चाहियो?"
+        : "Hello! I’m the Portfolio Guide. I can answer portfolio questions and explain beginner Python, HTML, CSS, and JavaScript. What would you like to learn?";
     }
 
     if (/thank|धन्यवाद/.test(text)) {
@@ -1413,8 +1413,8 @@
     }
 
     return asksInNepali
-      ? "म SUKUNDRA AI PRO हुँ। म Python theory, उदाहरण, code को static जाँच र Sukundra को verified portfolio जानकारीमा मद्दत गर्छु। Code चलाउने सुविधा छैन। Python roadmap, variables, loops, functions, OOP, debugging वा interview practice बारे सोध्नुहोस्।"
-      : "I’m SUKUNDRA AI PRO. I can explain Python topics, provide a few guided code starters, review snippets for common text-level issues, and answer verified portfolio questions. Code is not executed here. Ask about a Python topic, debugging, line-by-line explanation, or interview practice.";
+      ? "म Portfolio Guide हुँ। म Python theory, उदाहरण, code को static जाँच र Sukundra को verified portfolio जानकारीमा मद्दत गर्छु। Code चलाउने सुविधा छैन। Python roadmap, variables, loops, functions, OOP, debugging वा interview practice बारे सोध्नुहोस्।"
+      : "I’m the Portfolio Guide. I can explain Python topics, provide a few guided code starters, review snippets for common text-level issues, and answer verified portfolio questions. Code is not executed here. Ask about a Python topic, debugging, line-by-line explanation, or interview practice.";
   }
 
   async function sendMessage(rawMessage, readAloud = false, voiceOnly = false) {

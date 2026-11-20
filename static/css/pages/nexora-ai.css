@@ -1,0 +1,1575 @@
+* {
+  box-sizing: border-box;
+}
+
+body.nexora-ai-page {
+  --nx-bg: #080a12;
+  --nx-panel: rgba(15, 18, 31, 0.88);
+  --nx-panel-strong: #111525;
+  --nx-panel-soft: rgba(255, 255, 255, 0.035);
+  --nx-border: rgba(164, 174, 218, 0.13);
+  --nx-text: #f2f4ff;
+  --nx-muted: #9da5bd;
+  --nx-subtle: #707990;
+  --nx-purple: #a68bff;
+  --nx-cyan: #62ddff;
+  --nx-blue: #657aff;
+  --nx-error: #ff8e9b;
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 68% 12%, rgba(84, 52, 164, 0.1), transparent 38%), var(--nx-bg);
+  color: var(--nx-text);
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+body.nexora-ai-page[data-theme="light"] {
+  --nx-bg: #f5f6fb;
+  --nx-panel: rgba(255, 255, 255, 0.94);
+  --nx-panel-strong: #fff;
+  --nx-panel-soft: rgba(26, 34, 65, 0.035);
+  --nx-border: rgba(41, 52, 91, 0.13);
+  --nx-text: #17192a;
+  --nx-muted: #626a81;
+  --nx-subtle: #858da1;
+  --nx-purple: #7455d9;
+  --nx-cyan: #087fa5;
+  --nx-blue: #4859cb;
+  background:
+    radial-gradient(ellipse at 68% 12%, rgba(128, 99, 216, 0.11), transparent 38%), var(--nx-bg);
+}
+
+body.nexora-ai-page button,
+body.nexora-ai-page textarea {
+  color: inherit;
+  font: inherit;
+}
+
+body.nexora-ai-page button {
+  cursor: pointer;
+}
+
+body.nexora-ai-page button:focus-visible,
+body.nexora-ai-page a:focus-visible,
+body.nexora-ai-page textarea:focus-visible {
+  outline: 2px solid var(--nx-cyan);
+  outline-offset: 3px;
+}
+
+.nexora-app [hidden] {
+  display: none !important;
+}
+
+.nexora-app {
+  position: relative;
+  display: grid;
+  grid-template-columns: 276px minmax(0, 1fr);
+  width: 100%;
+  height: 100dvh;
+  min-height: 540px;
+  background-image:
+    linear-gradient(rgba(141, 151, 204, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(141, 151, 204, 0.018) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+
+.nexora-sidebar {
+  z-index: 20;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 22px 16px 16px;
+  border-right: 1px solid var(--nx-border);
+  background: var(--nx-panel);
+  backdrop-filter: blur(24px);
+}
+
+.nexora-brand,
+.nexora-mobile-brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 10px;
+  color: var(--nx-text);
+  font-size: 18px;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  text-decoration: none;
+}
+
+.nexora-brand strong,
+.nexora-mobile-brand strong {
+  color: var(--nx-purple);
+  font-weight: 750;
+}
+
+.nexora-brand-mark {
+  display: grid;
+  width: 33px;
+  height: 33px;
+  place-items: center;
+  border: 1px solid rgba(155, 133, 255, 0.55);
+  border-radius: 11px;
+  background: linear-gradient(145deg, rgba(128, 93, 246, 0.32), rgba(71, 204, 242, 0.12));
+  box-shadow:
+    inset 0 0 14px rgba(173, 148, 255, 0.16),
+    0 0 22px rgba(116, 87, 255, 0.19);
+  color: #e4ddff;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.nexora-new-chat {
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 0 11px;
+  border: 1px solid rgba(157, 139, 255, 0.24);
+  border-radius: 12px;
+  background: linear-gradient(110deg, rgba(124, 95, 235, 0.18), rgba(53, 162, 199, 0.09));
+  color: var(--nx-text);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.nexora-new-chat:hover {
+  transform: translateY(-1px);
+  border-color: rgba(157, 139, 255, 0.55);
+  background: linear-gradient(110deg, rgba(124, 95, 235, 0.28), rgba(53, 162, 199, 0.15));
+}
+
+.nexora-new-chat svg,
+.nexora-back-link svg,
+.nexora-theme-toggle svg,
+.nexora-clear-chat svg,
+.nexora-menu-toggle svg,
+.nexora-get-started svg,
+.nexora-attach-button svg,
+.nexora-send-button svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.nexora-new-chat kbd {
+  margin-left: auto;
+  color: var(--nx-subtle);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+.nexora-history-section {
+  min-height: 0;
+  flex: 1;
+  margin-top: 31px;
+  overflow: auto;
+}
+
+.nexora-history-section h2,
+.nexora-suggestions > span {
+  margin: 0 8px 11px;
+  color: var(--nx-subtle);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.nexora-history {
+  display: grid;
+  gap: 4px;
+}
+
+.nexora-history-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--nx-muted);
+  text-align: left;
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.nexora-history-item:hover,
+.nexora-history-item[aria-current="true"] {
+  border-color: var(--nx-border);
+  background: var(--nx-panel-soft);
+  color: var(--nx-text);
+}
+
+.nexora-history-item svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.nexora-history-item span {
+  overflow: hidden;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nexora-history-empty {
+  margin: 8px;
+  color: var(--nx-subtle);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.nexora-sidebar-footer {
+  display: grid;
+  gap: 5px;
+  padding-top: 14px;
+  border-top: 1px solid var(--nx-border);
+}
+
+.nexora-api-status {
+  display: flex;
+  min-height: 32px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px;
+  color: var(--nx-muted);
+  font-size: 10px;
+}
+
+.nexora-status-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #edbd61;
+  box-shadow: 0 0 10px rgba(237, 189, 97, 0.45);
+}
+
+.nexora-api-status[data-state="connected"] .nexora-status-dot {
+  background: #5de2a3;
+  box-shadow: 0 0 10px rgba(93, 226, 163, 0.45);
+}
+
+.nexora-api-status[data-state="offline"] .nexora-status-dot,
+.nexora-api-status[data-state="unconfigured"] .nexora-status-dot {
+  background: var(--nx-error);
+  box-shadow: 0 0 10px rgba(255, 142, 155, 0.4);
+}
+
+.nexora-back-link,
+.nexora-theme-toggle {
+  display: flex;
+  min-height: 37px;
+  align-items: center;
+  gap: 10px;
+  padding: 0 9px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--nx-muted);
+  font-size: 11px;
+  text-align: left;
+  text-decoration: none;
+  transition:
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.nexora-back-link:hover,
+.nexora-theme-toggle:hover {
+  background: var(--nx-panel-soft);
+  color: var(--nx-text);
+}
+
+.nexora-back-link svg,
+.nexora-theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+
+.nexora-main {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  min-height: 0;
+  grid-template-rows: 64px minmax(0, 1fr) auto;
+  overflow: hidden;
+}
+
+.nexora-topbar {
+  z-index: 3;
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 0 27px;
+  border-bottom: 1px solid var(--nx-border);
+  background: rgba(8, 10, 18, 0.44);
+  backdrop-filter: blur(18px);
+}
+
+body.nexora-ai-page[data-theme="light"] .nexora-topbar {
+  background: rgba(255, 255, 255, 0.64);
+}
+
+.nexora-topbar-spacer {
+  flex: 1;
+}
+
+.nexora-topbar-title {
+  color: var(--nx-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.nexora-clear-chat,
+.nexora-menu-toggle {
+  display: inline-flex;
+  min-height: 35px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--nx-muted);
+  font-size: 11px;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.nexora-clear-chat:hover:not(:disabled) {
+  border-color: var(--nx-border);
+  background: var(--nx-panel-soft);
+  color: var(--nx-text);
+}
+
+.nexora-clear-chat:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.nexora-clear-chat svg {
+  width: 15px;
+  height: 15px;
+}
+
+.nexora-menu-toggle,
+.nexora-mobile-brand {
+  display: none;
+}
+
+.nexora-welcome,
+.nexora-chat-thread {
+  min-height: 0;
+  overflow: auto;
+  scrollbar-color: rgba(140, 150, 196, 0.28) transparent;
+  scrollbar-width: thin;
+}
+
+.nexora-welcome {
+  display: flex;
+  max-width: 1170px;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(25px, 4vh, 42px);
+  margin: 0 auto;
+  padding: 36px clamp(24px, 5vw, 72px) 25px;
+}
+
+.nexora-welcome-hero {
+  position: relative;
+  display: grid;
+  min-height: 285px;
+  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 0.75fr);
+}
+
+.nexora-welcome-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 570px;
+}
+
+.nexora-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--nx-cyan);
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 0.17em;
+}
+
+.nexora-eyebrow span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--nx-cyan);
+  box-shadow: 0 0 13px var(--nx-cyan);
+}
+
+.nexora-welcome-copy h1 {
+  max-width: 560px;
+  margin: 17px 0 12px;
+  background: linear-gradient(100deg, #fff 8%, #d7d0ff 61%, #87e8ff);
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(33px, 4.2vw, 55px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  line-height: 1.08;
+}
+
+body.nexora-ai-page[data-theme="light"] .nexora-welcome-copy h1 {
+  background-image: linear-gradient(100deg, #17192a 8%, #694db8 61%, #087fa5);
+  background-clip: text;
+}
+
+.nexora-welcome-copy > p {
+  margin: 0;
+  color: var(--nx-muted);
+  font-size: clamp(13px, 1.4vw, 15px);
+  letter-spacing: 0.01em;
+}
+
+.nexora-get-started {
+  display: inline-flex;
+  min-height: 41px;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding: 0 16px;
+  border: 1px solid rgba(171, 148, 255, 0.55);
+  border-radius: 10px;
+  background: linear-gradient(110deg, rgba(127, 93, 233, 0.33), rgba(51, 166, 199, 0.2));
+  box-shadow: 0 8px 28px rgba(93, 72, 179, 0.15);
+  color: var(--nx-text);
+  font-size: 12px;
+  font-weight: 650;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nexora-get-started:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 31px rgba(93, 72, 179, 0.28);
+}
+
+.nexora-get-started svg {
+  width: 15px;
+  height: 15px;
+}
+
+.nexora-neural-visual {
+  position: relative;
+  width: min(100%, 310px);
+  aspect-ratio: 1;
+  justify-self: center;
+  perspective: 700px;
+  animation: nexora-float 6s ease-in-out infinite;
+}
+
+.nexora-neural-visual::before,
+.nexora-neural-visual::after {
+  position: absolute;
+  inset: 18%;
+  border-radius: 50%;
+  content: "";
+  filter: blur(22px);
+  pointer-events: none;
+}
+
+.nexora-neural-visual::before {
+  background: rgba(109, 72, 220, 0.18);
+  transform: translate(-15%, 6%);
+}
+
+.nexora-neural-visual::after {
+  background: rgba(39, 183, 219, 0.12);
+  transform: translate(15%, -6%);
+}
+
+.nexora-neural-core {
+  position: absolute;
+  z-index: 2;
+  inset: 32%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(207, 194, 255, 0.63);
+  border-radius: 42% 58% 55% 45% / 46% 41% 59% 54%;
+  background:
+    radial-gradient(circle at 35% 28%, rgba(209, 195, 255, 0.76), transparent 17%),
+    radial-gradient(circle at 64% 68%, rgba(82, 224, 255, 0.44), transparent 38%),
+    linear-gradient(
+      145deg,
+      rgba(113, 83, 218, 0.92),
+      rgba(25, 30, 75, 0.95) 65%,
+      rgba(15, 81, 113, 0.86)
+    );
+  box-shadow:
+    inset -13px -15px 25px rgba(5, 8, 22, 0.55),
+    inset 9px 8px 20px rgba(228, 213, 255, 0.25),
+    0 0 28px rgba(129, 94, 255, 0.4),
+    0 0 74px rgba(55, 170, 223, 0.2);
+  transform: rotateX(12deg) rotateY(-16deg);
+  animation: nexora-core-morph 7s ease-in-out infinite;
+}
+
+.nexora-neural-core span {
+  position: relative;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.91);
+  font-size: 43px;
+  font-weight: 750;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 24px rgba(197, 226, 255, 0.67);
+}
+
+.nexora-neural-core-glow {
+  position: absolute;
+  inset: -35%;
+  background: linear-gradient(120deg, transparent 38%, rgba(255, 255, 255, 0.25), transparent 61%);
+  transform: translateX(-42%) rotate(18deg);
+  animation: nexora-shine 4.5s ease-in-out infinite;
+}
+
+.nexora-neural-orbit {
+  position: absolute;
+  z-index: 1;
+  inset: 10%;
+  border: 1px solid rgba(156, 142, 255, 0.32);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.nexora-neural-orbit-one {
+  transform: rotateX(70deg) rotateZ(-20deg);
+  animation: nexora-orbit-one 15s linear infinite;
+}
+
+.nexora-neural-orbit-two {
+  inset: 14% 6%;
+  border-color: rgba(88, 216, 255, 0.29);
+  transform: rotateY(69deg) rotateX(14deg);
+  animation: nexora-orbit-two 19s linear infinite;
+}
+
+.nexora-neural-orbit-three {
+  inset: 6% 17%;
+  border-color: rgba(177, 154, 255, 0.22);
+  transform: rotateY(54deg) rotateX(-54deg);
+  animation: nexora-orbit-one 24s linear infinite reverse;
+}
+
+.nexora-neuron {
+  position: absolute;
+  z-index: 3;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: var(--nx-cyan);
+  box-shadow:
+    0 0 10px var(--nx-cyan),
+    0 0 22px rgba(93, 183, 255, 0.65);
+}
+
+.nexora-neuron-one {
+  top: 17%;
+  left: 44%;
+}
+
+.nexora-neuron-two {
+  top: 35%;
+  right: 12%;
+  background: #ba9bff;
+}
+
+.nexora-neuron-three {
+  right: 19%;
+  bottom: 20%;
+  width: 6px;
+  height: 6px;
+}
+
+.nexora-neuron-four {
+  bottom: 13%;
+  left: 42%;
+  background: #ba9bff;
+}
+
+.nexora-neuron-five {
+  bottom: 34%;
+  left: 10%;
+  width: 6px;
+  height: 6px;
+}
+
+.nexora-neuron-six {
+  top: 22%;
+  left: 20%;
+  background: #ba9bff;
+}
+
+.nexora-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.nexora-feature-card {
+  min-height: 115px;
+  padding: 15px 16px;
+  border: 1px solid var(--nx-border);
+  border-radius: 14px;
+  background: linear-gradient(140deg, var(--nx-panel-soft), rgba(255, 255, 255, 0.012));
+  backdrop-filter: blur(14px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.nexora-feature-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(154, 133, 255, 0.36);
+  background: linear-gradient(140deg, rgba(120, 94, 226, 0.12), rgba(50, 176, 203, 0.04));
+}
+
+.nexora-feature-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid var(--nx-border);
+  border-radius: 9px;
+  background: rgba(130, 103, 226, 0.12);
+  color: var(--nx-purple);
+}
+
+.nexora-feature-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.nexora-icon-image {
+  color: var(--nx-cyan);
+}
+
+.nexora-feature-card h2 {
+  margin: 10px 0 4px;
+  color: var(--nx-text);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.nexora-feature-card p {
+  margin: 0;
+  color: var(--nx-muted);
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.nexora-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.nexora-suggestions > span {
+  margin: 0 3px 0 0;
+}
+
+.nexora-suggestions button {
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--nx-border);
+  border-radius: 20px;
+  background: var(--nx-panel-soft);
+  color: var(--nx-muted);
+  font-size: 10px;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.nexora-suggestions button:hover {
+  border-color: rgba(155, 133, 255, 0.45);
+  background: rgba(127, 98, 228, 0.1);
+  color: var(--nx-text);
+}
+
+.nexora-chat-thread {
+  width: 100%;
+  padding: 28px clamp(18px, 5vw, 66px) 30px;
+  scroll-behavior: smooth;
+}
+
+.nexora-message-list {
+  display: grid;
+  max-width: 850px;
+  gap: 28px;
+  margin: 0 auto;
+}
+
+.nexora-message {
+  display: grid;
+  align-items: start;
+  grid-template-columns: 31px minmax(0, 1fr);
+  gap: 13px;
+}
+
+.nexora-message-avatar {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  place-items: center;
+  border: 1px solid var(--nx-border);
+  border-radius: 10px;
+  background: var(--nx-panel);
+  color: var(--nx-purple);
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.nexora-message[data-role="user"] .nexora-message-avatar {
+  background: linear-gradient(145deg, rgba(62, 151, 182, 0.3), rgba(76, 80, 157, 0.22));
+  color: var(--nx-cyan);
+}
+
+.nexora-message-body {
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.nexora-message-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--nx-muted);
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.nexora-message-content {
+  overflow-wrap: anywhere;
+  color: var(--nx-text);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
+.nexora-message-content > :first-child {
+  margin-top: 0;
+}
+
+.nexora-message-content > :last-child {
+  margin-bottom: 0;
+}
+
+.nexora-message-content p,
+.nexora-message-content ul,
+.nexora-message-content ol,
+.nexora-message-content blockquote {
+  margin: 0 0 12px;
+}
+
+.nexora-message-content ul,
+.nexora-message-content ol {
+  padding-left: 22px;
+}
+
+.nexora-message-content li + li {
+  margin-top: 4px;
+}
+
+.nexora-message-content h1,
+.nexora-message-content h2,
+.nexora-message-content h3 {
+  margin: 20px 0 8px;
+  color: var(--nx-text);
+  font-size: 1.08em;
+  font-weight: 700;
+}
+
+.nexora-message-content a {
+  color: var(--nx-cyan);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.nexora-message-content blockquote {
+  padding: 4px 0 4px 13px;
+  border-left: 2px solid var(--nx-purple);
+  color: var(--nx-muted);
+}
+
+.nexora-message-content code {
+  padding: 2px 5px;
+  border: 1px solid var(--nx-border);
+  border-radius: 5px;
+  background: var(--nx-panel-soft);
+  font-family: "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+  font-size: 0.9em;
+}
+
+.nexora-code-block {
+  position: relative;
+  margin: 13px 0;
+  overflow: hidden;
+  border: 1px solid var(--nx-border);
+  border-radius: 11px;
+  background: rgba(3, 5, 12, 0.64);
+}
+
+body.nexora-ai-page[data-theme="light"] .nexora-code-block {
+  background: #f0f1f8;
+}
+
+.nexora-code-block-header {
+  display: flex;
+  min-height: 33px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-bottom: 1px solid var(--nx-border);
+  color: var(--nx-subtle);
+  font-size: 9px;
+}
+
+.nexora-code-block-header button {
+  padding: 4px 7px;
+  border: 1px solid var(--nx-border);
+  border-radius: 5px;
+  background: transparent;
+  color: var(--nx-muted);
+  font-size: 9px;
+}
+
+.nexora-code-block pre {
+  max-width: 100%;
+  margin: 0;
+  padding: 13px;
+  overflow: auto;
+  color: var(--nx-text);
+  font-size: 11px;
+  line-height: 1.6;
+  tab-size: 2;
+}
+
+.nexora-code-block pre code {
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: inherit;
+}
+
+.nexora-token-keyword {
+  color: #b7a3ff;
+}
+
+.nexora-token-string {
+  color: #8de1c0;
+}
+
+.nexora-token-number {
+  color: #f2c27b;
+}
+
+.nexora-token-comment {
+  color: #8290a4;
+  font-style: italic;
+}
+
+.nexora-image-not-saved {
+  width: fit-content;
+  padding: 5px 8px;
+  border: 1px solid var(--nx-border);
+  border-radius: 6px;
+  color: var(--nx-muted);
+  font-size: 10px;
+}
+
+.nexora-message-image {
+  display: block;
+  max-width: min(100%, 360px);
+  max-height: 300px;
+  margin: 0 0 11px;
+  border: 1px solid var(--nx-border);
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.nexora-message-actions {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+  opacity: 0.58;
+  transition: opacity 160ms ease;
+}
+
+.nexora-message:hover .nexora-message-actions,
+.nexora-message:focus-within .nexora-message-actions {
+  opacity: 1;
+}
+
+.nexora-message-actions button {
+  min-height: 27px;
+  padding: 0 8px;
+  border: 1px solid var(--nx-border);
+  border-radius: 7px;
+  background: var(--nx-panel-soft);
+  color: var(--nx-muted);
+  font-size: 9px;
+}
+
+.nexora-message-actions button:hover {
+  color: var(--nx-text);
+}
+
+.nexora-loading-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 20px;
+}
+
+.nexora-loading-indicator i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--nx-purple);
+  animation: nexora-loading-dot 1.1s ease-in-out infinite;
+}
+
+.nexora-loading-indicator i:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.nexora-loading-indicator i:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.nexora-error-message {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 11px 13px;
+  border: 1px solid rgba(255, 142, 155, 0.25);
+  border-radius: 10px;
+  background: rgba(255, 102, 132, 0.055);
+  color: var(--nx-error);
+  font-size: 11px;
+}
+
+.nexora-error-message button {
+  padding: 5px 8px;
+  border: 1px solid rgba(255, 142, 155, 0.3);
+  border-radius: 7px;
+  background: transparent;
+  color: var(--nx-error);
+  font-size: 10px;
+}
+
+.nexora-composer {
+  z-index: 2;
+  width: 100%;
+  padding: 12px clamp(18px, 5vw, 66px) 16px;
+  background: linear-gradient(0deg, var(--nx-bg) 70%, transparent);
+}
+
+.nexora-composer-box {
+  display: flex;
+  max-width: 850px;
+  min-height: 54px;
+  align-items: end;
+  gap: 8px;
+  margin: 0 auto;
+  padding: 8px;
+  border: 1px solid rgba(158, 169, 216, 0.22);
+  border-radius: 15px;
+  background: var(--nx-panel-strong);
+  box-shadow:
+    0 13px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.nexora-composer-box:focus-within {
+  border-color: rgba(151, 129, 255, 0.57);
+  box-shadow:
+    0 13px 35px rgba(0, 0, 0, 0.18),
+    0 0 0 3px rgba(126, 97, 231, 0.09);
+}
+
+.nexora-composer textarea {
+  width: 100%;
+  min-width: 0;
+  max-height: 180px;
+  min-height: 35px;
+  resize: none;
+  overflow-y: auto;
+  padding: 8px 4px 6px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--nx-text);
+  font-size: 12px;
+  line-height: 1.55;
+  scrollbar-width: none;
+}
+
+.nexora-composer textarea::-webkit-scrollbar {
+  display: none;
+}
+
+.nexora-composer textarea::placeholder {
+  color: var(--nx-subtle);
+}
+
+.nexora-attach-button,
+.nexora-voice-button,
+.nexora-send-button {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--nx-muted);
+  transition:
+    color 160ms ease,
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.nexora-attach-button:hover {
+  background: var(--nx-panel-soft);
+  color: var(--nx-cyan);
+}
+
+.nexora-voice-button:hover:not(:disabled),
+.nexora-voice-button.is-listening {
+  background: rgba(98, 221, 255, 0.12);
+  color: var(--nx-cyan);
+}
+
+.nexora-voice-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.nexora-voice-button svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.nexora-send-button {
+  background: linear-gradient(145deg, #9476f1, #4b7ed9);
+  box-shadow: 0 4px 13px rgba(102, 91, 224, 0.23);
+  color: #fff;
+}
+
+.nexora-send-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  background: linear-gradient(145deg, #a18afa, #5a91e9);
+}
+
+.nexora-send-button:disabled,
+.nexora-attach-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.nexora-send-button svg {
+  width: 17px;
+  height: 17px;
+}
+
+.nexora-composer-meta {
+  display: flex;
+  max-width: 850px;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 8px auto 0;
+  color: var(--nx-subtle);
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.nexora-composer-meta kbd {
+  padding: 1px 4px;
+  border: 1px solid var(--nx-border);
+  border-radius: 3px;
+  font: inherit;
+}
+
+.nexora-editing-indicator {
+  display: flex;
+  max-width: 850px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto 7px;
+  color: var(--nx-muted);
+  font-size: 10px;
+}
+
+.nexora-editing-indicator button {
+  border: 0;
+  background: none;
+  color: var(--nx-cyan);
+  font-size: 10px;
+}
+
+.nexora-attachment-preview {
+  position: relative;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto 8px;
+  padding: 5px 29px 5px 6px;
+  border: 1px solid var(--nx-border);
+  border-radius: 9px;
+  background: var(--nx-panel-strong);
+  color: var(--nx-muted);
+  font-size: 10px;
+}
+
+.nexora-attachment-preview img {
+  display: block;
+  width: auto;
+  max-width: 180px;
+  max-height: 95px;
+  border-radius: 5px;
+}
+
+.nexora-attachment-preview span {
+  display: block;
+  max-width: 180px;
+  overflow: hidden;
+  padding: 4px 2px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nexora-attachment-preview button {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 21px;
+  height: 21px;
+  border: 1px solid var(--nx-border);
+  border-radius: 50%;
+  background: var(--nx-panel);
+  color: var(--nx-text);
+  line-height: 1;
+}
+
+.nexora-toast {
+  position: absolute;
+  z-index: 30;
+  right: 20px;
+  bottom: 105px;
+  max-width: min(400px, calc(100vw - 40px));
+  padding: 10px 13px;
+  border: 1px solid var(--nx-border);
+  border-radius: 10px;
+  background: var(--nx-panel-strong);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  color: var(--nx-text);
+  font-size: 11px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(8px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.nexora-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nexora-sidebar-backdrop[hidden] {
+  display: none;
+}
+
+@keyframes nexora-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes nexora-core-morph {
+  0%,
+  100% {
+    border-radius: 42% 58% 55% 45% / 46% 41% 59% 54%;
+    transform: rotateX(12deg) rotateY(-16deg);
+  }
+  50% {
+    border-radius: 56% 44% 43% 57% / 50% 59% 41% 50%;
+    transform: rotateX(8deg) rotateY(15deg);
+  }
+}
+
+@keyframes nexora-shine {
+  0%,
+  35% {
+    transform: translateX(-55%) rotate(18deg);
+  }
+  70%,
+  100% {
+    transform: translateX(55%) rotate(18deg);
+  }
+}
+
+@keyframes nexora-orbit-one {
+  to {
+    transform: rotateX(70deg) rotateZ(340deg);
+  }
+}
+
+@keyframes nexora-orbit-two {
+  to {
+    transform: rotateY(69deg) rotateX(374deg);
+  }
+}
+
+@keyframes nexora-loading-dot {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 1020px) {
+  .nexora-app {
+    grid-template-columns: 238px minmax(0, 1fr);
+  }
+
+  .nexora-welcome {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .nexora-neural-visual {
+    width: min(100%, 255px);
+  }
+}
+
+@media (max-width: 760px) {
+  body.nexora-ai-page {
+    overflow: hidden;
+  }
+
+  .nexora-app {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nexora-sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(290px, calc(100vw - 48px));
+    box-shadow: 18px 0 60px rgba(0, 0, 0, 0.34);
+    transform: translateX(-105%);
+    transition: transform 220ms ease;
+  }
+
+  .nexora-app.is-sidebar-open .nexora-sidebar {
+    transform: translateX(0);
+  }
+
+  .nexora-sidebar-backdrop:not([hidden]) {
+    position: fixed;
+    z-index: 19;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(3, 5, 12, 0.58);
+    backdrop-filter: blur(3px);
+  }
+
+  .nexora-topbar {
+    padding: 0 14px;
+  }
+
+  .nexora-menu-toggle,
+  .nexora-mobile-brand {
+    display: inline-flex;
+  }
+
+  .nexora-topbar-title {
+    display: none;
+  }
+
+  .nexora-menu-toggle {
+    width: 35px;
+    padding: 0;
+    color: var(--nx-muted);
+  }
+
+  .nexora-menu-toggle svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .nexora-mobile-brand {
+    gap: 7px;
+    font-size: 15px;
+  }
+
+  .nexora-mobile-brand .nexora-brand-mark {
+    width: 27px;
+    height: 27px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+
+  .nexora-clear-chat {
+    width: 35px;
+    padding: 0;
+  }
+
+  .nexora-clear-chat span {
+    display: none;
+  }
+
+  .nexora-welcome {
+    justify-content: start;
+    gap: 25px;
+    padding: 35px 20px 25px;
+  }
+
+  .nexora-welcome-hero {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr) minmax(110px, 0.5fr);
+  }
+
+  .nexora-welcome-copy h1 {
+    font-size: clamp(30px, 7vw, 43px);
+  }
+
+  .nexora-neural-visual {
+    width: min(100%, 175px);
+  }
+
+  .nexora-neural-core span {
+    font-size: 32px;
+  }
+
+  .nexora-feature-grid {
+    gap: 8px;
+  }
+
+  .nexora-feature-card {
+    min-height: 122px;
+    padding: 12px;
+  }
+
+  .nexora-feature-card p {
+    font-size: 9px;
+  }
+
+  .nexora-suggestions {
+    align-items: flex-start;
+  }
+
+  .nexora-suggestions > span {
+    width: 100%;
+  }
+
+  .nexora-composer {
+    padding: 10px 13px 12px;
+  }
+
+  .nexora-composer-meta {
+    gap: 8px;
+    font-size: 8px;
+  }
+
+  .nexora-composer-meta span:last-child {
+    max-width: 45%;
+    text-align: right;
+  }
+
+  .nexora-chat-thread {
+    padding: 22px 17px;
+  }
+}
+
+@media (max-width: 500px) {
+  .nexora-welcome {
+    gap: 23px;
+    padding-top: 25px;
+  }
+
+  .nexora-welcome-hero {
+    display: block;
+    min-height: 0;
+  }
+
+  .nexora-welcome-copy {
+    padding-top: 14px;
+  }
+
+  .nexora-welcome-copy h1 {
+    max-width: 360px;
+    margin-top: 13px;
+    font-size: clamp(32px, 9.6vw, 44px);
+  }
+
+  .nexora-welcome-copy > p {
+    max-width: 260px;
+    font-size: 12px;
+  }
+
+  .nexora-get-started {
+    margin-top: 17px;
+  }
+
+  .nexora-neural-visual {
+    position: absolute;
+    top: 7px;
+    right: -17px;
+    width: 130px;
+    opacity: 0.5;
+  }
+
+  .nexora-neural-core span {
+    font-size: 25px;
+  }
+
+  .nexora-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nexora-feature-card {
+    display: grid;
+    min-height: 0;
+    align-items: center;
+    grid-template-columns: 30px minmax(0, 1fr);
+    column-gap: 10px;
+    padding: 10px 12px;
+  }
+
+  .nexora-feature-icon {
+    grid-row: span 2;
+  }
+
+  .nexora-feature-card h2 {
+    margin: 0 0 2px;
+  }
+
+  .nexora-feature-card p {
+    font-size: 9px;
+  }
+
+  .nexora-suggestions button {
+    font-size: 9px;
+  }
+
+  .nexora-composer-meta span:first-child {
+    display: none;
+  }
+
+  .nexora-composer-meta span:last-child {
+    max-width: none;
+    text-align: center;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 761px) {
+  .nexora-welcome {
+    gap: 18px;
+    padding-top: 22px;
+    padding-bottom: 18px;
+  }
+
+  .nexora-welcome-hero {
+    min-height: 215px;
+  }
+
+  .nexora-neural-visual {
+    width: min(100%, 215px);
+  }
+
+  .nexora-feature-card {
+    min-height: 102px;
+    padding: 11px 13px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nexora-ai-page *,
+  .nexora-ai-page *::before,
+  .nexora-ai-page *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
