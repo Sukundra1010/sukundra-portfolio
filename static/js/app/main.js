@@ -906,7 +906,7 @@ function setupPremiumMotion() {
           observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -7% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -7% 0px", threshold: 0 },
     );
 
     revealTargets.forEach((target) => {
