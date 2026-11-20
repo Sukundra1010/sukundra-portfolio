@@ -1,6 +1,6 @@
 # Sukundra Pujara — Portfolio
 
-**Current live portfolio:** [sukundra-pujara.vercel.app](https://sukundra-pujara.vercel.app/) (kept until GitHub Pages is verified)
+**Current live portfolio (Netlify):** [sukundra.com.np](https://sukundra.com.np/)
 
 **GitHub Pages target:** [Sukundra1010.github.io/sukundra-portfolio](https://Sukundra1010.github.io/sukundra-portfolio/)
 
