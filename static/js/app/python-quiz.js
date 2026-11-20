@@ -233,7 +233,14 @@ document.addEventListener("DOMContentLoaded", () => {
     buildQuestionMap();
     renderQuestion();
     startTimer();
-    $("#question-text").focus({ preventScroll: true });
+    const questionHeading = $("#question-text");
+    questionHeading.focus({ preventScroll: true });
+    questionHeading.scrollIntoView({
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth",
+      block: "center",
+    });
   }
 
   function scoreQuiz() {
