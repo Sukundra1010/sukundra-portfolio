@@ -1,0 +1,61 @@
+.encapsulation-paper-notes,
+.oop-paper-notes {
+  margin-top: 40px;
+}
+
+.encapsulation-paper-gallery,
+.oop-paper-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+
+.encapsulation-paper-page,
+.oop-paper-page {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--panel);
+}
+
+.encapsulation-paper-link,
+.oop-paper-link {
+  display: block;
+  padding: 10px;
+  background: #fff;
+}
+
+.encapsulation-paper-link:focus-visible,
+.oop-paper-link:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: -3px;
+}
+
+.encapsulation-paper-link img,
+.oop-paper-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.encapsulation-paper-page figcaption,
+.oop-paper-page figcaption {
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px 14px;
+}
+
+.encapsulation-paper-page figcaption span,
+.oop-paper-page figcaption span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.paper-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 16px;
+}

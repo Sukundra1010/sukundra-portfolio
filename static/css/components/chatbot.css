@@ -1,4 +1,4 @@
-/* Sukundra AI chat widget. */
+/* Local Portfolio Guide widget. */
 .sukku-chat-launcher,
 .sukku-chat-panel {
   --chat-panel: #101a28;
@@ -31,24 +31,17 @@
 
 .sukku-chat-brand-mark {
   position: relative;
-  display: block;
+  display: grid;
   width: 30px;
   height: 30px;
   flex: 0 0 30px;
-  overflow: hidden;
+  place-items: center;
   border: 1px solid rgba(105, 215, 255, 0.4);
   border-radius: 50%;
   background: #070d24;
-}
-
-.sukku-chat-brand-mark img {
-  position: absolute;
-  top: -19px;
-  left: 50%;
-  width: 94px;
-  max-width: none;
-  height: 94px;
-  transform: translateX(-50%);
+  color: #b7a3ff;
+  font-size: 15px;
+  font-weight: 750;
 }
 
 .sukku-chat-launcher {
@@ -153,19 +146,11 @@
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid rgba(155, 212, 255, 0.28);
-  overflow: hidden;
   border-radius: 50%;
   background: #070d24;
-}
-
-.sukku-chat-avatar img {
-  position: absolute;
-  top: -22px;
-  left: 50%;
-  width: 112px;
-  max-width: none;
-  height: 112px;
-  transform: translateX(-50%);
+  color: #b7a3ff;
+  font-size: 17px;
+  font-weight: 750;
 }
 
 .sukku-chat-heading {

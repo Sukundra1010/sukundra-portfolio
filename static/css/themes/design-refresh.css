@@ -604,6 +604,275 @@ html[data-theme="light"] .back-to-top {
   color: #6243bd;
 }
 
+/* Premium glass surfaces and lighting shared by all portfolio pages. */
+:root {
+  --bg: #050812;
+  --panel: rgba(13, 19, 35, 0.82);
+  --panel2: rgba(20, 29, 49, 0.88);
+  --line: rgba(132, 160, 207, 0.18);
+  --text: #edf4ff;
+  --muted: #9cabc5;
+  --green: #63e3e3;
+  --blue: #70a7ff;
+  --accent-gradient: linear-gradient(115deg, #8274ff 0%, #54baff 58%, #61e3dc 100%);
+}
+
+html[data-theme="light"] {
+  --bg: #f3f6fc;
+  --panel: rgba(255, 255, 255, 0.84);
+  --panel2: rgba(239, 244, 252, 0.92);
+  --line: rgba(70, 99, 145, 0.18);
+  --text: #18243a;
+  --muted: #60718b;
+  --green: #168dba;
+  --blue: #326fd1;
+  --accent-gradient: linear-gradient(115deg, #735ce8 0%, #3479dc 58%, #159caa 100%);
+}
+
+html {
+  scroll-padding-top: 104px;
+}
+
+body {
+  position: relative;
+  isolation: isolate;
+  overflow-x: clip;
+  background:
+    radial-gradient(ellipse at 82% 4%, rgba(42, 97, 193, 0.14), transparent 36rem),
+    radial-gradient(ellipse at 10% 22%, rgba(96, 65, 195, 0.12), transparent 34rem), var(--bg);
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(138, 166, 218, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 166, 218, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+  content: "";
+  mask-image: linear-gradient(to bottom, #000 0%, transparent 86%);
+  pointer-events: none;
+}
+
+.site-header {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(7, 12, 25, 0.78);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(20px) saturate(145%);
+  -webkit-backdrop-filter: blur(20px) saturate(145%);
+}
+
+html[data-theme="light"] .site-header {
+  background: rgba(250, 252, 255, 0.8);
+}
+
+.brand,
+.navigation a,
+.portfolio-header-actions > a,
+.theme-toggle {
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.navigation a.is-active {
+  color: #8bc9ff;
+}
+
+.navigation a.is-active::after {
+  transform: scaleX(1);
+}
+
+.button,
+.project-filters button,
+.lesson-level-link {
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.055);
+}
+
+.project-card,
+.about-card,
+.education-card,
+.note-card,
+.skill-card,
+.contact-card,
+.internship-card,
+.certificate-card,
+.github-repository,
+.lesson-card,
+.python-heading,
+.form-card,
+.skill-category-card,
+.hero-focus-card {
+  border-color: var(--line);
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(90, 133, 255, 0.09), transparent 55%),
+    linear-gradient(145deg, rgba(18, 27, 47, 0.86), rgba(8, 13, 26, 0.9));
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.project-card,
+.skill-category-card,
+.education-card,
+.internship-card,
+.certificate-card,
+.github-repository,
+.form-card,
+.contact-card {
+  transform-style: preserve-3d;
+  transition:
+    border-color 240ms ease,
+    box-shadow 240ms ease,
+    transform 240ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    background-color 240ms ease;
+}
+
+.project-card:hover,
+.skill-category-card:hover,
+.education-card:hover,
+.internship-card:hover,
+.certificate-card:hover,
+.github-repository:hover,
+.form-card:hover,
+.contact-card:hover {
+  border-color: rgba(113, 174, 255, 0.44);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(76, 131, 244, 0.1),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+}
+
+.project-art,
+.certificate-image-link,
+.hero-portrait-card {
+  overflow: hidden;
+}
+
+.project-art img,
+.certificate-image-link img {
+  transition:
+    transform 500ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    filter 300ms ease;
+}
+
+.project-card:hover .project-art img,
+.certificate-card:hover .certificate-image-link img {
+  filter: saturate(1.08);
+  transform: scale(1.055);
+}
+
+.form-card input,
+.form-card textarea,
+.search-control input,
+.filter-control select,
+.project-search input {
+  border-color: var(--line);
+  background: rgba(5, 10, 22, 0.62);
+}
+
+html[data-theme="light"] .form-card input,
+html[data-theme="light"] .form-card textarea,
+html[data-theme="light"] .search-control input,
+html[data-theme="light"] .filter-control select,
+html[data-theme="light"] .project-search input {
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.contact-card a,
+.footer a,
+.assistant-secondary-link {
+  text-underline-offset: 0.25em;
+  transition: color 180ms ease;
+}
+
+.content-section[id],
+.contact-finale[id] {
+  scroll-margin-top: 108px;
+}
+
+.motion-ready .reveal-item {
+  opacity: 0;
+  transform: translate3d(0, 22px, 0);
+  transition:
+    opacity 650ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    transform 650ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.motion-ready .reveal-item.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+html[data-theme="light"] body {
+  background:
+    radial-gradient(ellipse at 82% 4%, rgba(64, 130, 224, 0.1), transparent 36rem),
+    radial-gradient(ellipse at 10% 22%, rgba(123, 98, 221, 0.08), transparent 34rem), var(--bg);
+}
+
+html[data-theme="light"] body::before {
+  background-image:
+    linear-gradient(rgba(65, 94, 139, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(65, 94, 139, 0.035) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .project-card,
+html[data-theme="light"] .about-card,
+html[data-theme="light"] .education-card,
+html[data-theme="light"] .note-card,
+html[data-theme="light"] .skill-card,
+html[data-theme="light"] .contact-card,
+html[data-theme="light"] .internship-card,
+html[data-theme="light"] .certificate-card,
+html[data-theme="light"] .github-repository,
+html[data-theme="light"] .lesson-card,
+html[data-theme="light"] .python-heading,
+html[data-theme="light"] .form-card,
+html[data-theme="light"] .skill-category-card,
+html[data-theme="light"] .hero-focus-card {
+  background:
+    radial-gradient(ellipse at 90% 0%, rgba(92, 135, 230, 0.07), transparent 55%),
+    rgba(255, 255, 255, 0.84);
+  box-shadow:
+    0 18px 46px rgba(47, 70, 111, 0.1),
+    inset 0 1px rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    width: calc(100% - 24px);
+    min-height: 60px;
+    height: auto;
+    margin: 10px auto 0;
+    padding: 10px 12px;
+    border-radius: 15px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .motion-ready .reveal-item {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 @media (max-width: 860px) {
   .github-repository-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1946,4 +2215,58 @@ html[data-theme="light"] .lesson-body .expected-output {
   .section-heading p {
     font-size: 14px;
   }
+}
+
+/* Keep decorative shadows and glow circles out of every site page. */
+html body,
+html body *,
+html body *::before,
+html body *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html body {
+  background-image: none !important;
+}
+
+.portfolio-home .hero {
+  background-image: none !important;
+}
+
+.portfolio-home .hero::before,
+.portfolio-home .hero::after,
+.portfolio-home .hero-aside::after,
+.portfolio-home .hero-portrait-stage::before,
+.portfolio-home .hero-portrait-stage::after,
+.portfolio-home .portrait-ring::before,
+.portfolio-home .portrait-ring::after,
+.portfolio-home #about .about-stage-halo,
+.portfolio-home #about .about-workspace-stage::after,
+.portfolio-home #education.education-premium::before,
+.portfolio-home #education.education-premium::after,
+.portfolio-home #education .education-particles,
+.portfolio-home #certificates::before,
+.portfolio-home #certificates::after,
+.portfolio-home .thank-you-audio::before,
+.portfolio-home .thank-you-audio::after,
+.portfolio-home .audio-orb-ring,
+.nexora-neural-visual::before,
+.nexora-neural-visual::after,
+.nexora-neural-orbit,
+.nexora-neural-core-glow,
+.nexora-neuron {
+  display: none !important;
+}
+
+.portfolio-home #education.education-premium {
+  background: linear-gradient(155deg, rgba(8, 13, 27, 0.98), rgba(4, 8, 18, 0.99)) !important;
+}
+
+.portfolio-home .skills-keyboard-stage {
+  background: linear-gradient(145deg, #090e19, #080b14 70%) !important;
+}
+
+.portfolio-home #projects.projects-premium {
+  background: linear-gradient(180deg, #080a12, #090b13 70%, #070910) !important;
 }

@@ -3,22 +3,22 @@ const taleTraderProposalUrl =
   "https://softwaricacollege-my.sharepoint.com/:w:/g/personal/260093_softwarica_edu_np/IQDH5uRLGPQfS62RkKa4MgSwAS6OWyioGbARSXl02Gxk3dQ?e=NBzToN";
 const taleTraderRepositoryUrl =
   "https://github.com/satvikabhandary64-sketch/40B_-Group-3-_-TaleTrader-";
-const portfolioRepositoryUrl = "https://github.com/Sukundra1010/sukundra_pujara_portfolio";
+const portfolioRepositoryUrl = "https://github.com/Sukundra1010/sukundra-portfolio";
 const smartFinXRepositoryUrl = "https://github.com/Sukundra1010/SmartFinx-Finance-Tracker";
 
 const defaultProjects = [
   {
-    title: "Sukundra AI",
+    title: "Nexora AI",
     description:
-      "A portfolio assistant with browser-based Python learning Q&A and information about my work.",
-    skills: "JavaScript, HTML, CSS, Python",
-    link: "sukundra-ai.html#sukundra-ai",
-    linkLabel: "Open assistant ↗",
+      "A real AI assistant for coding, writing, summaries, and English or Nepali conversations, powered through a secure backend.",
+    skills: "JavaScript, Node.js, HTML, CSS, AI API",
+    link: "nexora-ai.html#sukundra-ai",
+    linkLabel: "Open Nexora AI ↗",
     repository: portfolioRepositoryUrl,
-    image: "static/images/sukundra-ai-logo.png",
-    thumbnail: "static/images/sukundra-ai-chat-screenshot.png",
-    previewLabel: "Chat screenshot",
-    categories: ["ai", "web", "python"],
+    image: "static/images/nexora-ai-logo.svg",
+    thumbnail: "static/images/nexora-ai-logo.svg",
+    previewLabel: "Nexora AI logo",
+    categories: ["ai", "web"],
   },
   {
     title: "SmartFinX",
@@ -38,7 +38,7 @@ const defaultProjects = [
     ],
   },
   {
-    title: "Portfolio Website — Er. Sukundra Pujara",
+    title: "Portfolio Website — Sukundra Pujara",
     description:
       "My responsive personal portfolio showcasing my background, skills, projects, and Python learning notes.",
     skills: "HTML, CSS, JavaScript",
@@ -64,18 +64,12 @@ const defaultProjects = [
     status: "In Progress",
   },
   {
-    title: "Student Management System",
-    description:
-      "A student management system concept for organizing student profiles, classes, attendance, and academic records.",
-    skills: "Python, Student Management",
-    thumbnail: "static/images/project-preview-student-management.svg",
-    categories: ["python"],
-    status: "Concept",
-    highlights: [
-      "Organizes student profiles and class enrollment.",
-      "Keeps attendance and academic records together.",
-      "Planned as a simple, responsive web application.",
-    ],
+    title: "Calculator App",
+    description: "A browser-based calculator available online.",
+    link: "https://calcora-81da.onrender.com/",
+    linkLabel: "Open Calculator ↗",
+    previewLabel: "Online calculator app",
+    categories: ["web"],
   },
 ];
 
@@ -85,36 +79,37 @@ const excludedProjectTitles = new Set([
   "Flask Web Applications",
   "Cybersecurity Learning Projects",
   "Machine Learning Fundamentals",
+  "Student Management System",
   "SURMORA Restaurant Management System",
   "Pujara Business Management System",
 ]);
 
-const sukundraAiProject = {
+const nexoraAiProject = {
   description:
-    "A portfolio assistant with browser-based Python learning Q&A and information about my work.",
-  link: "sukundra-ai.html#sukundra-ai",
+    "A real AI assistant for coding, writing, summaries, and English or Nepali conversations, powered through a secure backend.",
+  link: "nexora-ai.html#sukundra-ai",
   repository: portfolioRepositoryUrl,
-  image: "static/images/sukundra-ai-logo.png",
-  thumbnail: "static/images/sukundra-ai-chat-screenshot.png",
-  previewLabel: "Chat screenshot",
+  image: "static/images/nexora-ai-logo.svg",
+  thumbnail: "static/images/nexora-ai-logo.svg",
+  previewLabel: "Nexora AI logo",
   highlights: [
-    "Answers Python learning questions from bundled browser-based knowledge.",
-    "Provides information about the portfolio and listed projects.",
-    "Accepts English or Nepali voice questions and speaks answers in English when supported by the browser and device.",
+    "Gets model-generated responses through a separate backend; no browser Q&A fallback is presented as AI.",
+    "Supports English and Nepali conversations, coding help, writing, and summaries.",
+    "Accepts image attachments when the configured provider model supports image input.",
   ],
   caseStudy: [
     {
-      title: "Learning and practice",
+      title: "An AI workspace",
       paragraphs: [
-        "The assistant uses bundled Python guides to answer learning questions with examples, step-by-step explanations, and guided code starters.",
-        "It can perform limited text-based checks for common code issues, but it does not run submitted Python or confirm that a program is correct.",
+        "Nexora AI connects to a configured language model through a small Node.js API. The assistant can help with programming, writing, summaries, and questions in English or Nepali.",
+        "Conversation history and message controls are available in the browser. Image questions are sent only when the configured provider model supports image input.",
       ],
     },
     {
-      title: "Implementation boundaries",
+      title: "Privacy and setup",
       paragraphs: [
-        "Text chat runs in the browser using bundled content and JavaScript helpers. The project does not call an AI model or provide a secure code-execution sandbox.",
-        "Voice input accepts English or Nepali and spoken answers are in English. Nepali recognition depends on browser and device support.",
+        "Provider credentials are read from the backend environment and never included in frontend JavaScript. If the backend or provider is unavailable, the interface reports an error instead of returning a simulated answer.",
+        "The portfolio itself can be served statically, but public Nexora AI responses require deploying the backend separately over HTTPS.",
       ],
     },
   ],
@@ -147,17 +142,18 @@ function updateProject(project) {
   if (project.title === "Sukundra AI Python Tutor") {
     return {
       ...project,
-      title: "Sukundra AI",
-      ...sukundraAiProject,
-      categories: ["ai", "web", "python"],
+      title: "Nexora AI",
+      ...nexoraAiProject,
+      categories: ["ai", "web"],
     };
   }
 
-  if (project.title === "Sukundra AI") {
+  if (project.title === "Sukundra AI" || project.title === "Nexora AI") {
     return {
       ...project,
-      ...sukundraAiProject,
-      categories: project.categories || ["ai", "web", "python"],
+      title: "Nexora AI",
+      ...nexoraAiProject,
+      categories: ["ai", "web"],
     };
   }
 
@@ -174,11 +170,11 @@ function updateProject(project) {
 
   if (
     project.title === "Portfolio Website — Sukundra Pujara" ||
-    project.title === "Portfolio Website — Er. Sukundra Pujara"
+    project.title === "Portfolio Website — Sukundra Pujara"
   ) {
     return {
       ...project,
-      title: "Portfolio Website — Er. Sukundra Pujara",
+      title: "Portfolio Website — Sukundra Pujara",
       link: project.link || "index.html",
       repository: project.repository || portfolioRepositoryUrl,
       thumbnail: "static/images/portfolio-homepage-screenshot.png",
@@ -207,16 +203,6 @@ function updateProject(project) {
     };
   }
 
-  if (project.title === "Student Management System") {
-    return {
-      ...project,
-      skills: "Python, Student Management",
-      thumbnail: "static/images/project-preview-student-management.svg",
-      categories: ["python"],
-      status: "Concept",
-    };
-  }
-
   return project;
 }
 
@@ -231,30 +217,6 @@ function getProjects() {
     if (writeItems("portfolioProjects", mergedProjects)) return mergedProjects;
   }
   return savedProjects;
-}
-
-function createProjectTechTag(skill) {
-  const iconIds = {
-    python: "icon-python",
-    html: "icon-html",
-    css: "icon-css",
-    javascript: "icon-javascript",
-    "business management": "icon-development",
-    "web app": "icon-development",
-  };
-  const iconId = iconIds[skill.trim().toLocaleLowerCase()] || "icon-development";
-  const tag = document.createElement("span");
-  tag.className = "project-tech-tag";
-  const icon = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  icon.setAttribute("aria-hidden", "true");
-  icon.setAttribute("focusable", "false");
-  const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
-  use.setAttribute("href", `#${iconId}`);
-  icon.append(use);
-  const label = document.createElement("span");
-  label.textContent = skill.trim();
-  tag.append(icon, label);
-  return tag;
 }
 
 function projectDetailUrl(project) {
@@ -335,18 +297,7 @@ function renderProjects() {
       title.textContent = project.title;
       const description = document.createElement("p");
       description.textContent = project.description;
-      const stackHeading = document.createElement("span");
-      stackHeading.className = "project-stack-label";
-      stackHeading.textContent = "TECH STACK";
-      const tags = document.createElement("div");
-      tags.className = "tags";
-      (project.skills || "")
-        .split(",")
-        .filter(Boolean)
-        .forEach((skill) => {
-          tags.append(createProjectTechTag(skill));
-        });
-      info.append(title, description, stackHeading, tags);
+      info.append(title, description);
       if (list.dataset.projectList !== "preview") {
         const projectUrl = safeProjectUrl(project.link);
         const repositoryUrl = safeProjectUrl(project.repository);
@@ -451,10 +402,6 @@ function setupProjectDetails() {
         <div class="project-details-badges" data-details-badges></div>
         <h2 id="project-details-title" data-details-title></h2>
         <p data-details-description></p>
-        <div class="project-details-stack">
-          <span class="project-stack-label">TECH STACK</span>
-          <div class="tags" data-details-stack></div>
-        </div>
         <div class="project-links" data-details-links></div>
       </div>
     </div>
@@ -523,15 +470,6 @@ function setupProjectDetails() {
       badges.append(status);
     }
 
-    const stack = dialog.querySelector("[data-details-stack]");
-    stack.replaceChildren();
-    (project.skills || "")
-      .split(",")
-      .filter(Boolean)
-      .forEach((skill) => {
-        stack.append(createProjectTechTag(skill));
-      });
-
     const links = dialog.querySelector("[data-details-links]");
     links.replaceChildren();
     const projectUrl = safeProjectUrl(project.link);
@@ -591,7 +529,7 @@ function renderProjectDetailPage() {
     return;
   }
 
-  document.title = `${project.title} | Projects by Er. Sukundra Pujara`;
+  document.title = `${project.title} | Projects by Sukundra Pujara`;
   root.replaceChildren();
 
   const categoryLabels = {
@@ -720,20 +658,6 @@ function renderProjectDetailPage() {
 
   const sidebar = document.createElement("aside");
   sidebar.className = "project-detail-sidebar";
-  const stackPanel = document.createElement("section");
-  stackPanel.className = "project-detail-panel";
-  const stackTitle = document.createElement("h2");
-  stackTitle.textContent = "Technologies";
-  const stack = document.createElement("div");
-  stack.className = "tags project-detail-stack";
-  (project.skills || "")
-    .split(",")
-    .filter(Boolean)
-    .forEach((skill) => {
-      stack.append(createProjectTechTag(skill));
-    });
-  stackPanel.append(stackTitle, stack);
-  sidebar.append(stackPanel);
 
   const linksPanel = document.createElement("section");
   linksPanel.className = "project-detail-panel";
@@ -864,7 +788,7 @@ function setupTypewriter() {
 
   const titles = [
     "Full Stack Developer",
-    "Er. Sukundra Pujara",
+    "Sukundra Pujara",
     "Data Scientist",
     "Web Development",
     "Django",
@@ -963,6 +887,68 @@ function setupScrollEffects() {
 
     window.addEventListener("scroll", updateScrollEffects, { passive: true });
     updateScrollEffects();
+  }
+}
+
+function setupPremiumMotion() {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const revealTargets = document.querySelectorAll(
+    "main > section, .project-card, .skill-category-card, .education-card, .internship-card, .certificate-card, .about-card, .form-card, .contact-card",
+  );
+
+  if (!reduceMotion && "IntersectionObserver" in window) {
+    document.body.classList.add("motion-ready");
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -7% 0px", threshold: 0.08 },
+    );
+
+    revealTargets.forEach((target) => {
+      target.classList.add("reveal-item");
+      revealObserver.observe(target);
+    });
+  }
+
+  const nav = document.querySelector(".portfolio-home .navigation");
+  if (nav && "IntersectionObserver" in window) {
+    const navLinks = [...nav.querySelectorAll('a[href^="#"]')];
+    const navSections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter((section) => section instanceof HTMLElement);
+
+    if (navSections.length) {
+      const visibleSections = new Set();
+      const updateActiveLink = () => {
+        const activeSection = [...visibleSections].sort(
+          (first, second) =>
+            Math.abs(first.getBoundingClientRect().top - 130) -
+            Math.abs(second.getBoundingClientRect().top - 130),
+        )[0];
+        navLinks.forEach((link) => {
+          const isActive = link.hash === `#${activeSection?.id}`;
+          link.classList.toggle("is-active", isActive);
+          if (isActive) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      };
+      const navObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) visibleSections.add(entry.target);
+            else visibleSections.delete(entry.target);
+          });
+          updateActiveLink();
+        },
+        { rootMargin: "-18% 0px -58% 0px", threshold: 0 },
+      );
+      navSections.forEach((section) => navObserver.observe(section));
+    }
   }
 }
 
@@ -1136,6 +1122,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupThemeToggle();
   setupTypewriter();
   setupScrollEffects();
+  setupPremiumMotion();
 
   const projectForm = document.querySelector("#project-form");
   if (projectForm) {
@@ -1180,16 +1167,80 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const contactForm = document.querySelector("#contact-form");
   if (contactForm) {
+    const contactFields = contactForm.querySelector("[data-contact-fields]");
+    const contactSuccess = contactForm.querySelector("[data-contact-success]");
+    const contactSubmit = contactForm.querySelector("[data-contact-submit]");
+    const contactEmailLink = contactForm.querySelector("[data-contact-email-link]");
+    const composeAgain = contactForm.querySelector("[data-contact-compose-again]");
+    const contactSection = contactForm.closest(".contact-section");
+    const hasFinePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (contactSection && hasFinePointer && !prefersReducedMotion) {
+      contactSection.querySelectorAll("[data-contact-tilt]").forEach((target) => {
+        const resetTilt = () => {
+          target.style.removeProperty("--contact-rotate-x");
+          target.style.removeProperty("--contact-rotate-y");
+          target.style.removeProperty("--contact-pointer-x");
+          target.style.removeProperty("--contact-pointer-y");
+        };
+
+        target.addEventListener(
+          "pointermove",
+          (event) => {
+            if (event.pointerType === "touch") return;
+            const bounds = target.getBoundingClientRect();
+            if (!bounds.width || !bounds.height) return;
+
+            const x = Math.min(1, Math.max(0, (event.clientX - bounds.left) / bounds.width));
+            const y = Math.min(1, Math.max(0, (event.clientY - bounds.top) / bounds.height));
+            target.style.setProperty("--contact-rotate-x", `${((0.5 - y) * 10).toFixed(2)}deg`);
+            target.style.setProperty("--contact-rotate-y", `${((x - 0.5) * 14).toFixed(2)}deg`);
+            target.style.setProperty("--contact-pointer-x", `${(x * 100).toFixed(1)}%`);
+            target.style.setProperty("--contact-pointer-y", `${(y * 100).toFixed(1)}%`);
+          },
+          { passive: true },
+        );
+        target.addEventListener("pointerleave", resetTilt, { passive: true });
+        target.addEventListener("pointercancel", resetTilt, { passive: true });
+      });
+    }
+
     contactForm.addEventListener("submit", (event) => {
       event.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
       const form = new FormData(contactForm);
-      const subject = encodeURIComponent(
-        `Portfolio message from ${String(form.get("name")).trim()}`,
-      );
-      const body = encodeURIComponent(
-        `From: ${String(form.get("name")).trim()} (${String(form.get("email")).trim()})\n\n${String(form.get("message")).trim()}`,
-      );
-      window.location.href = `mailto:sukundrapujara61@gmail.com?subject=${subject}&body=${body}`;
+      const name = String(form.get("name")).trim();
+      const email = String(form.get("email")).trim();
+      const subjectText = String(form.get("subject")).trim();
+      const message = String(form.get("message")).trim();
+      const subject = encodeURIComponent(subjectText);
+      const body = encodeURIComponent(`From: ${name} (${email})\n\n${message}`);
+      const mailtoUrl = `mailto:sukundrapujara61@gmail.com?subject=${subject}&body=${body}`;
+
+      contactSubmit.disabled = true;
+      contactSubmit.classList.add("is-loading");
+      contactForm.setAttribute("aria-busy", "true");
+      contactEmailLink.href = mailtoUrl;
+      window.location.href = mailtoUrl;
+
+      window.setTimeout(() => {
+        contactFields.hidden = true;
+        contactSuccess.hidden = false;
+        contactSuccess.focus();
+        contactSubmit.disabled = false;
+        contactSubmit.classList.remove("is-loading");
+        contactForm.setAttribute("aria-busy", "false");
+      }, 450);
+    });
+
+    composeAgain.addEventListener("click", () => {
+      contactForm.reset();
+      contactSuccess.hidden = true;
+      contactFields.hidden = false;
+      contactForm.setAttribute("aria-busy", "false");
+      contactFields.querySelector("[name='name']").focus();
     });
   }
 });

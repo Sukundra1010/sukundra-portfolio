@@ -58,8 +58,8 @@ window.PYTHON_LESSONS = [
     title: "5. Python Strings and Data Types",
     explain:
       "A string (str) is a sequence of characters inside quotation marks. Python also has int for whole numbers, float for decimals, bool for True or False, list for an ordered changeable collection, tuple for an ordered unchangeable collection, set for unique values, dict for key-value pairs, NoneType for no value, and complex for real and imaginary parts.",
-    code: `name = "Er. Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
-    output: `Er. Sukundra Pujara\n<class 'str'>`,
+    code: `name = "Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
+    output: `Sukundra Pujara\n<class 'str'>`,
     mistake:
       "Text must have matching quotes. A set does not guarantee item order; use a tuple for an ordered, fixed group.",
     challenge: "Create a string called message with the text Hello World and print its type.",
@@ -80,7 +80,7 @@ window.PYTHON_LESSONS = [
     answer: `number = int("25")\nprint(number)`,
     theory: `Additional built-in types include range, bytes, bytearray, memoryview, and frozenset. range creates a number sequence; bytes is immutable binary data; bytearray is changeable binary data; memoryview views binary data; frozenset is an immutable set.`,
     typeCheckCode: `name = "Sukundra"\nage = 20\nheight = 5.7\nis_student = True\nfruits = ["Apple", "Mango"]\ncolors = ("Red", "Blue")\nnumbers = {1, 2, 3}\nstudent = {"name": "Sukundra"}\nresult = None\nnumber = 3 + 4j\n\nprint(type(name))\nprint(type(age))\nprint(type(height))\nprint(type(is_student))\nprint(type(fruits))\nprint(type(colors))\nprint(type(numbers))\nprint(type(student))\nprint(type(result))\nprint(type(number))`,
-    completeCode: `name = "Er. Sukundra Pujara"\nage = 20\nheight = 5.7\nis_student = True\nskills = ["Python", "HTML", "CSS"]\nsubjects = ("Python", "Mathematics")\nmarks = {80, 85, 90}\nstudent = {"name": "Sukundra", "age": 20}\nresult = None\ncomplex_number = 2 + 3j\n\nprint("Name:", name, type(name))\nprint("Age:", age, type(age))\nprint("Height:", height, type(height))\nprint("Student:", is_student, type(is_student))\nprint("Skills:", skills, type(skills))\nprint("Subjects:", subjects, type(subjects))\nprint("Marks:", marks, type(marks))\nprint("Student details:", student, type(student))\nprint("Result:", result, type(result))\nprint("Complex number:", complex_number, type(complex_number))`,
+    completeCode: `name = "Sukundra Pujara"\nage = 20\nheight = 5.7\nis_student = True\nskills = ["Python", "HTML", "CSS"]\nsubjects = ("Python", "Mathematics")\nmarks = {80, 85, 90}\nstudent = {"name": "Sukundra", "age": 20}\nresult = None\ncomplex_number = 2 + 3j\n\nprint("Name:", name, type(name))\nprint("Age:", age, type(age))\nprint("Height:", height, type(height))\nprint("Student:", is_student, type(is_student))\nprint("Skills:", skills, type(skills))\nprint("Subjects:", subjects, type(subjects))\nprint("Marks:", marks, type(marks))\nprint("Student details:", student, type(student))\nprint("Result:", result, type(result))\nprint("Complex number:", complex_number, type(complex_number))`,
   },
   {
     level: "Level 1 · Python Basics",
@@ -112,8 +112,8 @@ window.PYTHON_LESSONS = [
     title: "9. Strings and String Methods",
     explain:
       "A string is a sequence of characters enclosed in quotation marks. You can use single quotes, double quotes, or triple quotes for longer text. Strings are text values, and type() reports their type as str.",
-    code: `name = "Er. Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
-    output: `Er. Sukundra Pujara\n<class 'str'>`,
+    code: `name = "Sukundra Pujara"\nmessage = 'Hello World'\nparagraph = """I am learning Python."""\nnumber_as_text = "123"\n\nprint(name)\nprint(type(name))`,
+    output: `Sukundra Pujara\n<class 'str'>`,
     mistake:
       "Use matching quotation marks around text. The text '123' is a string because it is inside quotes.",
     challenge: "Store the text Python in a variable and print its type.",
@@ -295,13 +295,13 @@ match value:
     title: "19. Tuples",
     explain:
       "A tuple is an ordered collection that cannot be changed after creation. Use an index such as student[0] to read an item; indexes start at 0. Use len() to count the tuple's items.",
-    code: `student = ("Er. Sukundra Pujara", 20, "Nepal", "Computer Science")\n\nprint("Student Details:")\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Country:", student[2])\nprint("Course:", student[3])\n\nprint("Total Items:", len(student))`,
-    output: `Student Details:\nName: Er. Sukundra Pujara\nAge: 20\nCountry: Nepal\nCourse: Computer Science\nTotal Items: 4`,
+    code: `student = ("Sukundra Pujara", 20, "Nepal", "Computer Science")\n\nprint("Student Details:")\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Country:", student[2])\nprint("Course:", student[3])\n\nprint("Total Items:", len(student))`,
+    output: `Student Details:\nName: Sukundra Pujara\nAge: 20\nCountry: Nepal\nCourse: Computer Science\nTotal Items: 4`,
     mistake:
       "Tuple indexes start at 0, so student[0] is the first item. Tuples cannot be changed after they are created.",
     challenge:
       "Create a tuple with your name and age. Print both values using their indexes and print the tuple's length.",
-    answer: `student = ("Er. Sukundra Pujara", 20)\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Total Items:", len(student))`,
+    answer: `student = ("Sukundra Pujara", 20)\nprint("Name:", student[0])\nprint("Age:", student[1])\nprint("Total Items:", len(student))`,
   },
   {
     level: "Level 3 · Data Structures",
@@ -1163,5 +1163,58 @@ match value:
       "Do not automate destructive file operations without a dry run, a backup, and careful path checks.",
     challenge: "Find all CSV files in a folder named data without modifying them.",
     answer: `from pathlib import Path\ncsv_files = list(Path("data").glob("*.csv"))\nprint(csv_files)`,
+  },
+  {
+    level: "Level 5 · Intermediate Python",
+    category: "Intermediate",
+    title: "86. Method Overriding and super()",
+    explain:
+      "A subclass overrides a method by defining the same method name with specialized behavior. super() follows Python's method resolution order to reuse the next implementation, often the parent initializer or method.",
+    code: `class Person:\n    def __init__(self, name):\n        self.name = name\n    def describe(self):\n        return f"Person: {self.name}"\n\nclass Student(Person):\n    def __init__(self, name, course):\n        super().__init__(name)  # reuse the parent initializer\n        self.course = course\n    def describe(self):  # override the inherited method\n        return f"{super().describe()} | Course: {self.course}"\n\nprint(Student("Rita", "Python").describe())`,
+    output: `Person: Rita | Course: Python`,
+    mistake:
+      "Calling self.describe() from an overriding describe() method calls the override again; use super().describe() to continue method lookup.",
+    challenge: "Override a parent greet() method and include the parent's greeting with super().",
+    answer: `class Person:\n    def greet(self):\n        return "Hello"\nclass Student(Person):\n    def greet(self):\n        return f"{super().greet()}, student"\nprint(Student().greet())`,
+  },
+  {
+    level: "Level 5 · Intermediate Python",
+    category: "Intermediate",
+    title: "87. Properties and Validated Setters",
+    explain:
+      "@property exposes a method like an attribute. A matching @name.setter can validate a new value while keeping the same public assignment syntax.",
+    code: `class Student:\n    def __init__(self, score):\n        self.score = score\n    @property\n    def score(self):\n        return self._score\n    @score.setter\n    def score(self, value):\n        if not 0 <= value <= 100:\n            raise ValueError("score must be from 0 to 100")\n        self._score = value\n\nstudent = Student(85)\nstudent.score = 92\nprint(student.score)`,
+    output: `92`,
+    mistake:
+      "Store the value in a separate attribute such as _score inside the getter and setter; assigning self.score there would call the setter recursively.",
+    challenge: "Create a property that rejects a negative age.",
+    answer: `class Person:\n    def __init__(self, age):\n        self.age = age\n    @property\n    def age(self):\n        return self._age\n    @age.setter\n    def age(self, value):\n        if value < 0:\n            raise ValueError("age cannot be negative")\n        self._age = value`,
+  },
+  {
+    level: "Level 5 · Intermediate Python",
+    category: "Intermediate",
+    title: "88. Class Attributes and Name Mangling",
+    explain:
+      "A class attribute is shared as a class-level default, while an instance attribute belongs to one object and can shadow that default. A double-leading underscore triggers name mangling to reduce accidental name clashes; it is not a security or privacy boundary.",
+    code: `class Device:\n    category = "shared"  # class attribute\n    def __init__(self, code):\n        self.code = code  # instance attribute\n        self.__serial = code  # name-mangled attribute\n    def serial(self):\n        return self.__serial\n\nfirst = Device("A1")\nsecond = Device("B2")\nfirst.category = "personal"  # shadows the class value for first only\nprint(first.category, second.category, first.serial())`,
+    output: `personal shared A1`,
+    mistake:
+      "A leading underscore is a convention and double underscores mangle a name; neither makes an attribute truly private.",
+    challenge: "Show that changing one instance attribute does not change another instance.",
+    answer: `class Counter:\n    value = 0\nfirst = Counter()\nsecond = Counter()\nfirst.value = 3\nprint(first.value, second.value)  # 3 0`,
+  },
+  {
+    level: "Level 5 · Intermediate Python",
+    category: "Intermediate",
+    title: "89. Encapsulation and Access Conventions",
+    explain:
+      "Encapsulation groups data and the methods that work with it inside a class. Python has no enforced public, protected, or private access modifiers: public names are the default, one leading underscore signals internal use by convention, and two leading underscores trigger name mangling to reduce accidental clashes. Neither underscore style secures sensitive data.",
+    code: `class Student:\n    def __init__(self, name, age, course, student_id):\n        self.name = name  # public by default\n        self.age = age\n        self.course = course\n        self._email = "student@example.com"  # internal-use convention\n        self.__student_id = student_id  # name-mangled to avoid accidental clashes\n    def display(self):\n        print("Name:", self.name)\n        print("Age:", self.age)\n        print("Course:", self.course)\n    def show_id(self):\n        return self.__student_id\n\nstudent = Student("Sukundra", 20, "BSc Computer Science with AI", "S-101")\nstudent.display()\nprint("Student ID:", student.show_id())`,
+    output: `Name: Sukundra\nAge: 20\nCourse: BSc Computer Science with AI\nStudent ID: S-101`,
+    mistake:
+      "Double underscores do not create a security boundary; do not store plaintext passwords or secrets in ordinary object attributes.",
+    challenge:
+      "Create a Student with public name, age, and course attributes and a display() method.",
+    answer: `class Student:\n    def __init__(self, name, age, course):\n        self.name = name\n        self.age = age\n        self.course = course\n    def display(self):\n        print("Name:", self.name)\n        print("Age:", self.age)\n        print("Course:", self.course)\n\nstudent = Student("Sukundra", 20, "BSc Computer Science with AI")\nstudent.display()`,
   },
 ];

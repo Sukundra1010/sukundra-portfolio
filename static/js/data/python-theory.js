@@ -1,4 +1,4 @@
-// Original theory revision questions prepared for Er. Sukundra Pujara.
+// Original theory revision questions prepared for Sukundra Pujara.
 // Answers use simple language and are rendered as safe text by script.js.
 window.PYTHON_THEORY = [
   {
@@ -324,6 +324,78 @@ window.PYTHON_THEORY = [
       [
         "What is a simple OOP example?",
         "A Student class can store a student's name and have an introduce() method. Calling the method on a Student object can print the name.",
+      ],
+      [
+        "What is method overriding?",
+        "Method overriding is when a subclass defines a method with the same name as an inherited method to provide specialized behavior.",
+      ],
+      [
+        "What does super() do?",
+        "super() continues method lookup after the current class in Python's method resolution order. It is often used to reuse parent initialization or behavior.",
+      ],
+      [
+        "What is the difference between a class attribute and an instance attribute?",
+        "A class attribute is defined on the class and can be shared as a default. An instance attribute belongs to one object and can shadow a class attribute with the same name.",
+      ],
+      [
+        "What does @property do?",
+        "@property lets a method be accessed using attribute syntax, which can keep a clean interface while calculating or controlling a value.",
+      ],
+      [
+        "How does a property setter validate a value?",
+        "Define a method with @property_name.setter, check the incoming value, then store it in a separate internal attribute such as _score.",
+      ],
+      [
+        "What does a leading underscore in an attribute name mean?",
+        "A single leading underscore, such as _balance, signals by convention that the attribute is intended for internal use; Python does not enforce privacy.",
+      ],
+      [
+        "What is name mangling for a double-leading-underscore attribute?",
+        "Python changes a name such as __value to include the class name, helping avoid accidental clashes in subclasses. It is not a security feature.",
+      ],
+      [
+        "What is the difference between overriding and overloading in Python?",
+        "Overriding replaces or specializes an inherited method in a subclass. Python does not select multiple same-named method definitions by parameter signature; a later definition replaces an earlier one.",
+      ],
+      [
+        "What does isinstance(object, Class) check?",
+        "It checks whether an object is an instance of the given class or one of its subclasses.",
+      ],
+      [
+        "When is composition useful?",
+        "Composition is useful when one object contains or uses another object; it models a 'has a' relationship without claiming the contained object is a subtype.",
+      ],
+      [
+        "What is data hiding?",
+        "Data hiding is the practice of keeping implementation details behind a class's interface so callers use intended methods or properties. Python naming conventions do not provide security or strict access control.",
+      ],
+      [
+        "What is an access modifier?",
+        "In some languages, an access modifier restricts where a member can be used. Python does not enforce public, protected, and private modifiers; it uses naming conventions and name mangling instead.",
+      ],
+      [
+        "What is a public member in Python?",
+        "A name without a leading underscore is public by default and can be accessed through an object, such as student.name.",
+      ],
+      [
+        "What is a protected-style member in Python?",
+        "A name such as _email uses one leading underscore to signal internal use by convention, including use by subclasses. Python still permits direct access.",
+      ],
+      [
+        "What is a private-style member in Python?",
+        "A name such as __student_id uses two leading underscores inside a class. Python name-mangles it to reduce accidental name clashes; it does not make the value truly private or secure.",
+      ],
+      [
+        "How do public, protected-style, and private-style names differ in Python?",
+        "Public names have no leading underscore; one underscore signals internal use by convention; two leading underscores trigger class-name mangling. These are conventions and name transformation, not enforced access permissions.",
+      ],
+      [
+        "How can a class display several public Student attributes?",
+        "A display() instance method can read self.name, self.age, and self.course, then print or return those values. Python supplies self when the method is called.",
+      ],
+      [
+        "Can code access a double-leading-underscore attribute from outside its class?",
+        "Name mangling changes __balance in BankAccount to _BankAccount__balance, so direct access using that transformed name is possible. It is an implementation detail, not a supported privacy or security feature.",
       ],
     ],
   },

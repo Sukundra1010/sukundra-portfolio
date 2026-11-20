@@ -1,11 +1,14 @@
-# Er. Sukundra Pujara — Portfolio
+# Sukundra Pujara — Portfolio
 
-**Live portfolio:** [sukundra-pujara.vercel.app](https://sukundra-pujara.vercel.app/)
+**Current live portfolio:** [sukundra-pujara.vercel.app](https://sukundra-pujara.vercel.app/) (kept until GitHub Pages is verified)
 
-> Authored and maintained by Sukundra Pujara.
+**GitHub Pages target:** [Sukundra1010.github.io/sukundra-portfolio](https://Sukundra1010.github.io/sukundra-portfolio/)
 
-A responsive portfolio built with HTML, CSS, and JavaScript. The website and
-browser-based Python assistant work without a backend or API keys.
+> Authored and maintained by [Sukundra1010](https://github.com/Sukundra1010).
+
+A responsive portfolio built with HTML, CSS, and JavaScript. The portfolio pages
+work without a backend; Nexora AI responses require the separate Node.js backend
+and a provider API key configured on the server.
 The supplied original profile photo is preserved at
 `static/images/profile-picture.png`; the homepage uses its square portrait crop
 at `static/images/profile-picture-crop.jpg`.
@@ -13,8 +16,8 @@ Shared visual refinements are in `static/css/themes/design-refresh.css`.
 
 The homepage includes the portfolio, an animated technology-skills grid,
 education, internship and certificate sections, a filterable project showcase,
-a GitHub public-repository feed, a Python Learning Hub link, and an entry point
-for Sukundra AI. Dark mode is the default; the theme preference is saved across
+a GitHub public-repository feed, a Python Learning Hub link, an offline Portfolio
+Guide, and an entry point for Nexora AI. Dark mode is the default; the theme preference is saved across
 pages. The mobile menu, scroll-to-top control, and CV download work without a
 build step.
 
@@ -37,14 +40,16 @@ local development experience.
 - `project.html` — Project detail page opened from the gallery dialog; it shows
   documented capabilities, project-specific case-study notes, technologies, and
   only the available project links.
-- `sukundra-ai.html` — Sukundra AI project page with its project story, build
-  approach, implementation limits, screenshot, source link, and a direct link to
-  open the browser-based learning assistant.
+- `nexora-ai.html` — Nexora AI chat workspace; it connects to the API in
+  `nexora-ai/`.
 - `notes.html` — Interactive Python Notes: Basic to Advanced curriculum with 85
   lesson cards, explanations, commented examples, expected outputs, common
   mistakes, challenges, search, filters, and saved lesson progress. It also
   includes 115 searchable theory questions and answers, topic-wise beginner
   practice, a dedicated OOP practice section, and a scored quiz.
+- `python-quiz.html` — A 300-minute intermediate Python assessment with 600
+  questions, saved progress, question navigation, scoring, A+ to C grades for
+  scores of 60% or higher, and explanations for every answer.
 - `contact.html` — Contact details and an email-app form.
 - `admin.html` — Browser-local project and note editor.
 - `static/files/sukundra-pujara-cv.pdf` — Two-page CV made from the supplied
@@ -58,7 +63,8 @@ portfolio-website/
 ├── projects.html
 ├── project.html
 ├── notes.html
-├── sukundra-ai.html
+├── python-quiz.html
+├── nexora-ai.html
 ├── contact.html
 ├── admin.html
 ├── static/
@@ -74,6 +80,9 @@ portfolio-website/
 │       ├── app/               # Shared page behavior
 │       ├── assistant/         # Chat assistant behavior
 │       └── data/              # Python lessons, guides, and question banks
+├── nexora-ai/
+│   ├── server.mjs             # Secure AI API proxy
+│   └── README.md              # Backend setup and deployment
 ├── .vscode/                   # Editor defaults and extension suggestions
 ├── package.json               # Formatting commands and development tool
 └── README.md
@@ -110,8 +119,8 @@ Run `npm run format` to format those files. In VS Code, install the recommended
 Prettier extension and save a file to format it automatically. You can also use
 **Shift+Alt+F** to format the current file.
 
-Prettier is only a development tool; the public static site does not need Node.js
-or a build step to run.
+Prettier does not add a build step. Static portfolio pages do not need Node.js;
+the separate Nexora backend does.
 
 ## Browser-only limitations
 
@@ -125,34 +134,59 @@ device. Anyone who can open the page in that browser can use the editor. A stati
 HTML site cannot securely protect an admin dashboard or share edits with visitors.
 Those features require a server or a content-management service.
 
-Python lesson completion is also saved in the current browser using `localStorage`.
+Python lesson completion is saved in the current browser using `localStorage`.
 The lesson, theory, practice, and quiz content is bundled in the website and does
-not need a server. The floating Sukundra AI assistant uses browser-based
-question-and-answer logic with the supplied Python Q&A bank and guides, Python
-theory, practice, quiz, and lesson data, and verified portfolio information.
-The chat header shows “Browser Q&A · Ready.”
-Sukundra AI opens in a desktop-style workspace with conversation shortcuts,
-available knowledge sources, a live session-activity panel, and the chat itself.
-Voice input and spoken replies use browser speech APIs when available. Voice
-questions submit automatically, and typed chat remains available as a fallback.
+not need a server. The floating Portfolio Guide is a separate browser-only helper
+that answers from supplied Python learning content and verified portfolio
+information; it does not call an AI model.
 
-Chat stays in the browser and is not sent to an API.
+Nexora AI sends chat messages and any attached image to the configured provider
+through the Node.js backend. The API key remains on the backend. Conversation
+history is saved in the visitor's browser, while image contents are not saved to
+local history. The static portfolio can still be hosted on GitHub Pages, but
+Nexora's backend must be deployed separately for public chat responses. See
+[`nexora-ai/README.md`](./nexora-ai/README.md) for local setup, API configuration,
+and deployment notes.
 
 To replace the homepage portrait, replace `static/images/profile-picture.png`
 and update the matching portrait crop at `static/images/profile-picture-crop.jpg`.
 Keep the homepage crop square so it fits the circular portrait frame.
 
-The supplied Sukundra AI logo is saved at `static/images/sukundra-ai-logo.png`
-and is used by the project card and chat interface.
+The Nexora AI logo is saved at `static/images/nexora-ai-logo.svg` and is used by
+the homepage project card.
 
 ## GitHub Pages deployment
 
-This is a static site: it has no package installation, compilation, or server
-requirement for the public portfolio. To publish from this repository, open
-**Settings → Pages**, choose **Deploy from a branch**, select `main` and the
-repository root (`/`), then save. GitHub Pages serves `index.html` from the
-repository root. Changes to HTML, CSS, or JavaScript can be previewed with
-VS Code Live Server before pushing them.
+This static site has no build or package-installation step. The workflow at
+`.github/workflows/pages.yml` publishes the repository root to GitHub Pages
+when changes are pushed to `main`. In the repository's **Settings → Pages**,
+choose **GitHub Actions** as the build and deployment source. The requested
+project URL is `https://Sukundra1010.github.io/sukundra-portfolio/`.
+
+The root `CNAME` file configures `sukundra.com.np` for Pages. The domain is not
+active until its registrar DNS records point to GitHub Pages and GitHub
+successfully provisions HTTPS. Configure these records at the domain provider:
+Also set `sukundra.com.np` as the custom domain under **Settings → Pages**;
+with a custom Actions workflow, the `CNAME` file alone does not configure that
+repository setting. Once configured, GitHub redirects `www.sukundra.com.np` to
+the apex domain.
+
+| Type  | Name  | Value                    |
+| ----- | ----- | ------------------------ |
+| A     | `@`   | `185.199.108.153`        |
+| A     | `@`   | `185.199.109.153`        |
+| A     | `@`   | `185.199.110.153`        |
+| A     | `@`   | `185.199.111.153`        |
+| CNAME | `www` | `sukundra4040.github.io` |
+
+Optional IPv6 (`AAAA`) records for `@` are `2606:50c0:8000::153`,
+`2606:50c0:8001::153`, `2606:50c0:8002::153`, and `2606:50c0:8003::153`.
+After DNS propagates and GitHub verifies the domain, enable **Enforce HTTPS**
+under **Settings → Pages**. Keep the existing Vercel deployment until Pages
+and the custom domain have both been verified.
+
+Changes to HTML, CSS, or JavaScript can be previewed with VS Code Live Server
+before pushing them.
 
 The GitHub section reads the latest public repositories from GitHub's unauthenticated
 public API. If GitHub is unavailable or its anonymous request limit is reached,

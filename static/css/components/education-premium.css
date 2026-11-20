@@ -1,0 +1,591 @@
+.portfolio-home #education.education-premium {
+  position: relative;
+  isolation: isolate;
+  max-width: 1180px;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(65, 121, 255, 0.16), transparent 24rem),
+    radial-gradient(circle at 88% 42%, rgba(143, 76, 255, 0.12), transparent 28rem),
+    linear-gradient(155deg, rgba(8, 13, 27, 0.98), rgba(4, 8, 18, 0.99));
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.04),
+    0 28px 80px rgba(0, 0, 0, 0.24);
+}
+
+.portfolio-home #education.education-premium::before,
+.portfolio-home #education.education-premium::after {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(1px);
+  content: "";
+  pointer-events: none;
+}
+
+.portfolio-home #education.education-premium::before {
+  top: 80px;
+  right: -130px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(113, 151, 255, 0.12);
+  box-shadow:
+    0 0 80px rgba(93, 92, 255, 0.12),
+    inset 0 0 40px rgba(93, 92, 255, 0.08);
+}
+
+.portfolio-home #education.education-premium::after {
+  bottom: 40px;
+  left: -90px;
+  width: 180px;
+  height: 180px;
+  background: rgba(46, 160, 255, 0.05);
+  filter: blur(28px);
+}
+
+.education-premium-heading {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 24px;
+}
+
+.education-premium .education-particles,
+.education-premium .education-particles::before,
+.education-premium .education-particles::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    radial-gradient(circle, rgba(135, 183, 255, 0.55) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(181, 139, 255, 0.4) 0 1px, transparent 1.5px);
+  background-position:
+    0 0,
+    37px 41px;
+  background-size:
+    83px 83px,
+    127px 127px;
+  opacity: 0.18;
+  content: "";
+  pointer-events: none;
+}
+
+.education-premium .academic-timeline {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  padding: 0;
+}
+
+.education-premium .academic-timeline::before {
+  position: absolute;
+  z-index: 0;
+  top: 40px;
+  bottom: 40px;
+  left: 24px;
+  width: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    180deg,
+    rgba(79, 183, 255, 0.9),
+    rgba(139, 109, 255, 0.78),
+    rgba(250, 196, 92, 0.65)
+  );
+  box-shadow:
+    0 0 14px rgba(91, 151, 255, 0.38),
+    0 0 28px rgba(137, 99, 255, 0.18);
+  content: "";
+  transform-origin: top;
+  animation: academic-line-glow 4s ease-in-out infinite;
+}
+
+.portfolio-home #education.education-premium .education-card.premium-education-card {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(210px, 30%) minmax(0, 70%);
+  min-height: 0;
+  margin-left: 50px;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid rgba(138, 170, 215, 0.18);
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.04), transparent 28%),
+    linear-gradient(145deg, rgba(16, 28, 48, 0.96), rgba(7, 13, 27, 0.98));
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.055),
+    0 22px 50px rgba(0, 0, 0, 0.26);
+  backdrop-filter: blur(18px);
+  transform-style: preserve-3d;
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease;
+  opacity: 0;
+  transform: translateY(34px);
+}
+
+.portfolio-home #education.education-premium .education-card.premium-education-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 700ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.education-premium .premium-education-card::before {
+  position: absolute;
+  z-index: 4;
+  top: 50%;
+  left: -51px;
+  width: 18px;
+  height: 18px;
+  border: 3px solid #09101f;
+  border-radius: 50%;
+  background: #68aaff;
+  box-shadow:
+    0 0 0 6px rgba(93, 153, 255, 0.13),
+    0 0 22px rgba(93, 153, 255, 0.72);
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.education-premium .education-card-kmc::before {
+  background: #9c86ff;
+  box-shadow:
+    0 0 0 6px rgba(156, 134, 255, 0.13),
+    0 0 22px rgba(156, 134, 255, 0.72);
+}
+
+.education-premium .education-card-surma::before {
+  background: #56cde8;
+  box-shadow:
+    0 0 0 6px rgba(86, 205, 232, 0.13),
+    0 0 22px rgba(86, 205, 232, 0.72);
+}
+
+.education-premium .premium-education-card:hover {
+  border-color: rgba(116, 180, 255, 0.42);
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.07),
+    0 30px 70px rgba(0, 0, 0, 0.34),
+    0 0 32px rgba(67, 122, 255, 0.08);
+}
+
+.portfolio-home #education.education-premium .academic-card-media {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  border-right: 1px solid rgba(146, 174, 215, 0.12);
+  background: #0a1121;
+}
+
+.portfolio-home #education.education-premium .academic-card-media > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 34px 26px 24px;
+  box-sizing: border-box;
+  object-fit: contain;
+  filter: none;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(83, 139, 220, 0.14), transparent 42%),
+    linear-gradient(145deg, rgba(18, 31, 52, 0.96), rgba(7, 13, 27, 0.98));
+  transition:
+    transform 700ms cubic-bezier(0.2, 0.75, 0.25, 1),
+    filter 300ms ease;
+}
+
+.education-premium .premium-education-card:hover .academic-card-media > img {
+  transform: scale(1.035);
+}
+
+.education-premium .academic-media-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(35, 83, 173, 0.18), transparent 58%),
+    linear-gradient(0deg, rgba(5, 9, 19, 0.82), transparent 70%);
+}
+
+.education-premium .academic-emblem {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 18px;
+  display: grid;
+  width: 82px;
+  height: 82px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.34),
+    0 0 22px rgba(100, 160, 255, 0.18);
+  transform: translateZ(24px);
+  animation: emblem-float 5s ease-in-out infinite;
+}
+
+.education-premium .academic-emblem img {
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.education-premium .academic-emblem-coventry {
+  width: 92px;
+  height: 92px;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.education-premium .academic-emblem-coventry img {
+  border-radius: 12px;
+}
+
+.education-premium .academic-status {
+  position: absolute;
+  z-index: 3;
+  bottom: 16px;
+  left: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  border: 1px solid rgba(173, 211, 255, 0.18);
+  border-radius: 999px;
+  background: rgba(5, 12, 25, 0.72);
+  backdrop-filter: blur(12px);
+  color: #d7e5f7;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.education-premium .academic-status i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #69ddb2;
+  box-shadow: 0 0 12px rgba(105, 221, 178, 0.72);
+}
+
+.education-premium .academic-card-content {
+  min-width: 0;
+  padding: 20px 24px 19px;
+  transform: translateZ(12px);
+}
+
+.education-premium .academic-card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 9px;
+  color: #91a8c4;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.education-premium .academic-period {
+  color: #78d8c3;
+}
+
+.education-premium .academic-card-content h3 {
+  max-width: 780px;
+  margin: 0 0 6px;
+  color: #eff5ff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 1.9vw, 25px);
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.018em;
+}
+
+.education-premium .academic-institution {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  color: #c8d8e9;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.education-premium .academic-institution a {
+  color: #85bbff;
+  font-weight: 700;
+}
+
+.education-premium .academic-institution span {
+  color: #94a5bb;
+  font-size: 12px;
+}
+
+.education-premium .academic-rankings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.education-premium .ranking-badge {
+  position: relative;
+  display: grid;
+  min-width: 130px;
+  min-height: 78px;
+  align-content: center;
+  gap: 2px;
+  overflow: hidden;
+  padding: 10px 14px;
+  border: 1px solid rgba(117, 181, 255, 0.22);
+  border-radius: 14px;
+  background: linear-gradient(145deg, rgba(50, 86, 145, 0.28), rgba(10, 18, 34, 0.92));
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.18);
+  transform: translateZ(18px);
+}
+
+.education-premium .ranking-badge-gold {
+  border-color: rgba(255, 205, 105, 0.46);
+  background:
+    linear-gradient(135deg, rgba(255, 225, 155, 0.16), transparent 42%),
+    linear-gradient(145deg, rgba(119, 91, 34, 0.34), rgba(30, 25, 19, 0.96));
+  box-shadow:
+    inset 0 1px rgba(255, 236, 184, 0.16),
+    0 10px 26px rgba(0, 0, 0, 0.22),
+    0 0 20px rgba(255, 192, 83, 0.07);
+}
+
+.education-premium .ranking-badge-gold::after {
+  position: absolute;
+  top: -40%;
+  right: -25%;
+  width: 70%;
+  height: 180%;
+  background: linear-gradient(90deg, transparent, rgba(255, 229, 167, 0.12), transparent);
+  content: "";
+  transform: rotate(24deg);
+  animation: ranking-shimmer 5s ease-in-out infinite;
+}
+
+.education-premium .ranking-kicker,
+.education-premium .ranking-name {
+  position: relative;
+  z-index: 1;
+  color: #aec0d6;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.education-premium .ranking-badge-gold .ranking-kicker,
+.education-premium .ranking-badge-gold .ranking-name {
+  color: #efce82;
+}
+
+.education-premium .ranking-badge strong {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  text-shadow: 0 8px 18px rgba(0, 0, 0, 0.32);
+}
+
+.education-premium .ranking-badge-gpa strong {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #ffe5a2;
+  font-size: 37px;
+  letter-spacing: -0.04em;
+}
+
+.education-premium .education-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.education-premium .education-highlights span {
+  padding: 6px 9px;
+  border: 1px solid rgba(135, 166, 210, 0.15);
+  border-radius: 999px;
+  background: rgba(43, 62, 89, 0.36);
+  color: #b8c7da;
+  font-size: 10px;
+}
+
+.education-premium .education-story {
+  max-width: 760px;
+  margin: 9px 0 0;
+  color: #a6b5c8;
+  font-size: 11.5px;
+  line-height: 1.58;
+}
+
+@keyframes academic-line-glow {
+  50% {
+    filter: brightness(1.35);
+  }
+}
+
+@keyframes emblem-float {
+  50% {
+    transform: translateY(-5px) rotate(1deg);
+  }
+}
+
+@keyframes ranking-shimmer {
+  0%,
+  35% {
+    transform: translateX(-220%) rotate(24deg);
+  }
+  65%,
+  100% {
+    transform: translateX(220%) rotate(24deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .portfolio-home #education.education-premium .education-card.premium-education-card {
+    grid-template-columns: minmax(180px, 36%) minmax(0, 64%);
+  }
+
+  .education-premium .academic-card-content {
+    padding: 23px 22px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-home #education.education-premium {
+    margin-right: 12px;
+    margin-left: 12px;
+    border-radius: 20px;
+  }
+
+  .education-premium-heading {
+    margin-bottom: 20px;
+  }
+
+  .education-premium .academic-timeline {
+    gap: 14px;
+  }
+
+  .education-premium .academic-timeline::before {
+    left: 13px;
+  }
+
+  .portfolio-home #education.education-premium .education-card.premium-education-card {
+    grid-template-columns: 1fr;
+    margin-left: 30px;
+  }
+
+  .education-premium .premium-education-card::before {
+    top: 34px;
+    left: -31px;
+  }
+
+  .portfolio-home #education.education-premium .academic-card-media {
+    height: 170px;
+    min-height: 170px;
+    border-right: 0;
+    border-bottom: 1px solid rgba(146, 174, 215, 0.12);
+  }
+
+  .portfolio-home #education.education-premium .academic-card-media > img {
+    position: absolute;
+  }
+
+  .education-premium .academic-emblem {
+    width: 72px;
+    height: 72px;
+  }
+
+  .education-premium .academic-emblem-coventry {
+    width: 82px;
+    height: 82px;
+  }
+
+  .education-premium .academic-card-content {
+    padding: 17px 16px 18px;
+  }
+
+  .education-premium .academic-card-topline {
+    align-items: flex-start;
+  }
+
+  .education-premium .academic-card-content h3 {
+    font-size: 21px;
+  }
+
+  .education-premium .ranking-badge {
+    flex: 1 1 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .education-premium .academic-card-topline {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .education-premium .academic-rankings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .education-premium .academic-rankings-surma {
+    grid-template-columns: 1fr;
+  }
+
+  .education-premium .ranking-badge {
+    min-width: 0;
+  }
+
+  .education-premium .education-story {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home #education.education-premium .education-card.premium-education-card,
+  .portfolio-home #education.education-premium .education-card.premium-education-card.is-visible,
+  .education-premium .academic-emblem,
+  .education-premium .academic-timeline::before,
+  .education-premium .ranking-badge-gold::after {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.portfolio-home #education.education-premium,
+.portfolio-home #education.education-premium *,
+.portfolio-home #education.education-premium *::before,
+.portfolio-home #education.education-premium *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+.portfolio-home #education.education-premium .academic-card-media > img,
+.portfolio-home
+  #education.education-premium
+  .premium-education-card:hover
+  .academic-card-media
+  > img {
+  filter: none !important;
+}
