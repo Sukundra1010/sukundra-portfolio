@@ -25,7 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
   function loadCompleted() {
     try {
       const saved = JSON.parse(localStorage.getItem(completedKey) || "[]");
-      return new Set(Array.isArray(saved) ? saved.filter(Number.isInteger) : []);
+      return new Set(
+        Array.isArray(saved)
+          ? saved.filter((index) => Number.isInteger(index) && index >= 0 && index < lessons.length)
+          : [],
+      );
     } catch (error) {
       console.error("Could not read lesson progress from this browser.", error);
       showStorageWarning();
