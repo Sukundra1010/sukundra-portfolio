@@ -1,0 +1,705 @@
+.engine-intro-overlay[hidden] {
+  display: none !important;
+}
+
+.engine-intro-overlay {
+  --intro-blue: #45baff;
+  --intro-violet: #9a7aff;
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  display: grid;
+  min-height: 100vh;
+  min-height: 100dvh;
+  place-items: center;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse at 50% 54%, rgba(37, 58, 117, 0.21), transparent 34rem),
+    radial-gradient(ellipse at 50% 105%, rgba(94, 54, 194, 0.15), transparent 38rem), #050711;
+  color: #eef4ff;
+  opacity: 1;
+  transition:
+    opacity 900ms cubic-bezier(0.65, 0, 0.35, 1),
+    visibility 900ms ease;
+}
+
+.engine-intro-overlay::before,
+.engine-intro-overlay::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+}
+
+.engine-intro-overlay::before {
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(99, 138, 225, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 138, 225, 0.09) 1px, transparent 1px);
+  background-position: center;
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 76%);
+}
+
+.engine-intro-overlay::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 11, 0.72),
+      transparent 27%,
+      transparent 73%,
+      rgba(3, 5, 11, 0.72)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(3, 5, 11, 0.55),
+      transparent 26%,
+      transparent 74%,
+      rgba(3, 5, 11, 0.42)
+    );
+}
+
+.engine-intro-scene {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.engine-intro-speedlines {
+  position: absolute;
+  z-index: 1;
+  inset: 20% 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 450ms ease;
+}
+
+.engine-intro-speedlines i {
+  position: absolute;
+  left: -40%;
+  width: 28vw;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(132, 206, 255, 0.6), transparent);
+  filter: blur(1px);
+  transform: skewY(-12deg);
+}
+
+.engine-intro-speedlines i:nth-child(1) {
+  top: 24%;
+}
+
+.engine-intro-speedlines i:nth-child(2) {
+  top: 37%;
+  width: 20vw;
+}
+
+.engine-intro-speedlines i:nth-child(3) {
+  top: 51%;
+  width: 34vw;
+}
+
+.engine-intro-speedlines i:nth-child(4) {
+  top: 66%;
+  width: 24vw;
+}
+
+.engine-intro-speedlines i:nth-child(5) {
+  top: 78%;
+  width: 18vw;
+}
+
+.engine-intro-overlay.is-riding .engine-intro-speedlines {
+  opacity: 1;
+}
+
+.engine-intro-overlay.is-riding .engine-intro-speedlines i {
+  animation: engine-speedline 850ms linear infinite;
+}
+
+.engine-intro-overlay.is-riding .engine-intro-speedlines i:nth-child(2n) {
+  animation-delay: -420ms;
+}
+
+.engine-intro-overlay.is-exiting {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.engine-intro-controls {
+  position: absolute;
+  z-index: 4;
+  inset: max(22px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-right)) auto
+    max(24px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.engine-intro-sound,
+.engine-intro-skip {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 13px;
+  border: 1px solid rgba(164, 186, 233, 0.2);
+  border-radius: 999px;
+  background: rgba(15, 21, 39, 0.8);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.07);
+  color: #d3ddf2;
+  font:
+    650 12px/1 "Segoe UI",
+    Arial,
+    sans-serif;
+  cursor: pointer;
+  backdrop-filter: blur(14px);
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
+}
+
+.engine-intro-sound:hover,
+.engine-intro-skip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(126, 181, 255, 0.58);
+  background: rgba(29, 38, 67, 0.93);
+  color: #fff;
+}
+
+.engine-intro-sound[aria-pressed="false"] {
+  color: #9caac2;
+}
+
+.engine-intro-sound svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.engine-intro-sound:focus-visible,
+.engine-intro-skip:focus-visible,
+.engine-ignition-button:focus-visible {
+  outline: 2px solid #9ed5ff;
+  outline-offset: 4px;
+}
+
+.engine-intro-skip {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+  color: #a7b3ca;
+}
+
+.engine-intro-center {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  width: min(100% - 36px, 620px);
+  justify-items: center;
+  padding: 44px 20px;
+  text-align: center;
+}
+
+.engine-intro-overline {
+  margin: 0 0 28px;
+  color: #9aabc9;
+  font:
+    700 10px/1.4 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.22em;
+}
+
+.engine-intro-overline span {
+  padding-inline: 5px;
+  color: #7abfff;
+}
+
+.engine-ignition-wrap {
+  position: relative;
+  display: grid;
+  width: 174px;
+  height: 174px;
+  place-items: center;
+  margin-bottom: 23px;
+  perspective: 700px;
+}
+
+.engine-ignition-halo {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(121, 160, 255, 0.28);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle, rgba(106, 93, 227, 0.2), transparent 62%),
+    conic-gradient(
+      from 25deg,
+      transparent,
+      rgba(66, 187, 255, 0.8),
+      transparent 34%,
+      rgba(151, 105, 255, 0.78),
+      transparent 80%
+    );
+  box-shadow:
+    0 0 34px rgba(76, 148, 255, 0.24),
+    inset 0 0 26px rgba(111, 102, 255, 0.18);
+  opacity: 0.8;
+  transform: rotateX(68deg) rotateZ(-20deg);
+  animation: engine-halo-turn 14s linear infinite;
+}
+
+.engine-ignition-halo::before,
+.engine-ignition-halo::after {
+  position: absolute;
+  border: 1px solid rgba(137, 165, 255, 0.25);
+  border-radius: 50%;
+  content: "";
+}
+
+.engine-ignition-halo::before {
+  inset: 12px;
+  transform: rotate(38deg);
+}
+
+.engine-ignition-halo::after {
+  inset: -9px;
+  border-color: rgba(84, 191, 255, 0.16);
+  transform: rotate(-27deg);
+}
+
+.engine-ignition-button {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: 106px;
+  height: 106px;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid rgba(164, 188, 255, 0.56);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 34% 22%, rgba(109, 142, 255, 0.33), transparent 48%),
+    linear-gradient(145deg, #1a2340, #0b1021 70%);
+  box-shadow:
+    0 0 0 7px rgba(103, 138, 246, 0.06),
+    0 0 28px rgba(68, 151, 255, 0.45),
+    0 0 72px rgba(123, 80, 238, 0.26),
+    inset 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 -12px 24px rgba(0, 0, 0, 0.28);
+  color: #fff;
+  cursor: pointer;
+  transform: translateZ(0);
+  transition:
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 650ms ease;
+}
+
+.engine-ignition-button:hover {
+  transform: scale(1.055);
+  border-color: #b6d7ff;
+  box-shadow:
+    0 0 0 9px rgba(103, 138, 246, 0.09),
+    0 0 38px rgba(68, 176, 255, 0.58),
+    0 0 88px rgba(123, 80, 238, 0.35),
+    inset 0 1px rgba(255, 255, 255, 0.22);
+}
+
+.engine-ignition-button svg {
+  width: 27px;
+  height: 27px;
+  overflow: visible;
+  stroke: #b8ddff;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  filter: drop-shadow(0 0 8px rgba(86, 179, 255, 0.88));
+}
+
+.engine-ignition-button span {
+  font:
+    700 9px/1.2 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.engine-intro-status {
+  min-height: 20px;
+  margin: 0;
+  color: #91a1bf;
+  font:
+    500 12px/1.5 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.04em;
+  transition:
+    color 250ms ease,
+    opacity 450ms ease;
+}
+
+.engine-intro-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max-content;
+  max-width: min(92vw, 680px);
+  margin: 0;
+  color: #f4f7ff;
+  font:
+    760 clamp(27px, 6vw, 58px) / 1 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.14em;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow:
+    0 0 22px rgba(95, 169, 255, 0.64),
+    0 0 64px rgba(134, 97, 255, 0.44);
+  transform: translate(-50%, calc(-50% + 24px)) scale(0.94);
+  transition:
+    opacity 1s ease,
+    transform 1.2s cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.engine-intro-title span {
+  color: transparent;
+  background: linear-gradient(110deg, #b2a1ff, #78caff 65%, #a9e8ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.engine-intro-subtitle {
+  position: absolute;
+  top: calc(50% + 48px);
+  left: 50%;
+  width: max-content;
+  max-width: min(92vw, 680px);
+  margin: 0;
+  color: #c3d0e8;
+  font:
+    550 clamp(11px, 1.7vw, 15px) / 1.5 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.09em;
+  opacity: 0;
+  pointer-events: none;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
+  transform: translate(-50%, 12px);
+  transition:
+    opacity 900ms ease 250ms,
+    transform 900ms ease 250ms;
+}
+
+.engine-intro-subtitle span {
+  padding-inline: 8px;
+  color: #7abfff;
+}
+
+.engine-intro-overlay[data-phase="igniting"] .engine-ignition-halo {
+  animation-duration: 2.2s;
+  border-color: rgba(104, 194, 255, 0.72);
+  box-shadow:
+    0 0 54px rgba(62, 165, 255, 0.56),
+    inset 0 0 34px rgba(111, 102, 255, 0.28);
+}
+
+.engine-intro-overlay[data-phase="igniting"] .engine-ignition-button {
+  animation: engine-start-pulse 950ms ease-in-out infinite alternate;
+}
+
+.engine-intro-overlay[data-phase="reveal"] .engine-ignition-wrap {
+  opacity: 0;
+  transform: scale(0.68);
+  transition:
+    opacity 800ms ease,
+    transform 900ms cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.engine-intro-overlay[data-phase="reveal"] .engine-intro-overline,
+.engine-intro-overlay[data-phase="reveal"] .engine-intro-status {
+  opacity: 0;
+}
+
+.engine-intro-overlay[data-phase="reveal"] .engine-intro-title {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.engine-intro-overlay[data-phase="reveal"] .engine-intro-subtitle {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.engine-intro-orbit {
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 700px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(100, 145, 255, 0.09);
+  border-radius: 50%;
+  box-shadow:
+    0 0 46px rgba(75, 104, 236, 0.06),
+    inset 0 0 54px rgba(115, 81, 234, 0.06);
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-18deg);
+}
+
+.engine-intro-orbit-two {
+  width: min(51vw, 500px);
+  border-color: rgba(132, 112, 255, 0.11);
+  transform: translate(-50%, -50%) rotateX(68deg) rotateZ(28deg);
+}
+
+.engine-intro-overlay[data-phase="igniting"] .engine-intro-orbit {
+  animation: engine-orbit-pulse 2.6s ease-out infinite;
+}
+
+.engine-intro-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.engine-intro-particles i {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #8bc7ff;
+  box-shadow: 0 0 13px 2px rgba(93, 162, 255, 0.64);
+  opacity: 0;
+}
+
+.engine-intro-particles i:nth-child(1) {
+  top: 22%;
+  left: 18%;
+  animation-delay: -1s;
+}
+
+.engine-intro-particles i:nth-child(2) {
+  top: 77%;
+  left: 23%;
+  animation-delay: -4s;
+}
+
+.engine-intro-particles i:nth-child(3) {
+  top: 16%;
+  left: 71%;
+  animation-delay: -2.4s;
+}
+
+.engine-intro-particles i:nth-child(4) {
+  top: 68%;
+  left: 83%;
+  animation-delay: -5.3s;
+}
+
+.engine-intro-particles i:nth-child(5) {
+  top: 33%;
+  left: 9%;
+  animation-delay: -3.2s;
+}
+
+.engine-intro-particles i:nth-child(6) {
+  top: 58%;
+  left: 91%;
+  animation-delay: -1.8s;
+}
+
+.engine-intro-particles i:nth-child(7) {
+  top: 86%;
+  left: 58%;
+  animation-delay: -4.7s;
+}
+
+.engine-intro-particles i:nth-child(8) {
+  top: 23%;
+  left: 48%;
+  animation-delay: -2.8s;
+}
+
+.engine-intro-particles i:nth-child(9) {
+  top: 44%;
+  left: 78%;
+  animation-delay: -5.8s;
+}
+
+.engine-intro-particles i:nth-child(10) {
+  top: 79%;
+  left: 34%;
+  animation-delay: -3.7s;
+}
+
+.engine-intro-overlay[data-phase="igniting"] .engine-intro-particles i {
+  animation-name: engine-particle-streak;
+  animation-duration: 2.1s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+
+.engine-intro-credit {
+  position: absolute;
+  right: 20px;
+  bottom: max(17px, env(safe-area-inset-bottom));
+  left: 20px;
+  z-index: 2;
+  margin: 0;
+  color: #707e9a;
+  font:
+    500 10px/1.6 "Segoe UI",
+    Arial,
+    sans-serif;
+  text-align: center;
+}
+
+.engine-intro-credit a {
+  color: #a1b9e8;
+  text-decoration: underline;
+  text-decoration-color: rgba(161, 185, 232, 0.4);
+  text-underline-offset: 2px;
+}
+
+.engine-intro-credit a:hover {
+  color: #cce5ff;
+}
+
+body.engine-intro-active {
+  overflow: hidden;
+}
+
+@keyframes engine-halo-turn {
+  to {
+    transform: rotateX(68deg) rotateZ(340deg);
+  }
+}
+
+@keyframes engine-start-pulse {
+  from {
+    box-shadow:
+      0 0 0 7px rgba(103, 138, 246, 0.08),
+      0 0 30px rgba(68, 151, 255, 0.45),
+      0 0 72px rgba(123, 80, 238, 0.26),
+      inset 0 1px rgba(255, 255, 255, 0.2);
+  }
+  to {
+    box-shadow:
+      0 0 0 12px rgba(103, 138, 246, 0.04),
+      0 0 44px rgba(68, 178, 255, 0.65),
+      0 0 94px rgba(123, 80, 238, 0.4),
+      inset 0 1px rgba(255, 255, 255, 0.24);
+  }
+}
+
+@keyframes engine-orbit-pulse {
+  0% {
+    opacity: 0.38;
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-18deg) scale(0.94);
+  }
+  72%,
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotateX(68deg) rotateZ(-18deg) scale(1.15);
+  }
+}
+
+@keyframes engine-particle-streak {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 8vh, 0) scale(0.7);
+  }
+  18% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(25vw, -35vh, 0) scale(0);
+  }
+}
+
+@keyframes engine-speedline {
+  from {
+    transform: translateX(0) skewY(-12deg);
+  }
+  to {
+    transform: translateX(170vw) skewY(-12deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .engine-intro-controls {
+    inset: max(14px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) auto
+      max(14px, env(safe-area-inset-left));
+  }
+
+  .engine-intro-sound,
+  .engine-intro-skip {
+    min-height: 40px;
+    padding: 8px 11px;
+    font-size: 11px;
+  }
+
+  .engine-ignition-wrap {
+    width: 150px;
+    height: 150px;
+  }
+
+  .engine-ignition-button {
+    width: 96px;
+    height: 96px;
+  }
+
+  .engine-intro-overline {
+    margin-bottom: 22px;
+    font-size: 9px;
+  }
+
+  .engine-intro-title {
+    letter-spacing: 0.09em;
+  }
+
+  .engine-intro-subtitle {
+    top: calc(50% + 37px);
+    letter-spacing: 0.04em;
+  }
+
+  .engine-intro-credit {
+    right: 16px;
+    left: 16px;
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engine-intro-overlay,
+  .engine-intro-overlay *,
+  .engine-intro-overlay *::before,
+  .engine-intro-overlay *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

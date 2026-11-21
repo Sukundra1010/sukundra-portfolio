@@ -786,15 +786,7 @@ function setupTypewriter() {
   const target = document.querySelector("[data-typewriter]");
   if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const titles = [
-    "Full Stack Developer",
-    "Sukundra Pujara",
-    "Data Scientist",
-    "Web Development",
-    "Django",
-    "AI & Machine Learning",
-    "Robotics",
-  ];
+  const titles = ["Full Stack Developer", "Python & Django Developer", "AI/ML Enthusiast"];
   let titleIndex = 0;
   let characterIndex = 0;
   let deleting = false;
