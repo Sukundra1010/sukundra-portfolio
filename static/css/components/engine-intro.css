@@ -2,6 +2,40 @@
   display: none !important;
 }
 
+.engine-intro-frame-lines {
+  position: absolute;
+  z-index: 1;
+  inset: 14% 0;
+  pointer-events: none;
+}
+
+.engine-intro-frame-lines::before,
+.engine-intro-frame-lines::after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  content: "";
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(73, 185, 255, 0.58) 24%,
+    rgba(124, 132, 255, 0.52) 76%,
+    transparent
+  );
+  box-shadow:
+    0 0 12px rgba(67, 173, 255, 0.25),
+    0 0 28px rgba(117, 83, 229, 0.16);
+}
+
+.engine-intro-frame-lines::before {
+  left: clamp(24px, 18vw, 300px);
+}
+
+.engine-intro-frame-lines::after {
+  right: clamp(24px, 18vw, 300px);
+}
+
 .engine-intro-overlay {
   --intro-blue: #45baff;
   --intro-violet: #9a7aff;
@@ -34,13 +68,11 @@
 }
 
 .engine-intro-overlay::before {
-  opacity: 0.22;
-  background-image:
-    linear-gradient(rgba(99, 138, 225, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(99, 138, 225, 0.09) 1px, transparent 1px);
-  background-position: center;
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse at center, #000 0%, transparent 76%);
+  opacity: 0.85;
+  background:
+    radial-gradient(ellipse at 50% 78%, rgba(21, 86, 145, 0.21), transparent 34rem),
+    radial-gradient(ellipse at 73% 65%, rgba(98, 47, 159, 0.17), transparent 32rem),
+    radial-gradient(ellipse at center, transparent 34%, rgba(2, 4, 10, 0.82) 100%);
 }
 
 .engine-intro-overlay::after {
@@ -145,7 +177,9 @@
 
 .engine-intro-sound,
 .engine-intro-skip {
-  display: inline-flex;
+  display: grid;
+  justify-items: center;
+  gap: 7px;
   min-height: 42px;
   align-items: center;
   justify-content: center;
@@ -339,6 +373,7 @@
     Arial,
     sans-serif;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
   white-space: nowrap;
 }
 
@@ -389,17 +424,17 @@
 
 .engine-intro-subtitle {
   position: absolute;
-  top: calc(50% + 48px);
+  top: calc(50% + 58px);
   left: 50%;
   width: max-content;
   max-width: min(92vw, 680px);
   margin: 0;
   color: #c3d0e8;
   font:
-    550 clamp(11px, 1.7vw, 15px) / 1.5 "Segoe UI",
+    650 clamp(11px, 1.7vw, 15px) / 1.4 "Segoe UI",
     Arial,
     sans-serif;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.16em;
   opacity: 0;
   pointer-events: none;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.8);
@@ -409,9 +444,16 @@
     transform 900ms ease 250ms;
 }
 
-.engine-intro-subtitle span {
-  padding-inline: 8px;
+.engine-intro-subtitle .engine-intro-stack {
   color: #7abfff;
+  font-size: 0.78em;
+  letter-spacing: 0.25em;
+}
+
+.engine-intro-stack i {
+  padding-inline: 6px;
+  color: #9c88ff;
+  font-style: normal;
 }
 
 .engine-intro-overlay[data-phase="igniting"] .engine-ignition-halo {
@@ -681,8 +723,12 @@ body.engine-intro-active {
   }
 
   .engine-intro-subtitle {
-    top: calc(50% + 37px);
-    letter-spacing: 0.04em;
+    top: calc(50% + 47px);
+    letter-spacing: 0.08em;
+  }
+
+  .engine-intro-subtitle .engine-intro-stack {
+    letter-spacing: 0.12em;
   }
 
   .engine-intro-credit {
