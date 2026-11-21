@@ -27,6 +27,48 @@ const createGlowTexture = () => {
   return texture;
 };
 
+const createEdgeMask = () => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 512;
+  canvas.height = 512;
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Could not create the motorcycle image edge mask.");
+
+  const gradient = context.createRadialGradient(256, 256, 28, 256, 256, 362);
+  gradient.addColorStop(0, "#fff");
+  gradient.addColorStop(0.55, "#fff");
+  gradient.addColorStop(1, "#000");
+  context.fillStyle = gradient;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  return new THREE.CanvasTexture(canvas);
+};
+
+const createSmokeTexture = () => {
+  const canvas = document.createElement("canvas");
+  canvas.width = 256;
+  canvas.height = 128;
+  const context = canvas.getContext("2d");
+  if (!context) throw new Error("Could not create the garage smoke texture.");
+
+  [
+    { x: 82, y: 72, radius: 66, alpha: 0.19 },
+    { x: 142, y: 54, radius: 58, alpha: 0.15 },
+    { x: 186, y: 78, radius: 50, alpha: 0.13 },
+  ].forEach(({ x, y, radius, alpha }) => {
+    const gradient = context.createRadialGradient(x, y, 4, x, y, radius);
+    gradient.addColorStop(0, `rgba(202, 220, 255, ${alpha})`);
+    gradient.addColorStop(0.55, `rgba(132, 164, 221, ${alpha * 0.55})`);
+    gradient.addColorStop(1, "rgba(102, 130, 196, 0)");
+    context.fillStyle = gradient;
+    context.fillRect(0, 0, canvas.width, canvas.height);
+  });
+
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.colorSpace = THREE.SRGBColorSpace;
+  return texture;
+};
+
 export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   const compact = window.matchMedia("(max-width: 760px)").matches;
   const renderer = new THREE.WebGLRenderer({
@@ -92,7 +134,7 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
       metalness: 0.08,
       roughness: 0.3,
     });
-    const strip = new THREE.Mesh(new THREE.BoxGeometry(0.055, 4.6, 0.05), material);
+    const strip = new THREE.Mesh(new THREE.BoxGeometry(0.025, 4.6, 0.05), material);
     strip.position.set(x, 2.75, -2.95);
     scene.add(strip);
     neonMaterials.push(material);
@@ -102,10 +144,12 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   bikeImageGroup.position.set(0, 2.65, -0.3);
   scene.add(bikeImageGroup);
 
+  let imageLoaded = false;
   const photoMaterial = new THREE.MeshBasicMaterial({
     color: 0xffffff,
+    alphaMap: createEdgeMask(),
     transparent: true,
-    opacity: 0.32,
+    opacity: 0,
     side: THREE.DoubleSide,
     toneMapped: false,
   });
@@ -113,6 +157,28 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   bikeImageGroup.add(photo);
 
   const glowTexture = createGlowTexture();
+  const floorReflections = [
+    { x: -1.65, color: 0x55baff },
+    { x: 1.65, color: 0x8e6cff },
+  ].map(({ x, color }) => {
+    const reflection = new THREE.Mesh(
+      new THREE.PlaneGeometry(3.7, 2.2),
+      new THREE.MeshBasicMaterial({
+        map: glowTexture,
+        color,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+        toneMapped: false,
+      }),
+    );
+    reflection.rotation.x = -Math.PI / 2;
+    reflection.position.set(x, 0.006, 1.45);
+    scene.add(reflection);
+    return reflection;
+  });
+
   const headlightHalos = [-0.38, 0.42].map((offset) => {
     const halo = new THREE.Mesh(
       new THREE.PlaneGeometry(2.15, 2.15),
@@ -131,7 +197,31 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
     return halo;
   });
 
+  const smokeTexture = createSmokeTexture();
+  const smokeSprites = [
+    { x: -3.1, y: 0.7, z: -1.15, color: 0x84b9ee, offset: 0.2 },
+    { x: 3.2, y: 1.05, z: -1.25, color: 0x9278e8, offset: 1.8 },
+    { x: -1.1, y: 0.28, z: -1.35, color: 0x9eb7dd, offset: 3.1 },
+  ].map(({ x, y, z, color, offset }) => {
+    const material = new THREE.SpriteMaterial({
+      map: smokeTexture,
+      color,
+      transparent: true,
+      opacity: 0.14,
+      depthWrite: false,
+    });
+    const smoke = new THREE.Sprite(material);
+    smoke.position.set(x, y, z);
+    smoke.scale.set(3.6, 1.75, 1);
+    smoke.userData.baseX = x;
+    smoke.userData.baseY = y;
+    smoke.userData.offset = offset;
+    scene.add(smoke);
+    return smoke;
+  });
+
   let disposed = false;
+  let startedAt = 0;
   const photoLoader = new THREE.TextureLoader();
   photoLoader.load(
     imageUrl,
@@ -144,6 +234,11 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
       texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
       photoMaterial.map = texture;
       photoMaterial.needsUpdate = true;
+      imageLoaded = true;
+      if (!startedAt) {
+        photoMaterial.opacity = 0.32;
+        if (!document.hidden) renderer.render(scene, camera);
+      }
     },
     undefined,
     (error) => {
@@ -207,12 +302,15 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   }
   resize();
 
-  let startedAt = 0;
   let animationFrame = 0;
 
   const render = (time) => {
     animationFrame = 0;
     if (disposed || document.hidden) return;
+    if (!startedAt) {
+      renderer.render(scene, camera);
+      return;
+    }
 
     const elapsed = startedAt ? Math.max(0, (time - startedAt) / 1000) : 0;
     const lightsOn = smoothStep(0.05, 0.95, elapsed);
@@ -225,9 +323,18 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
     neonMaterials.forEach((material) => {
       material.emissiveIntensity = 0.04 + lightsOn * 2.1;
     });
-    photoMaterial.opacity = 0.32 + lightsOn * 0.68;
+    photoMaterial.opacity = imageLoaded ? 0.32 + lightsOn * 0.68 : 0;
+    floorReflections.forEach((reflection) => {
+      reflection.material.opacity = 0.11 + lightsOn * 0.16;
+    });
     headlightHalos.forEach((halo) => {
       halo.material.opacity = headlightOn * 0.76;
+    });
+    smokeSprites.forEach((smoke) => {
+      const drift = time * 0.00018 + smoke.userData.offset;
+      smoke.position.x = smoke.userData.baseX + Math.sin(drift) * 0.38;
+      smoke.position.y = smoke.userData.baseY + Math.cos(drift * 0.8) * 0.18;
+      smoke.material.opacity = 0.1 + lightsOn * 0.06;
     });
 
     bikeImageGroup.position.x = Math.sin(rideSeconds * 0.28) * 0.16 * ride;
@@ -273,6 +380,7 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   return {
     startExperience(timestamp = performance.now()) {
       startedAt = timestamp;
+      startRendering();
     },
     dispose() {
       if (disposed) return;
@@ -291,6 +399,7 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
           : [object.material];
         materialsToDispose.forEach((material) => {
           material.map?.dispose();
+          material.alphaMap?.dispose();
           material.dispose();
         });
       });
