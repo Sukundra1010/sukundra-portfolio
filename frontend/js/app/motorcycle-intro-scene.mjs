@@ -69,7 +69,7 @@ const createSmokeTexture = () => {
   return texture;
 };
 
-export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
+export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl, jumpImageUrl }) => {
   const compact = window.matchMedia("(max-width: 760px)").matches;
   const renderer = new THREE.WebGLRenderer({
     canvas,
@@ -88,15 +88,16 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   camera.position.set(0, 2.65, compact ? 10.2 : 9.2);
   camera.lookAt(0, 2.65, 0);
 
-  scene.add(new THREE.HemisphereLight(0xa6c1ff, 0x080a16, 1.35));
+  const environmentLight = new THREE.HemisphereLight(0xa6c1ff, 0x080a16, 0.08);
+  scene.add(environmentLight);
 
   const blueLight = new THREE.PointLight(0x51baff, 0.25, 18);
   blueLight.position.set(-4.3, 3.8, 2.4);
   scene.add(blueLight);
 
-  const violetLight = new THREE.PointLight(0x9670ff, 0.18, 16);
-  violetLight.position.set(4.1, 3.3, -2.6);
-  scene.add(violetLight);
+  const fillLight = new THREE.PointLight(0x68a9e8, 0.18, 16);
+  fillLight.position.set(4.1, 3.3, -2.6);
+  scene.add(fillLight);
 
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(34, 28),
@@ -125,7 +126,7 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   const neonMaterials = [];
   [
     { x: -4.6, color: 0x42baff },
-    { x: 4.6, color: 0x9571ff },
+    { x: 4.6, color: 0x5d95d4 },
   ].forEach(({ x, color }) => {
     const material = new THREE.MeshStandardMaterial({
       color,
@@ -156,10 +157,78 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   const photo = new THREE.Mesh(new THREE.PlaneGeometry(6.25, 6.25), photoMaterial);
   bikeImageGroup.add(photo);
 
+  const jumpImageWidth = 7.5;
+  const jumpImageHeight = (jumpImageWidth * 768) / 1365;
+  const jumpImageGroup = new THREE.Group();
+  jumpImageGroup.position.set(0, 2.65, -0.42);
+  scene.add(jumpImageGroup);
+
+  let jumpImageLoaded = false;
+  const jumpPhotoMaterial = new THREE.MeshBasicMaterial({
+    color: 0x8999b2,
+    alphaMap: createEdgeMask(),
+    transparent: true,
+    opacity: 0,
+    side: THREE.DoubleSide,
+    toneMapped: false,
+  });
+  const jumpPhoto = new THREE.Mesh(
+    new THREE.PlaneGeometry(jumpImageWidth, jumpImageHeight),
+    jumpPhotoMaterial,
+  );
+  jumpPhoto.position.z = 0.01;
+  jumpImageGroup.add(jumpPhoto);
+
+  const wheelOverlayGroups = [];
+  const wheelOverlayMaterials = [];
+  const addWheelOverlay = ({ imageX, imageY, imageRadius }) => {
+    const radius = (imageRadius / 1365) * jumpImageWidth;
+    const group = new THREE.Group();
+    group.position.set(
+      (imageX / 1365 - 0.5) * jumpImageWidth,
+      (0.5 - imageY / 768) * jumpImageHeight,
+      0.04,
+    );
+
+    const rimMaterial = new THREE.MeshBasicMaterial({
+      color: 0x9dcfff,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      toneMapped: false,
+    });
+    const spokeMaterial = new THREE.LineBasicMaterial({
+      color: 0xc3e3ff,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+      toneMapped: false,
+    });
+    group.add(new THREE.Mesh(new THREE.TorusGeometry(radius, 0.012, 6, 40), rimMaterial));
+
+    const spokePoints = [];
+    for (let index = 0; index < 4; index += 1) {
+      const angle = (index * Math.PI) / 4;
+      const x = Math.cos(angle) * radius * 0.8;
+      const y = Math.sin(angle) * radius * 0.8;
+      spokePoints.push(new THREE.Vector3(-x, -y, 0), new THREE.Vector3(x, y, 0));
+    }
+    const spokeGeometry = new THREE.BufferGeometry().setFromPoints(spokePoints);
+    group.add(new THREE.LineSegments(spokeGeometry, spokeMaterial));
+    jumpImageGroup.add(group);
+    wheelOverlayGroups.push(group);
+    wheelOverlayMaterials.push(rimMaterial, spokeMaterial);
+  };
+
+  addWheelOverlay({ imageX: 1032, imageY: 224, imageRadius: 56 });
+  addWheelOverlay({ imageX: 856, imageY: 360, imageRadius: 48 });
+
   const glowTexture = createGlowTexture();
   const floorReflections = [
     { x: -1.65, color: 0x55baff },
-    { x: 1.65, color: 0x8e6cff },
+    { x: 1.65, color: 0x598ac2 },
   ].map(({ x, color }) => {
     const reflection = new THREE.Mesh(
       new THREE.PlaneGeometry(3.7, 2.2),
@@ -200,7 +269,7 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   const smokeTexture = createSmokeTexture();
   const smokeSprites = [
     { x: -3.1, y: 0.7, z: -1.15, color: 0x84b9ee, offset: 0.2 },
-    { x: 3.2, y: 1.05, z: -1.25, color: 0x9278e8, offset: 1.8 },
+    { x: 3.2, y: 1.05, z: -1.25, color: 0x6889b2, offset: 1.8 },
     { x: -1.1, y: 0.28, z: -1.35, color: 0x9eb7dd, offset: 3.1 },
   ].map(({ x, y, z, color, offset }) => {
     const material = new THREE.SpriteMaterial({
@@ -220,8 +289,25 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
     return smoke;
   });
 
+  const landingDustSprites = [-1, 1].map((direction) => {
+    const material = new THREE.SpriteMaterial({
+      map: smokeTexture,
+      color: 0xd4edff,
+      transparent: true,
+      opacity: 0,
+      depthWrite: false,
+    });
+    const sprite = new THREE.Sprite(material);
+    sprite.userData.direction = direction;
+    sprite.position.set(direction * 1.2, 2.15, 0.9);
+    sprite.scale.set(1.5, 0.75, 1);
+    scene.add(sprite);
+    return sprite;
+  });
+
   let disposed = false;
   let startedAt = 0;
+  let landingTriggered = false;
   const photoLoader = new THREE.TextureLoader();
   photoLoader.load(
     imageUrl,
@@ -235,15 +321,33 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
       photoMaterial.map = texture;
       photoMaterial.needsUpdate = true;
       imageLoaded = true;
-      if (!startedAt) {
-        photoMaterial.opacity = 0.32;
-        if (!document.hidden) renderer.render(scene, camera);
-      }
+      if (!document.hidden) renderer.render(scene, camera);
     },
     undefined,
     (error) => {
       if (!disposed) {
         console.warn("The motorcycle reference image could not be loaded.", error);
+      }
+    },
+  );
+  photoLoader.load(
+    jumpImageUrl,
+    (texture) => {
+      if (disposed) {
+        texture.dispose();
+        return;
+      }
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      jumpPhotoMaterial.map = texture;
+      jumpPhotoMaterial.needsUpdate = true;
+      jumpImageLoaded = true;
+      if (!document.hidden) renderer.render(scene, camera);
+    },
+    undefined,
+    (error) => {
+      if (!disposed) {
+        console.warn("The motorcycle jump image could not be loaded.", error);
       }
     },
   );
@@ -284,13 +388,15 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
   overlay.addEventListener("pointerleave", onPointerLeave, { passive: true });
 
   let resizeObserver;
+  let cameraHomeZ = compact ? 9.8 : 9.2;
   const resize = () => {
     const bounds = overlay.getBoundingClientRect();
     if (!bounds.width || !bounds.height) return;
     camera.aspect = bounds.width / bounds.height;
     const fitDistance =
       6.25 / (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * Math.min(camera.aspect, 1));
-    camera.position.z = Math.max(compact ? 9.8 : 9.2, fitDistance * 1.08);
+    cameraHomeZ = Math.max(compact ? 9.8 : 9.2, fitDistance * 1.08);
+    camera.position.z = cameraHomeZ;
     camera.updateProjectionMatrix();
     renderer.setSize(bounds.width, bounds.height, false);
   };
@@ -313,19 +419,44 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
     }
 
     const elapsed = startedAt ? Math.max(0, (time - startedAt) / 1000) : 0;
-    const lightsOn = smoothStep(0.05, 0.95, elapsed);
+    const lightsOn = smoothStep(0.45, 1.35, elapsed);
     const headlightOn = smoothStep(1.1, 1.8, elapsed);
     const ride = smoothStep(1.8, 2.6, elapsed);
     const rideSeconds = Math.max(0, elapsed - 1.8);
+    const closeUpProgress = smoothStep(0, 1.8, elapsed);
+    const jumpProgress = clamp01((elapsed - 2.4) / 1.8);
+    const jumpArc = 4 * jumpProgress * (1 - jumpProgress);
+    const jumpIn = smoothStep(1.9, 2.5, elapsed);
+    const jumpOut = 1 - smoothStep(4.95, 5.5, elapsed);
+    const jumpVisibility = jumpIn * jumpOut;
+    const landingAge = Math.max(0, elapsed - 4.2);
+    const landingImpact = elapsed >= 4.2 ? Math.exp(-landingAge * 5.5) : 0;
+    const landingDust = smoothStep(4.2, 4.26, elapsed) * (1 - smoothStep(4.42, 4.92, elapsed));
+    const sideExit = smoothStep(4.75, 5.45, elapsed);
 
-    blueLight.intensity = 0.25 + lightsOn * 5.4;
-    violetLight.intensity = 0.18 + lightsOn * 4.1;
+    if (!landingTriggered && elapsed >= 4.2) {
+      landingTriggered = true;
+      overlay.dataset.landed = "true";
+    }
+
+    environmentLight.intensity = 0.08 + lightsOn * 1.27;
+    blueLight.intensity = lightsOn * 5.4;
+    fillLight.intensity = lightsOn * 3.4;
     neonMaterials.forEach((material) => {
       material.emissiveIntensity = 0.04 + lightsOn * 2.1;
     });
-    photoMaterial.opacity = imageLoaded ? 0.32 + lightsOn * 0.68 : 0;
+    const closeUpVisibility =
+      smoothStep(0.04, 0.5, elapsed) * (1 - smoothStep(1.65, 2.35, elapsed));
+    photoMaterial.opacity = imageLoaded ? closeUpVisibility * (0.72 + lightsOn * 0.28) : 0;
+    jumpPhotoMaterial.opacity = jumpImageLoaded ? jumpVisibility * 0.94 : 0;
+    wheelOverlayMaterials.forEach((material) => {
+      material.opacity = jumpVisibility * 0.36;
+    });
+    wheelOverlayGroups.forEach((wheel, index) => {
+      wheel.rotation.z = rideSeconds * (4.2 + ride * 1.4) + index * 0.4;
+    });
     floorReflections.forEach((reflection) => {
-      reflection.material.opacity = 0.11 + lightsOn * 0.16;
+      reflection.material.opacity = 0.025 + lightsOn * 0.2;
     });
     headlightHalos.forEach((halo) => {
       halo.material.opacity = headlightOn * 0.76;
@@ -336,19 +467,55 @@ export const createMotorcycleIntroScene = ({ canvas, overlay, imageUrl }) => {
       smoke.position.y = smoke.userData.baseY + Math.cos(drift * 0.8) * 0.18;
       smoke.material.opacity = 0.1 + lightsOn * 0.06;
     });
+    landingDustSprites.forEach((dust) => {
+      dust.material.opacity = landingDust * 0.62;
+      dust.position.x = dust.userData.direction * (1.2 + landingAge * 0.55);
+      dust.position.y = 2.15 + landingAge * 0.55;
+      dust.position.z = 0.9;
+      dust.scale.set(1.8 + landingAge * 2.6, 0.9 + landingAge * 0.9, 1);
+    });
 
     bikeImageGroup.position.x = Math.sin(rideSeconds * 0.28) * 0.16 * ride;
     bikeImageGroup.position.z = -0.3 + ride * (0.62 + Math.sin(rideSeconds * 0.8) * 0.12);
-    bikeImageGroup.scale.setScalar(1 + ride * (0.055 + Math.sin(rideSeconds * 1.1) * 0.016));
+    bikeImageGroup.scale.setScalar(
+      (1.62 - closeUpProgress * 0.62) * (1 + ride * (0.055 + Math.sin(rideSeconds * 1.1) * 0.016)),
+    );
     bikeImageGroup.rotation.y = pointer.x * 0.035 + Math.sin(rideSeconds * 0.38) * 0.035 * ride;
     bikeImageGroup.rotation.x = -pointer.y * 0.018 + Math.sin(rideSeconds * 0.62) * 0.012 * ride;
+
+    jumpImageGroup.position.x = Math.sin(rideSeconds * 1.1) * 0.12 - sideExit * 1.65;
+    jumpImageGroup.position.y =
+      2.65 +
+      jumpArc * 0.62 -
+      landingImpact * 0.48 +
+      Math.sin(landingAge * 28) * landingImpact * 0.08;
+    jumpImageGroup.position.z = -0.42 + ride * 0.78 + jumpArc * 0.18;
+    jumpImageGroup.scale.setScalar(
+      0.88 + ride * 0.12 + jumpArc * 0.06 - landingImpact * 0.04 - sideExit * 0.1,
+    );
+    jumpImageGroup.rotation.z = -jumpArc * 0.022 - landingImpact * 0.028 - sideExit * 0.035;
+
+    const closeUpCamera = 1 - closeUpProgress;
+    const cameraTargetZ = cameraHomeZ - closeUpCamera * 1.55 - ride * 0.35;
+    camera.position.z += (cameraTargetZ - camera.position.z) * 0.07;
     camera.position.x +=
-      (pointer.x + Math.sin(rideSeconds * 1.4) * 0.07 * ride - camera.position.x) * 0.025;
-    camera.position.y +=
-      (2.65 - pointer.y * 0.45 + Math.sin(rideSeconds * 1.9) * 0.04 * ride - camera.position.y) *
+      (pointer.x +
+        Math.sin(rideSeconds * 1.4) * 0.07 * ride +
+        sideExit * 0.28 -
+        camera.position.x) *
       0.025;
-    camera.lookAt(-ride * 0.2, 2.65, ride * 0.25);
+    camera.position.y +=
+      (2.65 -
+        pointer.y * 0.45 +
+        Math.sin(rideSeconds * 1.9) * 0.04 * ride +
+        jumpArc * 0.14 -
+        landingImpact * 0.09 +
+        Math.sin(landingAge * 32) * landingImpact * 0.04 -
+        camera.position.y) *
+      0.035;
+    camera.lookAt(-ride * 0.2 + sideExit * 0.25, 2.65 + jumpArc * 0.16, ride * 0.25);
     particles.rotation.y += 0.0007 + ride * 0.0014;
+    particles.material.opacity = 0.16 + lightsOn * 0.18 + smoothStep(4.2, 5.4, elapsed) * 0.28;
 
     const particleAttribute = particleGeometry.getAttribute("position");
     for (let index = 2; index < particleAttribute.array.length; index += 3) {

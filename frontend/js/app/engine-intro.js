@@ -9,6 +9,29 @@ const engineStatus = engineIntro?.querySelector("[data-engine-status]");
 const engineTitle = engineIntro?.querySelector("[data-engine-title]");
 const reducedMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const prepareTitleLetters = (title) => {
+  title.querySelectorAll("[data-engine-title-line]").forEach((line) => {
+    const characters = Array.from(line.textContent ?? "");
+    const isEmphasizedLine = line.tagName === "STRONG";
+    const fragment = document.createDocumentFragment();
+
+    characters.forEach((character, index) => {
+      const letter = document.createElement("span");
+      letter.className = "engine-intro-title-character";
+      letter.setAttribute("aria-hidden", "true");
+      letter.style.setProperty(
+        "--character-delay",
+        `${(isEmphasizedLine ? 360 : 0) + index * (isEmphasizedLine ? 44 : 34)}ms`,
+      );
+      letter.textContent = character === " " ? "\u00a0" : character;
+      fragment.append(letter);
+    });
+
+    line.replaceChildren(fragment);
+    line.setAttribute("aria-hidden", "true");
+  });
+};
+
 if (
   engineIntro &&
   engineStartButton &&
@@ -23,10 +46,10 @@ if (
   const sessionKey = "portfolioEngineIntroSeen";
   const soundPreferenceKey = "portfolioEngineSound";
   const rideStartDelayMs = 1800;
-  const rideDurationMs = 4000;
+  const rideDurationMs = 3000;
   const soundDurationMs = 7000;
   const revealDelayMs = rideStartDelayMs + rideDurationMs;
-  const finishDelayMs = revealDelayMs + 1200;
+  const finishDelayMs = revealDelayMs + 2300;
   let soundEnabled = true;
   let started = false;
   let finished = false;
@@ -179,6 +202,7 @@ if (
       document.body.classList.add("engine-intro-active");
     };
 
+    prepareTitleLetters(engineTitle);
     updateSoundControl();
     engineIntro.hidden = false;
     setPageInert();
@@ -192,6 +216,7 @@ if (
             canvas: engineCanvas,
             overlay: engineIntro,
             imageUrl: new URL(engineIntro.dataset.sceneImage, document.baseURI).href,
+            jumpImageUrl: new URL(engineIntro.dataset.jumpImage, document.baseURI).href,
           });
           if (started) sceneController.startExperience(startedAt);
         })

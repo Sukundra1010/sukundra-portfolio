@@ -59,6 +59,7 @@
       data-engine-intro
       data-scene-module="js/app/motorcycle-intro-scene.mjs"
       data-scene-image="assets/images/engine-motorcycle-reference.png"
+      data-jump-image="assets/images/motorcycle-jump-reference.png"
       role="dialog"
       aria-modal="true"
       aria-labelledby="engine-intro-title"
@@ -71,6 +72,7 @@
         <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
       </div>
       <canvas class="engine-intro-scene" data-engine-canvas aria-hidden="true"></canvas>
+      <div class="engine-intro-landing-impact" aria-hidden="true"></div>
       <div class="engine-intro-frame-lines" aria-hidden="true"></div>
       <div class="engine-intro-speedlines" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i>
@@ -94,7 +96,6 @@
         </button>
       </div>
       <div class="engine-intro-center">
-        <p class="engine-intro-overline">PORTFOLIO SYSTEM <span>—</span> READY</p>
         <div class="engine-ignition-wrap">
           <span class="engine-ignition-halo" aria-hidden="true"></span>
           <button
@@ -107,30 +108,33 @@
               <path d="M24 7v17" />
               <path d="M14.4 13.2a17 17 0 1 0 19.2 0" />
             </svg>
-            <span>Start Experience</span>
+            <span>Ignite</span>
           </button>
         </div>
-        <p class="engine-intro-status" id="engine-intro-description" data-engine-status>
-          Tap to ignite the experience
+        <p
+          class="engine-intro-status"
+          id="engine-intro-description"
+          data-engine-status
+          aria-live="polite"
+        >
+          Tap Ignite to start the experience
         </p>
-        <h1 class="engine-intro-title" id="engine-intro-title" data-engine-title>
-          SUKUNDRA <span>PUJARA</span>
+        <h1
+          class="engine-intro-title"
+          id="engine-intro-title"
+          data-engine-title
+          aria-label="WELCOME TO MY PORTFOLIO"
+        >
+          <span data-engine-title-line>WELCOME TO</span>
+          <strong data-engine-title-line>MY PORTFOLIO</strong>
         </h1>
         <p class="engine-intro-subtitle" data-engine-subtitle>
-          <span>FULL STACK DEVELOPER</span>
-          <span class="engine-intro-stack">PYTHON <i>•</i> DJANGO <i>•</i> REACT</span>
+          <span class="engine-intro-name">SUKUNDRA PUJARA</span>
+          <span class="engine-intro-stack"
+            >Full Stack Developer <i>|</i> Creative Technologist</span
+          >
         </p>
       </div>
-      <p class="engine-intro-credit">
-        Motorcycle start sound by
-        <a
-          href="https://freesound.org/people/spenceomatic/sounds/119774/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >spenceomatic</a
-        >
-        · Freesound CC0
-      </p>
       <audio data-engine-audio preload="none" playsinline>
         <source src="assets/audio/motorcycle-startup.mp3" type="audio/mpeg" />
       </audio>
