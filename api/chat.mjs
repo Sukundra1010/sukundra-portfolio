@@ -1,3 +1,3 @@
-import handler from "../nexora-ai/vercel-api.mjs";
+import handler from "../backend/vercel-api.mjs";
 
 export default handler;

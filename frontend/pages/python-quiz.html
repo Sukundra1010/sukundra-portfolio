@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../js/utils/paths.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#080b14" />
+    <meta
+      name="description"
+      content="Take a 300-minute Python programming quiz with 600 intermediate multiple-choice questions, explanations, progress saving, and a detailed results dashboard."
+    />
+    <title>Python Programming MCQ Quiz | Sukundra Pujara</title>
+    <link rel="stylesheet" href="../css/base/style.css" />
+    <link rel="stylesheet" href="../css/components/pages.css" />
+    <link rel="stylesheet" href="../css/base/text-scale.css" />
+    <link rel="stylesheet" href="../css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="../css/pages/python-quiz.css" />
+    <script src="../js/app/main.js" defer></script>
+    <script src="../js/app/nexora-launcher.js" defer></script>
+    <script src="../js/data/python-quiz-questions.js" defer></script>
+    <script src="../js/data/python-quiz-extra-questions.js" defer></script>
+    <script src="../js/app/python-quiz.js" defer></script>
+  </head>
+  <body class="python-quiz-page">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="code-mark">&lt;/&gt;</span> Sukundra <b>Pujara</b>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        ☰
+      </button>
+      <nav class="navigation" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="notes.html">Notes</a>
+        <a href="python-quiz.html" aria-current="page">Python Quiz</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button
+        class="button button-outline theme-toggle"
+        type="button"
+        aria-label="Switch to light mode"
+      >
+        ☀ Light
+      </button>
+    </header>
+
+    <main class="quiz-main">
+      <section class="quiz-hero" aria-labelledby="page-title">
+        <div class="quiz-hero-copy">
+          <span class="quiz-eyebrow">PYTHON PROGRAMMING · INTERMEDIATE</span>
+          <h1 id="page-title">The Python <span>Challenge</span></h1>
+          <p>
+            Put your Python knowledge to work in a focused, 300-minute assessment with clear
+            explanations and a complete answer review.
+          </p>
+        </div>
+        <div class="quiz-hero-stats" aria-label="Quiz overview">
+          <div><strong>600</strong><span>questions</span></div>
+          <div><strong>300</strong><span>minutes</span></div>
+          <div><strong>10</strong><span>topic areas</span></div>
+        </div>
+      </section>
+
+      <p
+        class="quiz-storage-notice"
+        id="quiz-storage-notice"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+        Quiz progress could not be saved in this browser.
+      </p>
+      <p class="quiz-data-error" id="quiz-data-error" role="alert" hidden>
+        The quiz questions could not be loaded. Please reload this page.
+      </p>
+
+      <section class="quiz-intro" id="quiz-intro" aria-labelledby="intro-title">
+        <div class="quiz-intro-copy">
+          <span class="quiz-section-label">BEFORE YOU BEGIN</span>
+          <h2 id="intro-title">A complete Python skills check</h2>
+          <p>
+            Questions move across the core language, data structures, OOP, exceptions, files, and
+            advanced Python. Your answers and timer are saved on this device so you can resume
+            later.
+          </p>
+          <ul class="quiz-guidelines">
+            <li>One question at a time; use the question map to jump around.</li>
+            <li>Change answers at any time before submitting.</li>
+            <li>Unanswered questions are reported separately in your results.</li>
+            <li>Pass mark: 60% (Grade C); passing grades range from A+ to C.</li>
+          </ul>
+        </div>
+        <div class="quiz-start-panel">
+          <span class="quiz-start-mark" aria-hidden="true">Py</span>
+          <p><strong>600 questions</strong><span> · Intermediate level</span></p>
+          <p><strong>300 minutes</strong><span> · Progress saved locally</span></p>
+          <button class="button button-primary quiz-start-button" id="start-quiz" type="button">
+            Start the quiz <span aria-hidden="true">→</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="quiz-workspace" id="quiz-workspace" aria-label="Python quiz" hidden>
+        <div class="quiz-toolbar">
+          <div class="quiz-timer" aria-label="Time remaining">
+            <span class="timer-indicator" aria-hidden="true"></span>
+            <span class="timer-label">TIME LEFT</span>
+            <strong id="quiz-timer" role="timer" aria-live="off">300:00</strong>
+          </div>
+          <div class="quiz-progress-block">
+            <div class="quiz-progress-copy">
+              <span id="answered-count">0 of 600 answered</span>
+              <span id="progress-percent">0%</span>
+            </div>
+            <div
+              class="quiz-progress-track"
+              id="quiz-progress-track"
+              role="progressbar"
+              aria-label="Quiz completion"
+              aria-valuemin="0"
+              aria-valuemax="600"
+              aria-valuenow="0"
+            >
+              <span id="quiz-progress-fill"></span>
+            </div>
+          </div>
+          <button class="button button-outline quiz-restart-button" id="restart-quiz" type="button">
+            Restart
+          </button>
+        </div>
+
+        <div class="quiz-layout">
+          <section class="question-card" aria-labelledby="question-text">
+            <div class="question-meta">
+              <span id="question-number">QUESTION 1 OF 600</span>
+              <span class="question-topic" id="question-topic">Python Fundamentals</span>
+            </div>
+            <h2 id="question-text" tabindex="-1"></h2>
+            <pre class="question-code" id="question-code" hidden><code></code></pre>
+            <fieldset class="answer-options" id="answer-options">
+              <legend class="sr-only">Choose one answer</legend>
+            </fieldset>
+            <div class="question-controls">
+              <button class="button button-outline" id="previous-question" type="button">
+                <span aria-hidden="true">←</span> Previous
+              </button>
+              <button class="button button-outline" id="next-question" type="button">
+                Next <span aria-hidden="true">→</span>
+              </button>
+              <button
+                class="button button-primary question-submit"
+                id="open-submit-dialog"
+                type="button"
+              >
+                Submit quiz
+              </button>
+            </div>
+          </section>
+
+          <aside class="question-map-card" aria-labelledby="question-map-title">
+            <div class="question-map-heading">
+              <div>
+                <span class="quiz-section-label">YOUR PROGRESS</span>
+                <h2 id="question-map-title">Question map</h2>
+              </div>
+              <span class="map-count" id="map-count">0 / 600</span>
+            </div>
+            <p class="map-hint">Select a number to move to that question.</p>
+            <nav
+              class="question-number-grid"
+              id="question-number-grid"
+              aria-label="Question navigation"
+            ></nav>
+            <div class="map-legend" aria-label="Question status legend">
+              <span><i class="legend-dot legend-current"></i>Current</span>
+              <span><i class="legend-dot legend-answered"></i>Answered</span>
+              <span><i class="legend-dot"></i>Unanswered</span>
+            </div>
+            <button class="button button-primary map-submit-button" id="map-submit" type="button">
+              Finish and submit
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="quiz-results" id="quiz-results" aria-labelledby="results-title" hidden>
+        <div class="results-heading">
+          <div>
+            <span class="quiz-section-label">ASSESSMENT COMPLETE</span>
+            <h2 id="results-title">Your results</h2>
+            <p id="results-summary"></p>
+          </div>
+          <button class="button button-primary" id="results-restart" type="button">
+            Restart quiz
+          </button>
+        </div>
+
+        <div class="result-outcome" id="result-outcome" role="status" aria-live="polite">
+          <div class="result-outcome-copy">
+            <span class="quiz-section-label">EXAM OUTCOME</span>
+            <h3 id="result-outcome-title"></h3>
+            <p id="result-outcome-message"></p>
+          </div>
+          <div class="result-outcome-grade">
+            <span>YOUR GRADE</span>
+            <strong id="result-outcome-grade">—</strong>
+          </div>
+        </div>
+
+        <div class="result-dashboard" aria-label="Quiz result summary">
+          <article class="result-card result-score">
+            <span>Total score</span>
+            <strong id="result-score">0 / 600</strong>
+            <small>one point per correct answer</small>
+          </article>
+          <article class="result-card">
+            <span>Correct answers</span>
+            <strong id="result-correct">0</strong>
+            <small>earned points</small>
+          </article>
+          <article class="result-card">
+            <span>Incorrect answers</span>
+            <strong id="result-incorrect">0</strong>
+            <small>attempted, incorrect</small>
+          </article>
+          <article class="result-card">
+            <span>Unattempted</span>
+            <strong id="result-unattempted">0</strong>
+            <small>left unanswered</small>
+          </article>
+          <article class="result-card result-percent">
+            <span>Percentage</span>
+            <strong id="result-percentage">0%</strong>
+            <small>of 600 questions</small>
+          </article>
+          <article class="result-card result-grade-card">
+            <span>Grade</span>
+            <strong id="result-grade">—</strong>
+            <small id="result-grade-caption">Pass starts at 60%</small>
+          </article>
+          <article class="result-card">
+            <span>Time taken</span>
+            <strong id="result-time">00:00</strong>
+            <small>minutes : seconds</small>
+          </article>
+          <article class="result-card">
+            <span>Questions</span>
+            <strong>600</strong>
+            <small>intermediate level</small>
+          </article>
+        </div>
+
+        <section class="answer-review" aria-labelledby="review-title">
+          <div class="review-heading">
+            <div>
+              <span class="quiz-section-label">LEARN FROM EVERY QUESTION</span>
+              <h2 id="review-title">Answer review</h2>
+            </div>
+            <div class="review-filters" role="group" aria-label="Filter reviewed questions">
+              <button
+                class="review-filter is-active"
+                type="button"
+                data-review-filter="all"
+                aria-pressed="true"
+              >
+                All <span id="review-all-count">600</span>
+              </button>
+              <button
+                class="review-filter"
+                type="button"
+                data-review-filter="incorrect"
+                aria-pressed="false"
+              >
+                Incorrect <span id="review-incorrect-count">0</span>
+              </button>
+              <button
+                class="review-filter"
+                type="button"
+                data-review-filter="unanswered"
+                aria-pressed="false"
+              >
+                Unanswered <span id="review-unanswered-count">0</span>
+              </button>
+            </div>
+          </div>
+          <div class="review-list" id="review-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <dialog class="quiz-dialog" id="submit-dialog" aria-labelledby="submit-dialog-title">
+      <span class="quiz-section-label">FINAL CHECK</span>
+      <h2 id="submit-dialog-title">Submit your quiz?</h2>
+      <p id="submit-dialog-message"></p>
+      <div class="dialog-actions">
+        <button class="button button-outline" id="continue-quiz" type="button">Keep working</button>
+        <button class="button button-primary" id="confirm-submit" type="button">Submit quiz</button>
+      </div>
+    </dialog>
+
+    <dialog class="quiz-dialog" id="restart-dialog" aria-labelledby="restart-dialog-title">
+      <span class="quiz-section-label">START OVER</span>
+      <h2 id="restart-dialog-title">Restart this quiz?</h2>
+      <p>
+        Your current answers and timer will be cleared and a fresh 300-minute attempt will begin.
+      </p>
+      <div class="dialog-actions">
+        <button class="button button-outline" id="cancel-restart" type="button">
+          Keep my progress
+        </button>
+        <button class="button button-primary" id="confirm-restart" type="button">
+          Restart quiz
+        </button>
+      </div>
+    </dialog>
+
+    <footer class="footer">
+      <div>
+        <strong>Sukundra <b>Pujara</b></strong>
+        <small>Python Programming MCQ Quiz</small>
+      </div>
+      <nav aria-label="Footer navigation">
+        <a href="../index.html">Home</a>
+        <a href="notes.html">Python Notes</a>
+        <a href="python-quiz.html" aria-current="page">Python Quiz</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <div class="footer-contact">
+        <span>600 questions · 300 minutes · Learn by reviewing</span>
+      </div>
+    </footer>
+  </body>
+</html>

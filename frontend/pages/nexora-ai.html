@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="../js/utils/paths.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nexora AI is an intelligent assistant for coding, writing, research, and conversations in English or Nepali."
+    />
+    <meta name="theme-color" content="#080a12" />
+    <meta name="nexora-api-base-url" content="" />
+    <title>Nexora AI — Think Smarter. Create Faster.</title>
+    <link rel="stylesheet" href="../css/base/style.css" />
+    <link rel="stylesheet" href="../css/components/pages.css" />
+    <link rel="stylesheet" href="../css/base/text-scale.css" />
+    <link rel="stylesheet" href="../css/themes/design-refresh.css" />
+    <link rel="stylesheet" href="../css/pages/nexora-ai.css" />
+    <script type="module" src="../js/app/nexora-bootstrap.js"></script>
+  </head>
+  <body class="nexora-ai-page">
+    <div class="nexora-app" id="sukundra-ai" data-nexora-app>
+      <aside class="nexora-sidebar" data-sidebar aria-label="Nexora workspace">
+        <a class="nexora-brand" href="nexora-ai.html" aria-label="Nexora AI home">
+          <span class="nexora-brand-mark" aria-hidden="true">N</span>
+          <span>Nexora <strong>AI</strong></span>
+        </a>
+
+        <button class="nexora-new-chat" type="button" data-new-chat>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          <span>New chat</span>
+          <kbd>Ctrl K</kbd>
+        </button>
+
+        <section class="nexora-history-section" aria-labelledby="nexora-history-title">
+          <h2 id="nexora-history-title">RECENT CONVERSATIONS</h2>
+          <div class="nexora-history" data-chat-history></div>
+          <p class="nexora-history-empty" data-history-empty>
+            Your conversations will appear here.
+          </p>
+        </section>
+
+        <div class="nexora-sidebar-footer">
+          <div class="nexora-api-status" data-api-status data-state="checking" role="status">
+            <span class="nexora-status-dot" aria-hidden="true"></span>
+            <span data-api-status-label>Checking secure backend…</span>
+          </div>
+          <a class="nexora-back-link" href="../index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m14 18-6-6 6-6M8 12h12" />
+            </svg>
+            <span>Back to portfolio</span>
+          </a>
+          <button class="nexora-theme-toggle" type="button" data-theme-toggle>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.2 15.4A8.3 8.3 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z" />
+            </svg>
+            <span data-theme-label>Light appearance</span>
+          </button>
+        </div>
+      </aside>
+
+      <button
+        class="nexora-sidebar-backdrop"
+        type="button"
+        data-sidebar-backdrop
+        aria-label="Close conversation menu"
+        hidden
+      ></button>
+
+      <main class="nexora-main">
+        <header class="nexora-topbar">
+          <button
+            class="nexora-menu-toggle"
+            type="button"
+            data-sidebar-toggle
+            aria-label="Open conversation menu"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+          <div class="nexora-topbar-title">AI Workspace</div>
+          <a class="nexora-mobile-brand" href="nexora-ai.html">
+            <span class="nexora-brand-mark" aria-hidden="true">N</span>
+            <span>Nexora <strong>AI</strong></span>
+          </a>
+          <div class="nexora-topbar-spacer"></div>
+          <button class="nexora-clear-chat" type="button" data-clear-chat disabled>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />
+            </svg>
+            <span>Clear conversation</span>
+          </button>
+        </header>
+
+        <section class="nexora-welcome" data-empty-state aria-labelledby="nexora-welcome-title">
+          <div class="nexora-welcome-hero">
+            <div class="nexora-welcome-copy">
+              <span class="nexora-eyebrow"><span></span> YOUR INTELLIGENT AI ASSISTANT</span>
+              <h1 id="nexora-welcome-title">Meet Your Intelligent AI Assistant</h1>
+              <p>Think Smarter. Create Faster. Explore Beyond.</p>
+              <button class="nexora-get-started" type="button" data-get-started>
+                Get started
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 12h14m-6-6 6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+
+            <div class="nexora-neural-visual" aria-hidden="true">
+              <div class="nexora-neural-orbit nexora-neural-orbit-one"></div>
+              <div class="nexora-neural-orbit nexora-neural-orbit-two"></div>
+              <div class="nexora-neural-orbit nexora-neural-orbit-three"></div>
+              <div class="nexora-neural-core">
+                <span>N</span>
+                <i class="nexora-neural-core-glow"></i>
+              </div>
+              <i class="nexora-neuron nexora-neuron-one"></i>
+              <i class="nexora-neuron nexora-neuron-two"></i>
+              <i class="nexora-neuron nexora-neuron-three"></i>
+              <i class="nexora-neuron nexora-neuron-four"></i>
+              <i class="nexora-neuron nexora-neuron-five"></i>
+              <i class="nexora-neuron nexora-neuron-six"></i>
+            </div>
+          </div>
+
+          <div class="nexora-feature-grid" aria-label="Nexora AI features">
+            <article class="nexora-feature-card">
+              <span class="nexora-feature-icon nexora-icon-chat" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2v-6a7.5 7.5 0 1 1 17-3.5Z" />
+                  <path d="M8 11h8M8 14h5" />
+                </svg>
+              </span>
+              <h2>Natural conversations</h2>
+              <p>Ask questions and explore ideas in English or Nepali.</p>
+            </article>
+            <article class="nexora-feature-card">
+              <span class="nexora-feature-icon nexora-icon-code" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-3-11-2 14" /></svg>
+              </span>
+              <h2>Code and create</h2>
+              <p>Get help with programming, writing, and clear summaries.</p>
+            </article>
+            <article class="nexora-feature-card">
+              <span class="nexora-feature-icon nexora-icon-image" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="16" rx="3" />
+                  <circle cx="8.5" cy="9" r="1.5" />
+                  <path d="m21 15-5-5L5 20" />
+                </svg>
+              </span>
+              <h2>Understand images</h2>
+              <p>Attach an image and ask about its contents.</p>
+            </article>
+          </div>
+
+          <div class="nexora-suggestions" aria-label="Try asking Nexora AI">
+            <span>TRY ASKING</span>
+            <button
+              type="button"
+              data-suggestion="Explain a tricky programming concept with a simple example."
+            >
+              Explain a concept
+            </button>
+            <button
+              type="button"
+              data-suggestion="Help me plan and outline a clear, engaging article."
+            >
+              Plan a piece of writing
+            </button>
+            <button
+              type="button"
+              data-suggestion="Summarize the key ideas in a short, easy-to-read list."
+            >
+              Summarize an idea
+            </button>
+          </div>
+        </section>
+
+        <section
+          class="nexora-chat-thread"
+          data-chat-thread
+          aria-label="Conversation"
+          aria-live="polite"
+          hidden
+        ></section>
+
+        <form class="nexora-composer" data-composer>
+          <div class="nexora-editing-indicator" data-editing-indicator hidden>
+            <span>Editing your message</span>
+            <button type="button" data-cancel-edit>Cancel</button>
+          </div>
+          <div class="nexora-attachment-preview" data-attachment-preview hidden></div>
+          <div class="nexora-composer-box">
+            <button
+              class="nexora-attach-button"
+              type="button"
+              data-attach
+              aria-label="Attach an image"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 16V4m-5 5 5-5 5 5M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5" />
+              </svg>
+            </button>
+            <textarea
+              data-prompt
+              rows="1"
+              maxlength="12000"
+              placeholder="Message Nexora AI…"
+              aria-label="Message Nexora AI"
+            ></textarea>
+            <button
+              class="nexora-voice-button"
+              type="button"
+              data-voice-input
+              aria-label="Start voice input"
+              aria-pressed="false"
+              title="Start voice input"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Z" />
+                <path d="M19 11a7 7 0 0 1-14 0m7 7v4m-4 0h8" />
+              </svg>
+            </button>
+            <button class="nexora-send-button" type="submit" data-send aria-label="Send message">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m5 12 14-7-4 14-3-6-7-1Z" />
+                <path d="m12 13 7-8" />
+              </svg>
+            </button>
+            <input
+              data-image-input
+              type="file"
+              accept="image/png,image/jpeg,image/webp,image/gif"
+              hidden
+            />
+          </div>
+          <div class="nexora-composer-meta">
+            <span>Enter to send <kbd>Shift</kbd> + <kbd>Enter</kbd> for a new line</span>
+            <span>AI responses may be inaccurate. Review important information.</span>
+          </div>
+        </form>
+
+        <div class="nexora-toast" data-toast role="status" aria-live="polite"></div>
+      </main>
+    </div>
+  </body>
+</html>

@@ -8,6 +8,7 @@
 
 # Node development tooling
 node_modules/
+dist/
 
 # Operating system files
 .DS_Store
