@@ -29,8 +29,9 @@ if (app) {
   const isLocalStaticServer =
     ["localhost", "127.0.0.1"].includes(window.location.hostname) &&
     window.location.port !== "8888";
+  const netlifyApiBase = "https://startling-sorbet-50f5ae.netlify.app";
   const apiBase = (
-    configuredApiBase || (isLocalStaticServer ? "http://localhost:3000" : "")
+    configuredApiBase || (isLocalStaticServer ? "http://localhost:3000" : netlifyApiBase)
   ).replace(/\/+$/, "");
 
   let conversations = loadConversations();
