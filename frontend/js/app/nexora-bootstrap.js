@@ -10,5 +10,5 @@ if (isInsecureCustomDomain) {
   secureUrl.port = "";
   window.location.replace(secureUrl.href);
 } else {
-  import("./nexora-ai.js");
+  import("./nexora-ai.js?v=20261122");
 }
