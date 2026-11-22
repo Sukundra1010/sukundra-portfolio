@@ -161,7 +161,7 @@ the apex domain.
 | A     | `@`   | `185.199.109.153`        |
 | A     | `@`   | `185.199.110.153`        |
 | A     | `@`   | `185.199.111.153`        |
-| CNAME | `www` | `sukundra4040.github.io` |
+| CNAME | `www` | `sukundra1010.github.io` |
 
 Optional IPv6 (`AAAA`) records for `@` are `2606:50c0:8000::153`,
 `2606:50c0:8001::153`, `2606:50c0:8002::153`, and `2606:50c0:8003::153`.
