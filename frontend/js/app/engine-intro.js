@@ -9,6 +9,57 @@ const engineStatus = engineIntro?.querySelector("[data-engine-status]");
 const engineTitle = engineIntro?.querySelector("[data-engine-title]");
 const reducedMotionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
+const createHelicopterAudio = (audioElement) => {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) throw new Error("Web Audio is not supported in this browser.");
+
+  const context = new AudioContext();
+  const master = context.createGain();
+  const panner = context.createStereoPanner();
+  const limiter = context.createDynamicsCompressor();
+  const source = context.createMediaElementSource(audioElement);
+  const masterVolume = 0.85;
+  const state = { enabled: false, rotorSpeed: 0, acceleration: 0 };
+  master.gain.value = 0;
+  limiter.threshold.value = -8;
+  limiter.knee.value = 4;
+  limiter.ratio.value = 10;
+  limiter.attack.value = 0.003;
+  limiter.release.value = 0.15;
+  source.connect(master);
+  master.connect(panner);
+  panner.connect(limiter);
+  limiter.connect(context.destination);
+
+  const setParameter = (parameter, value) =>
+    parameter.setTargetAtTime(value, context.currentTime, 0.08);
+
+  return {
+    resume() {
+      return context.resume();
+    },
+    setEnabled(enabled) {
+      state.enabled = enabled;
+      setParameter(
+        master.gain,
+        enabled ? masterVolume * (0.55 + state.rotorSpeed * 0.3 + state.acceleration * 0.15) : 0,
+      );
+    },
+    setMotion({ rotorSpeed, acceleration, pan, doppler }) {
+      state.rotorSpeed = rotorSpeed;
+      state.acceleration = acceleration;
+      setParameter(panner.pan, pan * 0.55);
+      audioElement.playbackRate = Math.min(1.06, Math.max(0.94, 1 + doppler * 0.06));
+      if (state.enabled) {
+        setParameter(master.gain, masterVolume * (0.55 + rotorSpeed * 0.3 + acceleration * 0.15));
+      }
+    },
+    dispose() {
+      return context.close();
+    },
+  };
+};
+
 const prepareTitleLetters = (title) => {
   title.querySelectorAll("[data-engine-title-line]").forEach((line) => {
     const characters = Array.from(line.textContent ?? "");
@@ -45,24 +96,24 @@ if (
 ) {
   const sessionKey = "portfolioEngineIntroSeen";
   const soundPreferenceKey = "portfolioEngineSound";
-  const rideStartDelayMs = 1800;
-  const rideDurationMs = 3000;
+  const flightStartDelayMs = 1800;
+  const flightDurationMs = 3000;
   const soundDurationMs = 7000;
-  const revealDelayMs = rideStartDelayMs + rideDurationMs;
+  const revealDelayMs = flightStartDelayMs + flightDurationMs;
   const finishDelayMs = revealDelayMs + 2300;
   let soundEnabled = true;
   let started = false;
   let finished = false;
   let startedAt = 0;
   let sceneController;
-  let rideTimeout = 0;
+  let flightTimeout = 0;
   let soundTimeout = 0;
   let exitTimeout = 0;
   let titleTimeout = 0;
   let hideTimeout = 0;
   let previousBackgroundInertState = [];
-  let audioErrorReported = false;
   let soundExpired = false;
+  let helicopterAudio;
 
   try {
     if (window.sessionStorage.getItem(sessionKey)) {
@@ -90,10 +141,10 @@ if (
         soundExpired
           ? "Intro sound limit reached."
           : soundEnabled
-            ? "Sound on. Mute intro sound."
+            ? "Sound on at high volume. Mute intro sound."
             : "Sound off. Enable intro sound.",
       );
-      engineSoundLabel.textContent = soundEnabled ? "Sound ON" : "Sound OFF";
+      engineSoundLabel.textContent = soundEnabled ? "Sound MAX" : "Sound OFF";
       engineSoundButton.disabled = soundExpired;
     };
 
@@ -106,27 +157,36 @@ if (
     };
 
     const stopAudio = () => {
+      helicopterAudio?.setEnabled(false);
       engineAudio.pause();
+      engineAudio.currentTime = 0;
     };
 
     const stopAudioAtLimit = () => {
       soundExpired = true;
       soundEnabled = false;
-      engineAudio.pause();
-      engineAudio.currentTime = 0;
-      engineAudio.loop = false;
+      stopAudio();
       updateSoundControl();
     };
 
     const playAudio = () => {
       if (!soundEnabled || finished || soundExpired) return;
-      audioErrorReported = false;
-      engineAudio.loop = true;
-      const playback = engineAudio.play();
-      playback?.catch((error) => {
-        console.warn("The motorcycle startup sound could not be played.", error);
+      try {
+        helicopterAudio ??= createHelicopterAudio(engineAudio);
+        helicopterAudio.setEnabled(true);
+        const playback = engineAudio.play();
+        playback?.catch((error) => {
+          console.warn("The helicopter recording could not be played.", error);
+          engineStatus.textContent = "Sound is unavailable. The intro will continue silently.";
+        });
+        helicopterAudio.resume().catch((error) => {
+          console.warn("The helicopter sound could not be started.", error);
+          engineStatus.textContent = "Sound is unavailable. The intro will continue silently.";
+        });
+      } catch (error) {
+        console.warn("The helicopter sound could not be created.", error);
         engineStatus.textContent = "Sound is unavailable. The intro will continue silently.";
-      });
+      }
       if (!soundTimeout) {
         soundTimeout = window.setTimeout(stopAudioAtLimit, soundDurationMs);
       }
@@ -144,11 +204,14 @@ if (
       if (finished) return;
       finished = true;
       window.clearTimeout(titleTimeout);
-      window.clearTimeout(rideTimeout);
+      window.clearTimeout(flightTimeout);
       window.clearTimeout(soundTimeout);
       window.clearTimeout(exitTimeout);
       window.clearTimeout(hideTimeout);
       stopAudio();
+      helicopterAudio?.dispose().catch((error) => {
+        console.warn("The helicopter sound could not be released.", error);
+      });
       sceneController?.dispose();
       restorePage();
       engineIntro.classList.add("is-exiting");
@@ -176,14 +239,13 @@ if (
       startedAt = performance.now();
       engineIntro.dataset.phase = "igniting";
       engineStartButton.disabled = true;
-      engineStatus.textContent = "Ignition sequence engaged";
+      engineStatus.textContent = "Main rotor spooling up";
       sceneController?.startExperience(startedAt);
       playAudio();
 
-      rideTimeout = window.setTimeout(() => {
-        engineIntro.classList.add("is-riding");
-        engineStatus.textContent = "On the road. Enjoy the ride.";
-      }, rideStartDelayMs);
+      flightTimeout = window.setTimeout(() => {
+        engineStatus.textContent = "Lifting off. Enjoy the flight.";
+      }, flightStartDelayMs);
       titleTimeout = window.setTimeout(() => {
         engineIntro.dataset.phase = "reveal";
         engineStatus.textContent = "Welcome to my portfolio";
@@ -210,28 +272,20 @@ if (
 
     if (engineCanvas && engineIntro.dataset.sceneModule) {
       import(new URL(engineIntro.dataset.sceneModule, document.baseURI).href)
-        .then(({ createMotorcycleIntroScene }) => {
+        .then(({ createHelicopterIntroScene }) => {
           if (finished || !engineIntro.isConnected) return;
-          sceneController = createMotorcycleIntroScene({
+          sceneController = createHelicopterIntroScene({
             canvas: engineCanvas,
             overlay: engineIntro,
-            imageUrl: new URL(engineIntro.dataset.sceneImage, document.baseURI).href,
-            jumpImageUrl: new URL(engineIntro.dataset.jumpImage, document.baseURI).href,
+            onMotion: (motion) => helicopterAudio?.setMotion(motion),
           });
           if (started) sceneController.startExperience(startedAt);
         })
         .catch((error) => {
-          console.warn("The motorcycle scene could not be loaded.", error);
+          console.warn("The helicopter scene could not be loaded.", error);
           engineStatus.textContent = "The 3D scene is unavailable. The intro will continue.";
         });
     }
-
-    engineAudio.addEventListener("error", () => {
-      if (audioErrorReported) return;
-      audioErrorReported = true;
-      engineStatus.textContent = "Sound is unavailable. The intro will continue silently.";
-      console.warn("The motorcycle startup audio file could not be loaded.");
-    });
 
     engineStartButton.addEventListener("click", startExperience);
     engineSkipButton.addEventListener("click", () => finishIntro(true));

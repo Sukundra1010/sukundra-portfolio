@@ -124,84 +124,6 @@
   pointer-events: none;
 }
 
-.engine-intro-landing-impact {
-  position: absolute;
-  z-index: 2;
-  top: 58%;
-  left: 50%;
-  width: min(52vw, 620px);
-  height: 52px;
-  border: 2px solid rgba(208, 242, 255, 0.92);
-  border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(84, 188, 255, 0.5), transparent 72%);
-  box-shadow:
-    0 0 32px rgba(80, 184, 255, 0.78),
-    inset 0 0 18px rgba(172, 227, 255, 0.42);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(0.35, 0.3);
-}
-
-.engine-intro-overlay[data-landed="true"] .engine-intro-landing-impact {
-  animation: engine-landing-wave 900ms ease-out;
-}
-
-.engine-intro-speedlines {
-  position: absolute;
-  z-index: 1;
-  inset: 20% 0;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 450ms ease;
-}
-
-.engine-intro-speedlines i {
-  position: absolute;
-  left: -40%;
-  width: 28vw;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(132, 206, 255, 0.6), transparent);
-  filter: blur(1px);
-  transform: skewY(-12deg);
-}
-
-.engine-intro-speedlines i:nth-child(1) {
-  top: 24%;
-}
-
-.engine-intro-speedlines i:nth-child(2) {
-  top: 37%;
-  width: 20vw;
-}
-
-.engine-intro-speedlines i:nth-child(3) {
-  top: 51%;
-  width: 34vw;
-}
-
-.engine-intro-speedlines i:nth-child(4) {
-  top: 66%;
-  width: 24vw;
-}
-
-.engine-intro-speedlines i:nth-child(5) {
-  top: 78%;
-  width: 18vw;
-}
-
-.engine-intro-overlay.is-riding .engine-intro-speedlines {
-  opacity: 1;
-}
-
-.engine-intro-overlay.is-riding .engine-intro-speedlines i {
-  animation: engine-speedline 850ms linear infinite;
-}
-
-.engine-intro-overlay.is-riding .engine-intro-speedlines i:nth-child(2n) {
-  animation-delay: -420ms;
-}
-
 .engine-intro-overlay.is-exiting {
   visibility: hidden;
   opacity: 0;
@@ -546,10 +468,6 @@
   animation: engine-start-pulse 950ms ease-in-out infinite alternate;
 }
 
-.engine-intro-overlay[data-landed="true"] .engine-intro-scene {
-  animation: engine-landing-shake 420ms ease-out;
-}
-
 .engine-intro-overlay[data-phase="igniting"] .engine-ignition-wrap,
 .engine-intro-overlay[data-phase="reveal"] .engine-ignition-wrap {
   opacity: 0;
@@ -749,48 +667,6 @@ body.engine-intro-active {
   100% {
     opacity: 0;
     transform: translate3d(25vw, -35vh, 0) scale(0);
-  }
-}
-
-@keyframes engine-speedline {
-  from {
-    transform: translateX(0) skewY(-12deg);
-  }
-  to {
-    transform: translateX(170vw) skewY(-12deg);
-  }
-}
-
-@keyframes engine-landing-shake {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-  18% {
-    transform: translate3d(-5px, 3px, 0);
-  }
-  38% {
-    transform: translate3d(4px, -2px, 0);
-  }
-  62% {
-    transform: translate3d(-2px, 1px, 0);
-  }
-}
-
-@keyframes engine-landing-wave {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.35, 0.3);
-  }
-  18% {
-    opacity: 0.92;
-  }
-  52% {
-    opacity: 0.72;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(1.35, 1.8);
   }
 }
 
