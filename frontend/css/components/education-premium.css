@@ -589,3 +589,19 @@
   > img {
   filter: none !important;
 }
+
+html[data-theme="light"]
+  .portfolio-home
+  #education.education-premium
+  .education-premium-heading
+  h2 {
+  color: #f1f5ff;
+}
+
+html[data-theme="light"] .portfolio-home #education.education-premium .education-premium-heading p {
+  color: #c6d2e3;
+}
+
+html[data-theme="light"] .portfolio-home #education.education-premium .education-story {
+  color: #c6d2e3;
+}

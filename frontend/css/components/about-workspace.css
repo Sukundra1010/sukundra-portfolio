@@ -191,7 +191,7 @@ html[data-theme="light"] .portfolio-home #about [data-about-heading] h2 span {
 }
 
 html[data-theme="light"] .portfolio-home #about .about-section-heading > p {
-  color: #526782;
+  color: #3e526d;
 }
 
 html[data-theme="light"] .portfolio-home #about .about-biography .about-keyword {
@@ -922,5 +922,57 @@ html[data-theme="light"] .portfolio-home #about .about-biography .about-keyword 
   .portfolio-home #about .about-biography .about-word {
     animation: none;
     transition: none;
+  }
+}
+
+html[data-theme="light"] .portfolio-home #about .about-workspace-copy p {
+  color: #1f2937;
+}
+
+html[data-theme="light"] .portfolio-home #about .about-biography .about-intro {
+  color: #1f2937;
+}
+
+html[data-theme="light"] .portfolio-home #about .about-biography .about-intro strong {
+  color: #132b49;
+}
+
+html[data-theme="light"] .portfolio-home #about .about-workspace-copy .about-focus-paragraph {
+  border-color: rgba(51, 96, 155, 0.2);
+  border-left-color: #24679f;
+  background: linear-gradient(100deg, #edf3fb, #f9fbff);
+  color: #1f2937;
+}
+
+html[data-theme="light"]
+  .portfolio-home
+  #about
+  .about-workspace-copy
+  .about-focus-paragraph
+  strong {
+  color: #104c70;
+}
+
+html[data-theme="light"] .portfolio-home #about .about-workspace-copy .about-tagline {
+  color: #3e326b;
+}
+
+@media (max-width: 560px) {
+  html[data-theme="light"] .portfolio-home #about .about-workspace-copy p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  html[data-theme="light"] .portfolio-home #about .about-workspace-copy .about-intro {
+    font-size: 14px;
+  }
+
+  html[data-theme="light"] .portfolio-home #about .about-workspace-copy .about-focus-paragraph {
+    font-size: 13px;
+  }
+
+  html[data-theme="light"] .portfolio-home #about .about-workspace-copy .about-tagline {
+    font-size: 11px;
+    letter-spacing: 0.12em;
   }
 }

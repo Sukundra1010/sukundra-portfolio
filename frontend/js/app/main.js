@@ -768,11 +768,16 @@ function setupTypewriter() {
   const target = document.querySelector("[data-typewriter]");
   if (!target || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
-  const titles = ["Full Stack Developer", "Python & Django Developer", "AI/ML Enthusiast"];
+  const titles = [
+    "Machine Learning Engineer",
+    "Data Scientist",
+    "Software Developer",
+    "AI and Automation Consultant",
+  ];
   let titleIndex = 0;
-  let characterIndex = 0;
-  let deleting = false;
-  target.textContent = "";
+  let characterIndex = titles[titleIndex].length;
+  let deleting = true;
+  target.textContent = titles[titleIndex];
 
   const typeNextCharacter = () => {
     const currentTitle = titles[titleIndex];
@@ -782,7 +787,7 @@ function setupTypewriter() {
       if (characterIndex === 0) {
         deleting = false;
         titleIndex = (titleIndex + 1) % titles.length;
-        window.setTimeout(typeNextCharacter, 450);
+        window.setTimeout(typeNextCharacter, 180);
         return;
       }
     } else {
@@ -796,7 +801,7 @@ function setupTypewriter() {
     }
     window.setTimeout(typeNextCharacter, deleting ? 48 : 78);
   };
-  window.setTimeout(typeNextCharacter, 300);
+  window.setTimeout(typeNextCharacter, 2400);
 }
 
 function setupScrollEffects() {

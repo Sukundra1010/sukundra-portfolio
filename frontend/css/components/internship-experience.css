@@ -246,6 +246,10 @@ html[data-theme="light"] .portfolio-home #internships .internship-links a > span
   color: #202b43;
 }
 
+html[data-theme="light"] .portfolio-home #internships .internship-name {
+  color: #202b43;
+}
+
 html[data-theme="light"] .portfolio-home #internships .internship-links li::before {
   border-color: var(--internship-accent);
   background: #fff;
