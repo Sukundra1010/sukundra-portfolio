@@ -5641,12 +5641,14 @@ html[data-theme="light"] .portfolio-home #projects .project-card {
     padding: 0 18px;
   }
 
-  .portfolio-home .portfolio-header-actions > a:not(.header-contact-link) {
+  .portfolio-home .portfolio-header-actions > a[aria-label="Email Sukundra"],
+  .portfolio-home .portfolio-header-actions > .header-contact-link {
     display: none;
   }
 
-  .portfolio-home .portfolio-header-actions > .header-contact-link {
-    display: none;
+  .portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on GitHub"],
+  .portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on LinkedIn"] {
+    display: grid;
   }
 
   .portfolio-home .portfolio-header-actions .theme-toggle {
@@ -5700,6 +5702,19 @@ html[data-theme="light"] .portfolio-home #projects .project-card {
 
   .portfolio-home .footer {
     padding: 28px 20px 34px;
+  }
+}
+
+@media (max-width: 460px) {
+  .portfolio-home .portfolio-header-actions {
+    gap: 5px;
+  }
+
+  .portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on GitHub"],
+  .portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on LinkedIn"] {
+    width: 30px;
+    min-width: 30px;
+    height: 34px;
   }
 }
 
