@@ -1,0 +1,236 @@
+.portfolio-home #home.hero {
+  min-height: min(720px, calc(100svh - 58px));
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+  padding: clamp(62px, 10vh, 108px) 0 58px;
+}
+
+.portfolio-home #home .hero-copy {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  max-width: 650px;
+}
+
+.portfolio-home #home .hero-aside {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+  max-width: 440px;
+}
+
+.portfolio-home #home .hero-actions {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 25px;
+}
+
+.portfolio-home #home .hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.portfolio-home #home .hero-cta-group .button {
+  min-height: 46px;
+  gap: 10px;
+  padding: 11px 16px;
+  border: 1px solid rgba(151, 164, 196, 0.2);
+  border-radius: 13px;
+  background: linear-gradient(145deg, rgba(28, 36, 57, 0.92), rgba(15, 21, 36, 0.94));
+  color: #e5eaf5;
+  font-size: 13px;
+  font-weight: 650;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.16);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.portfolio-home #home .hero-cta-group .button span {
+  font-size: 16px;
+  line-height: 1;
+  transition: transform 180ms ease;
+}
+
+.portfolio-home #home .hero-cta-group .button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(149, 139, 255, 0.64);
+  background: linear-gradient(145deg, rgba(43, 48, 77, 0.98), rgba(19, 30, 50, 0.98));
+  color: #fff;
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.08),
+    0 12px 28px rgba(39, 61, 132, 0.24);
+}
+
+.portfolio-home #home .hero-cta-group .button:hover span {
+  transform: translate(2px, -2px);
+}
+
+.portfolio-home #home .hero-cta-group .button-primary {
+  border-color: transparent;
+  background: linear-gradient(112deg, #a68aff 0%, #7795ff 54%, #62d9dc 100%);
+  color: #0c1020;
+  box-shadow:
+    0 10px 28px rgba(112, 120, 255, 0.25),
+    inset 0 1px rgba(255, 255, 255, 0.32);
+}
+
+.portfolio-home #home .hero-cta-group .button-primary:hover {
+  border-color: transparent;
+  background: linear-gradient(112deg, #b9a5ff 0%, #8ba9ff 54%, #78e7e2 100%);
+  color: #0c1020;
+  box-shadow:
+    0 14px 34px rgba(112, 120, 255, 0.34),
+    inset 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.portfolio-home #home .hero-social-links {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: clamp(16px, 2vw, 24px);
+}
+
+.portfolio-home #home .hero-social-button {
+  width: 38px;
+  height: 38px;
+  padding: 7px;
+  border: 1px solid rgba(151, 164, 196, 0.16);
+  border-radius: 12px;
+  background: rgba(16, 23, 38, 0.72);
+  color: #c4d2e8;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.portfolio-home #home .hero-social-button:hover {
+  transform: translateY(-2px);
+  border-color: rgba(113, 185, 255, 0.52);
+  background: rgba(35, 48, 75, 0.88);
+  box-shadow: 0 8px 22px rgba(50, 104, 184, 0.18);
+}
+
+.portfolio-home #home .hero-social-button img {
+  border-radius: 5px;
+  object-fit: contain;
+}
+
+.portfolio-home .portfolio-header-actions > a[aria-label="Email Sukundra"] img {
+  display: block;
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-cta-group .button {
+  border-color: rgba(84, 105, 148, 0.22);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(240, 244, 251, 0.96));
+  color: #26334c;
+  box-shadow:
+    inset 0 1px #fff,
+    0 8px 20px rgba(43, 59, 97, 0.09);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-cta-group .button:hover {
+  border-color: rgba(106, 91, 207, 0.45);
+  background: #fff;
+  color: #1d2840;
+  box-shadow: 0 12px 26px rgba(60, 84, 133, 0.14);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-cta-group .button-primary,
+html[data-theme="light"] .portfolio-home #home .hero-cta-group .button-primary:hover {
+  border-color: transparent;
+  background: linear-gradient(112deg, #b8a5ff 0%, #8eacff 54%, #8ae5df 100%);
+  color: #10152a;
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-social-button {
+  border-color: rgba(83, 106, 150, 0.18);
+  background: rgba(255, 255, 255, 0.78);
+  color: #415573;
+}
+
+@media (max-width: 900px) {
+  .portfolio-home #home.hero {
+    min-height: 0;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding: 64px 0 48px;
+  }
+
+  .portfolio-home #home .hero-copy {
+    grid-column: 1;
+    grid-row: 1;
+    max-width: 760px;
+  }
+
+  .portfolio-home #home .hero-aside {
+    grid-column: 1;
+    grid-row: 2;
+    width: min(100%, 470px);
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-home #home .hero-actions {
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .portfolio-home #home .hero-cta-group {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .portfolio-home #home .hero-cta-group .button {
+    min-width: 0;
+    min-height: 48px;
+    padding: 10px 11px;
+    font-size: 12px;
+  }
+
+  .portfolio-home #home .hero-cta-group .hero-resume-link {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio-home #home .hero-cta-group {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .portfolio-home #home .hero-cta-group .hero-resume-link {
+    grid-column: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home #home .hero-cta-group .button,
+  .portfolio-home #home .hero-cta-group .button span,
+  .portfolio-home #home .hero-social-button {
+    transition: none;
+  }
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-copy > p.hero-intro {
+  color: #334155;
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-role {
+  color: #35445c;
+}

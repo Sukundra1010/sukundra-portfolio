@@ -1,97 +1,429 @@
+.portfolio-home #home .hero-specializations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.portfolio-home #home .hero-specialization {
+  display: inline-flex;
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 11px 5px 6px;
+  border: 1px solid rgba(126, 164, 222, 0.2);
+  border-radius: 999px;
+  background: linear-gradient(115deg, rgba(33, 47, 77, 0.75), rgba(17, 31, 49, 0.78));
+  box-shadow:
+    inset 0 1px rgba(255, 255, 255, 0.06),
+    0 8px 20px rgba(0, 0, 0, 0.12);
+  color: #d7e5f7;
+  font-size: 11px;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+}
+
+.portfolio-home #home .hero-specialization-mark {
+  display: grid;
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  place-items: center;
+  border: 1px solid rgba(116, 190, 255, 0.24);
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.15);
+  color: #88ccff;
+  font-size: 9px;
+  font-weight: 750;
+}
+
+.portfolio-home #home .hero-specialization-mark-ai {
+  border-color: rgba(178, 149, 255, 0.28);
+  background: rgba(139, 92, 246, 0.16);
+  color: #c9b5ff;
+  font-size: 8px;
+}
+
 .portfolio-home #home .hero-portrait-stage {
   position: relative;
   isolation: isolate;
+  overflow: visible;
   perspective: 1100px;
+  transform-style: preserve-3d;
+  background: radial-gradient(
+    circle at 50% 51%,
+    rgba(73, 101, 207, 0.15),
+    rgba(31, 78, 124, 0.07) 39%,
+    transparent 71%
+  );
 }
 
 .portfolio-home #home .hero-portrait-stage::before,
 .portfolio-home #home .hero-portrait-stage::after {
-  z-index: -1;
-  display: block;
-  border-color: rgba(100, 157, 255, 0.25);
-  pointer-events: none;
+  display: none;
 }
 
-.portfolio-home #home .hero-portrait-stage::before {
-  background: radial-gradient(
-    circle,
-    rgba(89, 106, 255, 0.15),
-    rgba(68, 160, 255, 0.04) 48%,
-    transparent 72%
-  );
-  box-shadow:
-    0 0 54px rgba(67, 117, 244, 0.2),
-    inset 0 0 44px rgba(122, 114, 255, 0.1);
-}
-
-.portfolio-home #home .hero-portrait-stage::after {
-  border-style: dashed;
-  border-color: rgba(117, 119, 255, 0.26);
-}
-
-.hero-three-canvas {
+.portfolio-home #home .hero-portrait-orbit {
   position: absolute;
   z-index: 0;
-  inset: 0;
+  top: 50%;
+  left: 50%;
   display: block;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
+  width: 78%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(101, 178, 255, 0.24);
+  border-radius: 50%;
   pointer-events: none;
-  opacity: 0.94;
-  transition: opacity 400ms ease;
+  transform-style: preserve-3d;
+  animation-play-state: paused;
+}
+
+.portfolio-home #home .hero-portrait-orbit-one {
+  border-top-color: rgba(123, 216, 255, 0.8);
+  border-right-color: rgba(153, 136, 255, 0.4);
+  border-bottom-color: rgba(98, 222, 225, 0.68);
+  border-left-color: rgba(113, 155, 255, 0.32);
+  box-shadow:
+    0 0 22px rgba(72, 131, 242, 0.2),
+    inset 0 0 22px rgba(74, 145, 234, 0.1);
+  animation: hero-orbit-one 28s linear infinite;
+}
+
+.portfolio-home #home .hero-portrait-orbit-two {
+  width: 94%;
+  aspect-ratio: 1.16;
+  border-top-color: rgba(185, 157, 255, 0.66);
+  border-right-color: rgba(137, 161, 255, 0.24);
+  border-bottom-color: rgba(104, 203, 255, 0.54);
+  border-left-color: rgba(153, 129, 255, 0.3);
+  box-shadow: 0 0 18px rgba(150, 124, 255, 0.1);
+  animation: hero-orbit-two 34s linear infinite;
+}
+
+.portfolio-home #home .hero-portrait-orbit-three {
+  width: 72%;
+  border-top-color: rgba(109, 228, 230, 0.68);
+  border-right-color: rgba(86, 167, 255, 0.22);
+  border-bottom-color: rgba(155, 133, 255, 0.46);
+  border-left-color: rgba(104, 212, 228, 0.25);
+  box-shadow: 0 0 15px rgba(81, 194, 225, 0.11);
+  animation: hero-orbit-three 24s linear infinite;
+}
+
+.portfolio-home #home .hero-portrait-orbit::before,
+.portfolio-home #home .hero-portrait-orbit::after {
+  position: absolute;
+  display: block;
+  width: 8px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(237, 246, 255, 0.72);
+  border-radius: 50%;
+  background: #78dcff;
+  box-shadow:
+    0 0 9px rgba(111, 208, 255, 0.9),
+    0 0 20px rgba(104, 164, 255, 0.62);
+  content: "";
+}
+
+.portfolio-home #home .hero-portrait-orbit-one::before {
+  top: 12%;
+  right: 15%;
+}
+
+.portfolio-home #home .hero-portrait-orbit-one::after {
+  bottom: 13%;
+  left: 17%;
+  width: 6px;
+  background: #b69aff;
+  box-shadow:
+    0 0 9px rgba(182, 154, 255, 0.9),
+    0 0 18px rgba(142, 113, 255, 0.62);
+}
+
+.portfolio-home #home .hero-portrait-orbit-two::before {
+  top: 50%;
+  right: -4px;
+  width: 9px;
+  background: #9c8bff;
+  box-shadow:
+    0 0 9px rgba(168, 143, 255, 0.9),
+    0 0 20px rgba(143, 123, 255, 0.62);
+  transform: translateY(-50%);
+}
+
+.portfolio-home #home .hero-portrait-orbit-two::after {
+  top: 15%;
+  left: 19%;
+  width: 5px;
+  background: #83e9e9;
+  box-shadow:
+    0 0 8px rgba(131, 233, 233, 0.9),
+    0 0 16px rgba(99, 201, 230, 0.62);
+}
+
+.portfolio-home #home .hero-portrait-orbit-three::before {
+  right: 19%;
+  bottom: 11%;
+  width: 5px;
+}
+
+.portfolio-home #home .hero-portrait-orbit-three::after {
+  top: 14%;
+  left: 16%;
+  width: 4px;
+  background: #c4a4ff;
+  box-shadow:
+    0 0 8px rgba(196, 164, 255, 0.9),
+    0 0 16px rgba(156, 129, 255, 0.62);
+}
+
+.portfolio-home #home [data-hero-scene][data-in-view="true"] .hero-portrait-orbit {
+  animation-play-state: running;
 }
 
 .portfolio-home #home .hero-portrait-card {
   position: relative;
   z-index: 2;
+  width: 280px;
+  aspect-ratio: 1;
+  margin: 0;
+  padding: 7px;
+  overflow: hidden;
+  border: 1px solid rgba(156, 195, 255, 0.44);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(196, 221, 255, 0.2), rgba(78, 110, 181, 0.08));
+  box-shadow:
+    0 0 0 3px rgba(113, 149, 255, 0.2),
+    0 0 0 7px rgba(93, 191, 255, 0.08),
+    0 28px 70px rgba(0, 0, 0, 0.36),
+    0 0 42px rgba(89, 127, 255, 0.2),
+    inset 0 1px rgba(255, 255, 255, 0.18);
+  transform: translate3d(0, 0, 36px) rotateX(var(--portrait-tilt-y, 0deg))
+    rotateY(var(--portrait-tilt-x, 0deg));
   transform-style: preserve-3d;
   transition:
-    transform 450ms cubic-bezier(0.2, 0.7, 0.2, 1),
-    box-shadow 450ms ease;
+    transform 420ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 420ms ease;
+  will-change: transform;
 }
 
-.portfolio-home #home .hero-portrait-stage:hover .hero-portrait-card {
-  transform: translateZ(48px) rotateY(0deg) scale(1.025);
+.portfolio-home #home .hero-portrait-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(206, 225, 255, 0.18);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-home #home [data-hero-scene]:hover .hero-portrait-card {
   box-shadow:
-    0 36px 86px rgba(0, 0, 0, 0.48),
-    0 0 48px rgba(87, 136, 255, 0.28),
-    inset 0 1px rgba(255, 255, 255, 0.16);
+    0 34px 82px rgba(0, 0, 0, 0.42),
+    0 0 52px rgba(87, 136, 255, 0.28),
+    inset 0 1px rgba(255, 255, 255, 0.2);
 }
 
 .portfolio-home #home .portrait-skill-tag {
-  z-index: 3;
-  border-color: rgba(131, 167, 240, 0.31);
-  background: rgba(13, 20, 38, 0.93);
+  position: absolute;
+  z-index: 4;
+  top: auto;
+  left: auto;
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px 7px 7px;
+  border: 1px solid rgba(145, 174, 231, 0.28);
+  border-radius: 999px;
+  background: linear-gradient(145deg, rgba(20, 32, 55, 0.96), rgba(11, 20, 37, 0.94));
   box-shadow:
-    0 9px 24px rgba(0, 0, 0, 0.28),
-    inset 0 1px rgba(255, 255, 255, 0.08);
+    0 10px 24px rgba(0, 0, 0, 0.27),
+    inset 0 1px rgba(255, 255, 255, 0.09);
+  color: #e4edfc;
+  font-size: 12px;
+  font-weight: 650;
+  white-space: nowrap;
   backdrop-filter: blur(12px);
-}
-
-.portfolio-home #home [data-hero-scene][data-scene-ready="true"] .portrait-skill-tag {
+  transform: translate3d(var(--parallax-x, 0px), var(--parallax-y, 0px), var(--badge-z, 20px));
+  transform-style: preserve-3d;
   opacity: 0;
-  visibility: hidden;
+  animation:
+    hero-badge-reveal 650ms ease-out var(--badge-delay, 0s) both,
+    hero-badge-float var(--badge-duration, 6s) ease-in-out var(--badge-delay, 0s) infinite alternate,
+    hero-badge-orbit 42s linear var(--orbit-delay, 0s) infinite;
+  animation-play-state: running, paused, running;
+  will-change: transform, translate;
 }
 
-.portfolio-home #home .portrait-skill-tag-react {
-  --orbit-delay: -2.4s;
+.portfolio-home #home .portrait-skill-tag::before {
+  display: none;
 }
 
-.portfolio-home #home .portrait-skill-tag-ai {
-  --orbit-delay: -7.2s;
+.portfolio-home #home [data-hero-scene][data-in-view="true"] .portrait-skill-tag {
+  animation-play-state: running;
+}
+
+.portfolio-home #home .portrait-skill-logo {
+  display: block;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  padding: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: #fff;
+  object-fit: contain;
+  box-shadow: 0 0 10px rgba(107, 167, 255, 0.2);
 }
 
 .portfolio-home #home .portrait-skill-tag-python {
-  --orbit-delay: 0s;
+  top: 0%;
+  left: 50%;
+  margin-left: -50px;
+  --badge-duration: 5.2s;
+  --badge-delay: 120ms;
+  --orbit-delay: -31.5s;
+  --badge-z: 30px;
+}
+
+.portfolio-home #home .portrait-skill-tag-html {
+  top: 24%;
+  right: -1%;
+  --badge-duration: 6.4s;
+  --badge-delay: 520ms;
+  --orbit-delay: -36.75s;
+  --badge-z: 22px;
+}
+
+.portfolio-home #home .portrait-skill-tag-css {
+  right: -2%;
+  bottom: 28%;
+  --badge-duration: 5.8s;
+  --badge-delay: 760ms;
+  --orbit-delay: -5.25s;
+  --badge-z: 34px;
+}
+
+.portfolio-home #home .portrait-skill-tag-javascript {
+  bottom: 3%;
+  left: 38%;
+  --badge-duration: 6.8s;
+  --badge-delay: 980ms;
+  --orbit-delay: -10.5s;
+  --badge-z: 28px;
 }
 
 .portfolio-home #home .portrait-skill-tag-django {
-  --orbit-delay: -4.8s;
+  top: 32%;
+  left: -2%;
+  --badge-duration: 6.1s;
+  --badge-delay: 340ms;
+  --orbit-delay: -21s;
+  --badge-z: 24px;
 }
 
-.portfolio-home #home .portrait-skill-tag-data {
-  --orbit-delay: -9.6s;
+.portfolio-home #home .portrait-skill-tag-mysql {
+  bottom: 22%;
+  left: -2%;
+  --badge-duration: 6.3s;
+  --badge-delay: 1180ms;
+  --orbit-delay: -15.75s;
+  --badge-z: 26px;
+}
+
+@supports (offset-path: ellipse(46% 45% at 50% 50%)) {
+  .portfolio-home #home [data-hero-scene] .portrait-skill-tag {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: 0;
+    offset-path: ellipse(46% 45% at 50% 50%);
+    offset-anchor: center;
+    offset-rotate: 0deg;
+  }
+}
+
+.portfolio-home #home .hero-scene-spark,
+.portfolio-home #home .hero-scene-node {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  pointer-events: none;
+}
+
+.portfolio-home #home .hero-scene-spark {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c5b5ff;
+  box-shadow:
+    0 0 8px #a694ff,
+    0 0 18px rgba(131, 117, 255, 0.74);
+  animation: hero-spark-pulse 4.8s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+.portfolio-home #home [data-hero-scene][data-in-view="true"] .hero-scene-spark {
+  animation-play-state: running;
+}
+
+.portfolio-home #home .hero-scene-spark-one {
+  top: 21%;
+  right: 20%;
+}
+
+.portfolio-home #home .hero-scene-spark-two {
+  bottom: 20%;
+  left: 19%;
+  width: 5px;
+  height: 5px;
+  background: #8deaff;
+  box-shadow:
+    0 0 8px #63d8ff,
+    0 0 16px rgba(78, 190, 255, 0.7);
+  animation-delay: -1.8s;
+}
+
+.portfolio-home #home .hero-scene-spark-three {
+  top: 41%;
+  right: 9%;
+  width: 4px;
+  height: 4px;
+  animation-delay: -3s;
+}
+
+.portfolio-home #home .hero-scene-node {
+  width: 12px;
+  aspect-ratio: 1;
+  border: 1px solid rgba(120, 213, 255, 0.5);
+  border-radius: 4px;
+  background: linear-gradient(145deg, rgba(103, 207, 255, 0.8), rgba(98, 120, 255, 0.48));
+  box-shadow: 0 0 18px rgba(86, 167, 255, 0.35);
+  transform: rotate(45deg) translateZ(30px);
+  animation: hero-node-float 5.5s ease-in-out infinite alternate;
+  animation-play-state: paused;
+}
+
+.portfolio-home #home [data-hero-scene][data-in-view="true"] .hero-scene-node {
+  animation-play-state: running;
+}
+
+.portfolio-home #home .hero-scene-node-one {
+  top: 15%;
+  left: 24%;
+}
+
+.portfolio-home #home .hero-scene-node-two {
+  right: 19%;
+  bottom: 14%;
+  width: 9px;
+  border-color: rgba(196, 158, 255, 0.55);
+  background: linear-gradient(145deg, rgba(189, 142, 255, 0.84), rgba(117, 109, 239, 0.5));
+  box-shadow: 0 0 17px rgba(169, 127, 255, 0.35);
+  animation-delay: -2.7s;
 }
 
 .portfolio-home #home .hero-resume-link {
@@ -113,24 +445,154 @@
   transform: translateY(-1px);
 }
 
-.portfolio-home #home .hero-email-button svg {
-  width: 21px;
-  height: 21px;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.6;
-}
-
 .portfolio-home #home .hero-actions a:focus-visible {
   outline: 2px solid #90c8ff;
   outline-offset: 4px;
 }
 
-html[data-theme="light"] .portfolio-home #home .portrait-skill-tag {
-  border-color: rgba(76, 107, 163, 0.25);
-  background: rgba(248, 250, 255, 0.94);
+@keyframes hero-orbit-one {
+  from {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(65deg) rotateZ(360deg);
+  }
+}
+
+@keyframes hero-orbit-two {
+  from {
+    transform: translate(-50%, -50%) rotateY(62deg) rotateZ(-18deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateY(62deg) rotateZ(342deg);
+  }
+}
+
+@keyframes hero-orbit-three {
+  from {
+    transform: translate(-50%, -50%) rotateX(72deg) rotateY(28deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(72deg) rotateY(28deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes hero-badge-float {
+  from {
+    translate: 0 3px;
+  }
+  to {
+    translate: 0 -5px;
+  }
+}
+
+@keyframes hero-badge-reveal {
+  from {
+    opacity: 0;
+    scale: 0.82;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes hero-badge-orbit {
+  from {
+    offset-distance: 0%;
+  }
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes hero-spark-pulse {
+  from {
+    opacity: 0.48;
+    scale: 0.76;
+  }
+  to {
+    opacity: 1;
+    scale: 1.16;
+  }
+}
+
+@keyframes hero-node-float {
+  from {
+    translate: 0 3px;
+    rotate: -8deg;
+  }
+  to {
+    translate: 0 -6px;
+    rotate: 12deg;
+  }
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-specialization {
+  border-color: rgba(91, 119, 171, 0.2);
+  background: linear-gradient(115deg, rgba(255, 255, 255, 0.92), rgba(237, 243, 252, 0.94));
   color: #354765;
+  box-shadow:
+    inset 0 1px #fff,
+    0 8px 20px rgba(43, 59, 97, 0.08);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-specialization-mark {
+  border-color: rgba(71, 126, 187, 0.2);
+  background: rgba(74, 144, 208, 0.1);
+  color: #286997;
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-specialization-mark-ai {
+  border-color: rgba(126, 96, 191, 0.2);
+  background: rgba(133, 95, 205, 0.1);
+  color: #6d4eaa;
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-portrait-orbit-one {
+  border-top-color: rgba(46, 137, 198, 0.72);
+  border-right-color: rgba(121, 104, 199, 0.38);
+  border-bottom-color: rgba(33, 155, 159, 0.62);
+  border-left-color: rgba(68, 109, 190, 0.32);
+  box-shadow:
+    0 0 20px rgba(72, 131, 242, 0.12),
+    inset 0 0 18px rgba(74, 145, 234, 0.08);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-portrait-orbit-two {
+  border-top-color: rgba(111, 84, 184, 0.6);
+  border-right-color: rgba(87, 118, 195, 0.24);
+  border-bottom-color: rgba(38, 133, 182, 0.5);
+  border-left-color: rgba(104, 82, 176, 0.28);
+  box-shadow: 0 0 16px rgba(150, 124, 255, 0.08);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-portrait-orbit-three {
+  border-top-color: rgba(34, 144, 147, 0.58);
+  border-right-color: rgba(56, 117, 184, 0.2);
+  border-bottom-color: rgba(115, 93, 185, 0.4);
+  border-left-color: rgba(34, 139, 151, 0.22);
+  box-shadow: 0 0 14px rgba(81, 194, 225, 0.08);
+}
+
+html[data-theme="light"] .portfolio-home #home .hero-portrait-card {
+  border-color: rgba(92, 126, 184, 0.36);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.94), rgba(218, 231, 250, 0.85));
+  box-shadow:
+    0 0 0 3px rgba(113, 149, 255, 0.14),
+    0 0 0 7px rgba(93, 191, 255, 0.06),
+    0 28px 70px rgba(48, 69, 111, 0.17),
+    0 0 42px rgba(89, 127, 255, 0.12),
+    inset 0 1px #fff;
+}
+
+html[data-theme="light"] .portfolio-home #home .portrait-skill-tag {
+  border-color: rgba(91, 118, 168, 0.24);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(242, 246, 253, 0.98));
+  box-shadow:
+    0 10px 24px rgba(45, 64, 103, 0.15),
+    inset 0 1px #fff;
+  color: #334560;
 }
 
 html[data-theme="light"] .portfolio-home #home .hero-resume-link {
@@ -143,11 +605,25 @@ html[data-theme="light"] .portfolio-home #home .hero-resume-link:hover {
 
 @media (max-width: 760px) {
   .portfolio-home #home .hero-portrait-stage {
-    overflow: clip;
+    width: min(100%, 320px);
+    min-height: 310px;
   }
 
-  .hero-three-canvas {
-    opacity: 0.78;
+  .portfolio-home #home .hero-portrait-card {
+    width: 210px;
+  }
+
+  .portfolio-home #home .hero-portrait-orbit {
+    animation: none;
+  }
+
+  .portfolio-home #home .portrait-skill-tag {
+    --badge-duration: 9s;
+  }
+
+  .portfolio-home #home .hero-scene-spark,
+  .portfolio-home #home .hero-scene-node {
+    animation: none;
   }
 
   .portfolio-home #home .hero-actions {
@@ -155,32 +631,111 @@ html[data-theme="light"] .portfolio-home #home .hero-resume-link:hover {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-three-canvas {
-    transition: none;
+@media (max-width: 460px) {
+  .portfolio-home #home .hero-specializations {
+    gap: 6px;
+  }
+
+  .portfolio-home #home .hero-specialization {
+    min-height: 32px;
+    gap: 6px;
+    padding-right: 9px;
+    font-size: 10px;
+  }
+
+  .portfolio-home #home .hero-portrait-stage {
+    width: min(100%, 290px);
+    min-height: 285px;
+  }
+
+  .portfolio-home #home .hero-portrait-card {
+    width: 188px;
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio-home #home .hero-portrait-stage {
+    width: min(100%, 270px);
+    min-height: 270px;
+  }
+
+  .portfolio-home #home .hero-portrait-card {
+    width: 176px;
   }
 
   .portfolio-home #home .portrait-skill-tag {
+    min-height: 32px;
+    gap: 5px;
+    padding-right: 8px;
+    font-size: 9px;
+  }
+
+  .portfolio-home #home .portrait-skill-logo {
+    width: 21px;
+    height: 21px;
+    flex-basis: 21px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-home #home .hero-portrait-stage,
+  .portfolio-home #home .hero-portrait-card,
+  .portfolio-home #home .hero-resume-link {
+    transition: none;
+  }
+
+  .portfolio-home #home .hero-portrait-orbit,
+  .portfolio-home #home .portrait-skill-tag,
+  .portfolio-home #home .hero-scene-spark,
+  .portfolio-home #home .hero-scene-node {
     animation: none;
+    translate: none;
+  }
+
+  .portfolio-home #home [data-hero-scene] .portrait-skill-tag {
+    offset-path: none;
   }
 
   .portfolio-home #home .portrait-skill-tag-python {
-    transform: translate(-50%, -50%) translateX(var(--portrait-orbit-radius));
+    top: 0%;
+    right: auto;
+    bottom: auto;
+    left: 50%;
+    margin-left: -50px;
+  }
+
+  .portfolio-home #home .portrait-skill-tag-html {
+    top: 24%;
+    right: -1%;
+    bottom: auto;
+    left: auto;
+  }
+
+  .portfolio-home #home .portrait-skill-tag-css {
+    top: auto;
+    right: -2%;
+    bottom: 28%;
+    left: auto;
+  }
+
+  .portfolio-home #home .portrait-skill-tag-javascript {
+    top: auto;
+    right: auto;
+    bottom: 3%;
+    left: 38%;
   }
 
   .portfolio-home #home .portrait-skill-tag-django {
-    transform: translate(-50%, -50%) translateX(calc(var(--portrait-orbit-radius) * -1));
+    top: 32%;
+    right: auto;
+    bottom: auto;
+    left: -2%;
   }
 
-  .portfolio-home #home .portrait-skill-tag-data {
-    transform: translate(-50%, -50%) translateY(var(--portrait-orbit-radius));
-  }
-
-  .portfolio-home #home .portrait-skill-tag-react {
-    transform: translate(-50%, -50%) translateY(calc(var(--portrait-orbit-radius) * -1));
-  }
-
-  .portfolio-home #home .portrait-skill-tag-ai {
-    transform: translate(-50%, -50%) translate(var(--portrait-orbit-radius), 82px);
+  .portfolio-home #home .portrait-skill-tag-mysql {
+    top: auto;
+    right: auto;
+    bottom: 22%;
+    left: -2%;
   }
 }

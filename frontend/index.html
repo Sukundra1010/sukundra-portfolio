@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="css/components/thank-you-audio.css" />
     <link rel="stylesheet" href="css/components/projects-premium.css" />
     <link rel="stylesheet" href="css/components/hero-three-scene.css" />
+    <link rel="stylesheet" href="css/components/homepage-premium.css" />
     <link rel="stylesheet" href="css/components/engine-intro.css" />
     <script src="js/data/python-qa-data.js" defer></script>
     <script src="js/data/python-guide-data.js" defer></script>
@@ -50,7 +51,7 @@
     <script src="js/app/education-premium.js" defer></script>
     <script src="js/app/thank-you-audio.js" defer></script>
     <script src="js/app/projects-premium.js" defer></script>
-    <script type="module" src="js/app/hero-three-scene.js"></script>
+    <script src="js/app/hero-three-scene.js" defer></script>
     <script src="js/app/engine-intro.js" defer></script>
   </head>
   <body class="portfolio-home">
@@ -150,10 +151,8 @@
       <div class="portfolio-header-actions" aria-label="Social links">
         <a class="header-contact-link" href="pages/contact.html">Contact</a>
         <a href="mailto:sukundrapujara61@gmail.com" aria-label="Email Sukundra"
-          ><svg viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="3" y="5" width="18" height="14" rx="2" />
-            <path d="m4 7 8 6 8-6" /></svg
-        ></a>
+          ><img src="assets/images/gmail-logo.png" alt="" width="18" height="18"
+        /></a>
         <a
           href="https://github.com/Sukundra1010"
           target="_blank"
@@ -184,34 +183,7 @@
     <main>
       <section class="hero section-wrap" id="home">
         <div class="hero-copy">
-          <span class="eyebrow"><span aria-hidden="true">✦</span> HELLO, I'M</span>
-          <h1 class="home-headline">Sukundra <span>Pujara</span></h1>
-          <p
-            class="hero-role"
-            aria-label="Sukundra Pujara, Full Stack Developer, Python and Django Developer, AI and Machine Learning Enthusiast"
-          >
-            <span aria-hidden="true"></span
-            ><span data-typewriter aria-hidden="true">Full Stack Developer</span>
-          </p>
-          <p class="hero-intro">
-            I’m a Computer Science with AI undergraduate from Nepal, building thoughtful web
-            applications and exploring data science, machine learning, and robotics. I enjoy turning
-            ideas into practical, people-focused software.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="pages/contact.html"
-              >Hire Me <span aria-hidden="true">↗</span></a
-            >
-            <a class="button button-outline" href="#projects"
-              >Explore My Projects <span aria-hidden="true">↓</span></a
-            >
-            <a
-              class="hero-resume-link"
-              href="assets/files/Sukundra_Pujara_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              >Resume <span aria-hidden="true">↗</span></a
-            >
+          <div class="hero-social-links" role="group" aria-label="Connect with Sukundra">
             <a
               class="hero-social-button"
               href="https://github.com/Sukundra1010"
@@ -232,26 +204,134 @@
               class="hero-social-button hero-email-button"
               href="mailto:sukundrapujara61@gmail.com"
               aria-label="Email Sukundra"
-              ><svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="m4 7 8 6 8-6" /></svg
-            ></a>
+              ><img src="assets/images/gmail-logo.png" alt="" width="24" height="24" />
+            </a>
+          </div>
+          <span class="eyebrow"><span aria-hidden="true">✦</span> HELLO, I'M</span>
+          <h1 class="home-headline">Sukundra <span>Pujara</span></h1>
+          <p
+            class="hero-role"
+            aria-label="Machine Learning Engineer, Data Scientist, Software Developer, and AI and Automation Consultant"
+          >
+            <span aria-hidden="true"></span
+            ><span data-typewriter aria-hidden="true">Machine Learning Engineer</span>
+          </p>
+          <div class="hero-specializations" aria-label="Professional specializations">
+            <span class="hero-specialization">
+              <span class="hero-specialization-mark" aria-hidden="true">&lt;/&gt;</span>
+              Full Stack Developer
+            </span>
+            <span class="hero-specialization">
+              <span class="hero-specialization-mark hero-specialization-mark-ai" aria-hidden="true"
+                >AI</span
+              >
+              AI &amp; ML Engineer
+            </span>
+          </div>
+          <p class="hero-intro">
+            I’m a Computer Science with AI undergraduate from Nepal, building thoughtful web
+            applications and exploring data science, machine learning, and robotics. I enjoy turning
+            ideas into practical, people-focused software.
+          </p>
+          <div class="hero-actions">
+            <div class="hero-cta-group">
+              <a class="button button-primary" href="#projects"
+                >Explore My Work <span aria-hidden="true">↘</span></a
+              >
+              <a class="button button-outline" href="pages/contact.html"
+                >Contact Me <span aria-hidden="true">↗</span></a
+              >
+              <a
+                class="button button-outline hero-resume-link"
+                href="assets/files/Sukundra_Pujara_Resume.pdf"
+                download
+                >Download Resume <span aria-hidden="true">↓</span></a
+              >
+            </div>
           </div>
         </div>
         <div class="hero-aside">
           <div
             class="hero-portrait-stage"
             data-hero-scene
-            role="img"
-            aria-label="Interactive 3D portrait surrounded by floating developer technology symbols"
+            role="group"
+            aria-label="Interactive portrait with Python, HTML, CSS, JavaScript, Django, and MySQL skill badges"
           >
-            <canvas class="hero-three-canvas" data-hero-canvas aria-hidden="true"></canvas>
-            <span class="portrait-skill-tag portrait-skill-tag-python">Python</span>
-            <span class="portrait-skill-tag portrait-skill-tag-django">Django</span>
-            <span class="portrait-skill-tag portrait-skill-tag-data">Data Science</span>
-            <span class="portrait-skill-tag portrait-skill-tag-react">React.js</span>
-            <span class="portrait-skill-tag portrait-skill-tag-ai">AI / ML</span>
-            <figure class="hero-portrait-card">
+            <span class="hero-portrait-orbit hero-portrait-orbit-one" aria-hidden="true"></span>
+            <span class="hero-portrait-orbit hero-portrait-orbit-two" aria-hidden="true"></span>
+            <span class="hero-portrait-orbit hero-portrait-orbit-three" aria-hidden="true"></span>
+            <span class="hero-scene-spark hero-scene-spark-one" aria-hidden="true"></span>
+            <span class="hero-scene-spark hero-scene-spark-two" aria-hidden="true"></span>
+            <span class="hero-scene-spark hero-scene-spark-three" aria-hidden="true"></span>
+            <span class="hero-scene-node hero-scene-node-one" aria-hidden="true"></span>
+            <span class="hero-scene-node hero-scene-node-two" aria-hidden="true"></span>
+            <span class="portrait-skill-tag portrait-skill-tag-python" data-depth="0.8">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/python.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              Python
+            </span>
+            <span class="portrait-skill-tag portrait-skill-tag-html" data-depth="0.6">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/html5.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              HTML
+            </span>
+            <span class="portrait-skill-tag portrait-skill-tag-css" data-depth="1">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/css3.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              CSS
+            </span>
+            <span class="portrait-skill-tag portrait-skill-tag-javascript" data-depth="0.7">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/javascript.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              JavaScript
+            </span>
+            <span class="portrait-skill-tag portrait-skill-tag-django" data-depth="0.65">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/django.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              Django
+            </span>
+            <span class="portrait-skill-tag portrait-skill-tag-mysql" data-depth="0.75">
+              <img
+                class="portrait-skill-logo"
+                src="assets/images/skills/mysql.png"
+                alt=""
+                width="24"
+                height="24"
+                decoding="async"
+              />
+              MySQL
+            </span>
+            <figure class="hero-portrait-card" data-hero-tilt>
               <img
                 src="assets/images/profile-picture-crop.jpg"
                 alt="Portrait of Sukundra Pujara"
@@ -1537,7 +1617,10 @@
               <a class="button button-primary" href="pages/contact.html"
                 >Contact me <span>→</span></a
               >
-              <a class="button button-outline" href="assets/files/Sukundra_Pujara_Resume.pdf" download
+              <a
+                class="button button-outline"
+                href="assets/files/Sukundra_Pujara_Resume.pdf"
+                download
                 >Download Resume <span>↓</span></a
               >
             </div>
