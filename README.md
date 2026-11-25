@@ -57,8 +57,8 @@ local development experience.
   scores of 60% or higher, and explanations for every answer.
 - `contact.html` — Contact details and a message form that opens the visitor's
   email application.
-- `frontend/assets/files/sukundra-pujara-cv.pdf` — Two-page CV made from the supplied
-  résumé images. The portfolio homepage provides a download button.
+- `frontend/assets/files/Sukundra_Pujara_Resume.pdf` — Current résumé supplied
+  by Sukundra. The portfolio homepage provides download and view links.
 
 ## Project structure
 
