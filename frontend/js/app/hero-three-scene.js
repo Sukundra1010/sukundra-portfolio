@@ -57,8 +57,8 @@ if (heroScene) {
 
       depthElements.forEach((element) => {
         const depth = Number(element.dataset.depth);
-        element.style.setProperty("--parallax-x", `${(currentX * depth * 22).toFixed(2)}px`);
-        element.style.setProperty("--parallax-y", `${(currentY * depth * 18).toFixed(2)}px`);
+        element.style.setProperty("--parallax-x", `${(currentX * depth * 6).toFixed(2)}px`);
+        element.style.setProperty("--parallax-y", `${(currentY * depth * 5).toFixed(2)}px`);
       });
 
       if (settled) {
