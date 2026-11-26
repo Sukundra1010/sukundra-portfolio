@@ -5952,25 +5952,11 @@ html[data-theme="light"] .portfolio-home #home .portrait-skill-tag {
 }
 
 .portfolio-home .site-header .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
   color: #f3f6fc;
   font-size: 16px;
   font-weight: 680;
   letter-spacing: -0.025em;
   white-space: nowrap;
-}
-
-.portfolio-home .site-header .brand-logo {
-  display: block;
-  width: 40px;
-  height: 40px;
-  flex: 0 0 40px;
-  border: 1px solid rgba(133, 170, 234, 0.3);
-  border-radius: 11px;
-  object-fit: cover;
-  box-shadow: 0 4px 16px rgba(48, 101, 225, 0.2);
 }
 
 .portfolio-home .brand-status {
@@ -6136,28 +6122,24 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
 
 @media (max-width: 760px) {
   .portfolio-home .site-header .brand {
-    gap: 8px;
     font-size: 14px;
-  }
-
-  .portfolio-home .site-header .brand-logo {
-    width: 30px;
-    height: 30px;
-    flex-basis: 30px;
-    border-radius: 9px;
   }
 }
 
 @media (max-width: 360px) {
   .portfolio-home .site-header .brand {
-    gap: 6px;
     font-size: 13px;
   }
+}
 
-  .portfolio-home .site-header .brand-logo {
-    width: 26px;
-    height: 26px;
-    flex-basis: 26px;
-    border-radius: 8px;
-  }
+.portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on GitHub"] img,
+.portfolio-home .portfolio-header-actions > a[aria-label="Sukundra on LinkedIn"] img {
+  display: block;
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.portfolio-home #home {
+  border-bottom: 0;
 }
