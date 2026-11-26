@@ -1,4 +1,31 @@
 // Portfolio defaults for unconfigured/offline visits and small navigation helpers.
+const retryFailedImages = () => {
+  document.querySelectorAll("img").forEach((image) => {
+    if (image.dataset.loadRetryBound === "true") return;
+    image.dataset.loadRetryBound = "true";
+    image.addEventListener(
+      "error",
+      () => {
+        if (image.dataset.loadRetryAttempted === "true") {
+          image.classList.add("image-load-failed");
+          return;
+        }
+        image.dataset.loadRetryAttempted = "true";
+        const separator = image.src.includes("?") ? "&" : "?";
+        image.src = `${image.src}${separator}v=20261127`;
+      },
+      { once: false },
+    );
+  });
+};
+
+retryFailedImages();
+document.addEventListener("DOMContentLoaded", retryFailedImages);
+new MutationObserver(retryFailedImages).observe(document.documentElement, {
+  childList: true,
+  subtree: true,
+});
+
 const taleTraderProposalUrl =
   "https://softwaricacollege-my.sharepoint.com/:w:/g/personal/260093_softwarica_edu_np/IQDH5uRLGPQfS62RkKa4MgSwAS6OWyioGbARSXl02Gxk3dQ?e=NBzToN";
 const taleTraderRepositoryUrl =

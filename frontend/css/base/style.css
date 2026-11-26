@@ -1109,3 +1109,8 @@ a:hover {
     padding-top: 26px;
   }
 }
+img.image-load-failed {
+  opacity: 0.35;
+  object-fit: contain;
+  background: rgba(126, 144, 184, 0.12);
+}

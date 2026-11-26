@@ -53,12 +53,12 @@
 .portfolio-home #home .hero-portrait-stage {
   --hero-orbit-blue: rgba(104, 151, 255, 0.78);
   --hero-orbit-purple: rgba(164, 135, 255, 0.62);
-  --hero-orbit-radius: 265px;
+  --hero-orbit-radius: 190px;
   --hero-badge-border: rgba(145, 174, 231, 0.3);
   --hero-badge-surface: linear-gradient(145deg, rgba(20, 32, 55, 0.98), rgba(11, 20, 37, 0.96));
   --hero-badge-shadow: 0 10px 24px rgba(0, 0, 0, 0.27);
   display: grid;
-  width: min(calc(100vw - 40px), 650px);
+  width: min(calc(100vw - 40px), 440px);
   min-height: calc(
     var(--hero-orbit-radius) + var(--hero-orbit-radius) + var(--hero-badge-size, 42px) + 24px
   );
@@ -202,7 +202,7 @@
 .portfolio-home #home .hero-portrait-card {
   position: relative;
   z-index: 2;
-  width: 360px;
+  width: 250px;
   aspect-ratio: 1;
   margin: 0;
   padding: 7px;
@@ -724,6 +724,41 @@ html[data-theme="light"] .portfolio-home #home .hero-resume-link:hover {
     width: 18px;
     height: 18px;
     flex-basis: 18px;
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-home #home .hero-portrait-stage {
+    width: min(calc(100vw - 32px), 360px);
+    --hero-badge-size: 34px;
+    --hero-orbit-radius: 132px;
+  }
+
+  .portfolio-home #home .hero-portrait-card {
+    width: min(54vw, 196px);
+  }
+}
+
+@media (max-width: 460px) {
+  .portfolio-home #home .hero-portrait-stage {
+    width: min(calc(100vw - 32px), 300px);
+    --hero-badge-size: 30px;
+    --hero-orbit-radius: 108px;
+  }
+
+  .portfolio-home #home .hero-portrait-card {
+    width: min(44vw, 150px);
+  }
+}
+
+@media (max-width: 380px) {
+  .portfolio-home #home .hero-portrait-stage {
+    width: min(calc(100vw - 24px), 280px);
+    --hero-orbit-radius: 98px;
+  }
+
+  .portfolio-home #home .hero-portrait-card {
+    width: min(42vw, 140px);
   }
 }
 
