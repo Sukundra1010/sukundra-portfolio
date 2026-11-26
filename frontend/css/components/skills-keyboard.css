@@ -199,12 +199,6 @@
   display: none;
 }
 
-.portfolio-home .skills-inspector-divider {
-  height: 1px;
-  margin: 22px 0 17px;
-  background: linear-gradient(90deg, rgba(142, 166, 206, 0.22), transparent);
-}
-
 .portfolio-home .skills-sound-toggle {
   display: flex;
   min-height: 42px;
@@ -215,6 +209,7 @@
   border-radius: 11px;
   background: rgba(126, 151, 190, 0.07);
   color: #d3def0;
+  margin-top: 22px;
   cursor: pointer;
   font: inherit;
   font-size: 12px;
@@ -422,13 +417,10 @@
     margin-top: 10px;
   }
 
-  .portfolio-home .skills-inspector-divider {
-    display: none;
-  }
-
   .portfolio-home .skills-sound-toggle {
     grid-column: 2;
     grid-row: 2;
+    margin-top: 0;
   }
 
   .portfolio-home .skills-sound-status {

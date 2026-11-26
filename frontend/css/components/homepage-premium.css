@@ -250,33 +250,34 @@ html[data-theme="light"] .portfolio-home #home .hero-role {
 }
 
 .portfolio-home .site-header .brand {
-  gap: 10px;
-  color: #f5f7fc;
-  font-size: 15px;
-  letter-spacing: -0.035em;
+  background: linear-gradient(100deg, #ae61f5, #ec4f88);
+  background-clip: text;
+  color: transparent;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  -webkit-text-fill-color: transparent;
 }
 
 .portfolio-home .site-header .brand::before {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #9d8aff, #5edfe2);
-  box-shadow: 0 0 14px rgba(105, 202, 255, 0.65);
-  content: "";
+  display: none;
 }
 
 .portfolio-home .portfolio-header-actions {
-  gap: 8px;
+  gap: 5px;
 }
 
 .portfolio-home .portfolio-header-actions > a,
 .portfolio-home .portfolio-header-actions .theme-toggle {
+  width: 38px;
   min-width: 38px;
+  height: 38px;
   min-height: 38px;
   justify-content: center;
-  border: 1px solid rgba(150, 170, 207, 0.16);
-  border-radius: 11px;
-  background: rgba(22, 30, 47, 0.66);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: #b7c3d6;
   transition:
     color 180ms ease,
     border-color 180ms ease,
@@ -286,19 +287,36 @@ html[data-theme="light"] .portfolio-home #home .hero-role {
 
 .portfolio-home .portfolio-header-actions > a:hover,
 .portfolio-home .portfolio-header-actions .theme-toggle:hover {
-  border-color: rgba(117, 184, 255, 0.42);
-  background: rgba(54, 72, 111, 0.46);
+  border-color: rgba(137, 165, 222, 0.12);
+  background: rgba(113, 145, 207, 0.1);
   color: #fff;
   transform: translateY(-1px);
 }
 
-.portfolio-home .portfolio-header-actions > .header-contact-link {
-  min-width: auto;
-  padding: 0 16px;
-  border-color: rgba(129, 158, 255, 0.34);
-  background: linear-gradient(110deg, rgba(129, 112, 235, 0.18), rgba(71, 189, 202, 0.12));
-  color: #e6eaff;
-  font-weight: 650;
+.portfolio-home .portfolio-header-actions .theme-toggle {
+  padding: 0;
+  font-size: 0;
+}
+
+.portfolio-home .portfolio-header-actions .theme-toggle::before {
+  color: #9bc7ff;
+  content: "☾";
+  font-size: 19px;
+  line-height: 1;
+}
+
+html[data-theme="light"] .portfolio-home .site-header .brand {
+  background-image: linear-gradient(100deg, #9050dc, #d43e76);
+}
+
+html[data-theme="light"] .portfolio-home .portfolio-header-actions > a,
+html[data-theme="light"] .portfolio-home .portfolio-header-actions .theme-toggle {
+  color: #52617a;
+}
+
+html[data-theme="light"] .portfolio-home .portfolio-header-actions .theme-toggle::before {
+  color: #6a52d5;
+  content: "☼";
 }
 
 .portfolio-home .menu-toggle {
@@ -433,7 +451,10 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
   }
 
   .portfolio-home .navigation a {
+    display: inline-flex;
     min-height: 40px;
+    align-items: center;
+    gap: 8px;
     padding: 8px clamp(8px, 0.8vw, 13px);
     border: 1px solid transparent;
     border-radius: 11px;
@@ -443,32 +464,34 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
     white-space: nowrap;
   }
 
+  .portfolio-home .navigation a svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 16px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
+  }
+
   .portfolio-home .navigation a:hover,
   .portfolio-home .navigation a:focus-visible,
   .portfolio-home .navigation a.is-active {
     padding-left: clamp(8px, 0.8vw, 13px);
-    border-color: rgba(137, 165, 222, 0.15);
-    background: rgba(113, 145, 207, 0.1);
+    border-color: transparent;
+    background: rgba(255, 255, 255, 0.1);
     color: #f1f5ff;
   }
 
   .portfolio-home .navigation a::after {
-    right: 12px;
-    bottom: 3px;
-    left: 12px;
-    display: block;
-    height: 2px;
-    border-radius: 2px;
-    background: linear-gradient(90deg, #9b86ff, #65dce0);
-    content: "";
-    transform: scaleX(0);
-    transition: transform 180ms ease;
+    display: none;
   }
 
-  .portfolio-home .navigation a:hover::after,
-  .portfolio-home .navigation a:focus-visible::after,
-  .portfolio-home .navigation a.is-active::after {
-    transform: scaleX(1);
+  html[data-theme="light"] .portfolio-home .navigation a:hover,
+  html[data-theme="light"] .portfolio-home .navigation a:focus-visible,
+  html[data-theme="light"] .portfolio-home .navigation a.is-active {
+    background: rgba(57, 72, 108, 0.1);
+    color: #293650;
   }
 }
 
@@ -515,13 +538,26 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
   }
 
   .portfolio-home .navigation a {
+    display: flex;
     min-height: 44px;
+    align-items: center;
+    gap: 10px;
     padding: 10px 13px;
     border: 1px solid transparent;
     border-radius: 11px;
     color: #c1ccdc;
     font-size: 13px;
     letter-spacing: 0.01em;
+  }
+
+  .portfolio-home .navigation a svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.7;
   }
 
   .portfolio-home .navigation a:hover,
@@ -579,12 +615,11 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
   }
 
   .portfolio-home .site-header .brand {
-    font-size: 13px;
+    font-size: 17px;
   }
 
   .portfolio-home .site-header .brand::before {
-    width: 8px;
-    height: 8px;
+    display: none;
   }
 
   .portfolio-home .portfolio-header-actions {
@@ -593,12 +628,6 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
 
   .portfolio-home .portfolio-header-actions > a:not(.header-contact-link) {
     display: none;
-  }
-
-  .portfolio-home .portfolio-header-actions > .header-contact-link {
-    min-height: 34px;
-    padding: 0 10px;
-    font-size: 11px;
   }
 
   .portfolio-home .portfolio-header-actions .theme-toggle,
@@ -620,10 +649,6 @@ html[data-theme="light"] .portfolio-home .portfolio-header-actions > .header-con
 }
 
 @media (max-width: 420px) {
-  .portfolio-home .portfolio-header-actions > .header-contact-link {
-    display: none;
-  }
-
   .portfolio-home #home .hero-portrait-stage {
     overflow: clip;
   }
